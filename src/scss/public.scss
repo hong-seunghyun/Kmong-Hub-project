@@ -1,0 +1,111 @@
+/* global */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+*{box-sizing: border-box; margin:0; padding:0; font-family: 'Spoqa Han Sans Neo', 'sans-serif';}
+body{color:#1b1c1f;}
+a{color:inherit; text-decoration: none;}
+ul,ol{text-decoration: none; list-style: none;}
+p, b, strong, h1, h2, h3, h4, h5, h6{color:inherit;}
+path{stroke: inherit;}
+
+/* display typo*/
+.display-1-B{font-weight:bold; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}
+.display-1-R{font-weight:400; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}
+.display-2-B{font-weight:bold; font-size: 40px; line-height: 140%; letter-spacing: -1.5px;}
+.display-2-R{font-weight:400; font-size: 40px; line-height: 140%; letter-spacing: -1.5px;}
+.display-3-B{font-weight:bold; font-size: 38px; line-height: 140%; letter-spacing: -1px;}
+.display-3-R{font-weight:400; font-size: 38px; line-height: 140%; letter-spacing: -1px;}
+.display-4-B{font-weight:bold; font-size: 36px; line-height: 140%; letter-spacing: -1px;}
+.display-4-R{font-weight:400; font-size: 36px; line-height: 140%; letter-spacing: -1px;}
+.display-5-B{font-weight:bold; font-size: 32px; line-height: 140%; letter-spacing: -0.6px;}
+.display-5-R{font-weight:400; font-size: 32px; line-height: 140%; letter-spacing: -0.6px;}
+
+/* heading typo*/
+.heading-1-B{font-weight:bold; font-size: 28px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-1-R{font-weight:400; font-size: 28px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-2-B{font-weight:bold; font-size: 24px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-2-R{font-weight:400; font-size: 24px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-3-B{font-weight:bold; font-size: 20px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-3-R{font-weight:400; font-size: 20px; line-height: 140%; letter-spacing: -0.6px;}
+
+/* body typo*/
+.body-1-B{font-weight:bold; font-size: 18px; line-height: 160%; letter-spacing: -0.6px;}
+.body-1-R{font-weight:400; font-size: 18px; line-height: 160%; letter-spacing: -0.6px;}
+.body-2-B{font-weight:bold; font-size: 16px; line-height: 160%; letter-spacing: -0.6px;}
+.body-2-R{font-weight:400; font-size: 16px; line-height: 160%; letter-spacing: -0.6px;}
+.body-3-B{font-weight:bold; font-size: 14px; line-height: 160%; letter-spacing: -0.6px;}
+.body-3-R{font-weight:400; font-size: 14px; line-height: 160%; letter-spacing: -0.6px;}
+.caption-B{font-weight:bold; font-size: 12px; line-height: 160%; letter-spacing: -0.6px;}
+.caption-R{font-weight:400; font-size: 12px; line-height: 18px; letter-spacing: -0.6px;}
+
+/* radius */
+.radius-8{border-radius: 8px;}
+.radius-20{border-radius: 20px;}
+
+/* spacing */
+.m-4{margin: 4px;}
+.m-8{margin: 8px;}
+.m-12{margin: 12px;}
+.m-16{margin: 16px;}
+.m-20{margin: 4px;}
+
+/* color */
+.bg-gray{background-color: #EAEDF0;}
+.bg-lightGray{background-color: #F5F6F7;}
+.bg-white{background-color: #fff;}
+.bg-violet{background-color: #574aff;}
+
+.border-gray-1{border-color: #757779;}
+.border-gray-2{border-color: #b3b6b8;}
+.border-gray-3{border-color: #d1d4d6;}
+.border-gray-4{border-color: #eaedf0;}
+.border-violet{border-color: #574aff;}
+.border-filled{border-color: #f04438;}
+
+.txt-primary{color:#1b1c1f;}
+.txt-second{color:#464749;}
+.txt-third{color:#757779;}
+.txt-disabled{color:#b3b6b8;}
+.txt-white{color:#fff;}
+.txt-violet{color:#574aff;}
+.txt-red{color:#574aff;}
+
+.ac-violet{background-color:#574aff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet:hover{background-color:#aba5ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet.pressed{background-color:#8177ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-purple{background-color:#952dff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple:hover{background-color:#d8a7ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple.pressed{background-color:#c172ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.wrong-red{background-color:#f04438; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red:hover{background-color:#ff6359; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red.pressed{background-color:#d33a2f; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-gradation{background: conic-gradient(from 180deg at 50% 50%, #962EFF -26.25deg, #574AFF 76.88deg, #962EFF 333.75deg, #574AFF 436.87deg); color:#fff; stroke: #fff; fill:#fff;} 
+.ac-gradation:hover{background: conic-gradient(from 180deg at 50% 50%, #D8A7FF -24.87deg, #ABA5FF 24.38deg, #D8A7FF 335.13deg, #ABA5FF 384.38deg); color:#fff; stroke: #fff; fill:#fff;}
+.ac-gradation.pressed{background: conic-gradient(from 180deg at 50% 50%, #C073FF -31.88deg, #8178FF 99.37deg, #C073FF 328.12deg, #8178FF 459.37deg); color:#fff; stroke: #fff; fill:#fff;}
+.ac-gradation.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-white{background-color: #fff; color:#757779; stroke: #757779; fill:#757779;}
+.ac-white:hover{background-color: #F6F6FF; color:#574AFF; stroke: #574AFF; fill:#574AFF;}
+.ac-white.pressed{background-color: #ECEAFF; color:#574AFF; stroke: #574AFF; fill:#574AFF;}
+.ac-white.disabled{background-color: #EAEDF0; color:#B3B6B8; stroke: #B3B6B8; fill:#B3B6B8;}
+
+.bg-gray-1{background-color:#1b1c1f;}
+.bg-gray-2{background-color:#464749;}
+.bg-gray-3{background-color:#757779;}
+.bg-gray-4{background-color:#b3b6b8;}
+.bg-gray-5{background-color:#d1d4d6;}
+.bg-gray-6{background-color:#eaedf0;}
+.bg-gray-7{background-color:#f5f6f7;}
+.bg-gray-8{background-color:#fbfbfb;}
+.bg-white{background-color:#fff;}
+
+// box style
+.flex_{display:flex;}
+.inline_{display:inline-block;}
+/* //global */
+
