@@ -90,8 +90,8 @@ root.render(
 				<span className="flex_" style={{gap:'20px', alignItems:'center'}}>
 					<Icon size={14} color="none" stroke="#464749" icon="setting" />
 					<Icon size={9} color="#464749" stroke="none" icon="mail" />
-					<Icon size={12} color="none" stroke="#464749" icon="pw" />
-					<Icon size={10} color="#464749" stroke="#464749" icon="eye" />
+					<Icon size={12} color="#464749" stroke="none" icon="pw" />
+					<Icon size={10} color="#464749" stroke="none" icon="eye" />
 					<Icon size={9} color="#464749" stroke="none" icon="chevronRight" />
 					<Icon size={5} color="#464749" stroke="none" icon="chevronDown" />
 					<Icon size={5} color="#464749" stroke="none" icon="chevronUp" />
@@ -108,7 +108,7 @@ root.render(
 					<Icon size={16} color="#464749" stroke="none" icon="checkCircle" />
 					<Icon size={16} color="none" stroke="#464749" icon="home" />
 					<Icon size={17} color="none" stroke="#464749" icon="setting" />
-					<Icon size={16} color="none" stroke="#464749" icon="content" />
+					<Icon size={16} color="#464749" stroke="none" icon="content" />
 					<Icon size={14} color="#464749" stroke="none" icon="chevronRight" />
 					<Icon size={8} color="#464749" stroke="none" icon="chevronDown" />
 					<Icon size={8} color="#464749" stroke="none" icon="chevronUp" />
@@ -124,11 +124,11 @@ root.render(
 					<Icon size={24} color="#464749" stroke="none" icon="checkCircle" />
 					<Icon size={13} color="none" stroke="#464749" icon="card" />
 					<Icon size={17} color="none" stroke="#464749" icon="document" />
-					<Icon size={15} color="none" stroke="#464749" icon="researcher" />
+					<Icon size={15} color="#464749" stroke="none" icon="researcher" />
 					<Icon size={15} color="none" stroke="#464749" icon="member" />
-					<Icon size={12} color="none" stroke="#464749" icon="transaction" />
+					<Icon size={12} color="#464749" stroke="none" icon="transaction" />
 					<Icon size={15} color="none" stroke="#464749" icon="design" />
-					<Icon size={14} color="none" stroke="#464749" icon="marketing" />
+					<Icon size={14} color="#464749" stroke="none" icon="marketing" />
 					<Icon size={15} color="none" stroke="#464749" icon="question" />
 					<Icon size={13} color="none" stroke="#464749" icon="mypage" />
 					<Icon size={15} color="none" stroke="#464749" icon="statistic" />
