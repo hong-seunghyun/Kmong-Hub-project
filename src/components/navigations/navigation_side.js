@@ -126,7 +126,7 @@ const Component = () => {
 
 
 	return(
-		<div className="sidebar_wrap">
+		<div className="sidebar-wrap">
 			<ul>
 			{MenuList.map((item, index)=> (
 					<li className="radius-8" key={index}>

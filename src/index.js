@@ -16,6 +16,11 @@ import TextButton from "components/buttons/text_button";
 import SearchBar from "components/searchBar/search_bar";
 import Icon from "components/icon/icon.tsx";
 import SnackBar from "components/snackBar/snackBar";
+import Label from "components/label/label";
+import Badge from "components/label/badge";
+import Pagnation from "components/pagnation/pagnation";
+import TabFixed from "components/tabs/tab_fixed";
+import TabScrollable from "components/tabs/tab_scrollable";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,9 +31,8 @@ root.render(
 			<NavigationSide />
 
 			<hr/>
-		</div>
-		<div style={{margin:'20px'}} />
-		<div style={{margin:'20px'}}>
+		
+			<div style={{margin:'20px'}} />
 			<h1>Button</h1>
 			<div style={{margin:'20px'}} />
 			<div className="flex_" style={{gap:'20px', flexDirection:'column'}}>
@@ -69,21 +73,61 @@ root.render(
 					<TextButton />
 				</span>
 			</div>
+
 			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<h1>Label</h1>
+				<div style={{margin:'20px'}} />
+				<Label />
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<h1>Badge</h1>
+				<div style={{margin:'20px'}} />
+				<Badge />
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<h1>Pagnation</h1>
+				<div style={{margin:'20px'}} />
+				<Pagnation />
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px', paddingBottom:'100px'}}>
+				<h1>Tab</h1>
+				<div style={{margin:'20px'}} />
+				<TabFixed />
+				<div style={{margin:'100px'}} />
+				<TabScrollable />
+			</div>
+
+			<hr/>
+
 			<div style={{margin:'20px'}}>
 				<h1>Snack Bar</h1>
 				<div style={{margin:'20px'}} />
 				<SnackBar />
 				<div style={{margin:'20px'}} />
 			</div>
+
 			<hr/>
+
 			<div style={{margin:'20px'}}>
 				<h1>Search Bar</h1>
 				<div style={{margin:'20px'}} />
 				<SearchBar />
 				<div style={{margin:'20px'}} />
 			</div>
+
 			<hr/>
+
 			<div style={{margin:'20px'}}>
 				<h1>Icon</h1>
 				<div style={{margin:'20px'}} />
