@@ -8,17 +8,16 @@ const Component = (props) => {
 	const onClickActive = () => {
 		setButton(!isButton);
 	}
-
-	const ButtonCtaS = () => {
+	const ButtonOutlineXl = () => {
 		return(
-			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? 'pressed' : ''}`} onClick={onClickActive} >
+			<button className={`btn_ border-gray-3 radius-8 bg-white btn-xl body-1-R ${isButton ? 'pressed' : ''}`} onClick={onClickActive} >
 				{props.text}
 			</button>
 		)
 	}
 
 	return(
-		<ButtonCtaS />
+			<ButtonOutlineXl />
 	)
 }
 export default Component;

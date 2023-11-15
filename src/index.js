@@ -4,15 +4,42 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import NavigationSide from "components/navigations/navigation_side";
+import NavigationTopLogin from "components/navigations/navigation_top_login";
+import NavigationTop from "components/navigations/navigation_top";
 import ButtonCta from "components/buttons/button_cta";
-import ButtonPrimary from "components/buttons/button_primary";
-import ButtonSecondary from "components/buttons/button_secondary";
-import ButtonOutline from "components/buttons/button_outline";
-import ButtonError from "components/buttons/button_error";
-import TextButtonUnderlinePrimary from "components/buttons/text_button_underline_primary";
-import TextButtonUnderline from "components/buttons/text_button_underline";
-import TextButtonPrimary from "components/buttons/text_button_primary";
-import TextButton from "components/buttons/text_button";
+import ButtonPrimaryS from "components/buttons/button_primary_s";
+import ButtonPrimaryM from "components/buttons/button_primary_m";
+import ButtonPrimaryL from "components/buttons/button_primary_l";
+import ButtonPrimaryXL from "components/buttons/button_primary_xl";
+import ButtonSecondaryS from "components/buttons/button_secondary_s";
+import ButtonSecondaryM from "components/buttons/button_secondary_m";
+import ButtonSecondaryL from "components/buttons/button_secondary_l";
+import ButtonSecondaryXL from "components/buttons/button_secondary_xl";
+import ButtonOutlineS from "components/buttons/button_outline_s";
+import ButtonOutlineM from "components/buttons/button_outline_m";
+import ButtonOutlineL from "components/buttons/button_outline_l";
+import ButtonOutlineXL from "components/buttons/button_outline_xl";
+import ButtonErrorS from "components/buttons/button_error_s";
+import ButtonErrorM from "components/buttons/button_error_m";
+import ButtonErrorL from "components/buttons/button_error_l";
+import ButtonErrorXL from "components/buttons/button_error_xl";
+import TextButtonUnderlinePrimaryS from "components/buttons/text_button_underline_primary_s";
+import TextButtonUnderlinePrimaryM from "components/buttons/text_button_underline_primary_m";
+import TextButtonUnderlinePrimaryL from "components/buttons/text_button_underline_primary_l";
+import TextButtonUnderlinePrimaryXL from "components/buttons/text_button_underline_primary_xl";
+import TextButtonUnderlineS from "components/buttons/text_button_underline_s";
+import TextButtonUnderlineM from "components/buttons/text_button_underline_m";
+import TextButtonUnderlineL from "components/buttons/text_button_underline_l";
+import TextButtonUnderlineXL from "components/buttons/text_button_underline_xl";
+import TextButtonPrimaryS from "components/buttons/text_button_primary_s";
+import TextButtonPrimaryM from "components/buttons/text_button_primary_m";
+import TextButtonPrimaryL from "components/buttons/text_button_primary_l";
+import TextButtonPrimaryXL from "components/buttons/text_button_primary_xl";
+import TextButtonS from "components/buttons/text_button_s";
+import TextButtonM from "components/buttons/text_button_m";
+import TextButtonL from "components/buttons/text_button_l";
+import TextButtonXL from "components/buttons/text_button_xl";
+import DropsMenu from "components/dropsMenu/drops_menu";
 import SearchBar from "components/searchBar/search_bar";
 import Icon from "components/icon/icon.tsx";
 import SnackBar from "components/snackBar/snackBar";
@@ -21,6 +48,12 @@ import Badge from "components/label/badge";
 import Pagnation from "components/pagnation/pagnation";
 import TabFixed from "components/tabs/tab_fixed";
 import TabScrollable from "components/tabs/tab_scrollable";
+import InputEmail from "components/textFields/email_input.tsx";
+import TextArea from "components/textFields/textArea.tsx";
+import Footer from "components/footer/footer";
+import Modal from "components/modal/modal";
+import Radio from "components/radio/radio";
+import DatePicker from "components/date/date-picker";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +66,14 @@ root.render(
 			<hr/>
 		
 			<div style={{margin:'20px'}} />
+			<h1>Navigation Top</h1>
+			<NavigationTop />
+			<div style={{margin:'20px'}} />
+			<NavigationTopLogin />
+			<div style={{margin:'20px'}} />
+			<hr/>
+
+			<div style={{margin:'20px'}} />
 			<h1>Button</h1>
 			<div style={{margin:'20px'}} />
 			<div className="flex_" style={{gap:'20px', flexDirection:'column'}}>
@@ -42,35 +83,60 @@ root.render(
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Primary</p>
-					<ButtonPrimary />
+					<ButtonPrimaryS text="label"/>
+					<ButtonPrimaryM text="label"/>
+					<ButtonPrimaryL text="label"/>
+					<ButtonPrimaryXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Secondary</p>
-					<ButtonSecondary />
+					<ButtonSecondaryS text="label"/>
+					<ButtonSecondaryM text="label"/>
+					<ButtonSecondaryL text="label"/>
+					<ButtonSecondaryXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Outline</p>
-					<ButtonOutline />
+					<ButtonOutlineS text="label"/>
+					<ButtonOutlineM text="label"/>
+					<ButtonOutlineL text="label"/>
+					<ButtonOutlineXL text="label"/>
+
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Error</p>
-					<ButtonError />
+					<ButtonErrorS text="label"/>
+					<ButtonErrorM text="label"/>
+					<ButtonErrorL text="label"/>
+					<ButtonErrorXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Text Button Underline Primary</p>
-					<TextButtonUnderlinePrimary />
+					<TextButtonUnderlinePrimaryS text="label"/>
+					<TextButtonUnderlinePrimaryM text="label"/>
+					<TextButtonUnderlinePrimaryL text="label"/>
+					<TextButtonUnderlinePrimaryXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Text Button Underline</p>
-					<TextButtonUnderline />
+					<TextButtonUnderlineS text="label"/>
+					<TextButtonUnderlineM text="label"/>
+					<TextButtonUnderlineL text="label"/>
+					<TextButtonUnderlineXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Text Button Primary</p>
-					<TextButtonPrimary />
+					<TextButtonPrimaryS text="label"/>
+					<TextButtonPrimaryM text="label"/>
+					<TextButtonPrimaryL text="label"/>
+					<TextButtonPrimaryXL text="label"/>
 				</span>
 				<span>
 					<p style={{margin:'20px'}}>Text Button</p>
-					<TextButton />
+					<TextButtonS text="label"/>
+					<TextButtonM text="label"/>
+					<TextButtonL text="label"/>
+					<TextButtonXL text="label"/>
 				</span>
 			</div>
 
@@ -79,7 +145,41 @@ root.render(
 			<div style={{margin:'20px'}}>
 				<h1>Label</h1>
 				<div style={{margin:'20px'}} />
-				<Label />
+				<div style={{display:'flex', gap:'20px'}}>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-violet-5" fontColor="txt-violet-1" text="label" icon="true" iconColor="#574AFF"/>
+						<Label backgroundColor="bg-violet-5" fontColor="txt-violet-1" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-violet-1" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-violet-1" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-purple-1" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-purple-1" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-pink-1" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-pink-1" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-mint-1" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-mint-1" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-gold-1" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-gold-1" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-wrong-red-hover" fontColor="txt-white" text="label" icon="true" iconColor="#FFFFFF"/>
+						<Label backgroundColor="bg-wrong-red-hover" fontColor="txt-white" text="label" icon="false" iconColor=""/>
+					</div>
+					<div style={{display:'flex', gap:'20px', flexDirection:'column'}}>
+						<Label backgroundColor="bg-gray-6" fontColor="txt-third" text="label" icon="true" iconColor="#B3B6B8"/>
+						<Label backgroundColor="bg-gray-6" fontColor="txt-third" text="label" icon="false" iconColor=""/>
+					</div>
+				</div>
+				
 			</div>
 
 			<hr/>
@@ -87,7 +187,7 @@ root.render(
 			<div style={{margin:'20px'}}>
 				<h1>Badge</h1>
 				<div style={{margin:'20px'}} />
-				<Badge />
+				<Badge value="7"/>
 			</div>
 
 			<hr/>
@@ -106,6 +206,58 @@ root.render(
 				<TabFixed />
 				<div style={{margin:'100px'}} />
 				<TabScrollable />
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px', paddingBottom:'100px'}}>
+				<h1>Text Fields</h1>
+				<div style={{margin:'20px'}} />
+				<InputEmail labelText="이메일" placeholder="이메일을 입력해 주세요" valueType="" helperTextResult="helperA"/>
+				<InputEmail labelText="이메일"placeholder="이메일을 입력해 주세요" valueType="error" helperTextResult="helperB"/>
+				<InputEmail labelText="이메일" placeholder="이메일을 입력해 주세요" valueType="success" helperTextResult="helperC"/>
+			
+				<TextArea labelText="이메일" placeholder="이메일을 입력해 주세요" valueType="" helperTextResult="helperA"/>
+				<TextArea labelText="이메일"placeholder="이메일을 입력해 주세요" valueType="error" helperTextResult="helperB"/>
+				<TextArea labelText="이메일" placeholder="이메일을 입력해 주세요" valueType="success" helperTextResult="helperC"/>
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px', paddingBottom:'100px'}}>
+				<h1>Drops Menu</h1>
+				<div style={{margin:'20px'}} />
+				<DropsMenu placeholder="소속을 선택해 주세요." valueType="success"/>
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px', paddingBottom:'100px', background:'#aeaeae'}}>
+				<h1>Modal</h1>
+				<div style={{margin:'20px'}} />
+				<div style={{display:'flex', gap:'20px'}}>
+					<Modal type="full-button" value="default" count="one" title="이것은 제목입니다." text="이것은 내용입니다."/>
+					<Modal type="full-button" value="error" count="one" title="이것은 제목입니다." text="이것은 내용입니다."/>
+				</div>
+				<div style={{margin:'20px'}} />
+				<div style={{display:'flex', gap:'20px'}}>
+					<Modal type="full-button" value="default" count="two" title="이것은 제목입니다." text="이것은 내용입니다."/>
+					<Modal type="full-button" value="error" count="two" title="이것은 제목입니다." text="이것은 내용입니다."/>
+				</div>
+				<div style={{margin:'20px'}} />
+				<div style={{display:'flex', gap:'20px'}}>
+					<Modal type="half-button" value="default" count="two" title="이것은 제목입니다." text="이것은 내용입니다."/>
+					<Modal type="half-button" value="error" count="two" title="이것은 제목입니다." text="이것은 내용입니다."/>
+				</div>
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<h1>Radio</h1>
+				<Radio id="radio-a" label="Radio" state="default"/>
+				<Radio id="radio-a" label="Radio" state="active"/>
+				<Radio id="radio-a" label="Radio" state="disabled"/>
 			</div>
 
 			<hr/>
@@ -182,6 +334,37 @@ root.render(
 					<Icon size={18} color="#464749" stroke="none" icon="arrowLeft" />
 					<Icon size={9} color="#464749" stroke="#464749" icon="menu" />
 				</span>
+			</div>
+
+			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<h1>Img source</h1>
+				<div style={{display:'flex', gap:'20px', justifyContent:'center', alignItems:'center'}} >
+					<img src='/images/waitingForApproval_s.png' alt="waitingForApproval_s" />
+					<img src='/images/file.png' alt="file" />
+					<img src='/images/pdf.png' alt="pdf" />
+					<img src='/images/jpg.png' alt="jpg" />
+					<img src='/images/png.png' alt="png" />
+					<img src='/images/hwp.png' alt="hwp" />
+					<img src='/images/docx.png' alt="docx" />
+				</div>
+				<div style={{margin:'20px'}} />
+				<div style={{display:'flex', gap:'20px', justifyContent:'center', alignItems:'center'}} >
+					<img src='/images/waitingForApproval_l.png' alt="waitingForApproval_l" />
+					<img src='/images/nodata.png' alt="nodata" />
+					<img src='/images/password.png' alt="password" />
+				</div>
+			</div>
+
+			<hr/>
+			<div style={{margin:'20px'}}>
+				<DatePicker />
+			</div>
+			<hr/>
+
+			<div style={{margin:'20px'}}>
+				<Footer />
 			</div>
 		</div>
   </React.StrictMode>
