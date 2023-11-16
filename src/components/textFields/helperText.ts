@@ -1,9 +1,12 @@
-export type helperTxt  = "helperA" | "helperB" | "helperC";
+export type helperTxt  = "none" | "helperA" | "helperB" | "helperC";
 
 type Email = {
 	value: string;
 }
 const helperTxtSet: Record<helperTxt, Email> = {
+	none:{
+		value:''
+	},
 	helperA: {
 		value:"띄어쓰기 없이 영/숫자 6-10자 입력하세요."
 	},

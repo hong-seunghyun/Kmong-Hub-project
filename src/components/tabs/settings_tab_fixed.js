@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'scss/public.scss';
 import 'scss/components_style.scss';
 
-const Component = () => {
+const Component = (props) => {
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
-				<li className="tab-item body-3-B active">
+				<li className={"tab-item body-3-B active"}>
 					<span>
-						기본정보
+						<a href="/settings/setting_default">기본 정보</a>
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className="radius-8 ">
-							기본 정보
+							<a href="/settings/setting_default">기본 정보</a>
 						</li>
 						<li className="radius-8 ">
 							고객센터 설정

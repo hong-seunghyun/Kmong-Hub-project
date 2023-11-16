@@ -7,11 +7,34 @@
 	width:100%;
 	height:auto;
 	padding-top:60px;
-	padding-left:120px;
+	padding-left:133px;
 	padding-bottom:62px;
 	padding-right:141px;
 	> h1{
 		margin-bottom:32px;
 	}
+	.text-fields-wrap{
+		margin-top:24px;
+		.wrap{
+			width:100%;
+		}
+	}
+	.upload-container{
+		width:100%;
+	}
+	.favicon-wrap{
+		margin-top:24px;
+		.caption-B{
+			color:#464749;
+		}
+		.helper-txt{
+			margin-top:8px;
+			color:#b3b6b8;
+			span{
+				color:#464749;
+			}
+		}
+	}
+	
 }
 /* //사이트 관리 */
