@@ -280,7 +280,6 @@
 /* tab */
 .tab-container{
 	width:100%;
-	max-width: 916px;
 	margin-left:auto;
 	margin-right:auto;
 	padding-bottom: 62px;
@@ -387,6 +386,8 @@
 .text-fields-wrap{
 	> p{
 		margin-bottom:8px;
+		color:#464749;
+		display: inline-block;
 		span{
 			color:#574AFF;
 		}

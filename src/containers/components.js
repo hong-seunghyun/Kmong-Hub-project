@@ -47,7 +47,7 @@ import Badge from "components/label/badge";
 import Pagnation from "components/pagnation/pagnation";
 import TabFixed from "components/tabs/tab_fixed";
 import TabScrollable from "components/tabs/tab_scrollable";
-import InputEmail from "components/textFields/email_input.tsx";
+import InputEmail from "components/textFields/textInput.tsx";
 import TextArea from "components/textFields/textArea.tsx";
 import Footer from "components/footer/footer";
 import Modal from "components/modal/modal";
