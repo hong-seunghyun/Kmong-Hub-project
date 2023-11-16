@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Icon from "components/icon/icon.tsx";
 import 'scss/public.scss';
-import 'scss/style.scss';
+import 'scss/components_style.scss';
 
 const SUB_MENU_LIST_CONTENT = [
 	{
@@ -176,7 +176,9 @@ const Component = () => {
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={17} color="none" stroke="inherit" icon="setting" />
-							<p>사이트 설정</p>
+							<p>
+									<a href="/settings">사이트 설정</a>
+							</p>
 						</span>
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />

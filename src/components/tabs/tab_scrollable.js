@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import 'scss/public.scss';
-import 'scss/style.scss';
+import 'scss/components_style.scss';
 
 const Component = () => {
 	const scrollRef = useRef(null);

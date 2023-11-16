@@ -1,6 +1,6 @@
 import React from 'react';
 import 'scss/public.scss';
-import 'scss/style.scss';
+import 'scss/components_style.scss';
 
 const Component = () => {
 	return(
