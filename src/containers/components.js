@@ -69,7 +69,7 @@ const Component = () => {
 			<h1>Navigation Side</h1>
 
 			<NavigationSide />
-
+			<div style={{margin:'100vh'}} />
 			<hr/>
 		
 			<div style={{margin:'20px'}} />
