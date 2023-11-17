@@ -9,12 +9,14 @@ interface InputProps {
 	valueType?: string;
 	helperTextResult?: helperTxt;
 	labelText?: string;
+	importState?: string;
+	iconState?: string;
 };
 
-const Email = ({ valueType, placeholder, helperTextResult, labelText }: InputProps) => (
+const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState }: InputProps) => (
 	<div className="text-fields-wrap">
-		<p className="caption-B">{labelText}<span>*</span></p>
-		<div className={`email-container ${valueType}`} >
+		<p className='caption-B'>{labelText}<span className={importState}>*</span></p>
+		<div className={`input-container ${valueType} ${iconState}`} >
 			<div className="wrap radius-8 bg-lightGray">
 				<svg className="icon-email" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fillRule="evenodd" clipRule="evenodd" d="M1.2 1.7V8.3H10.8V1.7H1.2ZM1 0.5C0.447715 0.5 0 0.947715 0 1.5V8.5C0 9.05229 0.447715 9.5 1 9.5H11C11.5523 9.5 12 9.05229 12 8.5V1.5C12 0.947715 11.5523 0.5 11 0.5H1Z" fill="#B3B6B8"/>

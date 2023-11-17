@@ -9,16 +9,17 @@ interface InputProps {
 	valueType?: string;
 	helperTextResult?: helperTxt;
 	labelText?: string;
+	importState?: string;
 };
 
-const Email = ({ valueType, placeholder, helperTextResult, labelText }: InputProps) => {
+const Email = ({ valueType, placeholder, helperTextResult, labelText, importState }: InputProps) => {
 	const [inputCount, setInputCount] = useState(0);
 	const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
   };
 	return(
 		<div className="text-fields-wrap">
-			<p className="caption-B">{labelText}<span>*</span></p>
+			<p className='caption-B'>{labelText}<span className={importState}>*</span></p>
 			<div className={`textarea-container ${valueType}`} >
 				<div className="wrap radius-8 bg-lightGray">
 					<textarea 

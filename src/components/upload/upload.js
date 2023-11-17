@@ -9,8 +9,8 @@ const Component = (props) => {
 	return(
 		<div className={`upload-container radius-8 ${props.state} ${props.type}`}>
 			<div className="img-box">
-				<img className="img-file" src="images/file.png" alt="file" />
-				<img className="img-preview" src="images/sample-img.png" alt="file" />
+				<img className="img-file" src="/images/file.png" alt="file" />
+				<img className="img-preview" src="/images/sample-img.png" alt="file" />
 				<Label backgroundColor="bg-violet-5" fontColor="txt-violet-1" text="보고서" icon="false" iconColor=""/>
 			</div>
 			<div className="text-box body-3-R">

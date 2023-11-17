@@ -35,6 +35,29 @@
 			}
 		}
 	}
-	
+	.button-wrap{
+		margin-top:32px;
+		gap:12px;
+		align-items: center;
+		justify-content: end;
+		.btn_{
+			svg{display:none;}
+		}
+	}
+	.sub-page-2{
+		align-items: end;
+		justify-content: space-between;
+		gap:12px;
+		.text-fields-wrap{
+			width:100%;
+			.helper-txt-wrap{
+				margin-top:0;
+			}
+		}
+		.btn_{
+			width:48px;
+			height:48px;
+		}
+	}
 }
 /* //사이트 관리 */

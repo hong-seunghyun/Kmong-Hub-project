@@ -1,38 +1,51 @@
-import React, {useState} from 'react';
+import React from 'react';
 import 'scss/public.scss';
 import 'scss/components_style.scss';
 
 const Component = (props) => {
+	const propsACtiveNumber = props.activeSubTab;
+
+	const settingDefaultLink = () => {
+    window.location.href="/settings";
+  };
+	const settingBusinessLink = () => {
+    window.location.href="/settings_business";
+  };
+
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
-				<li className={"tab-item body-3-B active"}>
-					<span>
-						<a href="/settings/setting_default">기본 정보</a>
+				<li className={`tab-item body-3-B ${props.active === 0 ? 'active' : ''}`}>
+					<span onClick={()=>{
+							settingDefaultLink();
+						}}>
+						기본 정보
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
-						<li className="radius-8 ">
-							<a href="/settings/setting_default">기본 정보</a>
+						<li className={`radius-8 ${propsACtiveNumber === 0 ? 'active' : ''}`} onClick={()=>{props.setSubTab(0)}}>
+							기본 정보
 						</li>
-						<li className="radius-8 ">
+						<li className={`radius-8 ${propsACtiveNumber === 1 ? 'active' : ''}`} onClick={()=>{props.setSubTab(1)}}>
 							고객센터 설정
 						</li>
-						<li className="radius-8">
+						<li className={`radius-8 ${propsACtiveNumber === 2 ? 'active' : ''}`} onClick={()=>{props.setSubTab(2)}}>
 							이메일 설정
 						</li>
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
-					<span>
+				<li className={`tab-item body-3-B ${props.active === 1 ? 'active' : ''}`}>
+					<span onClick={()=>{
+							settingBusinessLink();
+						}}>
 						사업자 정보
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
-						<li className="radius-8 ">
-							subTab
+						<li className={`radius-8 ${propsACtiveNumber === 0 ? 'active' : ''}`} onClick={()=>{props.setSubTab(0)}}>
+							사업자 정보
 						</li>
-						<li className="radius-8 ">
-							subTab
+						<li className={`radius-8 ${propsACtiveNumber === 1 ? 'active' : ''}`} onClick={()=>{props.setSubTab(1)}}>
+							개인정보보호 책임자 정보
 						</li>
 					</ul>
 				</li>
@@ -62,7 +75,7 @@ const Component = (props) => {
 
 				<li className="tab-item body-3-B">
 					<span>
-						Tab item
+						스크립트
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className="radius-8 active">
@@ -94,7 +107,7 @@ const Component = (props) => {
 
 				<li className="tab-item body-3-B">
 					<span>
-						Tab item
+						도메인 설정
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className="radius-8 active">
@@ -126,7 +139,7 @@ const Component = (props) => {
 
 				<li className="tab-item body-3-B">
 					<span>
-						Tab item
+						회원가입 설정
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className="radius-8 active">

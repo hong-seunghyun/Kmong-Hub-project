@@ -390,10 +390,11 @@
 		display: inline-block;
 		span{
 			color:#574AFF;
+			&.none{display:none;}
 		}
 	}
 }
-.email-container{
+.input-container{
 	&.error{
 		.helper-txt{
 			color:#F04438;
@@ -414,6 +415,14 @@
 			&:focus{
 				border:1px solid #574AFF;
 			}
+		}
+	}
+	&.false{
+		.wrap{
+			input{
+				padding:13px 16px;
+			}
+			svg{display:none;}
 		}
 	}
 	.wrap{

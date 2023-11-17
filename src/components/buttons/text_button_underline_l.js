@@ -13,7 +13,7 @@ const Component = (props) => {
 
 	const TextButtonUnderlineL = () => {
 		return(
-		<button className={`btn_ btn_text txt-second body-2-R ${isButton ? 'pressed' : ''}`} onClick={onClickActive} >
+		<button className={`btn_ btn_text txt-second body-2-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
 			<span className="flex_">
 				<Icon size={11.6} color='inherit' stroke='inherit' icon='plus' />
 					{props.text} 

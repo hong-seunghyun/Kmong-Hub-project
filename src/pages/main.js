@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Home from 'pages/components_wrap'
-import setting from 'pages/settings'
+import setting from 'pages/settings/settings'
+import settingBusiness from 'pages/settings/settings_business'
 class App extends Component {
 	constructor(props) {
 		super(props)
@@ -16,6 +17,7 @@ class App extends Component {
         <BrowserRouter>
           <Route path="/" component={Home} exact />
           <Route path="/settings" component={setting} />
+					<Route path="/settings_business" component={settingBusiness} />
         </BrowserRouter>
       </div>
     )

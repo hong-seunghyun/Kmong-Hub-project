@@ -11,7 +11,7 @@ const Component = (props) => {
 	}
 	const ButtonErrorM = () => {
 		return(
-		<button className={`btn_ radius-8 wrong-red btn-m body-3-R ${isButton ? 'pressed' : ''}`} onClick={onClickActive} >
+		<button className={`btn_ radius-8 wrong-red btn-m body-3-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
 			<span className="flex_">
 			<Icon size={8.3} color='#fff' stroke='#fff' icon='plus' />
 				{props.text} 

@@ -11,7 +11,7 @@ const Component = (props) => {
 
 	const ButtonCtaS = () => {
 		return(
-			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? 'pressed' : ''}`} onClick={onClickActive} >
+			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
 				{props.text}
 			</button>
 		)
