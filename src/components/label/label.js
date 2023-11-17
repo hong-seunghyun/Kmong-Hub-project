@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'components/icon/icon.tsx';
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 
 const Component = (props) => {
 	return(

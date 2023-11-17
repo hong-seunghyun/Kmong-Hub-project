@@ -1,8 +1,7 @@
 import React from 'react';
 import Icon from "components/icon/icon.tsx";
 import ButtonSecondaryS from "components/buttons/button_secondary_s";
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 
 const Component = () => {
 	return(

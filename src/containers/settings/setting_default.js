@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import 'scss/page_style.scss'
-
-
 import Tab from "components/tabs/settings_tab_fixed";
 import Input from "components/textFields/textInput.tsx";
 import TextArea from "components/textFields/textArea.tsx";

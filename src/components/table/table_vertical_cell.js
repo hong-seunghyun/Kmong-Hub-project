@@ -1,6 +1,5 @@
 import React from 'react';
-import 'scss/public.scss'
-import 'scss/components_style.scss'
+
 import Label from 'components/label/label'
 import TextButtonUnderlinePrimaryS from "components/buttons/text_button_underline_primary_s";
 

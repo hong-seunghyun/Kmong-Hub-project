@@ -1,6 +1,5 @@
 import React from 'react';
-import 'scss/public.scss'
-import 'scss/components_style.scss'
+
 import Icon from 'components/icon/icon.tsx'
 import Label from 'components/label/label'
 import ButtonSecondaryS from "components/buttons/button_secondary_s";

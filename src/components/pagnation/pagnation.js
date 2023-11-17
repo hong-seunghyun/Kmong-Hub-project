@@ -1,6 +1,5 @@
 import React from 'react';
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 import Icon from "components/icon/icon.tsx";
 const Component = () => {
 	return(

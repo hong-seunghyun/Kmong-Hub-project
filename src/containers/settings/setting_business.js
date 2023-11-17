@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import 'scss/page_style.scss'
-
-
 import Tab from "components/tabs/settings_tab_fixed";
 import Input from "components/textFields/textInput.tsx";
-import TextArea from "components/textFields/textArea.tsx";
-import Upload from "components/upload/upload"
 import OutlineBtn from "components/buttons/button_outline_l"
 import PrimaryBtn from "components/buttons/button_primary_l"
-import Icon from "components/icon/icon.tsx";
 
 const Component = () => {
 	const [ subTab, setSubTab ] = useState(0);

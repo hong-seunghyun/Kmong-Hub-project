@@ -1,15 +1,14 @@
 import React from 'react';
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 
 const Component = (props) => {
 	const propsACtiveNumber = props.activeSubTab;
 
 	const settingDefaultLink = () => {
-    window.location.href="/settings";
+    window.location.href="/settings/settings";
   };
 	const settingBusinessLink = () => {
-    window.location.href="/settings_business";
+    window.location.href="/settings/settings_business";
   };
 
 	return(

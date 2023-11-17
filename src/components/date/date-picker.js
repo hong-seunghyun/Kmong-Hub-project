@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 import DatePicker from 'react-datepicker';
 import { ko } from "date-fns/esm/locale";
 import dayjs from 'dayjs'

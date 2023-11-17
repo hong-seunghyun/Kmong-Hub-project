@@ -1,7 +1,6 @@
 import React from 'react';
 import ButtonCta from "components/buttons/button_cta";
-import 'scss/public.scss';
-import 'scss/components_style.scss';
+
 
 const Component = () => {
 	return(

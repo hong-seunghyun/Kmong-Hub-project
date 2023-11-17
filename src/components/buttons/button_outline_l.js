@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import 'scss/public.scss'
-import 'scss/components_style.scss'
+
 
 const Component = (props) => {
 	const [isButton, setButton ] = useState(false);
