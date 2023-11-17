@@ -1,0 +1,200 @@
+/* global */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+*{box-sizing: border-box; margin:0; padding:0; font-family: 'Spoqa Han Sans Neo', 'sans-serif';}
+html{width:auto; height:auto; margin:0; padding:0;}
+body{color:#1b1c1f; position:relative;}
+a{color:inherit; text-decoration: none;}
+ul,ol{text-decoration: none; list-style: none;}
+p, b, strong, h1, h2, h3, h4, h5, h6{color:inherit;}
+button, input, textarea{border:none; color:inherit;}
+button:focus,input:focus,textarea:focus{outline:none;}
+button{background:none; cursor:pointer;}
+input, textarea{background:none;}
+svg{overflow: initial;}
+span{color:inherit; fill:inherit; stroke: inherit;}
+table{
+	border-spacing: 0px;
+  border-collapse: separate;
+}
+/* display typo*/
+.display-1-B{font-weight:bold; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}
+.display-1-R{font-weight:400; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}
+.display-2-B{font-weight:bold; font-size: 40px; line-height: 140%; letter-spacing: -1.5px;}
+.display-2-R{font-weight:400; font-size: 40px; line-height: 140%; letter-spacing: -1.5px;}
+.display-3-B{font-weight:bold; font-size: 38px; line-height: 140%; letter-spacing: -1px;}
+.display-3-R{font-weight:400; font-size: 38px; line-height: 140%; letter-spacing: -1px;}
+.display-4-B{font-weight:bold; font-size: 36px; line-height: 140%; letter-spacing: -1px;}
+.display-4-R{font-weight:400; font-size: 36px; line-height: 140%; letter-spacing: -1px;}
+.display-5-B{font-weight:bold; font-size: 32px; line-height: 140%; letter-spacing: -0.6px;}
+.display-5-R{font-weight:400; font-size: 32px; line-height: 140%; letter-spacing: -0.6px;}
+
+/* heading typo*/
+.heading-1-B{font-weight:bold; font-size: 28px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-1-R{font-weight:400; font-size: 28px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-2-B{font-weight:bold; font-size: 24px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-2-R{font-weight:400; font-size: 24px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-3-B{font-weight:bold; font-size: 20px; line-height: 140%; letter-spacing: -0.6px;}
+.heading-3-R{font-weight:400; font-size: 20px; line-height: 140%; letter-spacing: -0.6px;}
+
+/* body typo*/
+.body-1-B{font-weight:bold; font-size: 18px; line-height: 160%; letter-spacing: -0.6px;}
+.body-1-R{font-weight:400; font-size: 18px; line-height: 160%; letter-spacing: -0.6px;}
+.body-2-B{font-weight:bold; font-size: 16px; line-height: 160%; letter-spacing: -0.6px;}
+.body-2-R{font-weight:400; font-size: 16px; line-height: 160%; letter-spacing: -0.6px;}
+.body-3-B{font-weight:bold; font-size: 14px; line-height: 160%; letter-spacing: -0.6px;}
+.body-3-R{font-weight:400; font-size: 14px; line-height: 160%; letter-spacing: -0.6px;}
+.caption-B{font-weight:bold; font-size: 12px; line-height: 160%; letter-spacing: -0.6px;}
+.caption-R{font-weight:400; font-size: 12px; line-height: 18px; letter-spacing: -0.6px;}
+
+/* radius */
+.radius-8{border-radius: 8px;}
+.radius-20{border-radius: 20px;}
+
+/* spacing */
+.m-4{margin: 4px;}
+.m-8{margin: 8px;}
+.m-12{margin: 12px;}
+.m-16{margin: 16px;}
+.m-20{margin: 4px;}
+
+/* color */
+
+// border color
+.border-gray-1{border:1px solid #757779;}
+.border-gray-2{border:1px solid #b3b6b8;}
+.border-gray-3{border:1px solid #d1d4d6;}
+.border-gray-4{border:1px solid #eaedf0;}
+.border-violet{border:1px solid #574aff;}
+.border-filled{border:1px solid #f04438;}
+
+// background color 
+.bg-gray{background-color: #EAEDF0;}
+.bg-lightGray{background-color: #F5F6F7;}
+.bg-white{background-color: #fff;}
+.bg-violet{background-color: #574aff;}
+
+.ac-violet{background-color:#574aff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet:hover{background-color:#aba5ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet.pressed{background-color:#8177ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-violet.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-purple{background-color:#952dff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple:hover{background-color:#d8a7ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple.pressed{background-color:#c172ff; color:#fff; stroke: #fff; fill:#fff;}
+.ac-purple.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.wrong-red{background-color:#f04438; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red:hover{background-color:#ff6359; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red.pressed{background-color:#d33a2f; color:#fff; stroke: #fff; fill:#fff;}
+.wrong-red.disabled{background-color:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-gradation{background: conic-gradient(from 180deg at 50% 50%, #962EFF -26.25deg, #574AFF 76.88deg, #962EFF 333.75deg, #574AFF 436.87deg); color:#fff; stroke: #fff; fill:#fff;} 
+.ac-gradation:hover{background: conic-gradient(from 180deg at 50% 50%, #D8A7FF -24.87deg, #ABA5FF 24.38deg, #D8A7FF 335.13deg, #ABA5FF 384.38deg); color:#fff; stroke: #fff; fill:#fff;}
+.ac-gradation.pressed{background: conic-gradient(from 180deg at 50% 50%, #C073FF -31.88deg, #8178FF 99.37deg, #C073FF 328.12deg, #8178FF 459.37deg); color:#fff; stroke: #fff; fill:#fff;}
+.ac-gradation.disabled{background:#eaedf0; color:#b3b6b8; stroke: #b3b6b8; fill:#b3b6b8;}
+
+.ac-white{background-color: #fff; color:#757779; stroke: #757779; fill:#757779;}
+.ac-white:hover{background-color: #F6F6FF; color:#574AFF; stroke: #574AFF; fill:#574AFF;}
+.ac-white.pressed{background-color: #ECEAFF; color:#574AFF; stroke: #574AFF; fill:#574AFF;}
+.ac-white.disabled{background-color: #EAEDF0; color:#B3B6B8; stroke: #B3B6B8; fill:#B3B6B8;}
+
+.bg-gray-1{background-color:#1b1c1f;}
+.bg-gray-2{background-color:#464749;}
+.bg-gray-3{background-color:#757779;}
+.bg-gray-4{background-color:#b3b6b8;}
+.bg-gray-5{background-color:#d1d4d6;}
+.bg-gray-6{background-color:#eaedf0;}
+.bg-gray-7{background-color:#f5f6f7;}
+.bg-gray-8{background-color:#fbfbfb;}
+
+.bg-white{background-color:#fff;}
+.bg-white:hover{background-color: #F6F6FF; }
+.bg-white.pressed{background-color: #ECEAFF; }
+.bg-white.disabled{background-color: #EAEDF0; color:#B3B6B8; stroke:#B3B6B8; fill:#B3B6B8;}
+
+.bg-violet-1{background-color:#574AFF;}
+.bg-violet-2{background-color:#8177FF;}
+.bg-violet-3{background-color:#ABA5FF;}
+.bg-violet-4{background-color:#D7D3FF;}
+.bg-violet-5{background-color:#ECEAFF;}
+.bg-violet-6{background-color:#F6F6FF;}
+
+.bg-pink-1{background-color:#FF10AA;}
+.bg-pink-2{background-color:#FF72D2;}
+.bg-pink-3{background-color:#FFA6E3;}
+.bg-pink-4{background-color:#FFD6F2;}
+.bg-pink-5{background-color:#FFECF9;}
+.bg-pink-6{background-color:#FEF7FB;}
+
+.bg-purple-1{background-color:#952DFF;}
+.bg-purple-2{background-color:#C172FF;}
+.bg-purple-3{background-color:#D8A7FF;}
+.bg-purple-4{background-color:#ECD4FF;}
+.bg-purple-5{background-color:#F6EBFF;}
+.bg-purple-6{background-color:#FBF6FF;}
+
+.bg-mint-1{background-color:#76C3D1;}
+.bg-mint-2{background-color:#BBE1E8;}
+.bg-mint-3{background-color:#E2F3F6;}
+
+.bg-gold-1{background-color:#E8CAA2;}
+.bg-gold-2{background-color:#F6DEBD;}
+.bg-gold-3{background-color:#FFF0DB;}
+
+.bg-wrong-red-hover{background-color:#ff6359};
+
+// text color 
+.txt-violet-1{color:#574AFF;}
+.txt-violet-2{color:#8177FF;}
+.txt-violet-3{color:#ABA5FF;}
+.txt-violet-4{color:#D7D3FF;}
+.txt-violet-5{color:#ECEAFF;}
+.txt-violet-6{color:#F6F6FF;}
+
+.txt-pink-1{color:#FF10AA;}
+.txt-pink-2{color:#FF72D2;}
+.txt-pink-3{color:#FFA6E3;}
+.txt-pink-4{color:#FFD6F2;}
+.txt-pink-5{color:#FFECF9;}
+.txt-pink-6{color:#FEF7FB;}
+
+.txt-purple-1{color:#952DFF;}
+.txt-purple-2{color:#C172FF;}
+.txt-purple-3{color:#D8A7FF;}
+.txt-purple-4{color:#ECD4FF;}
+.txt-purple-5{color:#F6EBFF;}
+.txt-purple-6{color:#FBF6FF;}
+
+.txt-mint-1{color:#76C3D1;}
+.txt-mint-2{color:#BBE1E8;}
+.txt-mint-3{color:#E2F3F6;}
+
+.txt-gold-1{color:#E8CAA2;}
+.txt-gold-2{color:#F6DEBD;}
+.txt-gold-3{color:#FFF0DB;}
+
+.txt-primary{color:#1b1c1f;}
+
+.txt-second{color:#464749; stroke: #464749; fill:#464749;}
+.txt-second:hover{color:#757779; stroke: #757779; fill:#757779;}
+.txt-second.pressed{color:#464749; stroke: #464749; fill:#464749;}
+
+.txt-third{color:#757779;}
+
+.txt-disabled{color:#b3b6b8;}
+
+.txt-white{color:#fff;}
+
+.txt-violet{color:#574aff; stroke: #574aff; fill:#574aff;}
+.txt-violet:hover{color:#aba5ff; stroke: #aba5ff; fill:#aba5ff;}
+.txt-violet.pressed{color:#8177ff; stroke: #8177ff; fill:#8177ff;}
+
+.txt-red{color:#574aff;}
+
+// box style
+.flex_{display:flex;}
+.flex_inline{display:inline-flex;}
+.inline_{display:inline-block;}
+
+/* //global */
+

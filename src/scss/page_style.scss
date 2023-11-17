@@ -1,0 +1,63 @@
+/* 페이지 스타일 */
+.page-wrap{
+	margin-left:246px;
+}
+/* 사이트 관리 */
+.setting-contents{
+	width:100%;
+	height:auto;
+	padding-top:60px;
+	padding-left:133px;
+	padding-bottom:62px;
+	padding-right:141px;
+	> h1{
+		margin-bottom:32px;
+	}
+	.text-fields-wrap{
+		margin-top:24px;
+		.wrap{
+			width:100%;
+		}
+	}
+	.upload-container{
+		width:100%;
+	}
+	.favicon-wrap{
+		margin-top:24px;
+		.caption-B{
+			color:#464749;
+		}
+		.helper-txt{
+			margin-top:8px;
+			color:#b3b6b8;
+			span{
+				color:#464749;
+			}
+		}
+	}
+	.button-wrap{
+		margin-top:32px;
+		gap:12px;
+		align-items: center;
+		justify-content: end;
+		.btn_{
+			svg{display:none;}
+		}
+	}
+	.sub-page-2{
+		align-items: end;
+		justify-content: space-between;
+		gap:12px;
+		.text-fields-wrap{
+			width:100%;
+			.helper-txt-wrap{
+				margin-top:0;
+			}
+		}
+		.btn_{
+			width:48px;
+			height:48px;
+		}
+	}
+}
+/* //사이트 관리 */
