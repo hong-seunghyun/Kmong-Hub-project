@@ -2,7 +2,6 @@ version: "3.7"
 
 services:
   hsb-app:
-    restart: always
     command : npm start
     container_name: front
     build:
