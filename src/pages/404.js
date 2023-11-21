@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Header from 'components/navigations/navigation_top'
+import Header from '/src/components/navigations/navigation_top'
 import ButtonOutlineL from "components/buttons/button_outline_l";
 
 const sxContainer = {
@@ -13,7 +13,7 @@ const sxMargin25 ={
 	marginTop:'25px',
 }
 
-const Custom404 = () => {
+export default function NotFound(){
 	const history = useHistory();
 
 	return(
@@ -46,5 +46,3 @@ const Custom404 = () => {
 	</div>
 	)
 };
-
-export default Custom404;

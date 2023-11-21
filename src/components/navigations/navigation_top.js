@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonCta from "components/buttons/button_cta";
-
+import Link from "next/link";
 
 const Component = () => {
 
@@ -11,10 +11,10 @@ const Component = () => {
 	return(
 		<div className="header-container flex_ login_">
 			<div className="flex_ list-wrap">
-				<a href="/"><img src="/images/logo.png" alt="logo" /></a>
+				<Link href={`/`}><img src="/images/logo.png" alt="logo" /></Link>
 				<ul className="body-2-R flex_">
-					<li><a href="/etc/rate-plan">요금제</a></li>
-					<li><a href="/etc/user-guide">사용자 가이드</a></li>
+					<li><Link href={`/etc/rate-plan`}>요금제</Link></li>
+					<li><Link href={`/etc/user-guide-01`}>사용자 가이드</Link></li>
 				</ul>
 			</div>
 			<div className="header-content flex_">

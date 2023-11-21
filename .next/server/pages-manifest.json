@@ -1,1 +1,9 @@
-{}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/etc/user-guide-02": "pages/etc/user-guide-02.js",
+  "/etc/user-guide-01": "pages/etc/user-guide-01.js",
+  "/etc/rate-plan": "pages/etc/rate-plan.js"
+}

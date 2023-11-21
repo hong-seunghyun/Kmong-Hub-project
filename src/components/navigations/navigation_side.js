@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Icon from "components/icon/icon.tsx";
-
+import Link from 'next/link';
 
 const SUB_MENU_LIST_CONTENT = [
 	{
@@ -164,7 +164,7 @@ const Component = () => {
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={16} color="none" stroke="inherit" icon="home" />
-							<p><a href="/">홈</a></p>
+							<p><Link href={`/`}>홈</Link></p>
 						</span>
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
@@ -176,7 +176,7 @@ const Component = () => {
 						<span className="flex_">
 							<Icon size={17} color="none" stroke="inherit" icon="setting" />
 							<p>
-									<a href="/settings/settings">사이트 설정</a>
+									<Link href={`/settings/settings`}>사이트 설정</Link>
 							</p>
 						</span>
 						<span className="icon-arrow">
