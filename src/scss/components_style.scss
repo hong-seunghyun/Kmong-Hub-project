@@ -51,13 +51,12 @@
 		> .list-wrap{
 			.icon-arrow{
 				transition:all 0.5s;
-				transform: rotate(90deg);
 			}
 		}
 		> .list-wrap.show{
 			height:auto;
 			.icon-arrow{
-				transform: rotate(270deg);
+				transform: rotate(90deg);
 			}
 		}
 	}

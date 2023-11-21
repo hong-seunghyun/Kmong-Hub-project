@@ -164,7 +164,7 @@ const Component = () => {
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={16} color="none" stroke="inherit" icon="home" />
-							<p>홈</p>
+							<p><a href="/">홈</a></p>
 						</span>
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />

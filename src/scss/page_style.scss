@@ -212,27 +212,231 @@
 			z-index: 2;
 
 			&.main-section-02-pice-01{
-				left:0;
+				right:0;
 				top:0;
-				width:51%;
-				height:48%;
-				background:url('/images/main-section-01-pice-03.png') top center no-repeat;
-				background-size:100% auto;
+				width: 39.4%;
 			}
 
 			&.main-section-02-pice-02{
-				bottom:0;
+				top:25.53%;
 				left:0;
 				width: 39.4%;
-				height:52.12%;
-				background:url('/images/main-section-01-pice-03.png') top center no-repeat;
-				background-size:100% auto;
+			}
+		}
+		.box-container{
+			> .flex_{
+				gap:36px;
+				flex-wrap: wrap;
+				margin-top:80px;
+				position: relative;
+				z-index: 3;
+				.box{
+					background:#fff; 
+					width:calc(50% - 18px);
+					border-radius: 20px;
+					padding:32px 36px;
+					height:272px;
+					flex-direction: column;
+					justify-content: space-between;
+					align-items: start;
+					box-shadow: 0px 0px 16px 0px rgba(66, 66, 101, 0.10);
+					> div{
+						display:flex;
+						flex-direction: column;
+						gap:12px;
+						height: 137px;
+					}
+				}
 			}
 		}
 	}
 
+	.main-section-05{
+		padding:120px 0;
+
+		.box-container{
+			background:#fff;
+			box-shadow: 0px 2px 10px 0px rgba(171, 181, 200, 0.20);
+			padding:90px 75px;
+			
+			> h1{
+				text-align: center;
+				padding-bottom:40px;
+				border-bottom:3px solid #D1D4D6;
+			}
+
+			> .content-wrap{
+				padding:36px 0;
+				border-bottom:1px solid #D1D4D6;
+				> .flex_{
+					justify-content: space-between;
+					align-items: center;
+					cursor: pointer;
+					&.active{
+						svg{
+							transform:rotate(180deg);
+						}
+					}
+					> span{
+						width:32px;
+						height:32px;
+						align-items: center;
+						justify-content: center;
+						
+					}
+				}
+				> p{
+					margin-top:12px;
+				}
+			}
+		}
+
+	}
+
+	.main-section-06{
+		.section-bg-wrap{
+			width:95.8%;
+			border-radius:0px 200px 0px 0px;
+			position:relative;
+			overflow: hidden;
+			padding:100px 0;
+
+			.main-section-06-pice{
+				position:absolute;
+				mix-blend-mode: color-burn;
+				z-index: 2;
+				&.main-section-06-pice-01{
+					left:0;
+					top:0;
+					width: 39.4%;
+				}
+			}
+
+			.box-container{
+				text-align: center;
+
+				.btn_{
+					cursor: pointer;
+					background:#FF10AA;
+					border-radius: 100px;
+					line-height: 48px;
+					margin:24px auto 0;
+					width:144px;
+					height:48px;
+					text-align: center;
+				}
+			}
+		}
+
+	}
+
 }
 /* //main */
+
+/* 요금제 */
+.rate-plan-container{
+	width:915px;
+	margin:60px auto 56px;
+
+	> h1{
+		margin-bottom:32px;
+	}
+	table{
+		width:100%;
+		border:1px solid #D1D4D6;
+		th,td{
+			width:177px;
+			height:64px;
+			vertical-align: middle;
+			text-align: center;
+			border:1px solid #D1D4D6;
+			font-weight:400;
+			font-size:14px;
+		}
+		thead{
+			th{
+				font-weight: 700;
+				font-size:14px;
+				color:#fff;
+				&.function{
+					font-weight:400;
+					color:#1B1C1F;
+					width:207px;
+				}
+				&.free{
+					background:#952DFF;
+					border:1px solid #952DFF;
+				}
+				&.basic{
+					background:#FF72D2;
+					border:1px solid #FF72D2;
+				}
+				&.premium{
+					background:#76C3D1;
+					border:1px solid #76C3D1;
+				}
+				&.business{
+					background:#E8CAA2;
+					border:1px solid #E8CAA2;
+				}
+			}
+		}
+		tbody{
+			tr{
+				td{
+					color:#757779;
+				}
+				th{
+					background:#FBFBFB;
+				}
+				&.state-tr{
+					td{
+						color:#574AFF;
+						&.fail{
+							color:#FF6359;
+						}
+					}
+				}
+			}
+			
+		}
+	}
+}
+/*// 요금제 */
+
+/* 사용자 가이드 */
+.user-guide-container{
+	padding:60px 0 120px;
+	background:#F5F6F7;
+	.content-container{
+		width:916px;
+		margin:auto;
+		> h1{
+			margin-bottom:32px;
+		}
+		.content{
+			margin-top:32px;
+			width:100%;
+			padding:90px 75px;
+			background:#fff;
+			> h3{
+				padding-bottom:40px;
+				text-align: center;
+				color:#303133;
+				border-bottom:1px solid #eaedf0;
+			}
+			> div{
+				width:100%;
+				padding:16px 0;
+				.title{
+					margin-bottom:12px;
+				}
+			}
+		}
+	}
+}
+/* //사용자 가이드 */
+
 /* 사이트 관리 */
 .setting-contents{
 	width:100%;
