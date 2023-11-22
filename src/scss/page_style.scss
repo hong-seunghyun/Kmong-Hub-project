@@ -437,6 +437,27 @@
 }
 /* //사용자 가이드 */
 
+/* 홈 */
+.home-container{
+	padding-top:60px;
+	padding-bottom:84px;
+	.content-container{
+		width:924px;
+		margin:auto;
+
+		> .head-wrap{
+			gap:12px;
+			align-items: center;
+			margin-bottom:12px;
+			span{
+				display:inline-block;
+				margin-left:12px;
+			}
+		}
+	}
+}
+/* // 홈 */
+
 /* 사이트 관리 */
 .setting-contents{
 	width:100%;
