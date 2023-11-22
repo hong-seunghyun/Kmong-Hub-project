@@ -1,12 +1,13 @@
 import React from "react";
 import Icon from "/src/components/icon/icon.tsx";
 import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
+import Link from "next/link";
 
 
 const Component = () => {
 	return(
 		<div className="header-container flex_">
-			<img src="/images/logo.png" alt="logo" />
+			<Link href={`/`}><img src="/images/logo.png" alt="logo" /></Link>
 			<div className="header-content flex_">
 				<div className="icon-wrap flex_">
 					<Icon size={24} icon="bell" color="none" stroke="#464749" />
