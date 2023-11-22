@@ -1,7 +1,7 @@
 
-import Component from 'containers/settings/setting_default';
-import NavigationTopLogin from "components/navigations/navigation_top_login";
-import NavigationSide from "components/navigations/navigation_side";
+import Component from "/src/containers/settings/setting_default";
+import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
+import NavigationSide from "/src/components/navigations/navigation_side";
 const Page = ({ ...props }) => (
   <>
 		<NavigationTopLogin />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 
 const Component = (props) => {
@@ -14,7 +14,7 @@ const Component = (props) => {
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
-				<li className={`tab-item body-3-B ${props.active === 0 ? 'active' : ''}`}>
+				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
 					<span onClick={()=>{
 							userGuideA();
 						}}>
@@ -22,7 +22,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 1 ? 'active' : ''}`}>
+				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
 					<span onClick={()=>{
 							userGuideB();
 						}}>

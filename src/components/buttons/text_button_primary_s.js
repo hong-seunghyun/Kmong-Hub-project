@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Icon from "components/icon/icon.tsx";
+import React, {useState} from "react";
+import Icon from "/src/components/icon/icon.tsx";
 
 
 const Component = (props) => {
@@ -11,11 +11,11 @@ const Component = (props) => {
 
 	const TextButtonUnderlineS = () => {
 		return(
-		<button className={`btn_ txt-violet caption-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
+		<button className={`btn_ txt-violet caption-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
 			<span className="flex_">
-				<Icon size={8.3} color='inherit' stroke='inherit' icon='plus' />
+				<Icon size={8.3} color="inherit" stroke="inherit" icon="plus" />
 				{props.text} 
-				<Icon size={9} color='inherit' stroke='inherit' icon='chevronRight' />
+				<Icon size={9} color="inherit" stroke="inherit" icon="chevronRight" />
 			</span>
 		</button>
 		)

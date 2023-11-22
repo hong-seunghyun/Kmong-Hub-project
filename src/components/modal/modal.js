@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 
-import ButtonPrimaryXL from "components/buttons/button_primary_xl";
-import ButtonErrorXL from "components/buttons/button_error_xl";
-import ButtonOutlineXL from "components/buttons/button_outline_xl";
+import ButtonPrimaryXL from "/src/components/buttons/button_primary_xl";
+import ButtonErrorXL from "/src/components/buttons/button_error_xl";
+import ButtonOutlineXL from "/src/components/buttons/button_outline_xl";
 
 const Component = (props) => {
 	return(

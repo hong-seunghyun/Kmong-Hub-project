@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
-import DatePicker from 'react-datepicker';
+import DatePicker from "react-datepicker";
 import { ko } from "date-fns/esm/locale";
-import dayjs from 'dayjs'
+import dayjs from "dayjs"
 import { getYear, getMonth } from "date-fns";
-import 'react-datepicker/dist/react-datepicker.css';
-import Icon from 'components/icon/icon.tsx';
+import "react-datepicker/dist/react-datepicker.css";
+import Icon from "/src/components/icon/icon.tsx";
 
 const Component = (props) => {
-	const _ = require('lodash');
+	const _ = require("lodash");
 	const [ isCalenderShow, setCalenderShow ] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 	const [ btnActive, setBtnActive ] = useState(false);
 	const years = _.range(1990, getYear(new Date()) + 1, 1); // 수정
-	const months = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']; 
+	const months = ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]; 
 
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -99,12 +99,12 @@ const Component = (props) => {
 
   return (
 		<div className={`date-picker-container flex_ radius-8 ${props.state} ${props.date}`}>
-			<input value={dayjs(startDate).format('YYYY.MM.DD')} onClick={onCalender}/>
+			<input value={dayjs(startDate).format("YYYY.MM.DD")} onClick={onCalender}/>
 			<div className="icon-box flex_">
 				<Icon size={12} color="#574Aff" stroke="" icon="arrowRight" />
 			</div>
-			<input value={dayjs(endDate).format('YYYY.MM.DD')} onClick={onCalender}/>
-			<div className={`calender-wrap flex_ radius-8 ${isCalenderShow ? 'show' : 'hide'}`}>
+			<input value={dayjs(endDate).format("YYYY.MM.DD")} onClick={onCalender}/>
+			<div className={`calender-wrap flex_ radius-8 ${isCalenderShow ? "show" : "hide"}`}>
 				<div className="pick-date-wrap flex_ body-3-R">
 					<h6 className="body-2-B">
 						시간 설정
@@ -179,18 +179,18 @@ const Component = (props) => {
 							</div>
 							<div className="header-btn-wrap flex_">
 								<button
-									type='button'
+									type="button"
 									onClick={decreaseMonth}
 									disabled={prevMonthButtonDisabled}
 								>
-									<Icon icon="chevronLeft" size={9} color="#464749" stroke='none' />
+									<Icon icon="chevronLeft" size={9} color="#464749" stroke="none" />
 								</button>
 								<button
-									type='button'
+									type="button"
 									onClick={increaseMonth}
 									disabled={nextMonthButtonDisabled}
 								>
-									<Icon icon="chevronRight" size={9} color="#464749" stroke='none' />
+									<Icon icon="chevronRight" size={9} color="#464749" stroke="none" />
 								</button>
 							</div>
 						</div>
@@ -198,7 +198,7 @@ const Component = (props) => {
 				/>
 				<div className="calender-btn-wrap flex_ caption-R">
 					<div onClick={onClickClose} className="radius-8 txt-second close-btn">취소</div>
-					<div onClick={onClickSubmit} className={`radius-8 submit-btn ${btnActive? 'active':''}`}>선택 완료</div>
+					<div onClick={onClickSubmit} className={`radius-8 submit-btn ${btnActive? "active":""}`}>선택 완료</div>
 				</div>
 			</div>
 		</div>

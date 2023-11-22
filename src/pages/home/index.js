@@ -1,7 +1,7 @@
 
-import Component from 'containers/home/index';
-import NavigationTopLogin from "components/navigations/navigation_top_login";
-import NavigationSide from "components/navigations/navigation_side";
+import Component from "/src/containers/home/index";
+import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
+import NavigationSide from "/src/components/navigations/navigation_side";
 const Page = ({ ...props }) => (
   <>
 		<NavigationTopLogin />

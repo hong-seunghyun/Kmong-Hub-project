@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
 
 const Component = (props) => {
@@ -10,7 +10,7 @@ const Component = (props) => {
 
 	const ButtonCtaS = () => {
 		return(
-			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
+			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
 				{props.text}
 			</button>
 		)

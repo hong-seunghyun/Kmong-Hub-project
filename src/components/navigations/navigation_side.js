@@ -1,108 +1,108 @@
-import React, {useState} from 'react';
-import Icon from "components/icon/icon.tsx";
-import Link from 'next/link';
+import React, {useState} from "react";
+import Icon from "/src/components/icon/icon.tsx";
+import Link from "next/link";
 
 const SUB_MENU_LIST_CONTENT = [
 	{
-		name:'콘텐츠 설정',
-		href:'/'
+		name:"콘텐츠 설정",
+		href:"/"
 	},
 	{
-		name:'기술 이전 관리',
-		href:'/'
+		name:"기술 이전 관리",
+		href:"/"
 	},
 	{
-		name:'뉴스 관리',
-		href:'/'
+		name:"뉴스 관리",
+		href:"/"
 	},
 	{
-		name:'행사 관리',
-		href:'/'
+		name:"행사 관리",
+		href:"/"
 	},
 	{
-		name:'지원사업 관리',
-		href:'/'
+		name:"지원사업 관리",
+		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_MEMBER = [
 	{
-		name:'회원 관리',
-		href:'/'
+		name:"회원 관리",
+		href:"/"
 	},
 	{
-		name:'휴먼 회원 관리',
-		href:'/'
+		name:"휴먼 회원 관리",
+		href:"/"
 	},
 	{
-		name:'운영자 관리',
-		href:'/'
+		name:"운영자 관리",
+		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_TRANSACTION = [
 	{
-		name:'업체 관리',
-		href:'/'
+		name:"업체 관리",
+		href:"/"
 	},
 	{
-		name:'담당자 관리',
-		href:'/'
+		name:"담당자 관리",
+		href:"/"
 	},
 	{
-		name:'거래 관리',
-		href:'/'
+		name:"거래 관리",
+		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_DESIGN = [
 	{
-		name:'디자인 보관함',
-		href:'/'
+		name:"디자인 보관함",
+		href:"/"
 	},
 	{
-		name:'팝업 관리',
-		href:'/'
+		name:"팝업 관리",
+		href:"/"
 	},
 	{
-		name:'배너 관리',
-		href:'/'
+		name:"배너 관리",
+		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_MARKETING = [
 	{
-		name:'이메일 발송 관리',
-		href:'/'
+		name:"이메일 발송 관리",
+		href:"/"
 	},
 	{
-		name:'뉴스레터 발송 관리',
-		href:'/'
+		name:"뉴스레터 발송 관리",
+		href:"/"
 	},
 	{
-		name:'SMS 발송 관리',
-		href:'/'
+		name:"SMS 발송 관리",
+		href:"/"
 	},{
-		name:'마케팅 설정',
-		href:'/'
+		name:"마케팅 설정",
+		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_QUESTION = [
 	{
-		name:'기술이전 문의 관리',
-		href:'/'
+		name:"기술이전 문의 관리",
+		href:"/"
 	},
 	{
-		name:'행사 문의 관리',
-		href:'/'
+		name:"행사 문의 관리",
+		href:"/"
 	},
 	{
-		name:'뉴스 문의 관리',
-		href:'/'
+		name:"뉴스 문의 관리",
+		href:"/"
 	},{
-		name:'지원사업 문의 관리',
-		href:'/'
+		name:"지원사업 문의 관리",
+		href:"/"
 	}
 ];
 
@@ -184,7 +184,7 @@ const Component = () => {
 						</span>
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentMenu ? 'show' : ''}`} >
+				<li className={`radius-8 list-wrap ${isContentMenu ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white " onClick={() => onMenuContent()}>
 						<span className="flex_">
 							<Icon size={16} color="inherit" stroke="none" icon="content"  />
@@ -222,7 +222,7 @@ const Component = () => {
 						</span>
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentMember ? 'show' : ''}`} >
+				<li className={`radius-8 list-wrap ${isContentMember ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white" onClick={() => onMenuMember()}>
 						<span className="flex_">
 							<Icon size={15} color="none" stroke="inherit" icon="member" />
@@ -238,7 +238,7 @@ const Component = () => {
 						))}
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentTransaction ? 'show' : ''}`} >
+				<li className={`radius-8 list-wrap ${isContentTransaction ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white" onClick={() => onMenuTransaction()} >
 						<span className="flex_">
 							<Icon size={12} color="inherit" stroke="none" icon="transaction" />
@@ -265,7 +265,7 @@ const Component = () => {
 						</span>
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentDesign ? 'show' : ''}`} onClick={() => onMenuDesign()}>
+				<li className={`radius-8 list-wrap ${isContentDesign ? "show" : ""}`} onClick={() => onMenuDesign()}>
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={15} color="none" stroke="inherit" icon="design" />
@@ -281,7 +281,7 @@ const Component = () => {
 						))}
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentMarketing ? 'show' : ''}`} onClick={() => onMenuMarketing()}>
+				<li className={`radius-8 list-wrap ${isContentMarketing ? "show" : ""}`} onClick={() => onMenuMarketing()}>
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={14} color="inherit" stroke="none" icon="marketing" />
@@ -297,7 +297,7 @@ const Component = () => {
 						))}
 					</div>
 				</li>
-				<li className={`radius-8 list-wrap ${isContentQuestion ? 'show' : ''}`} onClick={() => onMenuQuestion()}>
+				<li className={`radius-8 list-wrap ${isContentQuestion ? "show" : ""}`} onClick={() => onMenuQuestion()}>
 					<div className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={15} color="none" stroke="inherit" icon="question" />

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 
 const Component = (props) => {
 	return(
-		<div className='table-head-container flex_ caption-R txt-disabled'>
+		<div className="table-head-container flex_ caption-R txt-disabled">
 			<div className="choice-cell">
 				{props.headChoice}
 			</div>

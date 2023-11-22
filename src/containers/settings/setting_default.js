@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Tab from "components/tabs/settings_tab_fixed";
-import Input from "components/textFields/textInput.tsx";
-import TextArea from "components/textFields/textArea.tsx";
-import Upload from "components/upload/upload"
-import OutlineBtn from "components/buttons/button_outline_l"
-import PrimaryBtn from "components/buttons/button_primary_l"
-import Icon from "components/icon/icon.tsx";
+import React, { useState } from "react";
+import Tab from "/src/components/tabs/settings_tab_fixed";
+import Input from "/src/components/textFields/textInput.tsx";
+import TextArea from "/src/components/textFields/textArea.tsx";
+import Upload from "/src/components/upload/upload"
+import OutlineBtn from "/src/components/buttons/button_outline_l"
+import PrimaryBtn from "/src/components/buttons/button_primary_l"
+import Icon from "/src/components/icon/icon.tsx";
 
 const Component = () => {
 	const [ subTab, setSubTab ] = useState(0);
@@ -18,7 +18,7 @@ const Component = () => {
 				<Input labelText="사이트 이름" placeholder="사이트 이름을 입력해주세요." valueType="" helperTextResult="none" iconState="false"/>
 				<TextArea labelText="사이트 소개" placeholder="사이트 소개를 입력해 주세요." valueType="" helperTextResult="none"/>
 				<div className="favicon-wrap">
-					<p className='caption-B'>파비콘</p>
+					<p className="caption-B">파비콘</p>
 					<Upload state="default" type="normal"/>
 					<p className="caption-R helper-txt">
 						허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
@@ -44,7 +44,7 @@ const Component = () => {
 		return(
 			<div className="sub-page-2 flex_">
 				<Input importState="none" labelText="관리자 수신 주소" placeholder="관리자 수신 주소를 입력해 주세요" valueType="" helperTextResult="none" iconState="false"/>
-				<OutlineBtn text={<Icon icon="plus" size={13} color="#464749" stroke='none'/>}/>
+				<OutlineBtn text={<Icon icon="plus" size={13} color="#464749" stroke="none"/>}/>
 			</div>
 		)
 	}

@@ -1,5 +1,5 @@
 
-import Component from 'containers/etc/rate-plan';
+import Component from "/src/containers/etc/rate-plan";
 const Page = ({ ...props }) => (
   <>
     <Component {...props} />

@@ -1,5 +1,5 @@
 
-import Component from 'containers/etc/user-guide-01';
+import Component from "/src/containers/etc/user-guide-01";
 const Page = ({ ...props }) => (
   <>
     <Component {...props} />

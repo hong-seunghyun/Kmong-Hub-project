@@ -1,13 +1,1 @@
-{
-  "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/404": "pages/404.js",
-  "/_app": "pages/_app.js",
-  "/etc/rate-plan": "pages/etc/rate-plan.js",
-  "/etc/user-guide-01": "pages/etc/user-guide-01.js",
-  "/etc/user-guide-02": "pages/etc/user-guide-02.js",
-  "/": "pages/index.js",
-  "/home": "pages/home.js",
-  "/settings/settings": "pages/settings/settings.js",
-  "/settings/settings_business": "pages/settings/settings_business.js"
-}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/_document":"pages/_document.js","/etc/rate-plan":"pages/etc/rate-plan.html","/etc/user-guide-01":"pages/etc/user-guide-01.html","/etc/user-guide-02":"pages/etc/user-guide-02.html","/home":"pages/home.html","/":"pages/index.html","/settings/settings":"pages/settings/settings.html","/settings/settings_business":"pages/settings/settings_business.html","/404":"pages/404.html"}

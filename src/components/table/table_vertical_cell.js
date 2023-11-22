@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Label from 'components/label/label'
-import TextButtonUnderlinePrimaryS from "components/buttons/text_button_underline_primary_s";
+import Label from "/src/components/label/label"
+import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 
 const Component = (props) => {
 	return(
-		<div className='table-cell-container flex_ radius-8 body-3-R txt-third '>
+		<div className="table-cell-container flex_ radius-8 body-3-R txt-third ">
 			<div className="choice-cell">
-				<input type='checkbox' />
+				<input type="checkbox" />
 			</div>
 			<div className="category-cell">
 				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>

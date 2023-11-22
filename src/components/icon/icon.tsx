@@ -1,6 +1,6 @@
 // icon.tsx
 import * as React from "react";
-import { iconName, IconSet } from "components/icon/iconConstants.ts";
+import { iconName, IconSet } from "../icon/iconConstants";
 
 interface IconProps {
 	icon: iconName;

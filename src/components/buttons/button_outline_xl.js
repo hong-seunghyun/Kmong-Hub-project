@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
 
 const Component = (props) => {
@@ -9,7 +9,7 @@ const Component = (props) => {
 	}
 	const ButtonOutlineXl = () => {
 		return(
-			<button className={`btn_ border-gray-3 radius-8 bg-white btn-xl body-1-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
+			<button className={`btn_ border-gray-3 radius-8 bg-white btn-xl body-1-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
 				{props.text}
 			</button>
 		)

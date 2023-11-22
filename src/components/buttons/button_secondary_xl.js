@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Icon from "components/icon/icon.tsx";
+import React, {useState} from "react";
+import Icon from "/src/components/icon/icon.tsx";
 
 
 const Component = (props) => {
@@ -11,11 +11,11 @@ const Component = (props) => {
 
 	const ButtonSecondaryXl = () => {
 		return(
-			<button className={`btn_ radius-8 ac-purple btn-xl body-1-R ${isButton ? 'pressed' : ''} ${props.state}`} onClick={onClickActive} >
+			<button className={`btn_ radius-8 ac-purple btn-xl body-1-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
 				<span className="flex_">
-					<Icon size={11.6} color='#fff' stroke='#fff' icon='plus' />
+					<Icon size={11.6} color="#fff" stroke="#fff" icon="plus" />
 						{props.text} 
-						<Icon size={13} color='#fff' stroke='#fff' icon='chevronRight' />
+						<Icon size={13} color="#fff" stroke="#fff" icon="chevronRight" />
 				</span>
 			</button>
 		)

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Label from 'components/label/label';
+import Label from "/src/components/label/label";
 
 const Component = () => {
 	return(

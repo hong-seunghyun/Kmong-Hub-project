@@ -1,20 +1,18 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import Header from '/src/components/navigations/navigation_top'
-import ButtonOutlineL from "components/buttons/button_outline_l";
+import Header from "/src/components/navigations/navigation_top"
+import ButtonOutlineL from "/src/components/buttons/button_outline_l";
 
 const sxContainer = {
-	marginTop:'184px',
-	marginBottom:'484px',
-	textAlign:'center',
+	marginTop:"184px",
+	marginBottom:"484px",
+	textAlign:"center",
 }
 
 const sxMargin25 ={
-	marginTop:'25px',
+	marginTop:"25px",
 }
 
 export default function NotFound(){
-	const history = useHistory();
 
 	return(
 		<div>
@@ -36,10 +34,10 @@ export default function NotFound(){
 				<path d="M153.697 41.6C149.897 35.4 147.737 28.92 147.737 20.88C147.737 12.8799 149.897 6.39995 153.697 0.199951L157.377 1.75995C154.017 7.71995 152.497 14.04 152.497 20.88C152.497 27.8 154.017 34.08 157.377 40.04L153.697 41.6Z" fill="#D1D4D6"/>
 			</svg>
 
-			<p className='body-2-R' style={{color:'#464749', marginBottom:'16px'}}>
+			<p className="body-2-R" style={{color:"#464749", marginBottom:"16px"}}>
 				페이지가 존재하지 않거나 사용할 수 없는 페이지입니다.
 			</p>
-			<div onClick={() => history.goBack()}>
+			<div>
 				<ButtonOutlineL text="이전으로 가기" />
 			</div>
 		</div>

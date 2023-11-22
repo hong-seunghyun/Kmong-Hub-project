@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Icon from "components/icon/icon.tsx";
+import Icon from "/src/components/icon/icon.tsx";
 const Component = () => {
 	return(
 		<div>
@@ -45,7 +45,7 @@ const Component = () => {
 				</span>
 			</div>
 
-			<div style={{margin:'20px'}} />
+			<div style={{margin:"20px"}} />
 
 			<div className="pagnation-container body-3-R pagnation-R flex_">
 				<span className="pagnation_box arrow disabled">
@@ -88,7 +88,7 @@ const Component = () => {
 				</span>
 			</div>
 
-			<div style={{margin:'20px'}} />
+			<div style={{margin:"20px"}} />
 
 			<div className="pagnation-container body-3-R pagnation-S flex_">
 				<span className="pagnation_box arrow">

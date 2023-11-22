@@ -1,25 +1,25 @@
-import React from 'react';
-import Layout from 'components/layout/app/main-index';
-import Tab from "components/tabs/user_guide_tab_fixed";
+import React from "react";
+import Layout from "/src/components/layout/app/main-index";
+import Tab from "/src/components/tabs/user_guide_tab_fixed";
 
 const Component = () => {
 	return(
 		<Layout>
 			<div className="user-guide-container">
-				<div className='content-container'>
-					<h1 className='heading-1-B'>
+				<div className="content-container">
+					<h1 className="heading-1-B">
 						사용자 가이드
 					</h1>
 					<Tab active={1}/>
-					<div className='content radius-20'>
-						<h3 className='heading-1-B'>
+					<div className="content radius-20">
+						<h3 className="heading-1-B">
 							이용약관
 						</h3>
 						<div>
-							<p className='title body-2-B'>
+							<p className="title body-2-B">
 								제1조(서비스 미이용자에 대한 개인정보처리)
 							</p>
-							<p className='text body-3-R txt-third'>
+							<p className="text body-3-R txt-third">
 								① 회사는 1년 동안 회사의 서비스를 이용하지 않은 이용자의 개인정보는 원칙적으 로 이용자에게 사전통지하고 개인정보를 파기하거나 별도로 분리하여 저장합니다. <br />
 								② 회사는 장기 미이용 이용자의 개인정보는 별도로 분리되어 안전하게 보관하게 되며, 해당 이용자의 통지는 분리 보관 처리 일을 기준으로 최소 30일 이전에 전 자우편주소로 전송됩니다. <br />
 								③ 장기 미이용 이용자는 회사가 미이용자 DB를 별도로 분리하기 전에 계속 서비 스를 이용하고자 하는 경우 웹사이트(이하‘모바일앱’ 포함)에 로그인하시면 됩 니다. <br />
@@ -28,10 +28,10 @@ const Component = () => {
 						</div>
 
 						<div>
-							<p className='title body-2-B'>
+							<p className="title body-2-B">
 								제1조(서비스 미이용자에 대한 개인정보처리)
 							</p>
-							<p className='text body-3-R txt-third'>
+							<p className="text body-3-R txt-third">
 								① 회사는 1년 동안 회사의 서비스를 이용하지 않은 이용자의 개인정보는 원칙적으 로 이용자에게 사전통지하고 개인정보를 파기하거나 별도로 분리하여 저장합니다. <br />
 								② 회사는 장기 미이용 이용자의 개인정보는 별도로 분리되어 안전하게 보관하게 되며, 해당 이용자의 통지는 분리 보관 처리 일을 기준으로 최소 30일 이전에 전 자우편주소로 전송됩니다. <br />
 								③ 장기 미이용 이용자는 회사가 미이용자 DB를 별도로 분리하기 전에 계속 서비 스를 이용하고자 하는 경우 웹사이트(이하‘모바일앱’ 포함)에 로그인하시면 됩 니다. <br />
@@ -40,10 +40,10 @@ const Component = () => {
 						</div>
 
 						<div>
-							<p className='title body-2-B'>
+							<p className="title body-2-B">
 								제1조(서비스 미이용자에 대한 개인정보처리)
 							</p>
-							<p className='text body-3-R txt-third'>
+							<p className="text body-3-R txt-third">
 								① 회사는 1년 동안 회사의 서비스를 이용하지 않은 이용자의 개인정보는 원칙적으 로 이용자에게 사전통지하고 개인정보를 파기하거나 별도로 분리하여 저장합니다. <br />
 								② 회사는 장기 미이용 이용자의 개인정보는 별도로 분리되어 안전하게 보관하게 되며, 해당 이용자의 통지는 분리 보관 처리 일을 기준으로 최소 30일 이전에 전 자우편주소로 전송됩니다. <br />
 								③ 장기 미이용 이용자는 회사가 미이용자 DB를 별도로 분리하기 전에 계속 서비 스를 이용하고자 하는 경우 웹사이트(이하‘모바일앱’ 포함)에 로그인하시면 됩 니다. <br />
@@ -52,10 +52,10 @@ const Component = () => {
 						</div>
 
 						<div>
-							<p className='title body-2-B'>
+							<p className="title body-2-B">
 								제1조(서비스 미이용자에 대한 개인정보처리)
 							</p>
-							<p className='text body-3-R txt-third'>
+							<p className="text body-3-R txt-third">
 								① 회사는 1년 동안 회사의 서비스를 이용하지 않은 이용자의 개인정보는 원칙적으 로 이용자에게 사전통지하고 개인정보를 파기하거나 별도로 분리하여 저장합니다. <br />
 								② 회사는 장기 미이용 이용자의 개인정보는 별도로 분리되어 안전하게 보관하게 되며, 해당 이용자의 통지는 분리 보관 처리 일을 기준으로 최소 30일 이전에 전 자우편주소로 전송됩니다. <br />
 								③ 장기 미이용 이용자는 회사가 미이용자 DB를 별도로 분리하기 전에 계속 서비 스를 이용하고자 하는 경우 웹사이트(이하‘모바일앱’ 포함)에 로그인하시면 됩 니다. <br />
@@ -64,10 +64,10 @@ const Component = () => {
 						</div>
 
 						<div>
-							<p className='title body-2-B'>
+							<p className="title body-2-B">
 								제1조(서비스 미이용자에 대한 개인정보처리)
 							</p>
-							<p className='text body-3-R txt-third'>
+							<p className="text body-3-R txt-third">
 								① 회사는 1년 동안 회사의 서비스를 이용하지 않은 이용자의 개인정보는 원칙적으 로 이용자에게 사전통지하고 개인정보를 파기하거나 별도로 분리하여 저장합니다. <br />
 								② 회사는 장기 미이용 이용자의 개인정보는 별도로 분리되어 안전하게 보관하게 되며, 해당 이용자의 통지는 분리 보관 처리 일을 기준으로 최소 30일 이전에 전 자우편주소로 전송됩니다. <br />
 								③ 장기 미이용 이용자는 회사가 미이용자 DB를 별도로 분리하기 전에 계속 서비 스를 이용하고자 하는 경우 웹사이트(이하‘모바일앱’ 포함)에 로그인하시면 됩 니다. <br />

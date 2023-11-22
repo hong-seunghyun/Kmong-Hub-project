@@ -1,4 +1,4 @@
-import Header from 'components/navigations/navigation_top'
+import Header from "/src/components/navigations/navigation_top"
 
 const Component = () => {
   return (

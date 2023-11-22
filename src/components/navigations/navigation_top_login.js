@@ -1,6 +1,6 @@
-import React from 'react';
-import Icon from "components/icon/icon.tsx";
-import ButtonSecondaryS from "components/buttons/button_secondary_s";
+import React from "react";
+import Icon from "/src/components/icon/icon.tsx";
+import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 
 
 const Component = () => {
@@ -9,7 +9,7 @@ const Component = () => {
 			<img src="/images/logo.png" alt="logo" />
 			<div className="header-content flex_">
 				<div className="icon-wrap flex_">
-					<Icon size={24} icon="bell" color="none" stroke='#464749' />
+					<Icon size={24} icon="bell" color="none" stroke="#464749" />
 				</div>
 				<div className="user-wrap flex_ body-3-R">
 					<img src="/images/user_icon_s.png" alt="logo" />

@@ -1,4 +1,4 @@
-import Navigation from 'components/navigations/navigation_side'
+import Navigation from "/src/components/navigations/navigation_side"
 
 const Component = () => {
   return (

@@ -1,11 +1,11 @@
-import React from 'react';
-import ButtonCta from "components/buttons/button_cta";
+import React from "react";
+import ButtonCta from "/src/components/buttons/button_cta";
 import Link from "next/link";
 
 const Component = () => {
 
 	const linkBtn = () => {
-    window.location.href="/settings/settings";
+    window.location.href="/home";
   };
 
 	return(

@@ -5,7 +5,7 @@ type Email = {
 }
 const helperTxtSet: Record<helperTxt, Email> = {
 	none:{
-		value:''
+		value:""
 	},
 	helperA: {
 		value:"띄어쓰기 없이 영/숫자 6-10자 입력하세요."

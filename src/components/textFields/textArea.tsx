@@ -1,12 +1,12 @@
 // email_input.tsx
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
-import { helperTxt, helperTxtSet } from "components/textFields/helperText.ts";
+import { helperTxt, helperTxtSet } from "../textFields/helperText";
 
 interface InputProps {
 	placeholder?: string;
 	valueType?: string;
-	helperTextResult?: helperTxt;
+	helperTextResult: helperTxt;
 	labelText?: string;
 	importState?: string;
 };
@@ -18,12 +18,11 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
   };
 	return(
 		<div className="text-fields-wrap">
-			<p className='caption-B'>{labelText}<span className={importState}>*</span></p>
+			<p className="caption-B">{labelText}<span className={importState}>*</span></p>
 			<div className={`textarea-container ${valueType}`} >
 				<div className="wrap radius-8 bg-lightGray">
 					<textarea 
 						onChange={onInputHandler}
-						maxLength="1200"
 						className="body-3-R radius-8"
 						placeholder={placeholder}
 					/>

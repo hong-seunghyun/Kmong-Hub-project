@@ -1,5 +1,5 @@
-import React from 'react';
-import Layout from 'components/layout/app/main-index';
+import React from "react";
+import Layout from "/src/components/layout/app/main-index";
 
 const Component = () => {
 	return(
@@ -10,10 +10,10 @@ const Component = () => {
 					<thead>
 						<tr>
 							<th className="function">요금제별 제공 기능</th>
-							<th className='free'>FREE</th>
-							<th className='basic'>BASIC</th>
-							<th className='premium'>PREMIUM</th>
-							<th className='business'>BUSINESS</th>
+							<th className="free">FREE</th>
+							<th className="basic">BASIC</th>
+							<th className="premium">PREMIUM</th>
+							<th className="business">BUSINESS</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,9 +45,9 @@ const Component = () => {
 							<td>월 3,000건</td>
 							<td>월 10,000건</td>
 						</tr>
-						<tr className='state-tr'>
+						<tr className="state-tr">
 							<th>도메인 설정 </th>
-							<td className='fail'>사용불가</td>
+							<td className="fail">사용불가</td>
 							<td>사용</td>
 							<td>사용</td>
 							<td>사용</td>
@@ -66,17 +66,17 @@ const Component = () => {
 							<td>월 100건</td>
 							<td>월 500건</td>
 						</tr>
-						<tr className='state-tr'>
+						<tr className="state-tr">
 							<th>운영자 관리 기능</th>
-							<td className='fail'>사용불가</td>
-							<td className='fail'>사용불가</td>
+							<td className="fail">사용불가</td>
+							<td className="fail">사용불가</td>
 							<td>사용</td>
 							<td>사용</td>
 						</tr>
-						<tr className='state-tr'>
+						<tr className="state-tr">
 							<th>AI 챗봇 사용</th>
-							<td className='fail'>사용불가</td>
-							<td className='fail'>사용불가</td>
+							<td className="fail">사용불가</td>
+							<td className="fail">사용불가</td>
 							<td>사용</td>
 							<td>사용</td>
 						</tr>

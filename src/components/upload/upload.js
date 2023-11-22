@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Icon from 'components/icon/icon.tsx'
-import Label from 'components/label/label'
-import ButtonSecondaryS from "components/buttons/button_secondary_s";
+import Icon from "/src/components/icon/icon.tsx"
+import Label from "/src/components/label/label"
+import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 
 const Component = (props) => {
 	return(
@@ -24,7 +24,7 @@ const Component = (props) => {
 			<div className="proceeding-box">
 				<div className="flex_ title-line body-3-B">
 					<span>파일명.확장자</span>
-					<Icon icon="cancel" size={9} color="#464749" stroke=''/>
+					<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 				</div>
 				<div className="proceeding-line radius-8">
 					<span></span>
@@ -44,7 +44,7 @@ const Component = (props) => {
 						<h6 className="body-3-B">기술문서명</h6>
 						<p className="caption-R">연구자명<span>|</span>등록연도</p>
 					</div>
-					<Icon icon="cancel" size={9} color="#464749" stroke=''/>
+					<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 				</div>
 
 				<div className="done-normal-text-box flex_">
@@ -52,7 +52,7 @@ const Component = (props) => {
 						<h6 className="body-3-B">파일명.확장자</h6>
 						<p className="caption-R">파일크기 mb</p>
 					</div>
-					<Icon icon="cancel" size={9} color="#464749" stroke=''/>
+					<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 				</div>
 
 				<div className="done-preview-text-box flex_">
@@ -62,7 +62,7 @@ const Component = (props) => {
 					</div>
 					<div className="flex_">
 						<ButtonSecondaryS text="AI 수정"/>
-						<Icon icon="cancel" size={9} color="#464749" stroke=''/>
+						<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 					</div>
 				</div>
 			</div>

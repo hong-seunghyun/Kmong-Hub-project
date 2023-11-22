@@ -1,12 +1,12 @@
 // email_input.tsx
-import React from 'react';
+import React from "react";
 
-import { helperTxt, helperTxtSet } from "components/textFields/helperText.ts";
+import { helperTxt, helperTxtSet } from "../textFields/helperText";
 
 interface InputProps {
 	placeholder?: string;
 	valueType?: string;
-	helperTextResult?: helperTxt;
+	helperTextResult: helperTxt;
 	labelText?: string;
 	importState?: string;
 	iconState?: string;
@@ -14,7 +14,7 @@ interface InputProps {
 
 const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState }: InputProps) => (
 	<div className="text-fields-wrap">
-		<p className='caption-B'>{labelText}<span className={importState}>*</span></p>
+		<p className="caption-B">{labelText}<span className={importState}>*</span></p>
 		<div className={`input-container ${valueType} ${iconState}`} >
 			<div className="wrap radius-8 bg-lightGray">
 				<svg className="icon-email" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">

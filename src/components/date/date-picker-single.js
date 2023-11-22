@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
-import DatePicker from 'react-datepicker';
+import DatePicker from "react-datepicker";
 import { ko } from "date-fns/esm/locale";
-import dayjs from 'dayjs'
+import dayjs from "dayjs"
 import { getYear, getMonth } from "date-fns";
-import 'react-datepicker/dist/react-datepicker.css';
-import Icon from 'components/icon/icon.tsx';
+import "react-datepicker/dist/react-datepicker.css";
+import Icon from "/src/components/icon/icon.tsx";
 
 const Component = (props) => {
-	const _ = require('lodash');
+	const _ = require("lodash");
 	const [ isCalenderShow, setCalenderShow ] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	const years = _.range(1990, getYear(new Date()) + 1, 1); // 수정
-	const months = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']; 
+	const months = ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]; 
 
 
 	const onCalender = () => {
@@ -25,8 +25,8 @@ const Component = (props) => {
 
   return (
 		<div className={`date-picker-container date-picker-container-single flex_ radius-8 ${props.state} ${props.date}`}>
-			<input value={dayjs(startDate).format('YYYY.MM.DD')} onClick={onCalender}/>
-			<div className={`calender-wrap flex_ radius-8 ${isCalenderShow ? 'show' : 'hide'}`}>
+			<input value={dayjs(startDate).format("YYYY.MM.DD")} onClick={onCalender}/>
+			<div className={`calender-wrap flex_ radius-8 ${isCalenderShow ? "show" : "hide"}`}>
 				<DatePicker
 					locale={ko}
 					selected={startDate}
@@ -74,18 +74,18 @@ const Component = (props) => {
 							</div>
 							<div className="header-btn-wrap flex_">
 								<button
-									type='button'
+									type="button"
 									onClick={decreaseMonth}
 									disabled={prevMonthButtonDisabled}
 								>
-									<Icon icon="chevronLeft" size={9} color="#464749" stroke='none' />
+									<Icon icon="chevronLeft" size={9} color="#464749" stroke="none" />
 								</button>
 								<button
-									type='button'
+									type="button"
 									onClick={increaseMonth}
 									disabled={nextMonthButtonDisabled}
 								>
-									<Icon icon="chevronRight" size={9} color="#464749" stroke='none' />
+									<Icon icon="chevronRight" size={9} color="#464749" stroke="none" />
 								</button>
 							</div>
 						</div>

@@ -1,56 +1,56 @@
-import React, {useState} from 'react';
-import Icon from "components/icon/icon.tsx";
+import React, {useState} from "react";
+import Icon from "/src/components/icon/icon.tsx";
 
 
 const dummy = [
 	{
 		id: 1,
-		title : 'TestDate 1',
+		title : "TestDate 1",
 	},
 	{
 		id: 2,
-		title : 'TestDate 2',
+		title : "TestDate 2",
 	},
 	{
 		id: 3,
-		title : 'TestDate 3',
+		title : "TestDate 3",
 	},
 	{
 		id: 4,
-		title : 'TestDate 4',
+		title : "TestDate 4",
 	},
 	{
 		id: 5,
-		title : 'd',
+		title : "d",
 	},
 	{
 		id: 6,
-		title : 'c',
+		title : "c",
 	},
 	{
 		id: 7,
-		title : 'b',
+		title : "b",
 	},
 	{
 		id: 8,
-		title : 'a',
+		title : "a",
 	},
 	{
 		id: 9,
-		title : 'ㄱㄴㄷㄹ',
+		title : "ㄱㄴㄷㄹ",
 	},
 	{
 		id: 10,
-		title : 'ㅁㅂ ㅅㅇ',
+		title : "ㅁㅂ ㅅㅇ",
 	},
 	{
 		id: 11,
-		title : 'ㅈㅋㅍㅎ',
+		title : "ㅈㅋㅍㅎ",
 	},
 ]
 
 const Component = () => {
-	const [ search, setSearch ] = useState('');
+	const [ search, setSearch ] = useState("");
 	const onChange = (e) => {
 		setSearch(e.target.value);
 	}
@@ -64,12 +64,12 @@ const Component = () => {
 				<input 
 					className="body-3-R txt-primary" 
 					type="text" 
-					placeholder='검색어를 입력해 주세요.'
+					placeholder="검색어를 입력해 주세요."
 					value={search}
 					onChange={onChange}	
 				/>
 				<span className="icon_serach">
-					<Icon size={16} color="#574AFF" stroke='' icon="search" />
+					<Icon size={16} color="#574AFF" stroke="" icon="search" />
 				</span>
 			</div>
 			<div className="wrap radius-8 border-gray-4">

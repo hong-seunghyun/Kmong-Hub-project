@@ -1,8 +1,8 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import Header from './header';
-import Content from './content';
-import Footer from './footer';
+import Header from "./header";
+import Content from "./content";
+import Footer from "./footer";
 
 const Component = ({ children }) => (
   <>

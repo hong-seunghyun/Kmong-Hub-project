@@ -1,11 +1,11 @@
-import React from 'react';
-import Icon from 'components/icon/icon.tsx';
+import React from "react";
+import Icon from "/src/components/icon/icon.tsx";
 
 
 const Component = () => {
 	return(
 		<div className="snackBar-container flex_ radius-8">
-			<Icon size={24} color="#574AFF" stroke='' icon='checkCircle'/>
+			<Icon size={24} color="#574AFF" stroke="" icon="checkCircle"/>
 			<p className="body-2-R">
 				비밀번호가 변경되었어요.
 			</p>
