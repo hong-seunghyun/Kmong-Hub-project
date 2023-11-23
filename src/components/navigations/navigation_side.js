@@ -1,27 +1,32 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Icon from "/src/components/icon/icon.tsx";
 import Link from "next/link";
 
 const SUB_MENU_LIST_CONTENT = [
 	{
-		name:"콘텐츠 설정",
-		href:"/"
+		name:<Link href={`/contents`}>콘텐츠 설정</Link>,
+		id:0,
+		state:'false'
 	},
 	{
-		name:"기술 이전 관리",
-		href:"/"
+		name:<Link href={`/technology`}>기술 이전 관리</Link>,
+		id:1,
+		state:'false'
 	},
 	{
 		name:"뉴스 관리",
-		href:"/"
+		id:2,
+		state:'false'
 	},
 	{
 		name:"행사 관리",
-		href:"/"
+		id:3,
+		state:'false'
 	},
 	{
 		name:"지원사업 관리",
-		href:"/"
+		id:4,
+		state:'false'
 	}
 ];
 
@@ -106,13 +111,26 @@ const SUB_MENU_LIST_QUESTION = [
 	}
 ];
 
-const Component = () => {
+const Component = (props) => {
 	const [ isContentMenu, setContentMenu ] = useState(false);
 	const [ isContentMember, setContentMember ] = useState(false);
 	const [ isContentTransaction, setContentTransaction ] = useState(false);
 	const [ isContentDesign, setContentDesign ] = useState(false);
 	const [ isContentMarketing, setContentMarketing ] = useState(false);
 	const [ isContentQuestion, setContentQuestion ] = useState(false);
+
+	const navigationNumberResult = () => {
+		if( props.navigationNumber === 0 || props.navigationNumber === 1 ){
+			console.log(props.navigationNumber)
+			setContentMenu(true);
+			const resultNumber = props.navigationNumber;
+			const resultStateTrue = SUB_MENU_LIST_CONTENT.indexOf(item => item.state === 'true');
+			SUB_MENU_LIST_CONTENT[resultNumber] = {...SUB_MENU_LIST_CONTENT[resultNumber], state:'true'};	
+		};
+		return
+	};
+
+	useEffect(navigationNumberResult, []);
 
 	const onMenuContent = () => {
     if(!isContentMenu){
@@ -161,28 +179,28 @@ const Component = () => {
 		<div className="sidebar-wrap">
 			<ul>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
+					<Link href={`/home`} className="flex_ nav-box ac-white" >
 						<span className="flex_">
 							<Icon size={16} color="none" stroke="inherit" icon="home" />
-							<p><Link href={`/home`}>홈</Link></p>
+							<p>홈</p>
 						</span>
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
-						<span className="flex_">
-							<Icon size={17} color="none" stroke="inherit" icon="setting" />
-							<p>
-									<Link href={`/settings/settings`}>사이트 설정</Link>
-							</p>
-						</span>
-						<span className="icon-arrow">
-							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
-						</span>
-					</div>
+					<Link className="flex_ nav-box ac-white"  href={`/settings/settings`}>
+							<span className="flex_">
+								<Icon size={17} color="none" stroke="inherit" icon="setting" />
+								<p>
+										사이트 설정
+								</p>
+							</span>
+							<span className="icon-arrow">
+								<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
+							</span>
+					</Link>
 				</li>
 				<li className={`radius-8 list-wrap ${isContentMenu ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white " onClick={() => onMenuContent()}>
@@ -196,7 +214,7 @@ const Component = () => {
 					</div>
 					<div className="sub-nav-box bg-gray-8">
 						{SUB_MENU_LIST_CONTENT.map((item, index)=> (
-							<p key={index}>{item.name}</p>
+							<p key={index} className={item.state}>{item.name}</p>
 						))}
 					</div>
 				</li>

@@ -42,9 +42,11 @@ const Component = () => {
 	const TabContentC = () => {
 		setActiveSubTab(subTab);
 		return(
-			<div className="sub-page-2 flex_">
-				<Input importState="none" labelText="관리자 수신 주소" placeholder="관리자 수신 주소를 입력해 주세요" valueType="" helperTextResult="none" iconState="false"/>
-				<OutlineBtn text={<Icon icon="plus" size={13} color="#464749" stroke="none"/>}/>
+			<div className="sub-page-2">
+				<div className="flex_ button-input">
+					<Input importState="none" labelText="관리자 수신 주소" placeholder="관리자 수신 주소를 입력해 주세요" valueType="" helperTextResult="none" iconState="false"/>
+					<OutlineBtn text={<Icon icon="plus" size={13} color="#464749" stroke="none"/>}/>
+				</div>
 			</div>
 		)
 	}

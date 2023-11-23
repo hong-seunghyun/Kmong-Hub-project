@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 
-const Component = (props) => {
+const Component = ({state, id }) => {
+
 	return(
-		<div className={`toggle-container flex_ ${props.state}`}>
-			<input type="checkbox" id={props.id} />
-			<label  for={props.id} />
+		<div className={`toggle-container flex_ ${state}`}>
+			<input 
+				type="checkbox" 
+				id={id} 
+			/>
+			<label  for={id} />
 		</div>
 	)
 };

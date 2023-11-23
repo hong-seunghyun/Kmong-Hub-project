@@ -110,7 +110,7 @@ table{
 .bg-white{background-color:#fff;}
 .bg-white:hover{background-color: #F6F6FF; }
 .bg-white.pressed{background-color: #ECEAFF; }
-.bg-white.disabled{background-color: #EAEDF0; color:#B3B6B8; stroke:#B3B6B8; fill:#B3B6B8;}
+.bg-white.disabled{background: none !important; color:#B3B6B8; stroke:#B3B6B8; fill:#B3B6B8;}
 
 .bg-violet-1{background-color:#574AFF;}
 .bg-violet-2{background-color:#8177FF;}
@@ -178,7 +178,7 @@ table{
 .txt-second{color:#464749; stroke: #464749; fill:#464749;}
 .txt-second:hover{color:#757779; stroke: #757779; fill:#757779;}
 .txt-second.pressed{color:#464749; stroke: #464749; fill:#464749;}
-
+.txt-second-default{color:#464749;}
 .txt-third{color:#757779;}
 
 .txt-disabled{color:#b3b6b8;}

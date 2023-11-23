@@ -60,7 +60,7 @@ const Component = () => {
 					
 					<div className="box_ box-03 radius-20 flex_">
 						<div className="flex_">
-							<h6 className="body-2-R txt-second">
+							<h6 className="body-2-R txt-second-defalut">
 								AI 생성
 							</h6>
 							<div className="txt-disabled">
@@ -75,7 +75,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<h6 className="body-2-R txt-second">
+							<h6 className="body-2-R txt-second-defalut">
 								이메일 발송
 							</h6>
 							<div className="txt-disabled">
@@ -90,7 +90,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<h6 className="body-2-R txt-second">
+							<h6 className="body-2-R txt-second-defalut">
 								뉴스레터 발송
 							</h6>
 							<div className="txt-disabled">
@@ -105,7 +105,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<h6 className="body-2-R txt-second">
+							<h6 className="body-2-R txt-second-defalut">
 								SMS 발송
 							</h6>
 							<div className="txt-disabled">
@@ -120,7 +120,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<h6 className="body-2-R txt-second">
+							<h6 className="body-2-R txt-second-defalut">
 								전자계약 발송
 							</h6>
 							<div className="txt-disabled">
@@ -139,7 +139,7 @@ const Component = () => {
 					
 					<div className="box_ box-04 radius-20 flex_">
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -149,7 +149,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -159,7 +159,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -169,7 +169,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -179,7 +179,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -189,7 +189,7 @@ const Component = () => {
 						</div>
 
 						<div className="flex_">
-							<div className="top-count body-2-R txt-second bg-violet-4">
+							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
 								00/00
 							</div>
 
@@ -201,17 +201,17 @@ const Component = () => {
 
 					<h6 className="body-2-B box-title">사이트 현황</h6>
 
-					<div className="box_ box-05 flex_ radius-20">
+					<div className="box_ box-05 flex_">
 
 						<div>
 							<div className="title-wrap flex_ txt-white body-2-B">
 								<span>
-									<Icon icon="member" size={15} color="" stroke="#fff" />
+									<Icon icon="member" size={15} color="none" stroke="#fff" />
 									회원 관리
 								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="" />
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
 							</div>
-							<div className="content_ content-1 txt-second">
+							<div className="content_ content-1 txt-second-defalut">
 
 								<div className="body-2-R flex_">
 									<p>전체</p>
@@ -240,12 +240,12 @@ const Component = () => {
 						<div>
 							<div className="title-wrap flex_ txt-white body-2-B">
 								<span>
-									<Icon icon="content" size={15} color="" stroke="#fff" />
+									<Icon icon="content" size={15} color="none" stroke="#fff" />
 									콘텐츠 관리
 								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="" />
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
 							</div>
-							<div className="content_ content-1 txt-second">
+							<div className="content_ content-1 txt-second-defalut">
 
 								<div className="body-2-R flex_">
 									<p>
@@ -289,12 +289,12 @@ const Component = () => {
 						<div>
 							<div className="title-wrap flex_ txt-white body-2-B">
 								<span>
-									<Icon icon="document" size={15} color="" stroke="#fff" />
+									<Icon icon="document" size={15} color="none" stroke="#fff" />
 									기술 문서 관리
 								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="" />
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
 							</div>
-							<div className="content_ content-1 txt-second">
+							<div className="content_ content-1 txt-second-defalut">
 
 								<div className="body-2-R flex_">
 									<p>
@@ -329,16 +329,16 @@ const Component = () => {
 						<div>
 							<div className="title-wrap flex_ txt-white body-2-B">
 								<span>
-									<Icon icon="document" size={15} color="" stroke="#fff" />
+									<Icon icon="document" size={15} color="none" stroke="#fff" />
 									게시판 관리
 								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="" />
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
 							</div>
-							<div className="content_ content-1 txt-second">
+							<div className="content_ content-1 txt-second-defalut">
 
 								<div className="body-2-R flex_">
 									<p>
-										특허
+										전체
 									</p>
 									<p>
 										<span className="txt-violet-1">[10]</span>건
@@ -347,7 +347,60 @@ const Component = () => {
 
 								<div className="body-2-R flex_">
 									<p>
-										논문
+										신규
+									</p>
+									<p>
+										<span className="txt-violet-1">[10]</span>건
+									</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div>
+							<div className="title-wrap flex_ txt-white body-2-B">
+								<span>
+									<Icon icon="question" size={15} color="none" stroke="#fff" />
+									문의 관리
+								</span>
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+							</div>
+							<div className="content_ content-1 txt-second-defalut">
+
+								<div className="body-2-R flex_">
+									<p>
+										전체
+									</p>
+									<p>
+										<span className="txt-primary">[10]</span>건
+									</p>
+								</div>
+
+								<div className="body-2-R flex_">
+									<p>
+										미확인
+									</p>
+									<p>
+										<span className="txt-violet-1">[10]</span>건
+									</p>
+								</div>
+
+							</div>
+						</div>
+
+						<div>
+							<div className="title-wrap flex_ txt-white body-2-B">
+								<span>
+									<Icon icon="transaction" size={12} color="none" stroke="#fff" />
+									거래 관리
+								</span>
+								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+							</div>
+							<div className="content_ content-1 txt-second-defalut">
+
+								<div className="body-2-R flex_">
+									<p>
+										거래 요청
 									</p>
 									<p>
 										<span className="txt-violet-1">[10]</span>건
@@ -356,13 +409,40 @@ const Component = () => {
 
 								<div className="body-2-R flex_">
 									<p>
-										보고서
+										진행 중
 									</p>
 									<p>
-										<span className=" txt-violet-1">[10]</span>건
+										<span className="txt-violet-1">[10]</span>건
 									</p>
 								</div>
-								
+
+								<div className="body-2-R flex_">
+									<p>
+										거래 성공
+									</p>
+									<p>
+										<span className="txt-violet-1">[10]</span>건
+									</p>
+								</div>
+
+								<div className="body-2-R flex_">
+									<p>
+										거래 실패
+									</p>
+									<p>
+										<span className="txt-violet-1">[10]</span>건
+									</p>
+								</div>
+
+								<div className="body-2-R flex_">
+									<p>
+										보류
+									</p>
+									<p>
+										<span className="txt-violet-1">[10]</span>건
+									</p>
+								</div>
+
 							</div>
 						</div>
 

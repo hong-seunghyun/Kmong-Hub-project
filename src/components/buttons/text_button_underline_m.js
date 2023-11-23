@@ -13,9 +13,9 @@ const Component = (props) => {
 		return(
 		<button className={`btn_ btn_text txt-second body-3-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
 			<span className="flex_">
-				<Icon size={8.3} color="inherit" stroke="inherit" icon="plus" />
+				<Icon size={8.3} color="inherit" stroke="none" icon="plus" />
 				{props.text} 
-				<Icon size={9} color="inherit" stroke="inherit" icon="chevronRight" />
+				<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 			</span>
 		</button>
 		)

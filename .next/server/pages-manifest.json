@@ -1,1 +1,8 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/etc/rate-plan":"pages/etc/rate-plan.html","/_document":"pages/_document.js","/etc/user-guide-02":"pages/etc/user-guide-02.html","/etc/user-guide-01":"pages/etc/user-guide-01.html","/":"pages/index.html","/home":"pages/home.html","/settings/settings_business":"pages/settings/settings_business.html","/settings/settings":"pages/settings/settings.html","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/contents": "pages/contents.js",
+  "/settings/settings": "pages/settings/settings.js",
+  "/technology": "pages/technology.js"
+}

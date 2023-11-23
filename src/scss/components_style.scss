@@ -39,6 +39,10 @@
 						color:#574AFF;
 						background:#F6F6FF;
 					}
+					&.true{
+						color:#574AFF;
+						background:#F6F6FF;
+					}
 				}
 			}
 			.icon-arrow{
@@ -446,6 +450,17 @@
 		}
 		::placeholder{
 			color:#b3b6b8;
+		}
+		.input-count{
+			position: absolute;
+			top:50%;
+			right:16px;
+			transform:translateY(-50%);
+			color:#B3B6B8;
+			display: none;
+		}
+		.countShow{
+			display:block;
 		}
 		svg{
 			position:absolute;
@@ -944,7 +959,7 @@ footer{
 			top:50%;
 			transform:translateY(-50%);
 			background:#fff;
-			transition:all 1s;
+			transition:all 0.5s;
 		}
 	}
 	&.active{
