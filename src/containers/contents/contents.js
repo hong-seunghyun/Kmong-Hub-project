@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Tab from "/src/components/tabs/content_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
-import OutlineBtn from "/src/components/buttons/button_outline_l"
 import PrimaryBtn from "/src/components/buttons/button_primary_l"
-import Icon from "/src/components/icon/icon.tsx";
 import Badge from "/src/components/label/badge";
 import Radio from "/src/components/radio/radio";
 

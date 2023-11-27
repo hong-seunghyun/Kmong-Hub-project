@@ -1426,6 +1426,17 @@ footer{
 	.choice-cell{
 		width:44px;
 		justify-content: center;
+		> span{
+			display:none;
+		}
+		&.number{
+			> span{
+				display:inline-block;
+			}
+			input{
+				display:none;
+			}
+		}
 		input{
 			width:13px;
 			height:13px;

@@ -57,7 +57,7 @@ const Component = () => {
 			onMouseLeave={onDragEnd}
 		>
 			<ul className="flex_">
-				<li className="tab-item body-3-B active">
+				<li className="tab-item body-2-B active">
 					<span>
 						Tab item
 					</span>
@@ -89,7 +89,7 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -121,7 +121,7 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -153,7 +153,7 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -185,7 +185,7 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -217,7 +217,7 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -248,7 +248,7 @@ const Component = () => {
 						</li>
 					</ul>
 				</li>
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -279,7 +279,7 @@ const Component = () => {
 						</li>
 					</ul>
 				</li>
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -310,7 +310,7 @@ const Component = () => {
 						</li>
 					</ul>
 				</li>
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -341,7 +341,7 @@ const Component = () => {
 						</li>
 					</ul>
 				</li>
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -372,39 +372,7 @@ const Component = () => {
 						</li>
 					</ul>
 				</li>
-				<li className="tab-item body-3-B">
-					<span>
-						Tab item
-					</span>
-					<ul className="flex_ sub-tab-list body-3-R">
-						<li className="radius-8 active">
-							subTab
-						</li>
-						<li className="radius-8 disabled">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-						<li className="radius-8">
-							subTab
-						</li>
-					</ul>
-				</li>
-
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>
@@ -436,7 +404,39 @@ const Component = () => {
 					</ul>
 				</li>
 
-				<li className="tab-item body-3-B">
+				<li className="tab-item body-2-B">
+					<span>
+						Tab item
+					</span>
+					<ul className="flex_ sub-tab-list body-3-R">
+						<li className="radius-8 active">
+							subTab
+						</li>
+						<li className="radius-8 disabled">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+						<li className="radius-8">
+							subTab
+						</li>
+					</ul>
+				</li>
+
+				<li className="tab-item body-2-B">
 					<span>
 						Tab item
 					</span>

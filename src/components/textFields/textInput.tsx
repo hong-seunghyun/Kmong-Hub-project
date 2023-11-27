@@ -21,7 +21,7 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
   };
 	return(
 		<div className="text-fields-wrap">
-			<p className="caption-B">{labelText}<span className={importState}>*</span></p>
+			<p className="body-2-B">{labelText}<span className={importState}>*</span></p>
 			<div className={`input-container ${valueType} ${iconState}`} >
 				<div className="wrap radius-8 bg-lightGray">
 					<svg className="icon-email" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
 					</svg>
 					<input
 						onChange={onInputHandler}
-						className="body-3-R radius-8"
+						className="body-2-R radius-8"
 						placeholder={placeholder}
 					/>
 					<span className={`input-count caption-R ${inputCountState}`}><span className="txt-second-default">{inputCount}</span> / {maxLength}</span>
@@ -38,7 +38,7 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
 						<path fillRule="evenodd" clipRule="evenodd" d="M6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0ZM8.17661 8.17666C7.94229 8.41097 7.56239 8.41097 7.32808 8.17666L5.9999 6.84848L4.67172 8.17666C4.43741 8.41097 4.05751 8.41097 3.8232 8.17666C3.58888 7.94234 3.58888 7.56245 3.8232 7.32813L5.15137 5.99995L3.82327 4.67185C3.58895 4.43753 3.58895 4.05763 3.82327 3.82332C4.05758 3.589 4.43748 3.589 4.6718 3.82332L5.9999 5.15143L7.32801 3.82332C7.56232 3.589 7.94222 3.589 8.17654 3.82332C8.41085 4.05763 8.41085 4.43753 8.17654 4.67185L6.84843 5.99995L8.17661 7.32813C8.41092 7.56245 8.41092 7.94235 8.17661 8.17666Z" fill="#B3B6B8"/>
 					</svg>
 				</div>
-				<div className="helper-txt-wrap caption-R">
+				<div className="helper-txt-wrap body-3-R">
 					<p className="helper-txt">
 						{helperTxtSet[helperTextResult].value}
 					</p>

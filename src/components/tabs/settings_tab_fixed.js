@@ -1,37 +1,17 @@
 import React from "react";
-
+import Link from 'next/link';
 
 const Component = (props) => {
 	const propsACtiveNumber = props.activeSubTab;
 
-	const settingDefaultLink = () => {
-    window.location.href="/settings/settings";
-  };
-	const settingBusinessLink = () => {
-    window.location.href="/settings/settings_business";
-  };
-	const settingTermsLink = () => {
-    window.location.href="/settings/settings_terms";
-  };
-	const settingScriptLink = () => {
-    window.location.href="/settings/settings_script";
-  };
-	const settingDomainLink = () => {
-    window.location.href="/settings/settings_domain";
-  };
-	const settingSignUpLink = () => {
-    window.location.href="/settings/settings_join";
-  };
-
-
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
-				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingDefaultLink();
-						}}>
-						기본 정보
+				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings">
+							기본 정보
+						</Link>
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className={`radius-8 ${propsACtiveNumber === 0 ? "active" : ""}`} onClick={()=>{props.setSubTab(0)}}>
@@ -46,11 +26,11 @@ const Component = (props) => {
 					</ul>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingBusinessLink();
-						}}>
+				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings_business">
 						사업자 정보
+						</Link>
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className={`radius-8 ${propsACtiveNumber === 0 ? "active" : ""}`} onClick={()=>{props.setSubTab(0)}}>
@@ -62,11 +42,11 @@ const Component = (props) => {
 					</ul>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 2 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingTermsLink();
-						}}>
+				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings_terms">
 						약관 계정
+						</Link>
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className={`radius-8 ${propsACtiveNumber === 0 ? "active" : ""}`} onClick={()=>{props.setSubTab(0)}}>
@@ -90,11 +70,11 @@ const Component = (props) => {
 					</ul>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 3 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingScriptLink();
-						}}>
+				<li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings_script">
 						스크립트
+						</Link>
 					</span>
 					<ul className="flex_ sub-tab-list body-3-R">
 						<li className={`radius-8 ${propsACtiveNumber === 0 ? "active" : ""}`} onClick={()=>{props.setSubTab(0)}}>
@@ -109,19 +89,19 @@ const Component = (props) => {
 					</ul>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 4 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingDomainLink();
-						}}>
+				<li className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings_domain">
 						도메인 설정
+						</Link>
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 5 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingSignUpLink();
-						}}>
+				<li className={`tab-item body-2-B ${props.active === 5 ? "active" : ""}`}>
+					<span>
+						<Link href="/settings/settings_join">
 						회원가입 설정
+						</Link>
 					</span>
 				</li>
 			</ul>

@@ -47,7 +47,7 @@ const SUB_MENU_LIST_MEMBER = [
 
 const SUB_MENU_LIST_TRANSACTION = [
 	{
-		name:"업체 관리",
+		name:<Link href={`/transaction`}>업체 관리</Link>,
 		href:"/"
 	},
 	{
@@ -121,10 +121,8 @@ const Component = (props) => {
 
 	const navigationNumberResult = () => {
 		if( props.navigationNumber === 0 || props.navigationNumber === 1 ){
-			console.log(props.navigationNumber)
 			setContentMenu(true);
 			const resultNumber = props.navigationNumber;
-			const resultStateTrue = SUB_MENU_LIST_CONTENT.indexOf(item => item.state === 'true');
 			SUB_MENU_LIST_CONTENT[resultNumber] = {...SUB_MENU_LIST_CONTENT[resultNumber], state:'true'};	
 		};
 		return
@@ -332,7 +330,7 @@ const Component = (props) => {
 					</div>
 				</li>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/mypage`}>
 						<span className="flex_">
 							<Icon size={13} color="none" stroke="inherit" icon="mypage" />
 							<p>마이페이지 관리</p>
@@ -340,10 +338,10 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/summing`}>
 						<span className="flex_">
 							<Icon size={15} color="none" stroke="inherit" icon="statistic" />
 							<p>통계 관리</p>
@@ -351,7 +349,7 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 			</ul>
 		</div>

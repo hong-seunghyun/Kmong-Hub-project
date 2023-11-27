@@ -1,66 +1,48 @@
 import React from "react";
-
+import Link from 'next/link';
 
 const Component = (props) => {
-	const propsACtiveNumber = props.activeSubTab;
-
-	const contentsDefaultLink = () => {
-    window.location.href="/contents";
-  };
-	const settingNewsLink = () => {
-    window.location.href="/contents/news";
-  };
-	const settingEventLink = () => {
-    window.location.href="/contents/event";
-  };
-	const settingSupportLink = () => {
-    window.location.href="/contents/support";
-  };
-	const settingContentsLink = () => {
-    window.location.href="/contents/contents";
-  };
-
 
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
 				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
-					<span onClick={()=>{
-							contentsDefaultLink();
-						}}>
-						기술이전
+				<span>
+						<Link href="/contents">
+						기술 이전
+						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingNewsLink();
-						}}>
+				<span>
+						<Link href="/contents/news">
 						뉴스
+						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-3-B ${props.active === 2 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingEventLink();
-						}}>
+				<span>
+						<Link href="/contents/event">
 						행사
+						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-3-B ${props.active === 3 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingSupportLink();
-						}}>
+				<span>
+						<Link href="/contents/support">
 						지원 사업
+						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-3-B ${props.active === 4 ? "active" : ""}`}>
-					<span onClick={()=>{
-							settingContentsLink();
-						}}>
+				<span>
+						<Link href="/contents/contents">
 						콘텐츠 노출
+						</Link>
 					</span>
 				</li>
 			</ul>

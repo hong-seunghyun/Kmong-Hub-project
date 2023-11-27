@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/contents": "pages/contents.js",
-  "/settings/settings": "pages/settings/settings.js",
-  "/technology": "pages/technology.js"
+  "/transaction": "pages/transaction.js",
+  "/summing": "pages/summing.js"
 }

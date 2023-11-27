@@ -10,10 +10,7 @@
     "static/development/_buildManifest.js",
     "static/development/_ssgManifest.js"
   ],
-  "rootMainFiles": [
-    "static/chunks/webpack.js",
-    "static/chunks/main-app.js"
-  ],
+  "rootMainFiles": [],
   "pages": {
     "/_app": [
       "static/chunks/webpack.js",
@@ -25,20 +22,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/contents": [
+    "/summing": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contents.js"
+      "static/chunks/pages/summing.js"
     ],
-    "/settings/settings": [
+    "/transaction": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/settings/settings.js"
-    ],
-    "/technology": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/technology.js"
+      "static/chunks/pages/transaction.js"
     ]
   },
   "ampFirstPages": []
