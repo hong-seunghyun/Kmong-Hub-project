@@ -118,7 +118,7 @@
 				align-items: center;
 				gap:24px;
 				color:#757779;
-				li{cursor: pointer;}
+				li{cursor: pointer; width:max-content;}
 			}
 		}
 	}
@@ -369,7 +369,7 @@
 }
 .tab-scrollable-bg{
 	position: relative;
-	width: max-content;
+	width: 100%;
 	margin:auto;;
 	&::before{
 		content:'';

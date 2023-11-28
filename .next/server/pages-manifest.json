@@ -2,7 +2,14 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/settings/settings": "pages/settings/settings.js",
+  "/settings/settings_terms": "pages/settings/settings_terms.js",
+  "/settings/settings_domain": "pages/settings/settings_domain.js",
+  "/settings/settings_script": "pages/settings/settings_script.js",
+  "/settings/settings_join": "pages/settings/settings_join.js",
   "/contents": "pages/contents.js",
-  "/transaction": "pages/transaction.js",
-  "/summing": "pages/summing.js"
+  "/technology": "pages/technology.js",
+  "/mypage": "pages/mypage.js",
+  "/summing": "pages/summing.js",
+  "/transaction": "pages/transaction.js"
 }

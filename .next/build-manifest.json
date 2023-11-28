@@ -22,10 +22,50 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/contents": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/contents.js"
+    ],
+    "/mypage": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/mypage.js"
+    ],
+    "/settings/settings": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/settings/settings.js"
+    ],
+    "/settings/settings_domain": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/settings/settings_domain.js"
+    ],
+    "/settings/settings_join": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/settings/settings_join.js"
+    ],
+    "/settings/settings_script": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/settings/settings_script.js"
+    ],
+    "/settings/settings_terms": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/settings/settings_terms.js"
+    ],
     "/summing": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/summing.js"
+    ],
+    "/technology": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/technology.js"
     ],
     "/transaction": [
       "static/chunks/webpack.js",

@@ -1,11 +1,9 @@
 import React from "react";
-import Label from "/src/components/label/label";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import TableHead from "/src/components/table/table_vertical_head";
 import TableCell from "/src/components/table/table_vertical_cell";
-import Icon from "/src/components/icon/icon.tsx"
 
 const Component = () => {
 	return(
