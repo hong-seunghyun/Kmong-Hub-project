@@ -128,6 +128,7 @@
 /* button style */
 .btn_{
 	line-height:100%;
+	cursor: pointer;
 	.flex_{
 		justify-content: center;
 		align-items: center;
@@ -209,7 +210,7 @@
 		border-radius: 100%;
 		text-align: center;
 	}
-	&.pagnation-R{
+	&.regular{
 		span{
 			width:38px;
 			height:38px;
@@ -246,7 +247,7 @@
 			}
 		}
 	}
-	&.pagnation-S{
+	&.small{
 		span{
 			width:24px;
 			height:24px;
@@ -589,6 +590,7 @@
 		}
 	}
 	.wrap{
+		position:absolute;
 		margin-top:8px;
 		width:100%;
 		height:auto;
@@ -1399,6 +1401,7 @@ footer{
 						width:66px;
 						height:36px;
 						svg{display:none;}
+						
 					}
 				}
 			}

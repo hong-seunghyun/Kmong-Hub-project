@@ -4,6 +4,8 @@ import DropDownMenu from "/src/components/dropsMenu/drops_company_management_men
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import TableHead from "/src/components/table/table_vertical_head";
 import TableCell from "/src/components/table/table_vertical_cell";
+import Pagnation from "/src/components/pagnation/pagnation";
+import Link from "next/link";
 
 const Component = () => {
 	return(
@@ -15,11 +17,13 @@ const Component = () => {
 						<h1 className="display-5-B">
 							업체 관리
 						</h1>
-						<ButtonM text="업체등록" />
+						<Link href="/transaction/company_add">
+							<ButtonM text="업체등록" />
+						</Link>
 					</div>
 
 					<div>
-						<div className="flex_">
+						<div className="flex_ search-wrap">
 							<DropDownMenu />
 							<SearchBar />
 						</div>
@@ -38,7 +42,80 @@ const Component = () => {
 								title="[업체명]"
 								writer="[기계/전기]"
 								date="YYYY.MM.DD"
+								link="/transaction/company_info"
 							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<TableCell 
+								choice="number"
+								number="1"
+								title="[업체명]"
+								writer="[기계/전기]"
+								date="YYYY.MM.DD"
+								link="/transaction/company_info"
+							/>
+							<Pagnation size="regular"/>
 						</div>
 					</div>
 				</div>

@@ -955,5 +955,185 @@
 /* //통계 */
 
 /* 거래관리 */
+.transaction-container{
+	width:924px;
+	margin:auto;
+	padding-top:60px;
+	padding-bottom:60px;
+
+	.head-wrap{
+		justify-content: space-between;
+		width:100%;
+		align-items: center;
+		margin-bottom:32px;
+		a{
+			width:120px;
+			.btn_{
+				width:100%;
+				svg:last-child{
+					display:none;
+				}
+			}
+		}
+		
+	}
+
+	.search-wrap{
+		width:100%;
+		gap:12px;
+		margin-bottom:24px;
+
+		.drops-menu-container{
+			width:160px;
+		}
+		.search-container{
+			width:calc(100% - 172px);
+		}
+	}
+
+	.table-cell-container{
+		.category-cell{
+			display:none;
+		}
+	} 
+
+	.pagnation-container{
+		margin-top:32px;
+	}
+
+	&.company_info{
+		.title{
+			margin-bottom:32px;
+		}
+
+		.table-caption{
+			margin-bottom:8px;
+		}
+
+		.btn-wrap{
+			width:100%;
+			justify-content: space-between;
+			margin-top:32px;
+
+			> .flex_{
+				gap:12px;
+				svg{
+					display:none;
+				}
+			}
+
+			a{
+				width:105px;
+				.btn_{
+					width:100%;
+				}
+			}
+		}
+
+		.tbody{
+			.btn_{
+				svg:nth-child(1){
+					display:none;
+				}
+			}
+		}
+
+		.thead{
+			width:120px;
+			font-weight: 400;
+		}
+	}
+
+	&.company_retouch{
+		.title{
+			margin-bottom:33px;
+		}
+
+		.sub-title{
+			align-items: center;
+			gap: 12px;
+			margin-bottom:25px;
+			.badge-wrap{
+				width:24px;
+				height:24px;
+				border-radius: 100%;
+				font-size:14px;
+				line-height:22px;
+			}
+		}
+
+		.input-wrap{
+			width:100%;
+			.input-container{
+				.wrap{
+					width:100%;
+					input{
+						width:100%;
+					}
+				}
+			}
+
+			& + .input-wrap{
+				margin-top:24px;
+			}
+
+			&.flex-wrap{
+				.flex_{
+					align-items: end;
+					justify-content: space-between;
+					.text-fields-wrap{
+						width:calc(100% - 117px);
+						.input-container{
+							width:100%;
+							input{
+								width:100%;
+							}
+						}
+					}
+				}
+				.btn_{
+					width:105px;
+					margin-bottom:10px;
+				}
+				>.text-fields-wrap{
+					margin-top:12px;
+					> p{
+						display:none;
+					}
+				}
+			}
+
+			&.half-wrap{
+				> p{
+					margin-bottom:8px;
+				}
+				width:456px;
+				.date-picker-container{
+					width:100%;
+					input{
+						width:100%;
+					}
+				}
+			}
+		}
+	}
+
+	.check-container{
+		gap:10px;
+		margin-left:6px;
+		margin-top:24px;
+	}
+
+	.btn-wrap{
+		margin-top:32px;
+		gap:12px;
+		justify-content: end;
+		.btn_{
+			width:105px;
+			svg{display:none;}
+		}
+	}
+}
+
 
 /* //거래관리 */

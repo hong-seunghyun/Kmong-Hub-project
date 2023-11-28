@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 import Label from "/src/components/label/label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 
@@ -14,7 +14,7 @@ const Component = (props) => {
 				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="title-cell">
-				{props.title}
+				<Link href={`${props.link}`}>{props.title}</Link>
 			</div>
 			<div className="writer-cell">
 				{props.writer}
