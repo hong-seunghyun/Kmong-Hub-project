@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
-import Input from "/src/components/textFields/textInput.tsx";
 import TextArea from "/src/components/textFields/textArea.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l"
 import PrimaryBtn from "/src/components/buttons/button_primary_l"

@@ -60,9 +60,9 @@ const Component = () => {
 					<ButtonL text="초기화"/>
 					<Button text="저장"/>
 				</div>
+			</div>
 		</div>
-	</div>
 	)
-};
+}
 
 export default Component;

@@ -5,7 +5,6 @@ import TextArea from "/src/components/textFields/textArea.tsx";
 import Upload from "/src/components/upload/upload"
 import OutlineBtn from "/src/components/buttons/button_outline_l"
 import PrimaryBtn from "/src/components/buttons/button_primary_l"
-import Icon from "/src/components/icon/icon.tsx";
 
 const Component = () => {
 	const [ subTab, setSubTab ] = useState(0);

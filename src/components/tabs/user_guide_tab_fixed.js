@@ -2,7 +2,6 @@ import React from "react";
 
 
 const Component = (props) => {
-	const propsACtiveNumber = props.activeSubTab;
 
 	const userGuideA = () => {
     window.location.href="/etc/user-guide-01";
