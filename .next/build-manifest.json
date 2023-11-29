@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/lqxnc6YnlGyWUCNpmUnNd/_buildManifest.js",
-    "static/lqxnc6YnlGyWUCNpmUnNd/_ssgManifest.js"
+    "static/7srZ7b29wVBoFg8DEZ-O3/_buildManifest.js",
+    "static/7srZ7b29wVBoFg8DEZ-O3/_ssgManifest.js"
   ],
   "rootMainFiles": [
     "static/chunks/webpack-983f2ded343b6064.js",
@@ -229,7 +229,7 @@
       "static/chunks/694-c327cb99f40b0edf.js",
       "static/chunks/392-e8b5877ce92d1e76.js",
       "static/chunks/567-30d60aad1299fa1a.js",
-      "static/chunks/pages/transaction/company_add-c40b08f5002a1035.js"
+      "static/chunks/pages/transaction/company_add-0a5558a090ef538a.js"
     ],
     "/transaction/company_info": [
       "static/chunks/webpack-983f2ded343b6064.js",
@@ -250,7 +250,7 @@
       "static/chunks/694-c327cb99f40b0edf.js",
       "static/chunks/392-e8b5877ce92d1e76.js",
       "static/chunks/567-30d60aad1299fa1a.js",
-      "static/chunks/pages/transaction/company_retouch-dcc1eb6a9dc670e7.js"
+      "static/chunks/pages/transaction/company_retouch-0e98a6bfa8fca6c4.js"
     ]
   },
   "ampFirstPages": []
