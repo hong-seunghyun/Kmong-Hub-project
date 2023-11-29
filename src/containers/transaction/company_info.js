@@ -87,7 +87,7 @@ const Component = () => {
 					</Link>
 				</div>
 				<div className="flex_">
-					<Link href="/transaction/company_retouch">
+					<Link href="#">
 						<ButtonErrorL text="삭제" />
 					</Link>
 					<Link href="/transaction/company_retouch">

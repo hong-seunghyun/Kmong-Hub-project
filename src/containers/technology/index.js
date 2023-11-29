@@ -1,46 +1,170 @@
-import React, { useState } from "react";
-import Tab from "/src/components/tabs/content_tab_fixed";
-import Input from "/src/components/textFields/textInput.tsx";
-import OutlineBtn from "/src/components/buttons/button_outline_l"
-import PrimaryBtn from "/src/components/buttons/button_primary_l"
-import Icon from "/src/components/icon/icon.tsx";
+import React from "react";
+import ButtonM from "/src/components/buttons/button_primary_m";
+import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
+import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+import TableHead from "/src/components/table/table_vertical_head";
+import TableCell from "/src/components/table/technology_table_vertical_cell";
+import Pagnation from "/src/components/pagnation/pagnation";
+import Link from "next/link";
 
 const Component = () => {
-	const [ subTab, setSubTab ] = useState(0);
-	const [ activeSubTab, setActiveSubTab ] = useState(0);
+	return(
+		<div className="page-wrap">
+			<div className="contents-technology contents-">
+				<div className="transaction-01">
 
-	const TabContents = () => {
-		setActiveSubTab(subTab);
-		return(
-			<div className="sub-page-0">
-				<div className="flex_ button-input">
-					<Input importState="" labelText="카테고리 1" placeholder="카테고리 제목을 입력해 주세요." valueType="" helperTextResult="helperA" iconState="false"/>
-					<OutlineBtn text={<Icon icon="plus" size={16} color="#464749" stroke="none"/>}/>
-				</div>
-				<div className="flex_ button-input">
-					<Input importState="" labelText="카테고리 2" placeholder="카테고리 제목을 입력해 주세요." valueType="" helperTextResult="helperA" iconState="false"/>
-					<OutlineBtn text={<Icon icon="minus" size={3} color="#464749" stroke="none"/>}/>
-					<OutlineBtn text={<Icon icon="plus" size={16} color="#464749" stroke="none"/>}/>
+					<div className="head-wrap flex_">
+						<h1 className="display-5-B">
+							기술 이전 관리
+						</h1>
+						<Link href="/transaction/company_add">
+							<ButtonM text="업체등록" />
+						</Link>
+					</div>
+
+					<div>
+						<div className="flex_ search-wrap">
+							<DropDownMenu />
+							<SearchBar />
+						</div>
+
+						<div className="table-container">
+							<TableHead
+								headChoice="번호"
+								headCategory="상태"
+								headTitle="제목"
+								headWriter="작성자"
+								headDate="등록일"
+								headEtc="관리"
+							/>
+							<TableCell 
+								labelBg="bg-violet-5"
+								labelColor="txt-violet-1"
+								label="임시저장"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-violet-5"
+								labelColor="txt-violet-1"
+								label="임시저장"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-violet-1"
+								labelColor="txt-white"
+								label="AI 생성중"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-violet-1"
+								labelColor="txt-white"
+								label="AI 생성중"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-violet-1"
+								labelColor="txt-white"
+								label="AI 생성중"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-gray"
+								labelColor="txt-third"
+								label="생성완료"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-gray"
+								labelColor="txt-third"
+								label="생성완료"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-gray"
+								labelColor="txt-third"
+								label="생성완료"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-gray"
+								labelColor="txt-third"
+								label="생성완료"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<TableCell 
+								labelBg="bg-gray"
+								labelColor="txt-third"
+								label="생성완료"
+								choice="number"
+								number="1"
+								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								link="/technology/detail"
+								img="/images/sample-img.png"
+							/>
+							<Pagnation size="regular"/>
+						</div>
+					</div>
 				</div>
 				
 			</div>
-		)
-	}
-
-	return(
-		<div className="container">
-			<div className="page-wrap">
-				<div className="contents- contents-technology">
-					<h1 className="display-5-B">사이트 설정</h1>
-					<Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={0}/>
-					<TabContents />
-					<div className="button-wrap flex_">
-						<OutlineBtn text="순서변경" state="disabled"/>
-						<PrimaryBtn text="저장" state="disabled"/>
-					</div>
-				</div>
-			</div>
 		</div>
 	)
-}
+};
+
 export default Component;

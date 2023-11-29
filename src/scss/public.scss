@@ -198,3 +198,10 @@ table{
 
 /* //global */
 
+/* text editor*/
+.tox-tinymce{
+	.tox-menubar{
+		display:flex;
+		gap:10px;
+	}
+}

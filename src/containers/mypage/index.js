@@ -1,456 +1,85 @@
-import React from "react";
-import Label from "/src/components/label/label";
-import ButtonCta from "/src/components/buttons/button_cta";
-import ButtonLine from "/src/components/buttons/text_button_underline_primary_l";
-import Icon from "/src/components/icon/icon.tsx"
+import React, { useState } from "react";
+import Tab from "/src/components/tabs/mypage_tab_fixed";
+import Input from "/src/components/textFields/textInput.tsx";
+import PasswordInput from "/src/components/textFields/passwordInput.tsx";
+import Checkbox from "/src/components/radio/checkbox";
+import Upload from "/src/components/upload/upload"
+import OutlineBtn from "/src/components/buttons/button_outline_l"
+import ButtonSecondary from "/src/components/buttons/button_secondary_l"
+import PrimaryBtn from "/src/components/buttons/button_primary_l"
+import Icon from "/src/components/icon/icon.tsx";
 
 const Component = () => {
+
+	const TabContents = () => {
+		return(
+			<div className="sub-page-0">
+				<div className="flex_ button-input">
+					<Input importState="none" labelText="개인 도메인" placeholder="기본 도메인을 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
+					<ButtonSecondary text="중복 확인" state="disabled"/>
+				</div>
+				<div className="flex_ button-input">
+					<PasswordInput labelText="비밀번호" placeholder="*******" valueType="" helperTextResult="none" iconState="true"/>
+					<ButtonSecondary text="변경" state="default"/>
+				</div>
+				<div className="flex_ button-input">
+					<Input labelText="휴대폰 번호" placeholder="01012345678" valueType="" helperTextResult="none" iconState="false"/>
+					<ButtonSecondary text="변경" state="default"/>
+				</div>
+
+				<Input labelText="이름" placeholder="미나 마수드" valueType="" helperTextResult="none" iconState="false"/>
+
+				<Input labelText="닉네임" placeholder="알라딘" valueType="" helperTextResult="none" iconState="false"/>
+
+				<div className="box-">
+					<p className="body-2-B txt-second-default">프로필</p>
+					<Upload state="default" type="normal"/>
+					<p className="caption-R helper-txt">
+						허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
+					</p>
+				</div>
+				
+				<div className="flex_ input-search">
+					<Input labelText="소속" placeholder="한국기술HUB" valueType="" helperTextResult="none" iconState="false"/>
+					<Icon icon="search" size={16} stroke="#EAEDF0" fill="none" /> 
+				</div>
+
+				<div className="box-">
+					<p className="body-2-B txt-second-default">사업자 등록증<span className="body-2-B  txt-violet-1">*</span></p>
+						<Upload state="done" type="preview"/>
+					<p className="caption-R helper-txt">
+						허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
+					</p>
+				</div>
+
+				<div className="flex_ button-input">
+					<Input labelText="소속 전화번호" placeholder="01012345678" valueType="" helperTextResult="none" iconState="false"/>
+					<ButtonSecondary text="변경" state="default"/>
+				</div>
+
+				<div className="checkBox-">
+					<Checkbox size="large" id="check-a" label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." state="default"/>
+					<Checkbox size="large" id="check-b" label="(선택) 이메일/SMS 등 수신을 동의해요." state="default"/>
+				</div>
+
+			</div>
+		)
+	}
+
 	return(
-		<div className="page-wrap">
-			<div className="home-container bg-violet-6">
-				<div className="content-container">
-
-					<div className="head-wrap flex_">
-						<img src="/images/user_icon_l.png" alt="user_icon_l" />
-						<h1 className="display-5-B ">
-							환영합니다. <span className="txt-violet-1">[이름]</span>님
-						</h1>
-					</div>
-
-					<div className="flex_ box_ box-01 radius-20">
-						<span className="flex_">
-							<Label backgroundColor="bg-violet-1" fontColor="txt-white" text="BASIC" icon="false" iconColor=""/>
-							<p className="body-3-R">N개월</p>
-						</span>
-						<span className="flex_">
-							<p className="body-3-R txt-violet-1">만료까지 [N]일 남았어요.</p>
-							<ButtonCta text="플랜 업그레이드" />
-						</span>
-					</div>
-
-					<h6 className="body-2-B box-title">저장 용량</h6>
-
-					<div className="box_ box-02 radius-20">
-						<div className="data-count">
-							<span className="txt-violet-1 body-2-B">24GB</span>
-							&nbsp;/&nbsp;
-							<span className="body-2-B">32GB</span>
-							&nbsp;
-							<span className="body-2-R txt-third">
-								(70% 사용중)
-							</span>
-						</div>
-
-						<div className="data-progress">
-							<span>
-								<span></span>
-							</span>
-						</div>
-
-						<div className="sub-data flex_">
-							<span className="body-2-R txt-third">여유 공간 8GB</span>
-							<span className="flex_">
-								<ButtonLine text="용량 업그레이드" />
-								<Icon icon="chevronRight" size="13" color="#574AFF" stroke="" />
-							</span>
-						</div>
-					</div>
-
-					<h6 className="body-2-B box-title">이번달 생성 횟수</h6>
-					
-					<div className="box_ box-03 radius-20 flex_">
-						<div className="flex_">
-							<h6 className="body-2-R txt-second-defalut">
-								AI 생성
-							</h6>
-							<div className="txt-disabled">
-								<span className="txt-violet-1 heading-2-B">
-									0
-								</span>
-								&nbsp;/&nbsp;
-								<span className="body-2-B txt-primary">
-									[10]
-								</span>
-							</div>
-						</div>
-
-						<div className="flex_">
-							<h6 className="body-2-R txt-second-defalut">
-								이메일 발송
-							</h6>
-							<div className="txt-disabled">
-								<span className="txt-violet-1 heading-2-B">
-									0
-								</span>
-								&nbsp;/&nbsp;
-								<span className="body-2-B txt-primary">
-									[10]
-								</span>
-							</div>
-						</div>
-
-						<div className="flex_">
-							<h6 className="body-2-R txt-second-defalut">
-								뉴스레터 발송
-							</h6>
-							<div className="txt-disabled">
-								<span className="txt-violet-1 heading-2-B">
-									0
-								</span>
-								&nbsp;/&nbsp;
-								<span className="body-2-B txt-primary">
-									[10]
-								</span>
-							</div>
-						</div>
-
-						<div className="flex_">
-							<h6 className="body-2-R txt-second-defalut">
-								SMS 발송
-							</h6>
-							<div className="txt-disabled">
-								<span className="txt-violet-1 heading-2-B">
-									0
-								</span>
-								&nbsp;/&nbsp;
-								<span className="body-2-B txt-primary">
-									[10]
-								</span>
-							</div>
-						</div>
-
-						<div className="flex_">
-							<h6 className="body-2-R txt-second-defalut">
-								전자계약 발송
-							</h6>
-							<div className="txt-disabled">
-								<span className="txt-violet-1 heading-2-B">
-									0
-								</span>
-								&nbsp;/&nbsp;
-								<span className="body-2-B txt-primary">
-									[10]
-								</span>
-							</div>
-						</div>
-					</div>
-
-					<h6 className="body-2-B box-title">방문자 접속 조회 <span>최근 7일 방문자 수 입니다</span></h6>
-					
-					<div className="box_ box-04 radius-20 flex_">
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-
-						<div className="flex_">
-							<div className="top-count body-2-R txt-second-defalut bg-violet-4">
-								00/00
-							</div>
-
-							<div className="bottom-count heading-2-B">
-								0
-							</div>
-						</div>
-					</div>
-
-					<h6 className="body-2-B box-title">사이트 현황</h6>
-
-					<div className="box_ box-05 flex_">
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="member" size={15} color="none" stroke="#fff" />
-									회원 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>전체</p>
-									<p>
-										<span className="txt-primary">[10]</span>명
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>신규</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>명
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>휴먼</p>
-									<p>
-										<span className=" txt-disabled">[10]</span>명
-									</p>
-								</div>
-								
-							</div>
-						</div>
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="content" size={15} color="none" stroke="#fff" />
-									콘텐츠 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>
-										기술이전
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										행사
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										지원사업
-									</p>
-									<p>
-										<span className=" txt-violet-1">[10]</span>건
-									</p>
-								</div>
-								
-								<div className="body-2-R flex_">
-									<p>
-										뉴스
-									</p>
-									<p>
-										<span className=" txt-violet-1">[10]</span>건
-									</p>
-								</div>
-								
-							</div>
-						</div>
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="document" size={15} color="none" stroke="#fff" />
-									기술 문서 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>
-										특허
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										논문
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										보고서
-									</p>
-									<p>
-										<span className=" txt-violet-1">[10]</span>건
-									</p>
-								</div>
-								
-							</div>
-						</div>
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="document" size={15} color="none" stroke="#fff" />
-									게시판 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>
-										전체
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										신규
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-							</div>
-						</div>
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="question" size={15} color="none" stroke="#fff" />
-									문의 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>
-										전체
-									</p>
-									<p>
-										<span className="txt-primary">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										미확인
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-							</div>
-						</div>
-
-						<div>
-							<div className="title-wrap flex_ txt-white body-2-B">
-								<span>
-									<Icon icon="transaction" size={12} color="none" stroke="#fff" />
-									거래 관리
-								</span>
-								<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-							</div>
-							<div className="content_ content-1 txt-second-defalut">
-
-								<div className="body-2-R flex_">
-									<p>
-										거래 요청
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										진행 중
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										거래 성공
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										거래 실패
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-								<div className="body-2-R flex_">
-									<p>
-										보류
-									</p>
-									<p>
-										<span className="txt-violet-1">[10]</span>건
-									</p>
-								</div>
-
-							</div>
-						</div>
-
+		<div className="container">
+			<div className="page-wrap">
+				<div className="mypage-contents">
+					<h1 className="display-5-B">마이페이지</h1>
+					<Tab active={0}/>
+					<TabContents />
+					<div className="button-wrap flex_">
+						<OutlineBtn text="탈퇴" state="default"/>
+						<PrimaryBtn text="저장" state="default"/>
 					</div>
 				</div>
 			</div>
 		</div>
 	)
-};
-
+}
 export default Component;

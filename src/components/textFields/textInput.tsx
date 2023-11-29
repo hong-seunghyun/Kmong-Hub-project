@@ -1,6 +1,5 @@
 // email_input.tsx
 import React, {useState} from "react";
-
 import { helperTxt, helperTxtSet } from "../textFields/helperText";
 
 interface InputProps {

@@ -868,7 +868,7 @@ footer{
 
 .check-container{
 	align-items: center;
-	gap:4px;
+	gap:8px;
 	&.small{
 		input{
 			width:13px;
@@ -877,6 +877,7 @@ footer{
 		
 	}
 	&.large{
+		height:36px;
 		input{
 			width:18px;
 			height:18px;
@@ -1346,17 +1347,18 @@ footer{
 		height:92px;
 		background:#fff;
 		display:flex;
-		justify-content: center;
+		padding:16px;
 		gap:16px;
 		align-items: center;
 		border: 1px solid #D1D4D6;
 		.done-box{
 			display:block;
+			width:100%;
 			> div{
 				display:none;
 				justify-content: space-between;
 				align-items: center;
-				width:338px;
+				width:100%;
 				.text-wrap{
 					p{
 						color:#5D6169;

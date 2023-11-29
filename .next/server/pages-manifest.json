@@ -1,1 +1,8 @@
-{"/_error":"pages/_error.js","/_app":"pages/_app.js","/_document":"pages/_document.js","/contents/contents":"pages/contents/contents.html","/contents/support":"pages/contents/support.html","/contents/news":"pages/contents/news.html","/etc/rate-plan":"pages/etc/rate-plan.html","/contents/event":"pages/contents/event.html","/etc/user-guide-01":"pages/etc/user-guide-01.html","/etc/user-guide-02":"pages/etc/user-guide-02.html","/contents":"pages/contents.html","/":"pages/index.html","/main":"pages/main.html","/mypage":"pages/mypage.html","/settings/settings":"pages/settings/settings.html","/home":"pages/home.html","/settings/settings_business":"pages/settings/settings_business.html","/settings/settings_domain":"pages/settings/settings_domain.html","/404":"pages/404.html","/settings/settings_join":"pages/settings/settings_join.html","/settings/settings_script":"pages/settings/settings_script.html","/settings/settings_terms":"pages/settings/settings_terms.html","/summing":"pages/summing.html","/technology":"pages/technology.html","/transaction/company_add":"pages/transaction/company_add.html","/transaction/company_info":"pages/transaction/company_info.html","/transaction/company_retouch":"pages/transaction/company_retouch.html","/transaction":"pages/transaction.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/mypage/payment": "pages/mypage/payment.js",
+  "/mypage": "pages/mypage.js",
+  "/": "pages/index.js"
+}
