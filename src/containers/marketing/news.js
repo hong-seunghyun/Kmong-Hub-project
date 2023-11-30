@@ -7,6 +7,7 @@ import TableCell from "/src/components/table/email_history_table_vertical_cell"
 import Pagnation from "/src/components/pagnation/pagnation";
 import Icon from "/src/components/icon/icon.tsx"
 import ButtonPrimary from "/src/components/buttons/button_primary_s"
+import Tab from "/src/components/tabs/news_tab_fixed"
 
 
 const Component = () => {
@@ -34,7 +35,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/email_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -44,7 +45,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/email_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -54,7 +55,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/email_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -64,7 +65,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/email_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -74,7 +75,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -84,7 +85,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -94,7 +95,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -104,7 +105,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -114,7 +115,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -124,7 +125,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/ready_detail"
+						link="/marketing/news_detail"
 						choice="number"
 					/>
 					<Pagnation size="regular"/>
@@ -136,9 +137,9 @@ const Component = () => {
 	return(
 		<div className="container">
 			<div className="page-wrap">
-				<div className="marketing-contents email-history">
+				<div className="marketing-contents email-history news-history">
 					<h1 className="display-5-B flex_">
-						이메일 발송 관리
+						뉴스레터 발송 관리
 						<div className="flex_ body-3-R txt-second-default bg-violet-6">
 							<span className="flex_">
 								<Icon icon="mail" size={9} color="#574AFF" stroke="none" />
@@ -158,6 +159,7 @@ const Component = () => {
 							</Link>
 						</div>
 					</h1>
+					<Tab active={1}/>
 					<TabContents />
 				</div>
 			</div>

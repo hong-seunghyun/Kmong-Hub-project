@@ -7,27 +7,18 @@ const Component = (props) => {
 			<ul className="flex_">
 				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
 					<span>
-						<Link href="/mypage">
-							내 정보 관리
+						<Link href="/marketing/news_setting">
+							뉴스레터 설정
 						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
 					<span>
-						<Link href="/mypage/payment">
-						결제 플랜
+						<Link href="/marketing/news">
+							뉴스레터 목록
 						</Link>
 					</span>
-				</li>
-
-				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
-					<span>
-						<Link href="/mypage/history">
-						결제 내역
-						</Link>
-					</span>
-					
 				</li>
 			</ul>
 		</div>
