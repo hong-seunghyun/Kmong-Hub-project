@@ -1483,5 +1483,169 @@
 		}
 
 	}
+
+	&.mypage-history{
+		.search-box{
+			margin-top:24px;
+			gap:12px;
+			align-items: center;
+			.date-picker-container{
+				height:48px;
+			}
+			.search-container{
+				width:100%;
+			}
+		}
+
+		.table-container{
+			margin-top:24px;
+			.writer-cell{
+				display:none;
+			}
+			.date-cell{
+				width:180px;
+			}
+			.title-cell{
+				width:520px;
+			}
+			.category-cell{
+				width: 120px;
+			}
+			.pagnation-container{
+				margin-top:32px;
+			}
+		}
+	}
+
+	&.mypage-detail{
+		> h1{
+			margin-bottom:32px;
+		}
+		.title-box{
+			width:100%;
+			height:60px;
+			padding:0px 20px;
+			border-radius: 16px;
+			align-items: center;
+			justify-content: space-between;
+			> .flex_{
+				align-items: center;
+				gap:12px;
+				.txt_{
+					margin-right:4px;
+					display:inline-block;
+				}
+			}
+		}
+		
+	}
+	
 }
 /* //마이페이지 */
+
+/* 마케팅 관리 */
+.marketing-contents{
+	padding:60px 0;
+	width:924px;
+	margin:auto;
+
+	> h1{
+		justify-content: space-between;
+		> .flex_{
+			padding:0px 8px 0px 12px;
+			justify-content: space-between;
+			align-items: center;
+			width:339px;
+			height:52px;
+			border-radius: 16px;
+			> .flex_{
+				align-items: center;
+				gap:4px;
+				.total-cnt{
+					margin-right:16px;
+				}
+			}
+			.btn_{
+				svg{
+					display: none;
+				}
+			}
+			a{
+				width:auto;
+				height:auto;
+			}
+		}
+	}
+
+	&.email-history{
+		.search-box{
+			margin-top:24px;
+			gap:12px;
+			align-items: center;
+			.drops-menu-container{
+				width:160px;
+			}
+			.search-container{
+				width:100%;
+			}
+		}
+
+		.table-container{
+			margin-top:24px;
+			.writer-cell{
+				display:none;
+			}
+			.date-cell{
+				width:180px;
+			}
+			.title-cell{
+				width:520px;
+			}
+			.category-cell{
+				width: 120px;
+			}
+			.pagnation-container{
+				margin-top:32px;
+			}
+		}
+	}
+
+	&.email-writer{
+		.sub-page-01{
+			margin-top:24px;
+		}
+		> h1{
+			> .flex_{
+				padding:0 12px;
+				width:222px;
+				.flex_{
+					.total-cnt{
+						margin:0;
+					}
+				}
+			}
+		}
+		.sub-title{
+			align-items: center;
+			gap: 12px;
+			margin-bottom:25px;
+			.badge-wrap{
+				width:24px;
+				height:24px;
+				border-radius: 100%;
+				font-size:14px;
+				line-height:22px;
+				font-weight: 400;
+			}
+		}
+		.input-wrap{
+			margin-top:24px;
+		}
+		.input-container{
+			.wrap{
+				width:100%;
+			}
+		}
+	}
+}
+/* //마케팅 관리 */

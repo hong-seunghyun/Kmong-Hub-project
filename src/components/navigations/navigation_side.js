@@ -77,7 +77,7 @@ const SUB_MENU_LIST_DESIGN = [
 
 const SUB_MENU_LIST_MARKETING = [
 	{
-		name:"이메일 발송 관리",
+		name:<Link href={`/marketing`}>이메일 발송 관리</Link>,
 		href:"/"
 	},
 	{
