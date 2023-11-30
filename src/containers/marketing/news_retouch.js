@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import Link from "next/link"
 import Icon from "/src/components/icon/icon.tsx"
 import Badge from "/src/components/label/badge"
 import Input from "/src/components/textFields/textInput.tsx"
@@ -83,9 +84,9 @@ const Component = () => {
 	return(
 		<div className="container">
 			<div className="page-wrap">
-				<div className="marketing-contents email-writer">
+				<div className="marketing-contents email-writer news-retouch">
 					<h1 className="display-5-B flex_">
-						이메일 발송 관리
+						뉴스레터 발송 등록/수정
 						<div className="flex_ body-3-R txt-second-default bg-violet-6">
 							<span className="flex_">
 								<Icon icon="mail" size={9} color="#574AFF" stroke="none" />
@@ -103,9 +104,20 @@ const Component = () => {
 						</div>
 					</h1>
 					<TabContents />
-					<div className="button-wrap flex_">
-						<OutlineBtn text="초기화" state="default"/>
-						<PrimaryBtn text="저장" state="default"/>
+					<div className="btn-wrap flex_">
+						<div className="flex_">
+							<Link href="/marketing/news_detail">
+								<OutlineBtn text="이전으로" />
+							</Link>
+						</div>
+						<div className="flex_">
+							<Link href="#">
+								<OutlineBtn text="초기화" state="default"/>
+							</Link>
+							<Link href="/marketing/#">
+								<PrimaryBtn text="뉴스레터 발송" state="disabled"/>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>

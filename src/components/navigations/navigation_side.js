@@ -81,7 +81,7 @@ const SUB_MENU_LIST_MARKETING = [
 		href:"/"
 	},
 	{
-		name:"뉴스레터 발송 관리",
+		name:<Link href={`/marketing/news`}>뉴스레터 발송 관리</Link>,
 		href:"/"
 	},
 	{
