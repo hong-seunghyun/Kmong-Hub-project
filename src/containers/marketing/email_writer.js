@@ -38,6 +38,14 @@ const Component = () => {
 					<div className="input-wrap">
 						<Input labelText="발신자 정보" placeholder="kotech@kotech.co.kr" valueType="" helperTextResult="none" iconState="false"/>
 					</div>
+
+					<div className="input-wrap">
+						<Input labelText="발신자 정보" placeholder="kotech@kotech.co.kr" valueType="" helperTextResult="none" iconState="false"/>
+					</div>
+
+					<div className="input-wrap">
+						<Input labelText="발신자 정보" placeholder="kotech@kotech.co.kr" valueType="" helperTextResult="none" iconState="false"/>
+					</div>
 				</div>
 			</div>
 		)
