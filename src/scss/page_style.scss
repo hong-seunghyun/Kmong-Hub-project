@@ -2055,5 +2055,28 @@
 			}
 		}
 	}
+	&.news-writer{
+		> h1{
+			margin-bottom:32px;
+		}
+		.tab-container{
+			.arrow{
+				width:auto;
+				flex:0;
+				height:40px;
+				> span{
+					height:100%;
+				}
+			}
+		}
+		.table-cell-container{
+			height:72px;
+			.category-cell{
+				.label-wrap{
+					display:none;
+				}
+			}
+		}
+	}
 }
 /* //마케팅 관리 */
