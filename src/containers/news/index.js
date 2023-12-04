@@ -10,15 +10,15 @@ import Link from "next/link";
 const Component = () => {
 	return(
 		<div className="page-wrap">
-			<div className="contents-technology contents-">
+			<div className="contents-technology contents- contents-news">
 				<div className="transaction-01">
 
 					<div className="head-wrap flex_">
 						<h1 className="display-5-B">
-							기술 이전 관리
+							뉴스 관리
 						</h1>
 						<Link href="/transaction/company_add">
-							<ButtonM text="기술이전 등록" />
+							<ButtonM text="뉴스 등록" />
 						</Link>
 					</div>
 
@@ -43,10 +43,10 @@ const Component = () => {
 								label="임시저장"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/temporary_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -55,10 +55,10 @@ const Component = () => {
 								label="임시저장"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/temporary_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -67,10 +67,10 @@ const Component = () => {
 								label="AI 생성중"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -79,10 +79,10 @@ const Component = () => {
 								label="AI 생성중"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -91,10 +91,10 @@ const Component = () => {
 								label="AI 생성중"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -103,10 +103,10 @@ const Component = () => {
 								label="생성완료"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -115,10 +115,10 @@ const Component = () => {
 								label="생성완료"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -127,10 +127,10 @@ const Component = () => {
 								label="생성완료"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -139,10 +139,10 @@ const Component = () => {
 								label="생성완료"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -151,10 +151,10 @@ const Component = () => {
 								label="생성완료"
 								choice="number"
 								number="1"
-								title="약물 표면을 코팅해 약효의 지속력을 높이는 약물전달용 나노입..."
+								title="뉴스명"
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
-								link="/technology/detail"
+								link="/news/detail"
 								img="/images/sample-img.png"
 							/>
 							<Pagnation size="regular"/>

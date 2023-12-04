@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Tab from "/src/components/tabs/marketing_send_list_tab_fixed";
-import Link from "next/link"
 import SearchBox from "/src/components/searchBar/search_bar_email_history"
 import DropDownMenu from "/src/components/dropsMenu/drops_email_history_menu";
 import TableHead from "/src/components/table/send_list_table_vertical_head"

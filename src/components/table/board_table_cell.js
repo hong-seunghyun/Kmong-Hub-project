@@ -1,0 +1,34 @@
+import React from "react";
+import Link from "next/link";
+import Label from "/src/components/label/label"
+import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
+import TextButtonUnderlineS from "/src/components/buttons/text_button_underline_s";
+
+const Component = (props) => {
+	return(
+		<div className="table-cell-container flex_ radius-8 body-3-R txt-third ">
+			<div className={`choice-cell ${props.choice? 'number':''}`}>
+				<input type="checkbox" />
+				<span>{props.number}</span>
+			</div>
+			<div className="title-cell">
+				{props.title}
+			</div>
+			<div className="writer-cell">
+				{props.writer}
+			</div>
+			<div className="category-cell">
+				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
+			</div>
+			<div className="etc-cell">
+				<Link style={{width:'auto'}} href={`${props.listLink}`}>
+					<TextButtonUnderlinePrimaryS text="신청 목록"/>
+				</Link>
+				<Link style={{width:'auto'}} href={`${props.link}`}>
+					<TextButtonUnderlineS text="조회"/>
+				</Link>
+			</div>
+		</div>
+	)
+}
+export default Component
