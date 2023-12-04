@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Label from "/src/components/label/label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
+import TextButtonUnderlineS from "/src/components/buttons/text_button_underline_s";
 
 const Component = (props) => {
 	return(
@@ -10,20 +11,22 @@ const Component = (props) => {
 				<input type="checkbox" />
 				<span>{props.number}</span>
 			</div>
-			<div className="category-cell">
-				<img src={props.img} />
-			</div>
 			<div className="title-cell">
-				<Link href={`${props.link}`}>{props.title}</Link>
-			</div>
-			<div className="date-cell">
-				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
+				{props.title}
 			</div>
 			<div className="writer-cell">
 				{props.writer}
 			</div>
+			<div className="category-cell">
+				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
+			</div>
 			<div className="etc-cell">
-				<TextButtonUnderlinePrimaryS text="조회"/>
+				<Link style={{width:'auto'}} href={`${props.listLink}`}>
+					<TextButtonUnderlinePrimaryS text="신청 목록"/>
+				</Link>
+				<Link style={{width:'auto'}} href={`${props.link}`}>
+					<TextButtonUnderlineS text="조회"/>
+				</Link>
 			</div>
 		</div>
 	)

@@ -6,7 +6,7 @@ const Component = (props) => {
 	return(
 		<div className="tab-container">
 			<ul className="flex_">
-				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
+				<li className={`tab-item body-1-B ${props.active === 0 ? "active" : ""} ${props.active >= 0 ? "body-2-B" : ""}` }>
 					<span>
 						<Link href="/marketing/news_setting">
 							기술이전 선택
@@ -18,7 +18,7 @@ const Component = (props) => {
 					<Icon icon="chevronRight" size={9} color="#464749" stroke="none" />
 					</span>
 				</li>
-				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
+				<li className={`tab-item body-1-B ${props.active === 1 ? "active" : ""} ${props.active >= 1 ? "body-2-B" : ""}`}>
 					<span>
 						<Link href="/marketing/news">
 							행사 선택
@@ -31,7 +31,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
+				<li className={`tab-item body-1-B ${props.active === 2 ? "active" : ""} ${props.active >= 2 ? "body-2-B" : ""}`}>
 					<span>
 						<Link href="/marketing/news">
 							지원사업
@@ -43,7 +43,7 @@ const Component = (props) => {
 					<Icon icon="chevronRight" size={9} color="#464749" stroke="none" />
 					</span>
 				</li>
-				<li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
+				<li className={`tab-item body-1-B ${props.active === 3 ? "active" : ""} ${props.active >= 3 ? "body-2-B" : ""}`}>
 					<span>
 						<Link href="/marketing/news">
 							뉴스 선택
@@ -56,7 +56,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}>
+				<li className={`tab-item body-1-B ${props.active === 4 ? "active" : ""} ${props.active >= 4 ? "body-2-B" : ""}`}>
 					<span>
 						<Link href="/marketing/news">
 							뉴스 레터

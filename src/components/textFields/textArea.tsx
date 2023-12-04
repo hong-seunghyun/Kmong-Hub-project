@@ -17,7 +17,7 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
     setInputCount(e.target.value.length);
   };
 	return(
-		<div className="text-fields-wrap">
+		<div className="text-fields-wrap textarea-fildes-wrap">
 			<p className="caption-B">{labelText}<span className={importState}>*</span></p>
 			<div className={`textarea-container ${valueType}`} >
 				<div className="wrap radius-8 bg-lightGray">

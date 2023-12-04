@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link"
-import TableHead from "/src/components/table/table_vertical_head";
-import TableCell from "/src/components/table/news_writer_step_a_cell";
+import TableHead from "/src/components/table/news_writer_step_b_head";
+import TableCell from "/src/components/table/news_writer_step_b_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Icon from "/src/components/icon/icon.tsx"
 import ButtonPrimary from "/src/components/buttons/button_primary_s"
@@ -17,7 +17,7 @@ const Component = () => {
 				<div className="flex_ tip-box">
 					<Icon icon="inform" size={12} color="#574AFF" stroke="none" />
 					<p className="body-2-B txt-violet-1">(0/6)</p>
-					<p className="body-3-B txt-second-default">기술이전 콘텐츠는 최대 6개까지 등록할 수 있어요.</p>
+					<p className="body-3-B txt-second-default">뉴스 콘텐츠는 최대 6개까지 등록할 수 있어요.</p>
 				</div>
 				<div className="table-container">
 					<TableHead
@@ -25,7 +25,7 @@ const Component = () => {
 						headCategory=""
 						headTitle="제목"
 						headWriter="작성자"
-						headDate="등록일"
+						headDate=""
 						headEtc="관리"
 					/>
 					<TableCell 
@@ -99,12 +99,12 @@ const Component = () => {
 						img="/images/sample-img.png"
 					/>
 					<div className="flex_ table-bottom-box">
-							<OutlineBtn text="이전으로" state="default"/>
-							<Pagnation size="regular"/>
-							<Link href="/marketing/news_writer_b">
-								<PrimaryBtn text="선택완료" state="default"/>
-							</Link>
-						</div>
+						<OutlineBtn text="이전으로" state="default"/>
+						<Pagnation size="regular"/>
+						<Link href="/marketing/news_writer_e">
+							<PrimaryBtn text="선택완료" state="default"/>
+						</Link>
+					</div>
 				</div>
 			</div>
 		)
@@ -113,7 +113,7 @@ const Component = () => {
 	return(
 		<div className="container">
 			<div className="page-wrap">
-				<div className="marketing-contents email-history news-writer">
+				<div className="marketing-contents email-history news-writer news-writer-d">
 					<h1 className="display-5-B flex_">
 						뉴스레터 발송 등록/수정
 						<div className="flex_ body-3-R txt-second-default bg-violet-6">
@@ -135,7 +135,7 @@ const Component = () => {
 							</Link>
 						</div>
 					</h1>
-					<Tab active={0}/>
+					<Tab active={3}/>
 					<TabContents />
 				</div>
 			</div>

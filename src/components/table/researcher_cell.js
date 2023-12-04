@@ -11,19 +11,25 @@ const Component = (props) => {
 				<span>{props.number}</span>
 			</div>
 			<div className="category-cell">
+				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 				<img src={props.img} />
 			</div>
 			<div className="title-cell">
-				<Link href={`${props.link}`}>{props.title}</Link>
+				{props.title}
 			</div>
-			<div className="date-cell">
-				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
+			<div className="belong-cell">
+				{props.belong}
 			</div>
 			<div className="writer-cell">
 				{props.writer}
 			</div>
+			<div className="position-cell">
+				{props.position}
+			</div>
 			<div className="etc-cell">
-				<TextButtonUnderlinePrimaryS text="조회"/>
+				<Link style={{width:'auto'}} href={`${props.link}`}>
+					<TextButtonUnderlinePrimaryS text="조회"/>
+				</Link>
 			</div>
 		</div>
 	)
