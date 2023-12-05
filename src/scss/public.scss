@@ -189,7 +189,7 @@ table{
 .txt-violet:hover{color:#aba5ff; stroke: #aba5ff; fill:#aba5ff;}
 .txt-violet.pressed{color:#8177ff; stroke: #8177ff; fill:#8177ff;}
 
-.txt-red{color:#574aff;}
+.txt-red{color:#F04438;}
 
 // box style
 .flex_{display:flex;}
@@ -204,4 +204,9 @@ table{
 		display:flex;
 		gap:10px;
 	}
+}
+
+/* margin */
+.m-24{
+	margin-top:24px;
 }
