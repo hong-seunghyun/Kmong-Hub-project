@@ -154,8 +154,8 @@ const Component = () => {
 									7000
 								</span>
 							</span>
-							<Link href="/marketing/email_writer">
-								<ButtonPrimary text="이메일 발송" />
+							<Link href="/marketing/news_writer">
+								<ButtonPrimary text="등록" />
 							</Link>
 						</div>
 					</h1>

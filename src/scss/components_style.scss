@@ -179,6 +179,12 @@
 		padding:2px 8px 2px 4px;
 		svg{display:block;}
 	}
+	&.select_label{
+		padding:2px 8px;
+		> svg{
+			cursor: pointer;
+		}
+	}
 }
 /* //label */
 
@@ -1407,6 +1413,9 @@ footer{
 					}
 				}
 			}
+		}
+		.label-wrap{
+			width:max-content;
 		}
 	}
 
