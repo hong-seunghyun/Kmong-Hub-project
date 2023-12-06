@@ -370,7 +370,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제 요청" />
 							</Link>
-							<Link href="#">
+							<Link href="/technology/retouch">
 								<Button text="수정 요청" />
 							</Link>
 						</div>

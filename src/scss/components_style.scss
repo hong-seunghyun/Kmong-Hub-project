@@ -32,7 +32,6 @@
 				height: auto;
 				p{
 					height:48px;
-					padding:11px 20px;
 					color:#757779;
 					background:none;
 					&:hover{
@@ -42,6 +41,9 @@
 					&.true{
 						color:#574AFF;
 						background:#F6F6FF;
+					}
+					a{
+						padding:11px 20px;
 					}
 				}
 			}
@@ -1271,9 +1273,31 @@ footer{
 		display:none;
 		&.img-box{
 			display:block;
+			.img-{display:none;}
 			.img-preview{display:none;}
+			.img-file{display:block;}
+			
 		}
 	}
+	&.hwp{
+		.img-box{
+			.img-file{display:none;}
+			.img-hwp{display:block;}
+		}
+	}
+	&.docx{
+		.img-box{
+			.img-file{display:none;}
+			.img-docx{display:block;}
+		}
+	}
+	&.pdf{
+		.img-box{
+			.img-file{display:none;}
+			.img-pdf{display:block;}
+		}
+	}
+	
 	&.default{
 		height:120px;
 		background:#F5F6F7;
@@ -1396,7 +1420,7 @@ footer{
 			.img-preview{
 				display:block;
 			}
-			.img-file{
+			.img-{
 				display:none;
 			}
 			.label-wrap{display:none;}

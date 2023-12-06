@@ -15,7 +15,7 @@ const Component = () => {
 
 					<div className="head-wrap flex_">
 						<h1 className="display-5-B">
-							뉴스 관리
+							행사 관리
 						</h1>
 						<Link href="/transaction/company_add">
 							<ButtonM text="뉴스 등록" />

@@ -120,7 +120,7 @@ const Component = () => {
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-contents">
-					<h1 className="display-5-B">사이트 설정</h1>
+					<h1 className="display-5-B">콘텐츠 설정</h1>
 					<Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={4}/>
 					<TabContents />
 					<div className="button-wrap flex_">

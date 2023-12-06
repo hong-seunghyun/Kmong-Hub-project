@@ -1241,6 +1241,188 @@
 			margin-top:24px;
 		}
 	}
+	&.contents-technology-retouch{
+		.editor-btn {
+			margin-top:8px;
+			text-align: right;
+		}
+		.drop-down-wrap{
+			.select-flex{
+				margin-top:8px;
+			}
+		}
+		.input-wrap{
+			margin-top:24px;
+			&.flex-colum{
+				flex-direction: column;
+				gap:8px;
+			}
+		}
+		.drops-menu-container{
+			width:100%;
+			.input-wrap{
+				margin-top:0;
+			}
+			.wrap{
+				display: none;
+			}
+		}
+		.button-input{
+			margin-top:24px;
+			.btn_{
+				margin-bottom:8px;
+			}
+		}
+		.input-search{
+			position:relative;
+			svg{
+				position:absolute;
+				right: 16px;
+				bottom: 16px;
+			}
+			svg:last-child{
+				right:44px;
+				cursor: pointer;
+			}
+		}
+		.right-flex{
+			align-items: center;
+			gap:12px;
+			> div{
+				width: 50%;
+				.drops-menu-container{
+					width:100%;
+					.input-wrap{
+						margin-top:0;
+					}
+					.wrap{
+						display: none;
+					}
+				}
+				.date-picker-container{
+					input{
+						width:204px;
+					}
+				}
+			}
+		}
+		.custom-button-wrap{
+			.custom-button{
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				border:1px solid #d1d4d6;
+				height:48px;
+				cursor: pointer;
+			}
+			> .btn_{
+				width:120px;
+				margin-bottom:0;
+				svg:nth-child(1){
+					display:block;
+				}
+			}
+
+		}
+		a{
+			width:auto;
+			height:auto;
+		}
+	}
+	&.main-researcher-list{
+		a{
+			width:auto;
+			height:auto;
+		}
+		.table-container{
+			.category-cell{
+				width:80px;
+				.label-wrap{
+					display: none;
+				}
+			}
+			.title-cell{
+				width:230px;
+			}
+			.belong-cell{
+				width: 230px;
+			}
+			.position-cell{
+				width:160px;
+			}
+		}
+		.table-bottom-box{
+			justify-content: space-between;
+			margin-top:32px;
+			align-items: center;
+			.btn_{
+				width:105px;
+				svg{
+					display:none;
+				}
+			}
+			.pagnation-container{
+				margin-top:0;
+			}
+		}
+	}
+	&.operator_list{
+		a{
+			width:auto;
+			height:auto;
+		}
+		.table-bottom-box{
+			justify-content: space-between;
+			margin-top:32px;
+			align-items: center;
+			.btn_{
+				width:105px;
+				svg{
+					display:none;
+				}
+			}
+			.pagnation-container{
+				margin-top:0;
+			}
+		}
+		.head-wrap{
+			margin-bottom:32px;
+		}
+		.search-wrap{
+			width:100%;
+			gap:12px;
+			margin-bottom:24px;
+	
+			.drops-menu-container{
+				width:160px;
+			}
+			.search-container{
+				width:calc(100% - 172px);
+			}
+		}
+		.table-container{
+			.title-cell{
+				width:240px;
+			}
+			.email-cell{
+				width: 240px;
+			}
+			.date-cell{
+				width:160px;
+			}
+			.access-cell{
+				width:180px;
+			}
+		}
+	}
+}
+.researcher-detail{
+	.table-wrap{
+		border-top:1px solid #EAEDF0;
+		border-bottom:1px solid #EAEDF0;
+		width:100%;
+		padding:16px;
+	}
 }
 
 /* //콘텐츠 설정 */
@@ -2653,5 +2835,384 @@
 	.pagnation-container{
 		margin-top:32px;
 	}
+
+	&.board-add{
+		.sub-title{
+			align-items: center;
+			gap: 12px;
+			margin-bottom:25px;
+			.badge-wrap{
+				width:24px;
+				height:24px;
+				border-radius: 100%;
+				font-size:14px;
+				line-height:22px;
+			}
+		}
+		.input-container{
+			.wrap{
+				width:100%;
+			}
+		} 
+		.btn-wrap{
+			width:100%;
+			justify-content: end;
+			margin-top:32px;
+			> .flex_{
+				gap:12px;
+				svg{
+					display:none;
+				}
+			}
+			a{
+				width:105px;
+				.btn_{
+					width:100%;
+				}
+			}
+		}
+		
+	}
+	&.board-list{
+		.table-container{
+			.title-cell{
+				width:359px;
+			}
+			.note-cell{
+				width: 44px;
+				justify-content: center;
+			}
+			.view-cell{
+				width:100px;
+				justify-content: center;
+			}
+			.writer-cell{
+				width:120px;
+				
+			}
+			.date-cell{
+				width:160px;
+			}
+			.etc-cell{
+				width:97px;
+			}
+		} 
+	}
+	&.board-detail{
+		> h1{
+			margin-bottom:32px;
+		}
+		.table-caption{
+			margin-bottom:8px;
+		}
+		.thead{
+			width:120px;
+		}
+		.btn-wrap{
+			margin-top:32px;
+			justify-content: space-between;
+			> .flex_{
+				gap:12px;
+			}
+			.btn_{
+				svg{
+					display:none;
+				}
+			}
+		}
+	}
 }
 /* //게시판 관리 */
+
+/* 회원 관리 */
+.member-{
+	width:924px;
+	margin:auto;
+	padding:80px 0;
+	> .head-wrap{
+		justify-content: space-between;
+		width:100%;
+		align-items: center;
+		margin-bottom:32px;
+		a{
+			width:120px;
+			.btn_{
+				width:100%;
+				svg:last-child{
+					display:none;
+				}
+			}
+		}
+		
+	}
+	.search-wrap{
+		width:100%;
+		gap:12px;
+		margin-bottom:24px;
+
+		.drops-menu-container{
+			width:160px;
+		}
+		.search-container{
+			width:calc(100% - 172px);
+		}
+	}
+	.table-container{
+		.title-cell{
+			width:240px;
+		}
+		.email-cell{
+			width:240px;
+		}
+		.date-cell{
+			width:160px;
+		}
+		.access-cell{
+			width:180px;
+			justify-content: center;
+		}
+	}
+
+	.upload-container.done{
+		width:100%;
+		h6{
+			font-size:16px;
+		}
+		.caption-R{
+			font-size:14px;
+		}
+		.done-preview-text-box{
+			.flex_{
+				display: none;
+			}
+		}
+	}
+	&.member-detail{
+		> h1{
+			margin-bottom:32px;
+		}
+		.table-caption{
+			margin-bottom:8px;
+		}
+		.thead{
+			width:120px;
+		}
+		.table-horizontal-container{
+			margin-bottom:24px;
+		}
+		.tbody{
+			.btn_text{
+				svg:first-child{
+					display:none;
+				}
+			}
+		}
+		.btn-wrap{
+			margin-top:32px;
+			justify-content: space-between;
+			.flex_{
+				gap:12px;
+				.btn_{
+					svg{display: none;}
+				}
+			}
+		}
+	}
+	&.accessdeny{
+		> h1{
+			margin-top:32px;
+			
+		}
+		> .text_{
+			margin-top:12px;
+		}
+		.title-box{
+			margin-top:32px;
+			width:100%;
+			height:60px;
+			padding:0px 20px;
+			border-radius: 16px;
+			align-items: center;
+			justify-content: space-between;
+			> .flex_{
+				align-items: center;
+				gap:24px;
+				.txt_{
+					display:inline-block;
+				}
+				> div{
+					.btn_{
+						width:120px;
+					}
+				}
+				.flex_{
+					align-items: center;
+					gap:12px;
+					&.txt-second-default{
+						gap:8px;
+					}
+				}
+				&.button_flex{
+					gap:16px;
+				}
+			}
+			a{
+				width:auto;
+				height:auto;
+			}
+		}
+	}
+
+	&.operator-add{
+		> h1{
+			margin-bottom:32px;
+		}
+		.sub-title{
+			align-items: center;
+			gap: 12px;
+			margin-bottom:25px;
+			margin-top:48px;
+			.badge-wrap{
+				width:24px;
+				height:24px;
+				border-radius: 100%;
+				font-size:14px;
+				line-height:22px;
+			}
+		}
+		.title-box{
+			width:100%;
+			height:60px;
+			padding:0px 20px;
+			border-radius: 16px;
+			align-items: center;
+			justify-content: space-between;
+			> .flex_{
+				align-items: center;
+				gap:12px;
+				.txt_{
+					margin-right:4px;
+					display:inline-block;
+				}
+			}
+		}
+		.box-{
+			margin-top:24px;
+			flex-wrap: wrap;
+			> p{
+				margin-bottom:8px;
+			}
+			> .flex_{
+				width: 100%;
+				gap:8px;
+				.check_flex{
+					align-items: center;
+					gap:8px;
+				}
+			}
+		}
+		.text-fields-wrap{
+			width: 100%;
+		}
+	
+		.btn_{
+			width:105px;
+			svg{
+				display:none;
+			}
+		}
+		.input-container{
+			.wrap{
+				width:100%;
+			}
+		}
+		.upload-container{
+			width:100%;
+			&.preview{
+				.btn_{
+					display:none;
+				}
+			}
+		}
+		> h1{
+			margin-bottom:32px;
+		}
+		.button-input{
+			justify-content: space-between;
+			align-items: end;
+			flex-wrap: wrap;
+			.text-fields-wrap{
+				width:calc(100% - 117px);
+			}
+			.btn_{
+				margin-bottom:10px;
+			}
+			
+		}
+		.tab-container{
+			padding-bottom:0;
+		}
+	
+		.helper-txt{
+			margin-top:8px;
+			color:#b3b6b8;
+			span{
+				color:#464749;
+				&.bar{
+					color:#b3b6b8;
+					display:inline-block;
+					margin:0 4px;
+				}
+			}
+		}
+	
+		.input-search{
+			position:relative;
+			margin-top:24px;
+			svg{
+				position:absolute;
+				right: 16px;
+				bottom: 25px;
+			}
+		}
+		.checkBox-{
+			margin-top:24px;
+			padding-left:6px;
+		}
+		.button-wrap{
+			justify-content: end;
+			gap:12px;
+			margin-top:32px;
+			.btn_{
+				width:105px;
+			}
+		}
+
+		.checkbox-flex{
+			flex-wrap: wrap;
+			gap:8px;
+			> .flex_{
+				width: 147px;
+			}
+		}
+		
+	}
+	&.operator-detail-retouch{
+		.upload-container.done{
+			width:100%;
+			h6{
+				font-size:16px;
+			}
+			.caption-R{
+				font-size:14px;
+			}
+			.done-preview-text-box{
+				.flex_{
+					display: flex;
+				}
+			}
+		}
+	}
+	
+}
+/* //회원 관리 */
