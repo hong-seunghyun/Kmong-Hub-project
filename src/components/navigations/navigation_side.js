@@ -32,15 +32,15 @@ const SUB_MENU_LIST_CONTENT = [
 
 const SUB_MENU_LIST_MEMBER = [
 	{
-		name:"회원 관리",
+		name:<Link href={`/member`}>회원 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"휴먼 회원 관리",
+		name:<Link href={`/member/inactive_member`}>휴먼 회원 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"운영자 관리",
+		name:<Link href={`/member/accessdeny_freemember`}>운영자 관리</Link>,
 		href:"/"
 	}
 ];
