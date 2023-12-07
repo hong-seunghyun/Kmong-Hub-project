@@ -33,7 +33,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -41,7 +41,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -49,7 +49,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -57,7 +57,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -65,7 +65,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -73,7 +73,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -81,7 +81,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -89,7 +89,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -97,7 +97,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<TableCell 
 						img="/images/sample-img.png"
@@ -105,7 +105,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/technology/researcher_detail"
 					/>
 					<div className="flex_ table-bottom-box">
 						<Link href="/technology/retouch">

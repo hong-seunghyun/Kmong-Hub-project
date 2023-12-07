@@ -18,7 +18,7 @@ const Component = () => {
 							행사 관리
 						</h1>
 						<Link href="/transaction/company_add">
-							<ButtonM text="뉴스 등록" />
+							<ButtonM text="행사 등록" />
 						</Link>
 					</div>
 

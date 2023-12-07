@@ -105,70 +105,124 @@ const Component = () => {
 					<div className="table-wrap">
 						<p className="table-caption body-3-B txt-second-default">경력정보 1</p>
 						<table className="table-horizontal-container radius-20 body-3-R">
-						<tbody>
-							<tr>
-								<th className="thead ">
-								회사명
-								</th>
-								<td className="tbody">
-								회사명
-								</td>
-							</tr>
-							<tr>
-								<th className="thead ">
-								입사연월
-								</th>
-								<td className="tbody">
-								회사명
-								</td>
-							</tr>
-							<tr>
-								<th className="thead ">
-								회사명
-								</th>
-								<td className="tbody">
-								회사명
-								</td>
-							</tr>
-							<tr>
-								<th className="thead ">
-								회사명
-								</th>
-								<td className="tbody">
-								회사명
-								</td>
-							</tr>
-						</tbody>
-					</table>
+							<tbody>
+								<tr>
+									<th className="thead ">
+									회사명
+									</th>
+									<td className="tbody">
+									회사명
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									입사연월
+									</th>
+									<td className="tbody">
+									YYYY.MM.DD
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									퇴사연월
+									</th>
+									<td className="tbody">
+										<span className="txt-violet-1">재직 중</span>
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									담당업무
+									</th>
+									<td className="tbody">
+										생명유기화학 (Organic and Biological Chemistry), 학부 강의
+										생명체를 이루는 주요 화합물은 탄소 중심의 유기화합물이다. 본 교과목에서는 분자의 구조 및 화학 결합을 이해하고, 탄소 화합물들의 화학 구조적 특징을 배우고, 작용기들에 따른 분류와 기본적 유기화학 반응들을 이해하여 생명체 내에 존재하는 고분자 유기화합물, 지질과 막, 탄수화물, 단백질과 효소, 핵산의 분자 구조를 이해함으로써 궁극적으로 분자 수준에서 생명체를 이해하는 데 있다.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p className="table-caption body-3-B txt-second-default">경력정보 2</p>
+						<table className="table-horizontal-container radius-20 body-3-R">
+							<tbody>
+								<tr>
+									<th className="thead ">
+									회사명
+									</th>
+									<td className="tbody">
+									회사명
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									입사연월
+									</th>
+									<td className="tbody">
+									YYYY.MM.DD
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									퇴사연월
+									</th>
+									<td className="tbody">
+										<span className="txt-violet-1">재직 중</span>
+									</td>
+								</tr>
+								<tr>
+									<th className="thead ">
+									담당업무
+									</th>
+									<td className="tbody">
+										생명유기화학 (Organic and Biological Chemistry), 학부 강의
+										생명체를 이루는 주요 화합물은 탄소 중심의 유기화합물이다. 본 교과목에서는 분자의 구조 및 화학 결합을 이해하고, 탄소 화합물들의 화학 구조적 특징을 배우고, 작용기들에 따른 분류와 기본적 유기화학 반응들을 이해하여 생명체 내에 존재하는 고분자 유기화합물, 지질과 막, 탄수화물, 단백질과 효소, 핵산의 분자 구조를 이해함으로써 궁극적으로 분자 수준에서 생명체를 이해하는 데 있다.
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 						
 
 
-					<p className="table-caption body-2-B">콘텐츠 작성자 표시</p>
-						<table className="table-horizontal-container radius-20 body-3-R">
+					<p className="table-caption body-2-B">강의</p>
+					<table className="table-horizontal-container radius-20 body-3-R">
 						<tbody>
 							<tr>
 								<th className="thead ">
-								프로필 이름
+								강의 내역
 								</th>
 								<td className="tbody">
-								미나마수드
+									생명유기화학 (Organic and Biological Chemistry), 학부 강의
+									생명체를 이루는 주요 화합물은 탄소 중심의 유기화합물이다. 본 교과목에서는 분자의 구조 및 화학 결합을 이해하고, 탄소 화합물들의 화학 구조적 특징을 배우고, 작용기들에 따른 분류와 기본적 유기화학 반응들을 이해하여 생명체 내에 존재하는 고분자 유기화합물, 지질과 막, 탄수화물, 단백질과 효소, 핵산의 분자 구조를 이해함으로써 궁극적으로 분자 수준에서 생명체를 이해하는 데 있다.
 								</td>
 							</tr>
+						</tbody>
+					</table>
+
+					<p className="table-caption body-2-B">대외활동</p>
+					<table className="table-horizontal-container radius-20 body-3-R">
+						<tbody>
 							<tr>
 								<th className="thead ">
-								프로필 이미지
+								활동 내역
 								</th>
 								<td className="tbody">
-								<Upload state="done" type="preview"/>
+									생명유기화학 (Organic and Biological Chemistry), 학부 강의
+									생명체를 이루는 주요 화합물은 탄소 중심의 유기화합물이다. 본 교과목에서는 분자의 구조 및 화학 결합을 이해하고, 탄소 화합물들의 화학 구조적 특징을 배우고, 작용기들에 따른 분류와 기본적 유기화학 반응들을 이해하여 생명체 내에 존재하는 고분자 유기화합물, 지질과 막, 탄수화물, 단백질과 효소, 핵산의 분자 구조를 이해함으로써 궁극적으로 분자 수준에서 생명체를 이해하는 데 있다.
 								</td>
 							</tr>
+						</tbody>
+					</table>
+
+					<p className="table-caption body-2-B">연구분야</p>
+					<table className="table-horizontal-container radius-20 body-3-R">
+						<tbody>
 							<tr>
 								<th className="thead ">
-								소속
+								연구 내역
 								</th>
 								<td className="tbody">
-								한국기술HUB
+									생명유기화학 (Organic and Biological Chemistry), 학부 강의
+									생명체를 이루는 주요 화합물은 탄소 중심의 유기화합물이다. 본 교과목에서는 분자의 구조 및 화학 결합을 이해하고, 탄소 화합물들의 화학 구조적 특징을 배우고, 작용기들에 따른 분류와 기본적 유기화학 반응들을 이해하여 생명체 내에 존재하는 고분자 유기화합물, 지질과 막, 탄수화물, 단백질과 효소, 핵산의 분자 구조를 이해함으로써 궁극적으로 분자 수준에서 생명체를 이해하는 데 있다.
 								</td>
 							</tr>
 						</tbody>
@@ -176,7 +230,7 @@ const Component = () => {
 
 					<div className="btn-wrap flex_">
 						<div className="flex_">
-							<Link href="/technology/operator_list">
+							<Link href="/technology/public_researcher_list">
 								<ButtonL text="목록으로" />
 							</Link>
 						</div>

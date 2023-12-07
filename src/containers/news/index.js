@@ -17,7 +17,7 @@ const Component = () => {
 						<h1 className="display-5-B">
 							뉴스 관리
 						</h1>
-						<Link href="/transaction/company_add">
+						<Link href="/technology/add_1">
 							<ButtonM text="뉴스 등록" />
 						</Link>
 					</div>

@@ -561,12 +561,25 @@ const Component = () => {
 						<Badge value="7"/>
 							매도 수/절차
 					</div>
+					<div className="direct_input radius-8">
+						<p className="direct_input_title flex_">
+							절차1
+							<Icon icon="cancel" size={9} color="#464749" stroke="none" />
+						</p>
+						<Input importState="none" labelText="제목" placeholder="제목을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+						<div className="flex_ button-input">
+							<Input importState="" labelText="카테고리 1" placeholder="카테고리 제목을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+							<OutlineBtn text={<Icon icon="plus" size={13} color="#464749" stroke="none"/>}/>
+						</div>
+					</div>
 					<div className="flex_ button-input custom-button-wrap">
 						<div className="custom-button bg-white flex_ radius-8">
 							<Icon icon="plus" size={13} color="#464749" stroke="none" />
 							매도/수 직접 입력
 						</div>
-						<ButtonSecondary text="불러오기" state=""/>
+						<Link href="/technology/selling_procedure" >
+							<ButtonSecondary text="불러오기" state=""/>
+						</Link>
 					</div>
 				</div>
 
