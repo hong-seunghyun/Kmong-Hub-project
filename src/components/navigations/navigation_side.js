@@ -51,7 +51,7 @@ const SUB_MENU_LIST_TRANSACTION = [
 		href:"/"
 	},
 	{
-		name:"담당자 관리",
+		name:<Link href={`/transaction/manager_list`}>담당자 관리</Link>,
 		href:"/"
 	},
 	{
@@ -62,15 +62,15 @@ const SUB_MENU_LIST_TRANSACTION = [
 
 const SUB_MENU_LIST_DESIGN = [
 	{
-		name:"디자인 보관함",
+		name:<Link href={`/design`}>디자인 보관함</Link>,
 		href:"/"
 	},
 	{
-		name:"팝업 관리",
+		name:<Link href={`/design/popup_list`}>팝업 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"배너 관리",
+		name:<Link href={`/design/banner_list`}>배너 관리</Link>,
 		href:"/"
 	}
 ];
@@ -95,18 +95,18 @@ const SUB_MENU_LIST_MARKETING = [
 
 const SUB_MENU_LIST_QUESTION = [
 	{
-		name:"기술이전 문의 관리",
+		name:<Link href={`/inquiry/technology`}>기술이전 문의 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"행사 문의 관리",
+		name:<Link href={`/inquiry/event`}>행사 문의 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"뉴스 문의 관리",
+		name:<Link href={`/inquiry/news`}>뉴스 문의 관리</Link>,
 		href:"/"
 	},{
-		name:"지원사업 문의 관리",
+		name:<Link href={`/inquiry/support`}>지원사업 문의 관리</Link>,
 		href:"/"
 	}
 ];
@@ -217,7 +217,7 @@ const Component = (props) => {
 					</div>
 				</li>
 				<li className="radius-8 " >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/technical_document`}>
 						<span className="flex_">
 							<Icon size={17} color="none" stroke="inherit" icon="document" />
 							<p>기술문서 관리</p>
@@ -225,7 +225,7 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className="radius-8" >
 					<Link className="flex_ nav-box ac-white"  href={`/researcher`}>
