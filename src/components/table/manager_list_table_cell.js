@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Label from "/src/components/label/label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 
 const Component = (props) => {
@@ -10,21 +9,21 @@ const Component = (props) => {
 				<input type="checkbox" />
 				<span>{props.number}</span>
 			</div>
-			<div className="category-cell">
-				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
-			</div>
 			<div className="title-cell">
 				{props.title}
 			</div>
-			<div className="writer-cell">
-				{props.writer}
+			<div className="phone-cell">
+				{props.phone}
+			</div>
+			<div className="company-cell">
+				{props.company}
 			</div>
 			<div className="date-cell">
 				{props.date}
 			</div>
 			<div className="etc-cell">
-				<Link href={`${props.link}`}>
-				<TextButtonUnderlinePrimaryS text="조회"/>
+				<Link style={{width:'auto', }} href={`${props.link}`}>
+					<TextButtonUnderlinePrimaryS text="조회"/>
 				</Link>
 			</div>
 		</div>
