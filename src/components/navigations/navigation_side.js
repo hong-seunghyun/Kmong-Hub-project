@@ -55,7 +55,7 @@ const SUB_MENU_LIST_TRANSACTION = [
 		href:"/"
 	},
 	{
-		name:"거래 관리",
+		name:<Link href={`/transaction/transaction`}>거래 관리</Link>,
 		href:"/"
 	}
 ];

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link"
 import TableHead from "/src/components/table/news_writer_step_c_head";
-import TableCell from "/src/components/table/support_list_table_cell ";
+import TableCell from "/src/components/table/support_list_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import PrimaryBtn from "/src/components/buttons/button_primary_l"
@@ -29,6 +29,8 @@ const Component = () => {
 						headEtc="관리"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -38,10 +40,13 @@ const Component = () => {
 						stateColor="txt-violet-1"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -51,10 +56,13 @@ const Component = () => {
 						stateColor="txt-violet-1"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
-					<TableCell 
+					<TableCell
+						choice="number"
+						number="1" 
 						labelBg="bg-violet-1"
 						label="AI 생성중"
 						labelColor="txt-white"
@@ -64,10 +72,13 @@ const Component = () => {
 						stateColor="none"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -77,10 +88,13 @@ const Component = () => {
 						stateColor="txt-white"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-violet-1"
 						label="AI 생성중"
 						labelColor="txt-white"
@@ -90,10 +104,13 @@ const Component = () => {
 						stateColor="none"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -103,10 +120,13 @@ const Component = () => {
 						stateColor="txt-white"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -116,10 +136,13 @@ const Component = () => {
 						stateColor="txt-white"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -129,10 +152,13 @@ const Component = () => {
 						stateColor="txt-white"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-violet-1"
 						label="AI 생성중"
 						labelColor="txt-white"
@@ -142,10 +168,13 @@ const Component = () => {
 						stateColor="none"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<TableCell 
+						choice="number"
+						number="1"
 						labelBg="bg-gray"
 						label="생성완료"
 						labelColor="txt-third"
@@ -155,7 +184,8 @@ const Component = () => {
 						stateColor="txt-third"
 						writer="작성자"
 						date="YYYY.MM.DD ~ YYYY.MM.DD"
-						link="#"
+						link="/support/detail"
+						listLink="/support/list_detail"
 						img="/images/sample-img.png"
 					/>
 					<Pagnation size="regular"/>
@@ -172,8 +202,8 @@ const Component = () => {
 						<h1 className="display-5-B">
 							지원사업 관리
 						</h1>
-						<Link href="/transaction/company_add">
-							<ButtonM text="뉴스 등록" />
+						<Link href="/support/add_1">
+							<ButtonM text="지원사업등록" />
 						</Link>
 					</div>
 					<TabContents />

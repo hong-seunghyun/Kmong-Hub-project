@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Label from "/src/components/label/label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
-import TextButtonUnderlineS from "/src/components/buttons/text_button_underline_s";
 
 const Component = (props) => {
 	return(
@@ -11,14 +9,11 @@ const Component = (props) => {
 				<input type="checkbox" />
 				<span>{props.number}</span>
 			</div>
-			<div className="category-cell">
-			<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
-			</div>
 			<div className="title-cell">
 				{props.title}
 			</div>
 			<div className="state-cell">
-				<Label backgroundColor={props.stateBg} fontColor={props.stateColor} text={props.state} icon="false" iconColor="none"/>
+				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="writer-cell">
 				{props.writer}
@@ -27,13 +22,9 @@ const Component = (props) => {
 				{props.date}
 			</div>
 			<div className="etc-cell">
-				<Link href={`${props.link}`} style={{width:'auto'}}>
-					<TextButtonUnderlineS text="신청목록"/>
+				<Link style={{width:'auto', }} href={`${props.link}`}>
+					<TextButtonUnderlinePrimaryS text="조회"/>
 				</Link>
-				<Link href={`${props.listLink}`} style={{width:'auto'}}>
-				<TextButtonUnderlinePrimaryS text="조회"/>
-				</Link>
-				
 			</div>
 		</div>
 	)
