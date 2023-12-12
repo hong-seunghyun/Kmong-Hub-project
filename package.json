@@ -20,6 +20,7 @@
     "node": "^21.1.0",
     "npm": "^10.2.4",
     "react": "^18.2.0",
+    "react-async": "^10.0.1",
     "react-datepicker": "^4.23.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.19.0",
