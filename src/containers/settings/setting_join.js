@@ -17,7 +17,7 @@ const Component = () => {
 				<div className="flex_">
 
 					<div>
-						<h6 className="caption-B">
+						<h6 className="body-2-B">
 							주소
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -30,7 +30,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							창업 연도
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -43,7 +43,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							생년월일
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -56,7 +56,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							회사 주소
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -69,7 +69,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							성별
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -82,7 +82,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							회사 전화번호
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -95,7 +95,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							회사이름
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -108,7 +108,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							회사 URL
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -121,7 +121,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							사업분야
 						</h6>
 						<div className="flex_ radio-wrap">
@@ -134,7 +134,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<h6 className="caption-B">
+					<h6 className="body-2-B">
 							관심 기술 분야 선택
 						</h6>
 						<div className="flex_ radio-wrap">

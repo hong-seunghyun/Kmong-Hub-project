@@ -18,7 +18,7 @@ const Component = () => {
 				<Input labelText="사이트 이름" placeholder="사이트 이름을 입력해주세요." valueType="" helperTextResult="none" iconState="false"/>
 				<TextArea labelText="사이트 소개" placeholder="사이트 소개를 입력해 주세요." valueType="" helperTextResult="none"/>
 				<div className="favicon-wrap">
-					<p className="caption-B">파비콘</p>
+					<p className="body-2-B">파비콘</p>
 					<Upload state="default" type="normal"/>
 					<p className="caption-R helper-txt">
 						허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
