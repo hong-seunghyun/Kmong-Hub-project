@@ -10,6 +10,6 @@ export const Api = axios.create({
     Pragma: "no-cache",
     Expires: "0",
     "Content-Type": "application/json",
-    Authorization: `bearer ${typeof window !== 'undefined' && localStorage.getItem("accessToken")}`,
+    Authorization: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem("accessToken") : undefined}`,
   },
 });
