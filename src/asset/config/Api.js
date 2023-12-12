@@ -7,6 +7,8 @@ export const Api = axios.create({
     "Cache-Control": "no-cache",
     Pragma: "no-cache",
     Expires: "0",
-    Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+    Authorization: `bearer ${
+      typeof window !== "undefined" && localStorage.getItem("accessToken")
+    }`,
   },
 });
