@@ -5,7 +5,7 @@ import Link from "next/link";
 const Component = () => {
 
 	const linkBtn = () => {
-    window.location.href="/home";
+    window.location.href="/user/login";
   };
 
 	return(
