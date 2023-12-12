@@ -1,5 +1,5 @@
 // email_input.tsx
-import React, {useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import { helperTxt, helperTxtSet } from "../textFields/helperText";
 
 interface InputProps {
@@ -11,11 +11,14 @@ interface InputProps {
 	iconState?: string;
 	inputCountState?: string;
 	maxLength: number;
+	state: string;
+  setState: Dispatch<SetStateAction<string>>;
 };
 
-const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState, inputCountState, maxLength }: InputProps) => {
+const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState, inputCountState, maxLength, state, setState }: InputProps) => {
 	const [inputCount, setInputCount] = useState(0);
 	const onInputHandler = (e) => {
+		setState(e.target.value);
     setInputCount(e.target.value.length);
   };
 	return(
