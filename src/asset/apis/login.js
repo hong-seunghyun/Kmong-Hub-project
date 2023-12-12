@@ -9,12 +9,3 @@ export const login = ({email, pw}) => {
   const response = Api.post(`/viewapi/mngr/site/v2/signin`, loginDTO);
   return response;
 }
-
-export const loginOptions = () => {
-  const response = Api.options(`/viewapi/mngr/site/v2/signin`, {
-    headers: {
-      withCredentials: true
-    }
-  });
-  return response;
-}
