@@ -4,7 +4,8 @@ import ButtonCta from "/src/components/buttons/button_cta";
 import ButtonLine from "/src/components/buttons/text_button_underline_primary_l";
 import Icon from "/src/components/icon/icon.tsx"
 
-const Component = () => {
+const Component = ({ userData }) => {
+
 	return(
 		<div className="page-wrap">
 			<div className="home-container bg-violet-6">
@@ -13,7 +14,7 @@ const Component = () => {
 					<div className="head-wrap flex_">
 						<img src="/images/user_icon_l.png" alt="user_icon_l" />
 						<h1 className="display-5-B ">
-							환영합니다. <span className="txt-violet-1">[이름]</span>님
+							환영합니다. <span className="txt-violet-1">{userData}</span>님
 						</h1>
 					</div>
 
