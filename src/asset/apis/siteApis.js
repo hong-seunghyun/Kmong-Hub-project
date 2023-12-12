@@ -31,3 +31,133 @@ export const getSiteScpt = () => {
   return response;
 };
 
+//post(사이트 기본 정보)
+export const setSiteBasicInfo = ({
+  cutspEmailAddr,
+  cutspPhcNo,
+  fvcPathAddr,
+  mngRcvEmailAddr,
+  siteItrCntn,
+  siteNm,
+  siteNo,
+  snrEmailAddr,
+}) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/basicInfo`, {
+    cutspEmailAddr,
+    cutspPhcNo,
+    fvcPathAddr,
+    mngRcvEmailAddr,
+    siteItrCntn,
+    siteNm,
+    siteNo,
+    snrEmailAddr,
+  });
+  return response;
+};
+
+//post(사이트 정보 확장)
+export const setSiteBsl = ({
+  bsicDmiAddr,
+  bslNo,
+  cbdAddr,
+  cbdNm,
+  idvdDmiAddr,
+  ombRptNo,
+  ptpPicEmailAddr,
+  ptpPicNm,
+  ptpPicPhcNo,
+  rpsvNm,
+  siteInfoId,
+}) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/bsl`, {
+    bsicDmiAddr,
+    bslNo,
+    cbdAddr,
+    cbdNm,
+    idvdDmiAddr,
+    ombRptNo,
+    ptpPicEmailAddr,
+    ptpPicNm,
+    ptpPicPhcNo,
+    rpsvNm,
+    siteInfoId,
+  });
+  return response;
+};
+
+//post(회원가입 기본 설정)
+export const setSiteSttg = ({
+  addrYnCd,
+  bizSprYnCd,
+  brdtYnCd,
+  cmpyAddrYnCd,
+  cmpyNmYnCd,
+  cmpyPhcNoYnCd,
+  cmpyUrlYnCd,
+  cncnTcqSprYnCd,
+  fdtYrYnCd,
+  nmYnCd,
+  sexYnCd,
+  siteBcmemId,
+}) => {
+  const response = Api.post(
+    `${baseUrl}/viewapi/mngr/site/v1/merge/bcmem/sttg`,
+    {
+      addrYnCd,
+      bizSprYnCd,
+      brdtYnCd,
+      cmpyAddrYnCd,
+      cmpyNmYnCd,
+      cmpyPhcNoYnCd,
+      cmpyUrlYnCd,
+      cncnTcqSprYnCd,
+      fdtYrYnCd,
+      nmYnCd,
+      sexYnCd,
+      siteBcmemId,
+    }
+  );
+  return response;
+};
+
+//post(사이트 약관 정보)
+export const setSiteClus = ({
+  advRcvAgrmYnCntn,
+  pinfPrcsPlcyCntn,
+  pinfSttgYnCntn,
+  piuaBbsCntn,
+  piuaBcmemCntn,
+  siteClusId,
+  tavoClusCntn,
+}) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/clus`, {
+    advRcvAgrmYnCntn,
+    pinfPrcsPlcyCntn,
+    pinfSttgYnCntn,
+    piuaBbsCntn,
+    piuaBcmemCntn,
+    siteClusId,
+    tavoClusCntn,
+  });
+  return response;
+};
+
+//post(사이트 스크립트 조회)
+export const setSiteScpt = ({
+  chntkScptCntn,
+  gganltcScptCntn,
+  ogImgPathAddr,
+  siteItrCntn,
+  siteNm,
+  siteScptId,
+}) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/scpt`, {
+    chntkScptCntn,
+    gganltcScptCntn,
+    ogImgPathAddr,
+    siteItrCntn,
+    siteNm,
+    siteScptId,
+  });
+  return response;
+};
