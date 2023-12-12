@@ -14,7 +14,7 @@ const Component = (props) => {
 				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="title-cell">
-				<Link href={`${props.link}`}>{props.title}</Link>
+				{props.title}
 			</div>
 			<div className="writer-cell">
 				{props.writer}
@@ -23,7 +23,9 @@ const Component = (props) => {
 				{props.date}
 			</div>
 			<div className="etc-cell">
+				<Link href={`${props.link}`}>
 				<TextButtonUnderlinePrimaryS text="조회"/>
+				</Link>
 			</div>
 		</div>
 	)

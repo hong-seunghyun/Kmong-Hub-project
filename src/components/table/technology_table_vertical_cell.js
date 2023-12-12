@@ -15,7 +15,7 @@ const Component = (props) => {
 				<img src={props.img} />
 			</div>
 			<div className="title-cell">
-				<Link href={`${props.link}`}>{props.title}</Link>
+			{props.title}
 			</div>
 			<div className="writer-cell">
 				{props.writer}
@@ -24,7 +24,9 @@ const Component = (props) => {
 				{props.date}
 			</div>
 			<div className="etc-cell">
+					<Link href={`${props.link}`} style={{width:'auto'}}>
 				<TextButtonUnderlinePrimaryS text="조회"/>
+				</Link>
 			</div>
 		</div>
 	)

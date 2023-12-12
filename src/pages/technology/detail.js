@@ -5,7 +5,7 @@ import NavigationSide from "/src/components/navigations/navigation_side";
 const Page = ({ ...props }) => (
   <>
 		<NavigationTopLogin />
-		<NavigationSide navigationNumber={1}/>
+		<NavigationSide />
     <Component {...props} />
   </>
 );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link"
 import SearchBox from "/src/components/searchBar/search_bar_email_history"
 import DropDownMenu from "/src/components/dropsMenu/drops_email_history_menu";
@@ -34,7 +34,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/email_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -44,7 +44,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/email_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -54,7 +54,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/email_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -64,7 +64,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/email_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -74,7 +74,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -84,7 +84,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -94,7 +94,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -104,7 +104,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -114,7 +114,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<TableCell 
@@ -124,7 +124,7 @@ const Component = () => {
 						number="1"
 						title="[이름]"
 						date="YYYY.MM.DD HH:MM:SS"
-						link="/marketing/emailDetail"
+						link="/marketing/ready_detail"
 						choice="number"
 					/>
 					<Pagnation size="regular"/>

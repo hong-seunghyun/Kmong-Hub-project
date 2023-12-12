@@ -14,17 +14,17 @@ const SUB_MENU_LIST_CONTENT = [
 		state:'false'
 	},
 	{
-		name:"뉴스 관리",
+		name:<Link href={`/news`}>뉴스 관리</Link>,
 		id:2,
 		state:'false'
 	},
 	{
-		name:"행사 관리",
+		name:<Link href={`/event`}>행사 관리</Link>,
 		id:3,
 		state:'false'
 	},
 	{
-		name:"지원사업 관리",
+		name:<Link href={`/support`}>지원사업 관리</Link>,
 		id:4,
 		state:'false'
 	}
@@ -32,15 +32,15 @@ const SUB_MENU_LIST_CONTENT = [
 
 const SUB_MENU_LIST_MEMBER = [
 	{
-		name:"회원 관리",
+		name:<Link href={`/member`}>회원 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"휴먼 회원 관리",
+		name:<Link href={`/member/inactive_member`}>휴먼 회원 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"운영자 관리",
+		name:<Link href={`/member/accessdeny_freemember`}>운영자 관리</Link>,
 		href:"/"
 	}
 ];
@@ -51,26 +51,26 @@ const SUB_MENU_LIST_TRANSACTION = [
 		href:"/"
 	},
 	{
-		name:"담당자 관리",
+		name:<Link href={`/transaction/manager_list`}>담당자 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"거래 관리",
+		name:<Link href={`/transaction/transaction`}>거래 관리</Link>,
 		href:"/"
 	}
 ];
 
 const SUB_MENU_LIST_DESIGN = [
 	{
-		name:"디자인 보관함",
+		name:<Link href={`/design`}>디자인 보관함</Link>,
 		href:"/"
 	},
 	{
-		name:"팝업 관리",
+		name:<Link href={`/design/popup_list`}>팝업 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"배너 관리",
+		name:<Link href={`/design/banner_list`}>배너 관리</Link>,
 		href:"/"
 	}
 ];
@@ -81,7 +81,7 @@ const SUB_MENU_LIST_MARKETING = [
 		href:"/"
 	},
 	{
-		name:"뉴스레터 발송 관리",
+		name:<Link href={`/marketing/news`}>뉴스레터 발송 관리</Link>,
 		href:"/"
 	},
 	{
@@ -95,18 +95,18 @@ const SUB_MENU_LIST_MARKETING = [
 
 const SUB_MENU_LIST_QUESTION = [
 	{
-		name:"기술이전 문의 관리",
+		name:<Link href={`/inquiry/technology`}>기술이전 문의 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"행사 문의 관리",
+		name:<Link href={`/inquiry/event`}>행사 문의 관리</Link>,
 		href:"/"
 	},
 	{
-		name:"뉴스 문의 관리",
+		name:<Link href={`/inquiry/news`}>뉴스 문의 관리</Link>,
 		href:"/"
 	},{
-		name:"지원사업 문의 관리",
+		name:<Link href={`/inquiry/support`}>지원사업 문의 관리</Link>,
 		href:"/"
 	}
 ];
@@ -217,7 +217,7 @@ const Component = (props) => {
 					</div>
 				</li>
 				<li className="radius-8 " >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/technical_document`}>
 						<span className="flex_">
 							<Icon size={17} color="none" stroke="inherit" icon="document" />
 							<p>기술문서 관리</p>
@@ -225,10 +225,10 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/researcher`}>
 						<span className="flex_">
 							<Icon size={15} color="inherit" stroke="none" icon="researcher" />
 							<p>연구자 관리</p>
@@ -236,7 +236,7 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className={`radius-8 list-wrap ${isContentMember ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white" onClick={() => onMenuMember()}>
@@ -271,7 +271,7 @@ const Component = (props) => {
 					</div>
 				</li>
 				<li className="radius-8" >
-					<div className="flex_ nav-box ac-white" >
+					<Link className="flex_ nav-box ac-white"  href={`/board`}>
 						<span className="flex_">
 							<Icon size={16} color="inherit" stroke="none" icon="board" />
 							<p>게시판 관리</p>
@@ -279,7 +279,7 @@ const Component = (props) => {
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</div>
+					</Link>
 				</li>
 				<li className={`radius-8 list-wrap ${isContentDesign ? "show" : ""}`} onClick={() => onMenuDesign()}>
 					<div className="flex_ nav-box ac-white" >
