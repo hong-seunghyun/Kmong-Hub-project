@@ -1,8 +1,7 @@
 import axios from "axios";
 import { baseUrl } from "./config.json";
-import { useEffect } from "react";
 
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 
 export const Api = axios.create({
   baseURL: baseUrl,
@@ -10,13 +9,9 @@ export const Api = axios.create({
     "Cache-Control": "no-cache",
     Pragma: "no-cache",
     Expires: "0",
-<<<<<<< HEAD
-    "Content-Type": "application/json",
-=======
     Authorization: `Bearer ${
       typeof window !== "undefined" && localStorage.getItem("accessToken")
     }`,
->>>>>>> b828ba58fb559d883d20f12e8c4ead02fe618adf
   },
 });
 
