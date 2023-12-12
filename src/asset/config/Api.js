@@ -1,8 +1,7 @@
 import axios from "axios";
 import { baseUrl } from "./config.json";
-import { useEffect } from "react";
 
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 
 export const Api = axios.create({
   baseURL: baseUrl,

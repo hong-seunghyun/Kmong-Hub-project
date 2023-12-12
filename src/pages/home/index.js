@@ -1,17 +1,16 @@
-
 import Component from "/src/containers/home/index";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 import NavigationSide from "/src/components/navigations/navigation_side";
 import { getUserInfo } from "../../asset/apis/siteApis";
 import { useEffect } from "react";
-const Page = ({ userData }) => (
+
+const Page = () => (
   <>
-		<NavigationTopLogin />
-		<NavigationSide />
-    <Component userData={userData} />
+    <NavigationTopLogin />
+    <NavigationSide />
+    <Component />
   </>
 );
-
 export async function getServerSideProps() {
   let auth;
   useEffect(() => {
