@@ -15,6 +15,7 @@ import {
   SettingSiteNm,
 } from "../../store/setting/basic/atom";
 import { getSiteBasicInfo } from "../../asset/apis/siteApis";
+import { setSiteBasicInfoAtom } from "../../util/setSettingAtom";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
@@ -110,14 +111,16 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
+  setSiteBasicInfoAtom();
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
-  useLayoutEffect(() => {
-    getSiteBasicInfo()
-      .then((e) => console.log(e))
-      .catch((e) => console.log(e));
-  }, []);
+  // useLayoutEffect(() => {
+  //   // getSiteBasicInfo()
+  //   //   .then((e) => console.log(e.data.data))
+  //   //   .catch((e) => console.log(e));
+  // }, []);
 
   const TabContents = () => {
     if (subTab === 0) {

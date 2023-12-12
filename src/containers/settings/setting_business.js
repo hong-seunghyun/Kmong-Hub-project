@@ -14,11 +14,13 @@ import {
   SettingPtpPicPhcNo,
   SettingRpsvNm,
 } from "../../store/setting/business/atom";
+import { setSiteBusinessAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
+  setSiteBusinessAtom();
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
-
   const TabContentA = () => {
     const [bslNo, setBslNo] = useRecoilState(SettingBslNo);
     const [cbdAddr, setCbdAddr] = useRecoilState(SettingCbdAddr);
