@@ -3,33 +3,29 @@ import { Api } from "../config/Api";
 import { baseUrl } from "../config/config.json";
 
 // get(관리자 유저정보 조회)
-export const getUserInfo = (auth) => {
-  const response = Api.get(`/viewapi/mngr/site/v1/mypage/user`, {
-    headers: {
-      Authorization: auth,
-    }
-  });
+export const getUserInfo = () => {
+  const response = Api.get(`/viewapi/mngr/site/v1/mypage/user`);
   return response;
-}
+};
 
 // post(로그인)
-export const login = ({email, pw}) => {
+export const login = ({ email, pw }) => {
   const loginDTO = {
     email: email,
-    password: pw
+    password: pw,
   };
   const response = Api.post(`/viewapi/mngr/site/v2/signin`, loginDTO);
   return response;
-}
+};
 
 export const loginOptions = () => {
   const response = Api.options(`/viewapi/mngr/site/v2/signin`, {
     headers: {
-      withCredentials: true
-    }
+      withCredentials: true,
+    },
   });
   return response;
-}
+};
 
 //get(사이트 기본 정보)
 export const getSiteBasicInfo = () => {
