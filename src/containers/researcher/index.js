@@ -37,7 +37,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-violet-5"
@@ -48,7 +48,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-violet-1"
@@ -59,7 +59,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-violet-1"
@@ -70,7 +70,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-violet-1"
@@ -81,7 +81,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-gray"
@@ -92,7 +92,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-gray"
@@ -103,7 +103,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-gray"
@@ -114,7 +114,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-gray"
@@ -125,7 +125,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<TableCell 
 						labelBg="bg-violet-5"
@@ -136,7 +136,7 @@ const Component = () => {
 						belong="고려대학교, 서강대학교..."
 						writer="전자공학"
 						position="정교수"
-						link="#"
+						link="/researcher/detail"
 					/>
 					<Pagnation size="regular"/>
 				</div>
@@ -152,7 +152,7 @@ const Component = () => {
 						<h1 className="display-5-B">
 							연구자 관리
 						</h1>
-						<Link href="/transaction/company_add">
+						<Link href="/researcher/add">
 							<ButtonM text="연구자 등록" />
 						</Link>
 					</div>

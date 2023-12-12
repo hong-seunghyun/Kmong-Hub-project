@@ -16,6 +16,9 @@ table{
 	border-spacing: 0px;
   border-collapse: separate;
 }
+th,td{
+	font-weight: inherit;
+}
 /* display typo*/
 .display-1-B{font-weight:bold; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}
 .display-1-R{font-weight:400; font-size: 42px; line-height: 140%; letter-spacing: -1.5px;}

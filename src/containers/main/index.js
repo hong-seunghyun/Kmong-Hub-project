@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import Layout from "/src/components/layout/app/main-index";
 import Icon from "/src/components/icon/icon.tsx";
+import Link from "next/link"
 class App extends Component {
 	
 	
@@ -83,7 +84,10 @@ class App extends Component {
 										성실히 연구한 결과가 경제 성장의 씨앗으로 자라나는 순간
 									</p>
 									<div className="btn_ body-2-B txt-white">
-										지금 시작하기
+										<Link href="/user/login">
+											지금 시작하기
+										</Link>
+										
 									</div>
 								</div>
 							</div>

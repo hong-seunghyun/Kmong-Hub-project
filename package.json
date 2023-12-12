@@ -28,7 +28,8 @@
     "sass": "^1.69.5",
     "sharp": "^0.32.6",
     "tinymce": "^6",
-    "web-vitals": "^3.5.0"
+    "web-vitals": "^3.5.0",
+    "yarn": "^1.22.21"
   },
   "overrides": {
     "@typescript-eslint/typescript-estree": "^5.57.1",

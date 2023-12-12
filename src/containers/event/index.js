@@ -15,10 +15,10 @@ const Component = () => {
 
 					<div className="head-wrap flex_">
 						<h1 className="display-5-B">
-							뉴스 관리
+							행사 관리
 						</h1>
-						<Link href="/transaction/company_add">
-							<ButtonM text="뉴스 등록" />
+						<Link href="/event/add_1">
+							<ButtonM text="행사 등록" />
 						</Link>
 					</div>
 
@@ -47,6 +47,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/temporary_detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								
 							/>
@@ -60,6 +61,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/temporary_detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								
 							/>
@@ -73,6 +75,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -85,6 +88,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -97,6 +101,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -109,6 +114,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
@@ -121,6 +127,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								state="모집 중"
 								stateBg="bg-violet-1"
@@ -136,6 +143,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								state="모집 중"
 								stateBg="bg-violet-1"
@@ -151,6 +159,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								state="모집완료"
 								stateBg="bg-violet-5"
@@ -166,6 +175,7 @@ const Component = () => {
 								writer="미나 마수드"
 								date="YYYY.MM.DD"
 								viewLink="/event/detail"
+								listLink="/event/list_detail"
 								img="/images/sample-img.png"
 								state="모집 중"
 								stateBg="bg-violet-1"

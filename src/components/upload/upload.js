@@ -6,9 +6,12 @@ import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 
 const Component = (props) => {
 	return(
-		<div className={`upload-container radius-8 ${props.state} ${props.type}`}>
+		<div className={`upload-container radius-8 ${props.state} ${props.type} ${props.file}`}>
 			<div className="img-box">
-				<img className="img-file" src="/images/file.png" alt="file" />
+				<img className="img-file img-" src="/images/file.png" alt="file" />
+				<img className="img-hwp img-" src="/images/hwp.png" alt="hwp" />
+				<img className="img-docx img-" src="/images/docx.png" alt="docx" />
+				<img className="img-pdf img-" src="/images/pdf.png" alt="pdf" />
 				<img className="img-preview" src="/images/sample-img.png" alt="file" />
 				<Label backgroundColor="bg-violet-5" fontColor="txt-violet-1" text="보고서" icon="false" iconColor=""/>
 			</div>
