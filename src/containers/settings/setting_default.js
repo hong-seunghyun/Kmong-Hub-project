@@ -45,7 +45,7 @@ const TabContentA = ({ setActiveSubTab }) => {
         helperTextResult="none"
       />
       <div className="favicon-wrap">
-        <p className="caption-B">파비콘</p>
+        <p className="body-2-B">파비콘</p>
         <Upload
           state="default"
           type="normal"

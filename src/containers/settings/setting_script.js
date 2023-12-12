@@ -62,7 +62,7 @@ const Component = () => {
           <OutlineBtn text="등록" />
         </div>
         <div className="favicon-wrap">
-          <p className="caption-B">OG 이미지</p>
+          <p className="body-2-B">OG 이미지</p>
           <Upload state="default" type="normal" />
           <p className="caption-R helper-txt">
             허용 사이즈: <span>1200px x 630px</span> | 파일 형식:{" "}
