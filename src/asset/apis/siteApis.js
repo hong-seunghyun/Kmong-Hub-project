@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Api } from "../config/Api";
 import { baseUrl } from "../config/config.json";
 
 // get(관리자 유저정보 조회)
-export const getUserInfo = () => {
-  const response = Api.get(`/viewapi/mngr/site/v1/mypage/user`);
+export const getUserInfo = (auth) => {
+  const response = Api.get(`/viewapi/mngr/site/v1/mypage/user`, {
+    headers: {
+      Authorization: auth,
+    }
+  });
   return response;
 }
 
