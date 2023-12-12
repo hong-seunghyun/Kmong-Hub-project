@@ -1,14 +1,18 @@
 import { Api } from "../config/Api";
 import { baseUrl } from "../config/config.json";
 
+// get(관리자 유저정보 조회)
+export const getUserInfo = () => {
+  const response = Api.get(`/viewapi/mngr/site/v1/mypage/user`);
+  return response;
+}
+
 // post(로그인)
 export const login = ({email, pw}) => {
-
   const loginDTO = {
     email: email,
     password: pw
   };
-
   const response = Api.post(`/viewapi/mngr/site/v2/signin`, loginDTO);
   return response;
 }
