@@ -1,6 +1,6 @@
 import React from "react";
 import Component from "/src/containers/user/find_pw_4";
-import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
+import NavigationTopLogin from "/src/components/navigations/navigation_top";
 
 const Page = ({ ...props }) => (
   <>

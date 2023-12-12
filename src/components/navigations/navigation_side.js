@@ -57,6 +57,10 @@ const SUB_MENU_LIST_TRANSACTION = [
 	{
 		name:<Link href={`/transaction/transaction`}>거래 관리</Link>,
 		href:"/"
+	},
+	{
+		name:<Link href={`/transaction/template`}>템플릿 관리</Link>,
+		href:"/"
 	}
 ];
 
@@ -85,10 +89,10 @@ const SUB_MENU_LIST_MARKETING = [
 		href:"/"
 	},
 	{
-		name:"SMS 발송 관리",
+		name:<Link href={`/marketing/sms`}>SMS 발송 관리</Link>,
 		href:"/"
 	},{
-		name:"마케팅 설정",
+		name:<Link href={`/marketing/setting`}>마케팅 설정</Link>,
 		href:"/"
 	}
 ];
@@ -111,6 +115,17 @@ const SUB_MENU_LIST_QUESTION = [
 	}
 ];
 
+const SUB_MENU_LIST_RESEARCHER = [
+	{
+		name:<Link href={`/researcher`}>연구자 정보</Link>,
+		href:"/"
+	},
+	{
+		name:<Link href={`/researcher/company`}>소속 관리</Link>,
+		href:"/"
+	}
+];
+
 const Component = (props) => {
 	const [ isContentMenu, setContentMenu ] = useState(false);
 	const [ isContentMember, setContentMember ] = useState(false);
@@ -118,6 +133,7 @@ const Component = (props) => {
 	const [ isContentDesign, setContentDesign ] = useState(false);
 	const [ isContentMarketing, setContentMarketing ] = useState(false);
 	const [ isContentQuestion, setContentQuestion ] = useState(false);
+	const [ isContentResearcher, setContentResearcher ] = useState(false);
 
 	const navigationNumberResult = () => {
 		if( props.navigationNumber === 0 || props.navigationNumber === 1 ){
@@ -170,6 +186,14 @@ const Component = (props) => {
 			setContentQuestion(true)
 		}else{
 			setContentQuestion(false)
+		}
+  };
+
+	const onMenuResearcher = () => {
+    if(!isContentResearcher){
+			setContentResearcher(true)
+		}else{
+			setContentResearcher(false)
 		}
   };
 
@@ -227,16 +251,21 @@ const Component = (props) => {
 						</span>
 					</Link>
 				</li>
-				<li className="radius-8" >
-					<Link className="flex_ nav-box ac-white"  href={`/researcher`}>
+				<li className={`radius-8 list-wrap ${isContentResearcher ? "show" : ""}`} >
+					<div className="flex_ nav-box ac-white" onClick={() => onMenuResearcher()}>
 						<span className="flex_">
-							<Icon size={15} color="inherit" stroke="none" icon="researcher" />
+							<Icon size={15} color="none" stroke="inherit" icon="member" />
 							<p>연구자 관리</p>
 						</span>
 						<span className="icon-arrow">
 							<Icon size={9} color="inherit" stroke="none" icon="chevronRight" />
 						</span>
-					</Link>
+					</div>
+					<div className="sub-nav-box bg-gray-8">
+						{SUB_MENU_LIST_RESEARCHER.map((item, index)=> (
+							<p key={index}>{item.name}</p>
+						))}
+					</div>
 				</li>
 				<li className={`radius-8 list-wrap ${isContentMember ? "show" : ""}`} >
 					<div className="flex_ nav-box ac-white" onClick={() => onMenuMember()}>
