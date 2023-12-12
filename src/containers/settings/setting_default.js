@@ -7,8 +7,8 @@ import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
 import { useRecoilState } from "recoil";
-import { SettingDataAtom } from "../../../store/settingAtom";
-import { getSiteBasicInfo } from "../../../asset/apis/siteApis";
+import { SettingDataAtom } from "../../store/settingAtom";
+import { getSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
   const [name, setName] = useState("");
@@ -16,6 +16,10 @@ const TabContentA = ({ setActiveSubTab }) => {
   const [favicon, setFavicon] = useState("");
 
   const [settingData, setSettingData] = useRecoilState(SettingDataAtom);
+
+  useEffect(() => {
+    setActiveSubTab(0);
+  }, []);
 
   return (
     <div className="sub-page-0">
@@ -53,6 +57,10 @@ const TabContentB = ({ setActiveSubTab }) => {
   const [settingData, setSettingData] = useRecoilState(SettingDataAtom);
 
   useEffect(() => {
+    setActiveSubTab(1);
+  }, []);
+
+  useEffect(() => {
     setSettingData({ ...settingData, cutspPhcNo: phNumber });
   }, [phNumber]);
   useEffect(() => {
@@ -86,6 +94,9 @@ const TabContentB = ({ setActiveSubTab }) => {
 
 const TabContentC = ({ setActiveSubTab }) => {
   const [manageEmail, setManageEmail] = useState("");
+  useEffect(() => {
+    setActiveSubTab();
+  }, []);
   return (
     <div className="sub-page-2">
       <div className="flex_ button-input">
