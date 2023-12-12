@@ -3,6 +3,7 @@ import Component from "/src/containers/home/index";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 import NavigationSide from "/src/components/navigations/navigation_side";
 import { getUserInfo } from "../../asset/apis/siteApis";
+import { useEffect } from "react";
 const Page = ({ userData }) => (
   <>
 		<NavigationTopLogin />
@@ -12,17 +13,12 @@ const Page = ({ userData }) => (
 );
 
 export async function getServerSideProps() {
-
-  const accessToken = typeof window !== 'undefined' ? localStorage.getItem('accessToken') : null;
-
-  let auth = `Bearer ${accessToken}`;
-  console.log(auth);
-  console.log(auth);
-  console.log(auth);
-  console.log(auth);
-  console.log(auth);
-
-	let userData;
+  let auth;
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    auth = `Bearer ${token}`;
+  })
+  let userData;
   try {
     await getUserInfo(auth).then(res => {
       console.log(res);

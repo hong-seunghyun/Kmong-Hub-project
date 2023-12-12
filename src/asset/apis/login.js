@@ -1,3 +1,5 @@
+import { Api } from "../config/Api";
+
 // post(로그인)
 export const login = ({email, pw}) => {
   const loginDTO = {

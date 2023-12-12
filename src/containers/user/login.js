@@ -5,9 +5,9 @@ import InputPassword from "/src/components/textFields/passwordInput.tsx"
 import LoginBtn from "/src/components/buttons/button_primary_l"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
-import { login, loginOptions } from "../../asset/apis/siteApis";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { login } from "../../asset/apis/login";
 
 const Component = () => {
 
