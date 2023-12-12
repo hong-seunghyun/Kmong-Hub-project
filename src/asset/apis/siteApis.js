@@ -31,8 +31,10 @@ export const getSiteScpt = () => {
   return response;
 };
 
-<<<<<<< HEAD
-export const login = (body) => {
+export const login = ({
+  email,
+  password
+}) => {
   const response = Api.post(`${baseUrl}/viewapi/mngr/site/v2/signin`, body);
   return response;
 }
@@ -41,7 +43,7 @@ export const signup = (body) => {
   const response = Api.post(`${baseUrl}/viewapi/mngr/site/v2/member`, body);
   return response;
 }
-=======
+
 //post(사이트 기본 정보)
 export const setSiteBasicInfo = ({
   cutspEmailAddr,
@@ -172,4 +174,3 @@ export const setSiteScpt = ({
   });
   return response;
 };
->>>>>>> 61a0d4a00344b5956c4260c32f090690dc95146c
