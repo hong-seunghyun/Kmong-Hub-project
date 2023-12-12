@@ -10,13 +10,14 @@ import {
   SettingChntkScptCntn,
   SettingGganltcScptCntn,
   SettingOgImgPathAddr,
+  SettingSiteScriptItrCntn,
+  SettingSiteScriptNm,
 } from "../../store/setting/script/atom";
-import {
-  SettingSiteItrCntn,
-  SettingSiteNm,
-} from "../../store/setting/basic/atom";
+import { getSiteScriptAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
+  getSiteScriptAtom();
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
@@ -24,8 +25,10 @@ const Component = () => {
     setActiveSubTab(subTab);
     const [ogImgPathAddr, setOgImgPathAddr] =
       useRecoilState(SettingOgImgPathAddr);
-    const [siteItrCntn, setSiteItrCntn] = useRecoilState(SettingSiteItrCntn);
-    const [siteNm, setSiteNm] = useRecoilState(SettingSiteNm);
+    const [siteItrCntn, setSiteItrCntn] = useRecoilState(
+      SettingSiteScriptItrCntn
+    );
+    const [siteNm, setSiteNm] = useRecoilState(SettingSiteScriptNm);
 
     return (
       <div className="sub-page-0">

@@ -15,10 +15,10 @@ import {
   SettingPiuaBcmemCntn,
   SettingTavoClusCntn,
 } from "../../store/setting/terms/atom";
-import { setSiteTermsAtom } from "../../util/setSettingAtom";
+import { getSiteTermsAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  setSiteTermsAtom();
+  getSiteTermsAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);

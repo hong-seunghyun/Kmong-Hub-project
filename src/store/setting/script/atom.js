@@ -15,17 +15,17 @@ export const SettingOgImgPathAddr = atom({
   default: "",
 });
 
-export const SettingSiteItrCntn = atom({
-  key: "SettingSiteItrCntn",
+export const SettingSiteScriptItrCntn = atom({
+  key: "SettingSiteScriptItrCntn",
   default: "",
 });
 
-export const SettingSiteNm = atom({
-  key: "SettingSiteNm",
+export const SettingSiteScriptNm = atom({
+  key: "SettingSiteScriptNm",
   default: "",
 });
 
-export const SettingSiteScptId = atom({
-  key: "SettingSiteScptId",
+export const SettingSiteScriptScptId = atom({
+  key: "SettingSiteScriptScptId",
   default: "",
 });

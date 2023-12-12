@@ -9,8 +9,11 @@ import {
   SettingBsicDmiAddr,
   SettingIdvdDmiAddr,
 } from "../../store/setting/business/atom";
+import { getSiteBusinessAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
+  getSiteBusinessAtom();
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
