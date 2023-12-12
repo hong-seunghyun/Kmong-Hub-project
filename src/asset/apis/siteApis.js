@@ -31,3 +31,12 @@ export const getSiteScpt = () => {
   return response;
 };
 
+export const login = (body) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v2/signin`, body);
+  return response;
+}
+
+export const signup = (body) => {
+  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v2/member`, body);
+  return response;
+}
