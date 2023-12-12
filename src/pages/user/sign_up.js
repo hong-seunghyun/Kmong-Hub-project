@@ -4,7 +4,7 @@ import NavigationTop from "/src/components/navigations/navigation_top";
 
 const Page = ({ ...props }) => (
   <>
-		<NavigationTop />
+    <NavigationTop />
     <Component {...props} />
   </>
 );
