@@ -7,26 +7,27 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import { login, loginOptions } from "../../asset/apis/siteApis";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Component = () => {
 
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 
+	const router = useRouter();
+
 	const Signin = async () => {
 		console.log(`EMAIL    : ${email}`);
 		console.log(`PASSWORD : ${password}`);
-
-		await loginOptions().then(res => {
-			console.log(res.data);
-		}).catch(err => {
-			console.log(err);
-		});
-
+	
 		await login({email: email, pw: password}).then(res => {
 			console.log(res.data);
+			const accessToken = res.data["data"]["accessToken"];
+			localStorage.setItem("accessToken", accessToken);
+			router.push("/home");
 		}).catch(err => {
 			console.log(err);
+			alert(err["errors"]);
 		});
 	}
 
@@ -38,7 +39,7 @@ const Component = () => {
 				<div className="login-form">
 					<Input importState="none" labelText="이메일" placeholder="이메일을 입력해주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail}/>
 					<InputPassword importState="none" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword}/>
-					<Link href="/home">
+					<Link href="/user/login">
 					<LoginBtn text="로그인" onclick={Signin}/>
 					</Link>
 					<div className="flex_ body-3-R">
