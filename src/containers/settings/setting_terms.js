@@ -15,8 +15,11 @@ import {
   SettingPiuaBcmemCntn,
   SettingTavoClusCntn,
 } from "../../store/setting/terms/atom";
+import { setSiteTermsAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
+  setSiteTermsAtom();
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
   const [isButton, setButton] = useState(false);
