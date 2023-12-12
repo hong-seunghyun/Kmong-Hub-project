@@ -1,10 +1,10 @@
 import React from "react";
 import Component from "/src/containers/user/login";
-import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
+import NavigationTop from "/src/components/navigations/navigation_top";
 
 const Page = ({ ...props }) => (
   <>
-		<NavigationTopLogin />
+		<NavigationTop />
     <Component {...props} />
   </>
 );

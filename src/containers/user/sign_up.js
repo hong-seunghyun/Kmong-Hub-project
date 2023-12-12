@@ -11,6 +11,9 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 
 const Component = () => {
+
+	
+
 	return(
 			<div className="login sing-up">
 				<h1 className="display-5-B">환영합니다.</h1>
