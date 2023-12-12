@@ -9,10 +9,12 @@ import CheckBox from "/src/components/radio/checkbox"
 import LoginBtn from "/src/components/buttons/button_primary_l"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
+import { useState } from "react";
 
 const Component = () => {
 
-	
+	const [ email, setEmail ] = useState();
+	const [ password, setPassword ] = useState();
 
 	return(
 			<div className="login sing-up">
@@ -23,11 +25,11 @@ const Component = () => {
 				</p>
 				<div className="sign-up-form">
 					<div className="flex_ button-input box-">
-						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
+						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail} />
 						<ButtonSecondary text="중복 확인" state="disabled"/>
 					</div>
 					<div className="flex_ box-">
-						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
+						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword}/>
 						<div className="flex_">
 							<div className="flex_ check_flex txt-disabled caption-R">
 								<Icon icon="checkNone" size={7} color="#b3b6b8" stroke="" />
