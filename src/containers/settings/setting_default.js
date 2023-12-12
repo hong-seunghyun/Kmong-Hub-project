@@ -7,19 +7,20 @@ import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
 import { useRecoilState } from "recoil";
-import { SettingDataAtom } from "../../store/settingAtom";
+import {
+  SettingCutspEmailAddr,
+  SettingCutspPhcNo,
+  SettingMngRcvEmailAddr,
+  SettingSiteItrCntn,
+  SettingSiteNm,
+} from "../../store/setting/basic/atom";
 import { getSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
-  const [name, setName] = useState("");
-  const [siteIntroduce, setSiteIntroduce] = useState("");
-  const [favicon, setFavicon] = useState("");
+  setActiveSubTab(0);
 
-  const [settingData, setSettingData] = useRecoilState(SettingDataAtom);
-
-  useEffect(() => {
-    setActiveSubTab(0);
-  }, []);
+  const [name, setName] = useRecoilState(SettingSiteNm);
+  const [introduce, setIntroduce] = useRecoilState(SettingSiteItrCntn);
 
   return (
     <div className="sub-page-0">
@@ -36,8 +37,8 @@ const TabContentA = ({ setActiveSubTab }) => {
         labelText="사이트 소개"
         placeholder="사이트 소개를 입력해 주세요."
         valueType=""
-        state={siteIntroduce}
-        setState={setSiteIntroduce}
+        state={introduce}
+        setState={setIntroduce}
         helperTextResult="none"
       />
       <div className="favicon-wrap">
@@ -52,20 +53,10 @@ const TabContentA = ({ setActiveSubTab }) => {
 };
 
 const TabContentB = ({ setActiveSubTab }) => {
-  const [phNumber, setPhNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [settingData, setSettingData] = useRecoilState(SettingDataAtom);
+  setActiveSubTab(1);
 
-  useEffect(() => {
-    setActiveSubTab(1);
-  }, []);
-
-  useEffect(() => {
-    setSettingData({ ...settingData, cutspPhcNo: phNumber });
-  }, [phNumber]);
-  useEffect(() => {
-    setSettingData({ ...settingData, cutspEmailAddr: email });
-  }, [email]);
+  const [phNumber, setPhNumber] = useRecoilState(SettingCutspEmailAddr);
+  const [email, setEmail] = useRecoilState(SettingCutspPhcNo);
 
   return (
     <div className="sub-page-1">
@@ -93,10 +84,10 @@ const TabContentB = ({ setActiveSubTab }) => {
 };
 
 const TabContentC = ({ setActiveSubTab }) => {
-  const [manageEmail, setManageEmail] = useState("");
-  useEffect(() => {
-    setActiveSubTab();
-  }, []);
+  setActiveSubTab(2);
+
+  const [email, setEmail] = useRecoilState(SettingMngRcvEmailAddr);
+
   return (
     <div className="sub-page-2">
       <div className="flex_ button-input">
@@ -105,8 +96,8 @@ const TabContentC = ({ setActiveSubTab }) => {
           labelText="관리자 수신 주소"
           placeholder="관리자 수신 주소를 입력해 주세요"
           valueType=""
-          state={manageEmail}
-          setState={setManageEmail}
+          state={email}
+          setState={setEmail}
           helperTextResult="none"
           iconState="false"
         />
@@ -121,7 +112,6 @@ const TabContentC = ({ setActiveSubTab }) => {
 const Component = () => {
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
-  const [settingData, setSettingData] = useRecoilState(SettingDataAtom);
 
   useLayoutEffect(() => {
     getSiteBasicInfo()
