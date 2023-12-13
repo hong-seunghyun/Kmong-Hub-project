@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import TextArea from "/src/components/textFields/textArea.tsx";
@@ -15,8 +15,6 @@ import {
   SettingSiteItrCntn,
   SettingSiteNm,
 } from "../../store/setting/basic/atom";
-// import { getSiteBasicInfo } from "../../asset/apis/siteApis";
-import { getSiteBasicInfoAtom } from "../../util/setSettingAtom";
 import { getSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
@@ -24,6 +22,7 @@ const TabContentA = ({ setActiveSubTab }) => {
 
   const [name, setName] = useRecoilState(SettingSiteNm);
   const [introduce, setIntroduce] = useRecoilState(SettingSiteItrCntn);
+  const [favcon, setFavcon] = useRecoilState(SettingFvcPathAddr);
 
   return (
     <div className="sub-page-0">
@@ -46,7 +45,13 @@ const TabContentA = ({ setActiveSubTab }) => {
       />
       <div className="favicon-wrap">
         <p className="caption-B">파비콘</p>
-        <Upload state="default" type="normal" />
+        <Upload
+          state="default"
+          type="normal"
+          accept=".ico"
+          urlState={favcon}
+          setUrlState={setFavcon}
+        />
         <p className="caption-R helper-txt">
           허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
         </p>
