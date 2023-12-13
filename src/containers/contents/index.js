@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/content_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
@@ -27,10 +27,9 @@ const Component = () => {
     );
     setActiveSubTab(subTab);
 
-    useLayoutEffect(
-      () => setTechnologyList([...technologyTransferList]),
-      [technologyTransferList]
-    );
+    useLayoutEffect(() => {
+      setTechnologyList([...technologyTransferList]);
+    }, [technologyTransferList]);
 
     const changeCategoryValue = ({ value, index }) => {
       const copyList = JSON.parse(JSON.stringify(technologyTransferList));
