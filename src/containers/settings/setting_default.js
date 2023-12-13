@@ -16,7 +16,7 @@ import {
   SettingSiteNm,
 } from "../../store/setting/basic/atom";
 // import { getSiteBasicInfo } from "../../asset/apis/siteApis";
-import { useGetSiteBasicInfoAtom } from "../../util/setSettingAtom";
+import { getSiteBasicInfoAtom } from "../../util/setSettingAtom";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
@@ -119,14 +119,7 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
-  useGetSiteBasicInfoAtom();
-
-  const setSiteNm = useSetRecoilState(SettingSiteNm);
-  const setSiteItrCntn = useSetRecoilState(SettingSiteItrCntn);
-  const setMngRcvEmailAddr = useSetRecoilState(SettingMngRcvEmailAddr);
-  const setCutspPhcNo = useSetRecoilState(SettingCutspPhcNo);
-  const setCutspEmailAddr = useSetRecoilState(SettingCutspEmailAddr);
-  const setFvcPathAddr = useSetRecoilState(SettingFvcPathAddr);
+  getSiteBasicInfoAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
