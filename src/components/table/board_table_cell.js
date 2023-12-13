@@ -15,17 +15,19 @@ const Component = (props) => {
 				{props.title}
 			</div>
 			<div className="writer-cell">
-				{props.writer}
+				<Link style={{width:'auto'}} href={`${props.boardLink}`}>
+					{props.writer}
+				</Link>
 			</div>
 			<div className="category-cell">
 				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="etc-cell">
 				<Link style={{width:'auto'}} href={`${props.listLink}`}>
-					<TextButtonUnderlinePrimaryS text="신청 목록"/>
+					<TextButtonUnderlinePrimaryS text="수정"/>
 				</Link>
 				<Link style={{width:'auto'}} href={`${props.link}`}>
-					<TextButtonUnderlineS text="조회"/>
+					<TextButtonUnderlineS text="삭제"/>
 				</Link>
 			</div>
 		</div>

@@ -16,9 +16,9 @@ const Component = () => {
 					<img src="/images/user_icon_s.png" alt="logo" />
 					<p>test@naver.com</p>
 				</div>
-				<div className="logout-btn caption-R">
+				<Link href="/" className="logout-btn caption-R">
 					로그아웃
-				</div>
+				</Link>
 				<div className="link-btn">
 					<ButtonSecondaryS text="사이트 이동"/>
 				</div>

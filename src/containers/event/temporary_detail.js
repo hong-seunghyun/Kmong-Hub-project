@@ -382,7 +382,7 @@ const Component = () => {
 
 					<div className="btn-wrap flex_">
 						<div className="flex_">
-							<Link href="/transaction">
+							<Link href="/event">
 								<ButtonL text="목록으로" />
 							</Link>
 						</div>
@@ -390,7 +390,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제" />
 							</Link>
-							<Link href="#">
+							<Link href="/event/event_writer">
 								<Button text="수정" />
 							</Link>
 						</div>
