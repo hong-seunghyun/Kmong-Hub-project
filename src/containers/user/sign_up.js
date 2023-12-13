@@ -58,16 +58,16 @@ const Component = () => {
 					<div className="flex_ box-">
 						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword}/>
 						<div className="flex_">
-							<div className="flex_ check_flex txt-disabled caption-R" style={{color: containsNumbers(password) ? "#1cff77" : "#b3b6b8"}}>
-								<Icon icon="checkNone" size={7} color={containsNumbers(password) ? "#1cff77" : "#b3b6b8"} stroke="" />
+							<div className="flex_ check_flex txt-disabled caption-R" style={{color: containsNumbers(password) ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={containsNumbers(password) ? "#952dff" : "#b3b6b8"} stroke="" />
 								숫자 입력
 							</div>
-							<div className="flex_ check_flex txt-disabled caption-R" style={{color: isBetween8and12(password) ? "#1cff77" : "#b3b6b8"}}>
-								<Icon icon="checkNone" size={7} color={isBetween8and12(password) ? "#1cff77" : "#b3b6b8"} stroke=""/>
+							<div className="flex_ check_flex txt-disabled caption-R" style={{color: isBetween8and12(password) ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={isBetween8and12(password) ? "#952dff" : "#b3b6b8"} stroke=""/>
 								8자 이상 ~ 12자 이하
 							</div>
-							<div className="flex_ check_flex txt-disabled caption-R"style={{color: containsAlphabet(password) ? "#1cff77" : "#b3b6b8"}}>
-								<Icon icon="checkNone" size={7} color={containsAlphabet(password) ? "#1cff77" : "#b3b6b8"} stroke=""/>
+							<div className="flex_ check_flex txt-disabled caption-R"style={{color: containsAlphabet(password) ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={containsAlphabet(password) ? "#952dff" : "#b3b6b8"} stroke=""/>
 								영문 입력
 							</div>
 						</div>
