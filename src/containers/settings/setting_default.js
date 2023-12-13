@@ -15,7 +15,7 @@ import {
   SettingSiteNm,
 } from "../../store/setting/basic/atom";
 // import { getSiteBasicInfo } from "../../asset/apis/siteApis";
-import { getSiteBasicInfoAtom } from "../../util/setSettingAtom";
+import { useGetSiteBasicInfoAtom } from "../../util/setSettingAtom";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
@@ -111,7 +111,7 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
-  getSiteBasicInfoAtom();
+  useGetSiteBasicInfoAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);

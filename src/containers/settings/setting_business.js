@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
@@ -14,10 +14,10 @@ import {
   SettingPtpPicPhcNo,
   SettingRpsvNm,
 } from "../../store/setting/business/atom";
-import { getSiteBusinessAtom } from "../../util/setSettingAtom";
+import { useGetSiteBusinessAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  getSiteBusinessAtom();
+  useGetSiteBusinessAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
