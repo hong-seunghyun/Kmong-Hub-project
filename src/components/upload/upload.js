@@ -5,24 +5,69 @@ import Label from "/src/components/label/label"
 import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 import { useRef } from "react";
 import { useState } from "react";
+import { sleep } from "../../util/sleep";
 
 const Component = (props) => {
 
 	const [selectedFile, setSelectedFile] = useState(null);
+	const [fileSize, setFileSize] = useState(null);
+	const [process, setProcess] = useState(20);
+
+	const [state, setState] = useState(null);
+	const [type, setType] = useState(null);
+
 	const fileInputRef = useRef();
 
-	const handleFileChange = (e) => {
+	const handleFileChange = async (e) => {
     const file = e.target.files[0];
+		setFileSize(e.target.files[0].size);
+		const MAX_SIZE = 100 * 1024 * 1024;
+
+		if(fileSize > MAX_SIZE) {
+			alert('이미지가 너무 무겁습니다!');
+		}
 
     if (file) {
       setSelectedFile(file);
 
       const reader = new FileReader();
       reader.onloadend = () => {
+				getImageSize(reader.result);
+				if(imgWidth + imgHeight > 1600) {
+					alert('이미지 크기가 너무 큽니다!');
+				}
+				
         props.setUrlState(reader.result);
       };
       reader.readAsDataURL(file);
+
+			setState('proceeding')
+
+			await sleep(300);
+			setProcess(50);
+
+			await sleep(200);
+			setProcess(80);
+
+			await sleep(100);
+
+			setState('done');
+			setType('preview');
     }
+  };
+
+	const [imgWidth, setImgWidth] = useState(0);
+	const [imgHeight, setImgHeight] = useState(0);
+
+
+	const getImageSize = () => {
+    const img = new Image();
+    img.src = props.urlState;
+
+    img.onload = () => {
+			setImgWidth(img.width);
+			setImgheight(img.height);
+    };
   };
 
 	const handleSpanClick = () => {
@@ -30,13 +75,13 @@ const Component = (props) => {
   };
 
 	return(
-		<div className={`upload-container radius-8 ${props.state} ${props.type} ${props.file}`}>
+		<div className={`upload-container radius-8 ${state || props.state} ${type || props.type}`}>
 			<div className="img-box">
 				<img className="img-file img-" src="/images/file.png" alt="file" />
 				<img className="img-hwp img-" src="/images/hwp.png" alt="hwp" />
 				<img className="img-docx img-" src="/images/docx.png" alt="docx" />
 				<img className="img-pdf img-" src="/images/pdf.png" alt="pdf" />
-				<img className="img-preview" src="/images/sample-img.png" alt="file" />
+				<img className="img-preview" src={props.urlState} alt="file" style={{maxWidth: imgWidth > imgHeight ? "auto" : "60px", maxHeight: imgWidth < imgHeight ? "auto" : "60px"}}/>
 				<Label backgroundColor="bg-violet-5" fontColor="txt-violet-1" text="보고서" icon="false" iconColor=""/>
 			</div>
 			<div className="text-box body-3-R">
@@ -61,14 +106,14 @@ const Component = (props) => {
 					<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 				</div>
 				<div className="proceeding-line radius-8">
-					<span></span>
+					<span style={{width: `${process}%`}}></span>
 				</div>
 				<div className="sub-text-line flex_ caption-R">
 					<span>
-						파일크기 mb
+						파일크기 {fileSize / 1024 / 1024}mb
 					</span>
 					<span className="situation">
-						업로드 중... 5%
+						업로드 중... {process}%
 					</span>
 				</div>
 			</div>
@@ -92,7 +137,7 @@ const Component = (props) => {
 				<div className="done-preview-text-box flex_">
 					<div className="text-wrap">
 						<h6 className="body-3-B">파일명.확장자</h6>
-						<p className="caption-R">파일크기 mb</p>
+						<p className="caption-R">파일크기 {fileSize / 1024 / 1024}mb</p>
 					</div>
 					<div className="flex_">
 						<ButtonSecondaryS text="AI 수정"/>
