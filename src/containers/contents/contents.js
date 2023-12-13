@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/content_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Badge from "/src/components/label/badge";
 import Radio from "/src/components/radio/radio";
+import { getMenuExps } from "../../asset/apis/contentApis";
 
 const Component = () => {
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
+
+  const getMenuExpContentFunc = async () => {
+    await getMenuExps()
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
+
+  useLayoutEffect(() => {
+    getMenuExpContentFunc();
+  }, []);
 
   const TabContents = () => {
     setActiveSubTab(subTab);

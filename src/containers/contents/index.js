@@ -4,7 +4,7 @@ import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { getTechnologyTransfer } from "../../asset/apis/contentApis";
 import { TechnologyTransferContent } from "../../store/contents/tecnology/atom";
 
@@ -14,10 +14,15 @@ const Component = () => {
   const setTechnologyTransferContent = useSetRecoilState(
     TechnologyTransferContent
   );
-  useLayoutEffect(async () => {
+
+  const getTechnologyTransferFunc = async () => {
     await getTechnologyTransfer()
       .then((e) => setTechnologyTransferContent([...e.data.data]))
       .catch((e) => console.log(e));
+  };
+
+  useLayoutEffect(() => {
+    getTechnologyTransferFunc();
   }, []);
 
   const TabContents = () => {
