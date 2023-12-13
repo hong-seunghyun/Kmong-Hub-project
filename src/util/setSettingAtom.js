@@ -15,6 +15,8 @@ import {
   SettingSiteItrCntn,
   SettingSiteNm,
   SettingFvcPathAddr,
+  SettingSnrEmailAddr,
+  SettingSiteNo,
 } from "../store/setting/basic/atom";
 import {
   SettingBsicDmiAddr,
@@ -48,13 +50,15 @@ import {
 } from "../store/setting/script/atom";
 
 //사이트 기본 정보 저장
-export const setSiteBasic = () => {
+export const useSetSiteBasic = () => {
   const siteNm = useRecoilValue(SettingSiteNm);
+  const siteNo = useRecoilValue(SettingSiteNo);
   const siteItrCntn = useRecoilValue(SettingSiteItrCntn);
   const mngRcvEmailAddr = useRecoilValue(SettingMngRcvEmailAddr);
   const cutspPhcNo = useRecoilValue(SettingCutspPhcNo);
   const cutspEmailAddr = useRecoilValue(SettingCutspEmailAddr);
   const fvcPathAddr = useRecoilValue(SettingFvcPathAddr);
+  const snrEmailAddr = useRecoilValue(SettingSnrEmailAddr);
 
   setSiteBasicInfo({
     cutspEmailAddr,
@@ -73,7 +77,7 @@ export const setSiteBasic = () => {
 };
 
 //사이트 정보 확장 불러오기
-export const getSiteBusinessAtom = () => {
+export const useGetSiteBusinessAtom = () => {
   const setBslNo = useSetRecoilState(SettingBslNo);
   const setBsicDmiAddr = useSetRecoilState(SettingBsicDmiAddr);
   const setCbdAddr = useSetRecoilState(SettingCbdAddr);
@@ -104,7 +108,7 @@ export const getSiteBusinessAtom = () => {
     .catch((e) => console.log(e));
 };
 //사이트 정보 확장 저장
-export const setSiteBusiness = () => {
+export const useSetSiteBusiness = () => {
   const bsicDmiAddr = useRecoilValue(SettingBslNo);
   const bslNo = useRecoilValue(SettingBsicDmiAddr);
   const cbdAddr = useRecoilValue(SettingCbdAddr);
@@ -135,7 +139,7 @@ export const setSiteBusiness = () => {
 };
 
 //이용약관 불러오기
-export const getSiteTermsAtom = () => {
+export const useGetSiteTermsAtom = () => {
   const setAdvRcvAgrmYnCntn = useSetRecoilState(SettingAdvRcvAgrmYnCntn);
   const setPinfPrcsPlcyCntn = useSetRecoilState(SettingPinfPrcsPlcyCntn);
   const setPinfSttgYnCntn = useSetRecoilState(SettingPinfSttgYnCntn);
@@ -161,7 +165,7 @@ export const getSiteTermsAtom = () => {
     .catch((e) => console.log(e));
 };
 //이용약관 저장
-export const setSiteTerms = () => {
+export const useSetSiteTerms = () => {
   const advRcvAgrmYnCntn = useRecoilValue(SettingAdvRcvAgrmYnCntn);
   const pinfPrcsPlcyCntn = useRecoilValue(SettingPinfPrcsPlcyCntn);
   const pinfSttgYnCntn = useRecoilValue(SettingPinfSttgYnCntn);
@@ -184,7 +188,7 @@ export const setSiteTerms = () => {
 };
 
 //스크립트 불러오기
-export const getSiteScriptAtom = () => {
+export const useGetSiteScriptAtom = () => {
   const setChntkScptCntn = useSetRecoilState(SettingChntkScptCntn);
   const setGganltcScptCntn = useSetRecoilState(SettingGganltcScptCntn);
   const setOgImgPathAddr = useSetRecoilState(SettingOgImgPathAddr);
@@ -209,7 +213,7 @@ export const getSiteScriptAtom = () => {
 };
 
 //스크립트 저장
-export const setSiteScript = () => {
+export const useSetSiteScript = () => {
   const chntkScptCntn = useRecoilValue(SettingChntkScptCntn);
   const gganltcScptCntn = useRecoilValue(SettingGganltcScptCntn);
   const ogImgPathAddr = useRecoilValue(SettingOgImgPathAddr);

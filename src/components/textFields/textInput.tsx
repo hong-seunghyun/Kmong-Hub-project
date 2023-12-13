@@ -12,12 +12,14 @@ interface InputProps {
   inputCountState?: string;
   maxLength: number;
   state: string;
-  setState: Dispatch<SetStateAction<string>>;
+  setState?: Dispatch<SetStateAction<string>>;
+  setStateFunc?: (event: any) => void;
 }
 
 const Input = ({
   state,
   setState,
+  setStateFunc,
   valueType,
   placeholder,
   helperTextResult,
@@ -29,7 +31,7 @@ const Input = ({
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e: any) => {
-    setState(e.target.value);
+    if (setState) setState(e.target.value);
     setInputCount(e.target.value.length);
   };
   return (
@@ -63,7 +65,7 @@ const Input = ({
           </svg>
           <input
             value={state}
-            onChange={onInputHandler}
+            onChange={setStateFunc ? setStateFunc : onInputHandler}
             className="body-2-R radius-8"
             placeholder={placeholder}
           />

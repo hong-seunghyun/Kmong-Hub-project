@@ -13,10 +13,10 @@ import {
   SettingSiteScriptItrCntn,
   SettingSiteScriptNm,
 } from "../../store/setting/script/atom";
-import { getSiteScriptAtom } from "../../util/setSettingAtom";
+import { useGetSiteScriptAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  getSiteScriptAtom();
+  useGetSiteScriptAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
