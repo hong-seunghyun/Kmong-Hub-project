@@ -14,6 +14,27 @@ const Component = () => {
 		const top = screen.height / 2 - 800 / 2;
 		const option = `menubar=no, toolbar=no, resizable=no, width=500, height=600, left=${left}, top=${top}`;
 		await window.open(`${kotechUrl}/api/v1/nice/encrypt/data?returnUrl=${kotechUrl}/api/v1/nice/decrypt/data&redirectUrl=http://localhost:3000/user/find_result_id`, 'nicePopup', option);
+
+		window.update = async () => {
+			// @ts-ignore
+			if (window.certResult) {
+				// @ts-ignore
+				const res = await fetch(`/api/account/phone/duplicate?phone=${window.certResult.mobileno}`)
+				if (res.ok) {
+					const body = await res.json()
+					if (body.isDuplicate) {
+						openDefaultModal(['이미 사용 중인 휴대폰 번호입니다.'])
+					} else {
+						// @ts-ignore
+						certResult.value = window.certResult
+					}
+				} else {
+					openDefaultModal(['일시적인 오류가 발생했습니다.', '잠시 후 다시 시도해 주세요.'])
+				}
+			} else {
+				openDefaultModal(['일시적인 오류가 발생했습니다.', '잠시 후 다시 시도해 주세요.'])
+			}
+		}
 	}
 
 	return(
