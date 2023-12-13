@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const TechnologyTransferContent = atom({
-  key: "TechnologyTransferContent",
-  default: [],
+export const PhoneNumber = atom({
+  key: "PhoneNumber",
+  default: "",
 });
