@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import TextArea from "/src/components/textFields/textArea.tsx";
@@ -6,22 +6,23 @@ import Upload from "/src/components/upload/upload";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   SettingCutspEmailAddr,
   SettingCutspPhcNo,
+  SettingFvcPathAddr,
   SettingMngRcvEmailAddr,
   SettingSiteItrCntn,
   SettingSiteNm,
 } from "../../store/setting/basic/atom";
-// import { getSiteBasicInfo } from "../../asset/apis/siteApis";
-import { getSiteBasicInfoAtom } from "../../util/setSettingAtom";
+import { getSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
 
   const [name, setName] = useRecoilState(SettingSiteNm);
   const [introduce, setIntroduce] = useRecoilState(SettingSiteItrCntn);
+  const [favcon, setFavcon] = useRecoilState(SettingFvcPathAddr);
 
   return (
     <div className="sub-page-0">
@@ -44,7 +45,13 @@ const TabContentA = ({ setActiveSubTab }) => {
       />
       <div className="favicon-wrap">
         <p className="caption-B">파비콘</p>
-        <Upload state="default" type="normal" />
+        <Upload
+          state="default"
+          type="normal"
+          accept=".ico"
+          urlState={favcon}
+          setUrlState={setFavcon}
+        />
         <p className="caption-R helper-txt">
           허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
         </p>
@@ -111,16 +118,30 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
-  getSiteBasicInfoAtom();
+  // getSiteBasicInfoAtom();
+
+  const setSiteNm = useSetRecoilState(SettingSiteNm);
+  const setSiteItrCntn = useSetRecoilState(SettingSiteItrCntn);
+  const setMngRcvEmailAddr = useSetRecoilState(SettingMngRcvEmailAddr);
+  const setCutspPhcNo = useSetRecoilState(SettingCutspPhcNo);
+  const setCutspEmailAddr = useSetRecoilState(SettingCutspEmailAddr);
+  const setFvcPathAddr = useSetRecoilState(SettingFvcPathAddr);
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
-  // useLayoutEffect(() => {
-  //   // getSiteBasicInfo()
-  //   //   .then((e) => console.log(e.data.data))
-  //   //   .catch((e) => console.log(e));
-  // }, []);
+  useLayoutEffect(() => {
+    getSiteBasicInfo()
+      .then((e) => {
+        setSiteNm(e.data.data.siteNm);
+        setSiteItrCntn(e.data.data.siteItrCntn);
+        setMngRcvEmailAddr(e.data.data.mngRcvEmailAddr);
+        setCutspPhcNo(e.data.data.cutspPhcNo);
+        setCutspEmailAddr(e.data.data.cutspEmailAddr);
+        setFvcPathAddr(e.data.data.fvcPathAddr);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   const TabContents = () => {
     if (subTab === 0) {
