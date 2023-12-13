@@ -29,7 +29,7 @@ const Email = ({
   };
   return (
     <div className="text-fields-wrap textarea-fildes-wrap">
-      <p className="caption-B">
+      <p className="body-2-B">
         {labelText}
         <span className={importState}>*</span>
       </p>
