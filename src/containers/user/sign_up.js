@@ -44,6 +44,7 @@ const Component = () => {
 	}
 
   const [previewUrl, setPreviewUrl] = useState(null);
+  const [previewUrl2, setPreviewUrl2] = useState(null);
 
 	return(
 			<div className="login sing-up">
@@ -96,7 +97,7 @@ const Component = () => {
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">사업자 등록증<span className="txt-violet-1">*</span></p>
-						<Upload state="default" type="normal"/>
+						<Upload state="default" type="normal" urlState={previewUrl2} setUrlState={setPreviewUrl2}/>
 						<p className="caption-R helper-txt">
 							허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
 						</p>
