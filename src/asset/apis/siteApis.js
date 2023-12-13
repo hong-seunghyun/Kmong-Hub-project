@@ -1,33 +1,32 @@
 import { Api } from "../config/Api";
-import { baseUrl } from "../config/config.json";
 
 //get(사이트 기본 정보)
 export const getSiteBasicInfo = () => {
-  const response = Api.get(`${baseUrl}/viewapi/mngr/site/v1/basicInfo`);
+  const response = Api.get(`/viewapi/mngr/site/v1/basicInfo`);
   return response;
 };
 
 //get(사이트 정보 확장)
 export const getSiteBsl = () => {
-  const response = Api.get(`${baseUrl}/viewapi/mngr/site/v1/bsl`);
+  const response = Api.get(`/viewapi/mngr/site/v1/bsl`);
   return response;
 };
 
 //get(회원가입 기본 설정)
 export const getSiteSttg = () => {
-  const response = Api.get(`${baseUrl}/viewapi/mngr/site/v1/bcmem/sttg`);
+  const response = Api.get(`/viewapi/mngr/site/v1/bcmem/sttg`);
   return response;
 };
 
 //get(사이트 약관 정보)
 export const getSiteClus = () => {
-  const response = Api.get(`${baseUrl}/viewapi/mngr/site/v1/clus`);
+  const response = Api.get(`/viewapi/mngr/site/v1/clus`);
   return response;
 };
 
 //get(사이트 스크립트 조회)
 export const getSiteScpt = () => {
-  const response = Api.get(`${baseUrl}/viewapi/mngr/site/v1/scpt`);
+  const response = Api.get(`/viewapi/mngr/site/v1/scpt`);
   return response;
 };
 
@@ -42,7 +41,7 @@ export const setSiteBasicInfo = ({
   siteNo,
   snrEmailAddr,
 }) => {
-  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/basicInfo`, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/basicInfo`, {
     cutspEmailAddr,
     cutspPhcNo,
     fvcPathAddr,
@@ -69,7 +68,7 @@ export const setSiteBsl = ({
   rpsvNm,
   siteInfoId,
 }) => {
-  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/bsl`, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/bsl`, {
     bsicDmiAddr,
     bslNo,
     cbdAddr,
@@ -100,23 +99,20 @@ export const setSiteSttg = ({
   sexYnCd,
   siteBcmemId,
 }) => {
-  const response = Api.post(
-    `${baseUrl}/viewapi/mngr/site/v1/merge/bcmem/sttg`,
-    {
-      addrYnCd,
-      bizSprYnCd,
-      brdtYnCd,
-      cmpyAddrYnCd,
-      cmpyNmYnCd,
-      cmpyPhcNoYnCd,
-      cmpyUrlYnCd,
-      cncnTcqSprYnCd,
-      fdtYrYnCd,
-      nmYnCd,
-      sexYnCd,
-      siteBcmemId,
-    }
-  );
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/bcmem/sttg`, {
+    addrYnCd,
+    bizSprYnCd,
+    brdtYnCd,
+    cmpyAddrYnCd,
+    cmpyNmYnCd,
+    cmpyPhcNoYnCd,
+    cmpyUrlYnCd,
+    cncnTcqSprYnCd,
+    fdtYrYnCd,
+    nmYnCd,
+    sexYnCd,
+    siteBcmemId,
+  });
   return response;
 };
 
@@ -130,7 +126,7 @@ export const setSiteClus = ({
   siteClusId,
   tavoClusCntn,
 }) => {
-  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/clus`, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/clus`, {
     advRcvAgrmYnCntn,
     pinfPrcsPlcyCntn,
     pinfSttgYnCntn,
@@ -151,7 +147,7 @@ export const setSiteScpt = ({
   siteNm,
   siteScptId,
 }) => {
-  const response = Api.post(`${baseUrl}/viewapi/mngr/site/v1/merge/scpt`, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/scpt`, {
     chntkScptCntn,
     gganltcScptCntn,
     ogImgPathAddr,
