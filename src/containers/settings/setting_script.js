@@ -14,6 +14,7 @@ import {
   SettingSiteScriptNm,
 } from "../../store/setting/script/atom";
 import { useGetSiteScriptAtom } from "../../util/setSettingAtom";
+import { settingHandler } from "../../util/saveHandler/setting";
 
 const Component = () => {
   useGetSiteScriptAtom();
@@ -63,7 +64,12 @@ const Component = () => {
         </div>
         <div className="favicon-wrap">
           <p className="body-2-B">OG 이미지</p>
-          <Upload state="default" type="normal" />
+          <Upload
+            state="default"
+            type="normal"
+            urlState={ogImgPathAddr}
+            setUrlState={setOgImgPathAddr}
+          />
           <p className="caption-R helper-txt">
             허용 사이즈: <span>1200px x 630px</span> | 파일 형식:{" "}
             <span>JPG, PNG</span>
@@ -129,7 +135,13 @@ const Component = () => {
           <TabContents />
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state="disabled" />
+            <PrimaryBtn
+              text="저장"
+              onclick={() => {
+                console.log("dfdfdfsavesvave");
+              }}
+              state={!settingHandler() && "disabled"}
+            />
           </div>
         </div>
       </div>
