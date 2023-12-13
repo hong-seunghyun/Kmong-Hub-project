@@ -8,7 +8,6 @@ import Radio from "/src/components/radio/radio";
 const Component = () => {
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
-  // const setCatgNm
 
   const TabContents = () => {
     setActiveSubTab(subTab);
