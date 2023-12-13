@@ -47,26 +47,6 @@ import {
   SettingSiteScriptScptId,
 } from "../store/setting/script/atom";
 
-//사이트 기본 정보 불러오기
-export const getSiteBasicInfoAtom = () => {
-  const setSiteNm = useSetRecoilState(SettingSiteNm);
-  const setSiteItrCntn = useSetRecoilState(SettingSiteItrCntn);
-  const setMngRcvEmailAddr = useSetRecoilState(SettingMngRcvEmailAddr);
-  const setCutspPhcNo = useSetRecoilState(SettingCutspPhcNo);
-  const setCutspEmailAddr = useSetRecoilState(SettingCutspEmailAddr);
-  const setFvcPathAddr = useSetRecoilState(SettingFvcPathAddr);
-
-  getSiteBasicInfo()
-    .then((e) => {
-      setSiteNm(e.data.data.siteNm);
-      setSiteItrCntn(e.data.data.siteItrCntn);
-      setMngRcvEmailAddr(e.data.data.mngRcvEmailAddr);
-      setCutspPhcNo(e.data.data.cutspPhcNo);
-      setCutspEmailAddr(e.data.data.cutspEmailAddr);
-      setFvcPathAddr(e.data.data.fvcPathAddr);
-    })
-    .then((e) => console.log(e));
-};
 //사이트 기본 정보 저장
 export const setSiteBasic = () => {
   const siteNm = useRecoilValue(SettingSiteNm);
