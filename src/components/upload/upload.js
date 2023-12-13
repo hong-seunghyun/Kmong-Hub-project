@@ -64,7 +64,7 @@ const Component = (props) => {
 
     img.onload = () => {
       setImgWidth(img.width);
-      setImgheight(img.height);
+      setImgHeight(img.height);
     };
   };
 

@@ -9,34 +9,20 @@ import Link from "next/link"
 import { useRecoilState } from "recoil";
 import { PhoneNumber } from "../../store/contents/tecnology/atom";
 
-window.addEventListener('message', (message) => {
+const Component = () => {
+
 	const [ phoneNumber, setPhoneNumber ] = useRecoilState(
 		PhoneNumber
 	);
-	setPhoneNumber(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	console.log(message.data);
-	window.location = 'http://localhost:3000/user/find_result_id'
-})
-
-const Component = () => {
-
 	const verification = async () => {
-		const left = screen.width / 2 - 500 / 2;
-		const top = screen.height / 2 - 800 / 2;
+		window.addEventListener('message', (message) => {
+			setPhoneNumber(message.data);
+			alert(message.data);
+			window.location = 'http://localhost:3000/user/find_result_id'
+		});
+
+		const left = window.screen.width / 2 - 500 / 2;
+		const top = window.screen.height / 2 - 800 / 2;
 		const option = `menubar=no, toolbar=no, resizable=no, width=500, height=600, left=${left}, top=${top}`;
 		await window.open(`${kotechUrl}/api/v1/nice/encrypt/data?returnUrl=${kotechUrl}/api/v1/nice/decrypt/data&redirectUrl=http://localhost:3000/user/verification`, 'nicePopup', option);
 	}
