@@ -149,14 +149,57 @@ const Component = (props) => {
     return;
   };
 
-  const onMenuResearcher = () => {
-    if (!isContentResearcher) {
-      setContentResearcher(true);
-    } else {
-      setContentResearcher(false);
-    }
+  const onMenuContent = () => {
+    if(!isContentMenu){
+			setContentMenu(true)
+		}else{
+			setContentMenu(false)
+		}
+  };
+	const onMenuMember = () => {
+    if(!isContentMember){
+			setContentMember(true)
+		}else{
+			setContentMember(false)
+		}
+  };
+	const onMenuTransaction = () => {
+    if(!isContentTransaction){
+			setContentTransaction(true)
+		}else{
+			setContentTransaction(false)
+		}
+  };
+	const onMenuDesign = () => {
+    if(!isContentDesign){
+			setContentDesign(true)
+		}else{
+			setContentDesign(false)
+		}
+  };
+	const onMenuMarketing = () => {
+    if(!isContentMarketing){
+			setContentMarketing(true)
+		}else{
+			setContentMarketing(false)
+		}
+  };
+	const onMenuQuestion = () => {
+    if(!isContentQuestion){
+			setContentQuestion(true)
+		}else{
+			setContentQuestion(false)
+		}
   };
 
+	const onMenuResearcher = () => {
+    if(!isContentResearcher){
+			setContentResearcher(true)
+		}else{
+			setContentResearcher(false)
+		}
+  };
+  
   return (
     <div className="sidebar-wrap">
       <ul>
