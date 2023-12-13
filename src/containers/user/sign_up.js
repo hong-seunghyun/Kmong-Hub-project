@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Tabs from "/src/components/tabs/login_tab"
 import Input from "/src/components/textFields/textInput.tsx";
 import TelInput from "/src/components/textFields/telInput.tsx"
@@ -42,6 +42,8 @@ const Component = () => {
 			alert('사용하실 수 있는 이메일 입니다!');
 		});
 	}
+
+  const [previewUrl, setPreviewUrl] = useState(null);
 
 	return(
 			<div className="login sing-up">
@@ -87,7 +89,7 @@ const Component = () => {
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
-						<Upload state="default" type="normal"/>
+						<Upload state="default" type="normal" urlState={previewUrl} setUrlState={setPreviewUrl}/>
 						<p className="caption-R helper-txt">
 							허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
 						</p>

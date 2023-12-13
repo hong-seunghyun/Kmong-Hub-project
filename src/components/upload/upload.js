@@ -3,8 +3,32 @@ import React from "react";
 import Icon from "/src/components/icon/icon.tsx"
 import Label from "/src/components/label/label"
 import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
+import { useRef } from "react";
+import { useState } from "react";
 
 const Component = (props) => {
+
+	const [selectedFile, setSelectedFile] = useState(null);
+	const fileInputRef = useRef();
+
+	const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setSelectedFile(file);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        props.setUrlState(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+	const handleSpanClick = () => {
+    fileInputRef.current.click();
+  };
+
 	return(
 		<div className={`upload-container radius-8 ${props.state} ${props.type} ${props.file}`}>
 			<div className="img-box">
@@ -18,7 +42,14 @@ const Component = (props) => {
 			<div className="text-box body-3-R">
 				<div className="normal-box">
 					업로드할 파일을 드래그하거나<br />
-					<span>업로드</span>해주세요
+					<span onClick={handleSpanClick}>업로드</span>해주세요
+					<input
+						type="file"
+						ref={fileInputRef}
+						onChange={handleFileChange}
+						accept="image/*"
+						style={{ display: 'none' }}
+					/>
 				</div>
 				<div className="technology-box">
 					원하는 <span>기술문서를 선택</span>해 주세요.
@@ -68,6 +99,9 @@ const Component = (props) => {
 						<Icon icon="cancel" size={9} color="#464749" stroke=""/>
 					</div>
 				</div>
+			</div>
+			<div className="preview-box">
+
 			</div>
 		</div>
 	)
