@@ -10,7 +10,7 @@ import Link from "next/link"
 const Component = () => {
 
 	const verification = () => {
-		window.open('https://naver.com', '_blank');
+		window.open('https://swagger.kotechhub.com/api/v1/nice/encrypt/data?returnUrl=http://localhost:3000/user/verification&redirectUrl=http://localhost:3000/user/find_id', '_blank', 'width=600,height=400');
 	}
 
 	return(
