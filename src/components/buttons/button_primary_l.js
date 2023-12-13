@@ -5,9 +5,9 @@ import Icon from "/src/components/icon/icon.tsx";
 const Component = (props) => {
 	const [isButton, setButton ] = useState(false);
 
-	const onClickActive = () => {
-		props.onclick();
+	const onClickActive = async () => {
 		setButton(!isButton);
+		await props.onclick();
 	}
 	const ButtonPrimaryL = () => {
 		return(
