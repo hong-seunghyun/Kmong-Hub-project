@@ -10,11 +10,11 @@ const Component = (props) => {
 				<input type="checkbox" />
 				<span>{props.number}</span>
 			</div>
-			<div className="category-cell">
-				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
-			</div>
 			<div className="title-cell">
 				{props.title}
+			</div>
+			<div className="state-cell">
+			<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="writer-cell">
 				{props.writer}
@@ -23,8 +23,8 @@ const Component = (props) => {
 				{props.date}
 			</div>
 			<div className="etc-cell">
-				<Link href={`${props.link}`} style={{width:'auto'}}>
-				<TextButtonUnderlinePrimaryS text="조회"/>
+				<Link style={{width:'auto', }} href={`${props.link}`}>
+					<TextButtonUnderlinePrimaryS text="조회"/>
 				</Link>
 			</div>
 		</div>
