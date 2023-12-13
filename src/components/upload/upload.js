@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Icon from "/src/components/icon/icon.tsx";
 import Label from "/src/components/label/label";
@@ -16,6 +16,16 @@ const Component = (props) => {
   const [type, setType] = useState(null);
 
   const fileInputRef = useRef();
+
+  useEffect(() => {
+    console.log("efefeedfdfdffe");
+    if (props.urlState) {
+      console.log("efefeefe");
+      setState("done");
+      setType("preview");
+      props.setUrlState(props.urlState);
+    }
+  }, [props.urlState]);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];

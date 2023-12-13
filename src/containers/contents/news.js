@@ -12,10 +12,15 @@ const Component = () => {
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
   const setNewsList = useSetRecoilState(NewsListContent);
-  useLayoutEffect(async () => {
+
+  const getNewsFunc = async () => {
     await getNews()
       .then((e) => setNewsList([...e.data.data]))
       .catch((e) => console.log(e));
+  };
+
+  useLayoutEffect(() => {
+    getNewsFunc();
   }, []);
 
   const TabContents = () => {
