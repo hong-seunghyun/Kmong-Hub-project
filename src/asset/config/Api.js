@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl } from "./config.json";
+import { baseUrl, kotechUrl } from "./config.json";
 
 axios.defaults.headers["Access-Control-Allow-Origin"] = "*";
 
@@ -13,5 +13,16 @@ export const Api = axios.create({
     Authorization: `Bearer ${
       typeof window !== "undefined" && localStorage.getItem("accessToken")
     }`,
+  },
+});
+
+export const ApiKotech = axios.create({
+  baseURL: kotechUrl,
+  withCredentials: true,
+  headers: {
+    "Cache-Control": "no-cache",
+    Pragma: "no-cache",
+    Expires: "0",
+    "Content-Type": "application/json"
   },
 });
