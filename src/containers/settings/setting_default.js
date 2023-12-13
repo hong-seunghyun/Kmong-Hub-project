@@ -6,10 +6,11 @@ import Upload from "/src/components/upload/upload";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   SettingCutspEmailAddr,
   SettingCutspPhcNo,
+  SettingFvcPathAddr,
   SettingMngRcvEmailAddr,
   SettingSiteItrCntn,
   SettingSiteNm,
@@ -113,14 +114,28 @@ const TabContentC = ({ setActiveSubTab }) => {
 const Component = () => {
   useGetSiteBasicInfoAtom();
 
+  const setSiteNm = useSetRecoilState(SettingSiteNm);
+  const setSiteItrCntn = useSetRecoilState(SettingSiteItrCntn);
+  const setMngRcvEmailAddr = useSetRecoilState(SettingMngRcvEmailAddr);
+  const setCutspPhcNo = useSetRecoilState(SettingCutspPhcNo);
+  const setCutspEmailAddr = useSetRecoilState(SettingCutspEmailAddr);
+  const setFvcPathAddr = useSetRecoilState(SettingFvcPathAddr);
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
-  // useLayoutEffect(() => {
-  //   // getSiteBasicInfo()
-  //   //   .then((e) => console.log(e.data.data))
-  //   //   .catch((e) => console.log(e));
-  // }, []);
+  useLayoutEffect(() => {
+    getSiteBasicInfo()
+      .then((e) => {
+        setSiteNm(e.data.data.siteNm);
+        setSiteItrCntn(e.data.data.siteItrCntn);
+        setMngRcvEmailAddr(e.data.data.mngRcvEmailAddr);
+        setCutspPhcNo(e.data.data.cutspPhcNo);
+        setCutspEmailAddr(e.data.data.cutspEmailAddr);
+        setFvcPathAddr(e.data.data.fvcPathAddr);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   const TabContents = () => {
     if (subTab === 0) {
