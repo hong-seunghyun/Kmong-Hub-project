@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
