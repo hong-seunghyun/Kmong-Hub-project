@@ -7,18 +7,18 @@ import { kotechUrl } from "/src/asset/config/config.json"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import { useRecoilState } from "recoil";
-import { PhoneNumber } from "../../store/contents/tecnology/atom";
+import { PhoneNumber } from "../../store/auth/atom";
 
 const Component = () => {
 
-	const [ phoneNumber, setPhoneNumber ] = useRecoilState(
+	const [ Mobileno, setMobileno ] = useRecoilState(
 		PhoneNumber
 	);
 	const verification = async () => {
-		window.addEventListener('message', (message) => {
-			setPhoneNumber(message.data);
-			alert(message.data);
-			window.location = 'http://localhost:3000/user/find_result_id'
+		window.addEventListener('message', async (message) => {
+			setMobileno(message.data);
+			Mobileno && await alert(Mobileno);
+			window.location = '/user/find_result_id'
 		});
 
 		const left = window.screen.width / 2 - 500 / 2;

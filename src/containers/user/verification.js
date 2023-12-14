@@ -6,7 +6,7 @@ import { useState } from "react";
 const Component = () => {
 
   const router = useRouter();
-  const [ mobileno, setMobileno ] = useState("");
+  const [ mobileno, setMobileno ] = useState();
 
   const postMobileno = () => {
     setMobileno(router.query.mobileno);
@@ -16,8 +16,7 @@ const Component = () => {
 
   useEffect(() => {
     if(!router.isReady) return;
-    router.query.mobileno &&
-      postMobileno();
+    router.query.mobileno != null && typeof router.query.mobileno !== 'undefined' && postMobileno();
   });
 
 	return(
