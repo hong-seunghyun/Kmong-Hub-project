@@ -1337,7 +1337,7 @@
 			.text-fields-wrap{
 				width:100%;
 				> p.body-2-B{
-					display:block;
+					display:none;
 				}
 			}
 			.btn_{
@@ -1848,6 +1848,10 @@
 				.btn_{
 					width:105px;
 					margin-bottom:10px;
+					svg{display: none;}
+					.flex_{
+						justify-content: center;
+					}
 				}
 				>.text-fields-wrap{
 					margin-top:12px;
@@ -1972,9 +1976,101 @@
 		}
 	}
 	&.transaction-info{
+		.textarea-container{
+			.wrap{
+				width:100%;
+			}
+		}
 		.drops-menu-container{
 			width:100%;
 			margin-bottom:24px;
+		}
+		.tab-container{
+			padding-bottom:0;
+			margin-bottom:24px;
+		}
+		.table-horizontal-container{
+			& + p{
+				margin-top:24px;
+			}
+		}
+		.select-flex{
+			flex-wrap: wrap;
+			gap:12px;
+			width:100%;
+		}
+		.drops-menu-container{
+			.wrap{display: none;}
+		}
+		.m-48{
+			margin-top:48px;
+		}
+		.button-input{
+			justify-content: space-between;
+			align-items: end;
+			.text-fields-wrap{
+				width:calc(100% - 117px);
+			}
+			.btn_{
+				margin-bottom:10px;
+				width:105px;
+				svg{
+					display: none;
+				}
+			}
+			a{
+				width:auto;
+			}
+		}
+		.search-box{
+			margin:24px 0;
+			gap:12px;
+			.drops-menu-container{
+				width:160px;
+			}
+			.search-container{
+				width:100%;
+			}
+		}
+	}
+	&.transaction-consulting{
+		.drops-menu-container{margin-bottom:0;}
+		.table-container{
+			.title-cell{
+				width: 320px;
+			}
+			.writer-cell{
+				width:180px;
+			}
+			.consulting-cell{
+				width:120px;
+				justify-content: center;
+			}
+			.state-cell{
+				width:80px;
+				justify-content: center;
+			}
+			.date-cell{
+				width: 120px;
+			}
+		}
+		.radio-flex{
+			margin-bottom:8px;
+			.flex_{
+				gap:12px;
+			}
+		}
+		.input-container{
+			.wrap{
+				width:100%;
+			}
+		}
+		.input-wrap{
+			margin-top:24px;
+			.date-picker-container{
+				width:50%;
+				input{width:100%;}
+			}
 		}
 	}
 }
@@ -2965,9 +3061,6 @@
 				padding:3px 8px;
 			}
 		}
-		.table-cell-container{
-			height:48px;
-		}
 	}
 	&.news-writer-d{
 		.table-head-container,
@@ -3761,14 +3854,7 @@
 		}
 	}
 	.sign-up-form{
-		.input-search{
-			position:relative;
-			svg{
-				position:absolute;
-				right: 20px;
-				bottom: 24px;
-			}
-		}
+		
 		.button-input{
 			justify-content: space-between;
 			align-items: end;
@@ -3847,6 +3933,9 @@
 					}
 				}
 			}
+		}
+		.search-container{
+			width:100%;
 		}
 	}
 	&.waiting-sign-up{

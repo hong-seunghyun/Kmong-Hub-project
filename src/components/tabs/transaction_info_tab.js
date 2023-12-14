@@ -46,7 +46,7 @@ const Component = (props) => {
 
 	const delay = 100;
 	const onThrottleDragMove = throttle(onDragMove, delay);
-	
+
 	return(
 		<div className="tab-container tab-scrollable" 
 			ref={scrollRef}  
@@ -58,19 +58,52 @@ const Component = (props) => {
 			<ul className="flex_">
 				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
 					<span>
-						<Link href="/marketing/setting">
-							 계약 정보
+						<Link href="/transaction/transaction_info">
+							기본 정보
 						</Link>
 					</span>
 				</li>
 
 				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
 					<span>
-						<Link href="/marketing/setting_02">
+						<Link href="/transaction/transaction_consulting">
+							상담 정보
+						</Link>
+					</span>
+				</li>
+
+				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
+					<span>
+						<Link href="/transaction/transaction_meeting">
+							미팅 정보
+						</Link>
+					</span>
+				</li>
+
+				<li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
+					<span>
+						<Link href="/transaction/transaction_info">
+							결제 정보
+						</Link>
+					</span>
+				</li>
+
+				<li className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}>
+					<span>
+						<Link href="/transaction/transaction_info">
+							계약 정보
+						</Link>
+					</span>
+				</li>
+
+				<li className={`tab-item body-2-B ${props.active === 5 ? "active" : ""}`}>
+					<span>
+						<Link href="/transaction/transaction_info">
 							사후 관리
 						</Link>
 					</span>
 				</li>
+
 			</ul>
 		</div>
 	)

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 import Label from "/src/components/label/label"
+import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 
 const Component = (props) => {
 	return(
@@ -13,11 +13,14 @@ const Component = (props) => {
 			<div className="title-cell">
 				{props.title}
 			</div>
-			<div className="state-cell">
-				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
-			</div>
 			<div className="writer-cell">
 				{props.writer}
+			</div>
+			<div className="consulting-cell">
+				{props.consulting}
+			</div>
+			<div className="state-cell">
+				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
 			</div>
 			<div className="date-cell">
 				{props.date}

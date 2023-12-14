@@ -9,6 +9,7 @@ import CheckBox from "/src/components/radio/checkbox"
 import LoginBtn from "/src/components/buttons/button_primary_l"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
+import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 
 const Component = () => {
 	return(
@@ -68,8 +69,8 @@ const Component = () => {
 						</p>
 					</div>
 					<div className="flex_ input-search box-">
-						<Input labelText="소속" placeholder="소속을 검색해 주세요." valueType="" helperTextResult="none" iconState="false"/>
-						<Icon icon="search" size={16} stroke="none" color="#574AFF" /> 
+						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
+						<SearchBar />
 					</div>
 
 					<CheckBox size="small" label="전체 동의" />

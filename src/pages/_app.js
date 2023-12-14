@@ -2,6 +2,7 @@ import Head from "next/head";
 import "../scss/page_style.scss"
 import "../scss/public.scss";
 import "../scss/components_style.scss";
+import "../scss/resize_style.scss";
 
 const App = ({ Component, pageProps }) => (
   <>
