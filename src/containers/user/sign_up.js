@@ -12,7 +12,7 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import { useState } from "react";
-import { checkTheEmail, searchOrgn } from "../../asset/apis/signup";
+import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 
 const Component = () => {
 
@@ -37,6 +37,10 @@ const Component = () => {
 
 	const [ orgn, setOrgn ] = useState('');
 
+	const [ checkState1, setCheckState1 ] = useState(false);
+	const [ checkState2, setCheckState2 ] = useState(false);
+	const [ checkState3, setCheckState3 ] = useState(false);
+
 	const checkEmail = async () => {
 		if(!email.includes('@')) return;
 		await checkTheEmail({email}).then(res => {
@@ -55,8 +59,26 @@ const Component = () => {
 		})
 	}
 
-  const [previewUrl, setPreviewUrl] = useState(null);
-  const [previewUrl2, setPreviewUrl2] = useState(null);
+  const [file, setFile] = useState(null);
+  const [file2, setFile2] = useState(null);
+
+	const registerMember = () => {
+		register({
+			emailAddr: email,
+			mbrNm: name,
+			nnmNm: nickname,
+			nwlAgrmYn: checkState3,
+			hpNo: tel,
+			orgnPhcNo: tel,
+			pwd: password,
+			smsRcvAgrmYn: checkState2,
+			ucmdCd: "1234567"
+		}, file, file2).then(res => {
+			console.log(res.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	};
 
 	return(
 			<div className="login sing-up">
@@ -102,14 +124,14 @@ const Component = () => {
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
-						<Upload state="default" type="normal" urlState={previewUrl} setUrlState={setPreviewUrl}/>
+						<Upload state="default" type="normal" fileState={file} setFileState={setFile}/>
 						<p className="caption-R helper-txt">
 							허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
 						</p>
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">사업자 등록증<span className="txt-violet-1">*</span></p>
-						<Upload state="default" type="normal" urlState={previewUrl2} setUrlState={setPreviewUrl2}/>
+						<Upload state="default" type="normal" fileState={file2} setFileState={setFile2}/>
 						<p className="caption-R helper-txt">
 							허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
 						</p>
@@ -122,11 +144,11 @@ const Component = () => {
 
 					<CheckBox size="small" label="전체 동의" />
 					<div class="bar bg-gray-5" />
-					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." />
-					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." />
-					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." />
-					<Link href="/user/waiting_sign_up">
-						<LoginBtn text="회원가입" />
+					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>
+					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={false} setCheckState={setCheckState2}/>
+					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={false} setCheckState={setCheckState3}/>
+					<Link href="/user/sign_up">
+						<LoginBtn text="회원가입" onclick={registerMember}/>
 					</Link>
 					<p className="ps-txt caption-R txt-second-default flex_">
 						회원가입 시 
