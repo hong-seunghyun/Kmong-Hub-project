@@ -77,36 +77,19 @@ export const useSetSiteBasic = () => {
 };
 
 //사이트 정보 확장 불러오기
-export const useGetSiteBusinessAtom = () => {
-  const setBslNo = useSetRecoilState(SettingBslNo);
-  const setBsicDmiAddr = useSetRecoilState(SettingBsicDmiAddr);
-  const setCbdAddr = useSetRecoilState(SettingCbdAddr);
-  const setCbdNm = useSetRecoilState(SettingCbdNm);
-  const setIdvdDmiAddr = useSetRecoilState(SettingIdvdDmiAddr);
-  const setOmbRptNo = useSetRecoilState(SettingOmbRptNo);
-  const setPtpPicEmailAddr = useSetRecoilState(SettingPtpPicEmailAddr);
-  const setPtpPicNm = useSetRecoilState(SettingPtpPicNm);
-  const setPtpPicPhcNo = useSetRecoilState(SettingPtpPicPhcNo);
-  const setRpsvNm = useSetRecoilState(SettingRpsvNm);
-  const setSiteInfoId = useSetRecoilState(SettingSiteInfoId);
-
-  getSiteBsl()
-    .then((e) => {
-      if (e.data.data.bsicDmiAddr) setBsicDmiAddr(e.data.data.bsicDmiAddr);
-      if (e.data.data.bslNo) setBslNo(e.data.data.bslNo);
-      if (e.data.data.cbdAddr) setCbdAddr(e.data.data.cbdAddr);
-      if (e.data.data.cbdNm) setCbdNm(e.data.data.cbdNm);
-      if (e.data.data.idvdDmiAddr) setIdvdDmiAddr(e.data.data.idvdDmiAddr);
-      if (e.data.data.ombRptNo) setOmbRptNo(e.data.data.ombRptNo);
-      if (e.data.data.ptpPicEmailAddr)
-        setPtpPicEmailAddr(e.data.data.ptpPicEmailAddr);
-      if (e.data.data.ptpPicNm) setPtpPicNm(e.data.data.ptpPicNm);
-      if (e.data.data.ptpPicPhcNo) setPtpPicPhcNo(e.data.data.ptpPicPhcNo);
-      if (e.data.data.rpsvNm) setRpsvNm(e.data.data.rpsvNm);
-      if (e.data.data.siteInfoId) setSiteInfoId(e.data.data.siteInfoId);
-    })
-    .catch((e) => console.log(e));
-};
+// export const useGetSiteBusinessAtom = () => {
+//   const setBslNo = useSetRecoilState(SettingBslNo);
+//   const setBsicDmiAddr = useSetRecoilState(SettingBsicDmiAddr);
+//   const setCbdAddr = useSetRecoilState(SettingCbdAddr);
+//   const setCbdNm = useSetRecoilState(SettingCbdNm);
+//   const setIdvdDmiAddr = useSetRecoilState(SettingIdvdDmiAddr);
+//   const setOmbRptNo = useSetRecoilState(SettingOmbRptNo);
+//   const setPtpPicEmailAddr = useSetRecoilState(SettingPtpPicEmailAddr);
+//   const setPtpPicNm = useSetRecoilState(SettingPtpPicNm);
+//   const setPtpPicPhcNo = useSetRecoilState(SettingPtpPicPhcNo);
+//   const setRpsvNm = useSetRecoilState(SettingRpsvNm);
+//   const setSiteInfoId = useSetRecoilState(SettingSiteInfoId);
+// };
 //사이트 정보 확장 저장
 export const useSetSiteBusiness = () => {
   const bsicDmiAddr = useRecoilValue(SettingBslNo);
