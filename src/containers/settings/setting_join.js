@@ -7,25 +7,30 @@ import Radio from "/src/components/radio/radio";
 import { useSettingHandler } from "../../util/ButtonHandler/setting";
 import { getSiteSttg } from "../../asset/apis/siteApis";
 const TabContents = ({ setActiveSubTab }) => {
+  const [addr, setAddr] = useState("N");
   return (
     <div className="sub-page-0">
       <div className="flex_">
         <div>
           <h6 className="body-2-B">주소</h6>
           <div className="flex_ radio-wrap">
-            <ToggleSwich id="toggle-a" state="default" />
+            <ToggleSwich id="toggle-a" state="default" setState={setAddr} />
             <span className="flex_">
               <Radio
                 id="radio-a"
                 label="필수"
-                state="disabled"
+                state={addr !== "I" && "disabled"}
                 name="radio-0"
+                onclick={() => setAddr("I")}
+                checked={addr === "I"}
               />
               <Radio
                 id="radio-b"
                 label="선택"
-                state="disabled"
+                state={addr !== "O" && "disabled"}
                 name="radio-0"
+                onclick={() => setAddr("O")}
+                checked={addr === "O"}
               />
             </span>
           </div>
