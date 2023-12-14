@@ -155,7 +155,7 @@ const Component = () => {
 						<h1 className="display-5-B">
 							거래 관리
 						</h1>
-						<Link href="/transaction/company_add">
+						<Link href="/transaction/transaction_add">
 							<ButtonM text="거래 등록" />
 						</Link>
 					</div>

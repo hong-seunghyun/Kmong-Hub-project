@@ -111,7 +111,7 @@ const Component = () => {
 					<h1 className="display-5-B flex_">
 						템플릿 관리
 						<Link href="#">
-							<ButtonM text="뉴스 등록" />
+							<ButtonM text="템플릿 등록" />
 						</Link>
 					</h1>
 					<Tab active={0}/>

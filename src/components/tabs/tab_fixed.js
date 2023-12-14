@@ -49,12 +49,13 @@ const Component = () => {
 	
 	return(
 		<div className="tab-scrollable-bg">
-		<div className="tab-container tab-scrollable"
+		<div className="tab-container tab-scrollable" 
 			ref={scrollRef}  
 			onMouseDown={onDragStart}
 			onMouseMove={isDrag ? onThrottleDragMove : null}
 			onMouseUp={onDragEnd}
-			onMouseLeave={onDragEnd}>
+			onMouseLeave={onDragEnd}
+		>
 			<ul className="flex_">
 				<li className="tab-item body-2-B active">
 					<span>
