@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import TextArea from "/src/components/textFields/textArea.tsx";
@@ -14,9 +14,9 @@ import {
   SettingMngRcvEmailAddr,
   SettingSiteItrCntn,
   SettingSiteNm,
+  SettingSiteNo,
 } from "../../store/setting/basic/atom";
-import { getSiteBasicInfo } from "../../asset/apis/siteApis";
-// import { getSiteBasicInfo } from "../../asset/apis/siteApis";
+import { getSiteBasicInfo, setSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
@@ -119,15 +119,26 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
-  const setSiteNm = useSetRecoilState(SettingSiteNm);
-  const setSiteItrCntn = useSetRecoilState(SettingSiteItrCntn);
-  const setMngRcvEmailAddr = useSetRecoilState(SettingMngRcvEmailAddr);
-  const setCutspPhcNo = useSetRecoilState(SettingCutspPhcNo);
-  const setCutspEmailAddr = useSetRecoilState(SettingCutspEmailAddr);
-  const setFvcPathAddr = useSetRecoilState(SettingFvcPathAddr);
+  const [siteNm, setSiteNm] = useRecoilState(SettingSiteNm);
+  const [siteNo, setSiteNo] = useRecoilState(SettingSiteNo);
+  const [siteItrCntn, setSiteItrCntn] = useRecoilState(SettingSiteItrCntn);
+  const [mngRcvEmailAddr, setMngRcvEmailAddr] = useRecoilState(
+    SettingMngRcvEmailAddr
+  );
+  const [cutspPhcNo, setCutspPhcNo] = useRecoilState(SettingCutspPhcNo);
+  const [cutspEmailAddr, setCutspEmailAddr] = useRecoilState(
+    SettingCutspEmailAddr
+  );
+  const [fvcPathAddr, setFvcPathAddr] = useRecoilState(SettingFvcPathAddr);
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
+  const [iSave, setIsSave] = useState(false);
+
+  useEffect(() => {
+    if (siteNm !== "" && siteItrCntn !== "") setIsSave(true);
+    else setIsSave(false);
+  }, [siteNm, siteItrCntn]);
 
   useLayoutEffect(() => {
     getSiteBasicInfo()
@@ -142,14 +153,19 @@ const Component = () => {
       .catch((e) => console.log(e));
   }, []);
 
-  const TabContents = () => {
-    if (subTab === 0) {
-      return <TabContentA setActiveSubTab={setActiveSubTab} />;
-    } else if (subTab === 1) {
-      return <TabContentB setActiveSubTab={setActiveSubTab} />;
-    } else if (subTab === 2) {
-      return <TabContentC setActiveSubTab={setActiveSubTab} />;
-    }
+  const saveValue = async () => {
+    await setSiteBasicInfo({
+      cutspEmailAddr,
+      cutspPhcNo,
+      fvcPathAddr,
+      mngRcvEmailAddr,
+      siteItrCntn,
+      siteNm,
+      siteNo,
+      snrEmailAddr: "",
+    })
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -158,10 +174,16 @@ const Component = () => {
         <div className="setting-contents">
           <h1 className="display-5-B">사이트 설정</h1>
           <Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={0} />
-          <TabContents />
+          {subTab === 0 && <TabContentA setActiveSubTab={setActiveSubTab} />}
+          {subTab === 1 && <TabContentB setActiveSubTab={setActiveSubTab} />}
+          {subTab === 2 && <TabContentC setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state="disabled" />
+            <PrimaryBtn
+              text="저장"
+              state={!iSave && "disabled"}
+              onclick={saveValue}
+            />
           </div>
         </div>
       </div>

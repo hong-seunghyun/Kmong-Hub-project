@@ -50,43 +50,33 @@ export const useSettingHandler = () => {
   const gganltcScptCntn = useRecoilValue(SettingGganltcScptCntn);
   const chntkScptCntn = useRecoilValue(SettingChntkScptCntn);
 
-  const useCheckBasicValue = () => {
-    if (name && introduce) return true;
-    return false;
-  };
-
-  const useCheckBusiness = () => {
+  const useCheckValue = () => {
     if (
-      bslNo &&
-      cbdAddr &&
-      cbdNm &&
-      ombRptNo &&
-      rpsvNm &&
-      ptpPicEmailAddr &&
-      ptpPicNm &&
-      ptpPicPhcNo
+      name === "" &&
+      introduce === "" &&
+      bslNo === "" &&
+      cbdAddr === "" &&
+      cbdNm === "" &&
+      ombRptNo === "" &&
+      rpsvNm === "" &&
+      ptpPicEmailAddr === "" &&
+      ptpPicNm === "" &&
+      ptpPicPhcNo === "" &&
+      tavoClusCntn === "" &&
+      pinfPrcsPlcyCntn === "" &&
+      piuaBcmemCntn === "" &&
+      piuaBbsCntn === "" &&
+      advRcvAgrmYnCntn === "" &&
+      pinfSttgYnCntn === "" &&
+      siteItrCntn === "" &&
+      siteNm === "" &&
+      gganltcScptCntn === "" &&
+      chntkScptCntn === ""
     )
-      return true;
-    return false;
-  };
-  const useCheckTerms = () => {
-    if (
-      tavoClusCntn &&
-      pinfPrcsPlcyCntn &&
-      piuaBcmemCntn &&
-      piuaBbsCntn &&
-      advRcvAgrmYnCntn &&
-      pinfSttgYnCntn
-    )
-      return true;
-    return false;
+      return false;
+    return true;
   };
 
-  const useCheckScript = () => {
-    if (siteItrCntn && siteNm && gganltcScptCntn && chntkScptCntn) return true;
-    return false;
-  };
-
-  if (useCheckBasicValue()) return true;
-  return false;
+  if (useCheckValue()) return false;
+  return true;
 };
