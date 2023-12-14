@@ -28,14 +28,15 @@ import {
   SettingRpsvNm,
 } from "../../store/setting/business/atom";
 
-const useCheckBasicValue = () => {
+export const useSettingHandler = () => {
   const name = useRecoilValue(SettingSiteNm);
   const introduce = useRecoilValue(SettingSiteItrCntn);
-  if (name && introduce) return true;
-  return false;
-};
-
-const useCheckBusiness = () => {
+  const tavoClusCntn = useRecoilValue(SettingTavoClusCntn);
+  const pinfPrcsPlcyCntn = useRecoilValue(SettingPinfPrcsPlcyCntn);
+  const piuaBcmemCntn = useRecoilValue(SettingPiuaBcmemCntn);
+  const piuaBbsCntn = useRecoilValue(SettingPiuaBbsCntn);
+  const advRcvAgrmYnCntn = useRecoilValue(SettingAdvRcvAgrmYnCntn);
+  const pinfSttgYnCntn = useRecoilValue(SettingPinfSttgYnCntn);
   const bslNo = useRecoilValue(SettingBslNo);
   const cbdAddr = useRecoilValue(SettingCbdAddr);
   const cbdNm = useRecoilValue(SettingCbdNm);
@@ -44,58 +45,48 @@ const useCheckBusiness = () => {
   const ptpPicEmailAddr = useRecoilValue(SettingPtpPicEmailAddr);
   const ptpPicNm = useRecoilValue(SettingPtpPicNm);
   const ptpPicPhcNo = useRecoilValue(SettingPtpPicPhcNo);
-
-  if (
-    bslNo &&
-    cbdAddr &&
-    cbdNm &&
-    ombRptNo &&
-    rpsvNm &&
-    ptpPicEmailAddr &&
-    ptpPicNm &&
-    ptpPicPhcNo
-  )
-    return true;
-  return false;
-};
-
-const useCheckTerms = () => {
-  const tavoClusCntn = useRecoilValue(SettingTavoClusCntn);
-  const pinfPrcsPlcyCntn = useRecoilValue(SettingPinfPrcsPlcyCntn);
-  const piuaBcmemCntn = useRecoilValue(SettingPiuaBcmemCntn);
-  const piuaBbsCntn = useRecoilValue(SettingPiuaBbsCntn);
-  const advRcvAgrmYnCntn = useRecoilValue(SettingAdvRcvAgrmYnCntn);
-  const pinfSttgYnCntn = useRecoilValue(SettingPinfSttgYnCntn);
-
-  if (
-    tavoClusCntn &&
-    pinfPrcsPlcyCntn &&
-    piuaBcmemCntn &&
-    piuaBbsCntn &&
-    advRcvAgrmYnCntn &&
-    pinfSttgYnCntn
-  )
-    return true;
-  return false;
-};
-
-const useCheckScript = () => {
   const siteItrCntn = useRecoilValue(SettingSiteScriptItrCntn);
   const siteNm = useRecoilValue(SettingSiteScriptNm);
   const gganltcScptCntn = useRecoilValue(SettingGganltcScptCntn);
   const chntkScptCntn = useRecoilValue(SettingChntkScptCntn);
 
-  if (siteItrCntn && siteNm && gganltcScptCntn && chntkScptCntn) return true;
-  return false;
-};
+  const useCheckBasicValue = () => {
+    if (name && introduce) return true;
+    return false;
+  };
 
-export const useSettingHandler = () => {
-  if (
-    useCheckBasicValue() &&
-    useCheckBusiness() &&
-    useCheckTerms() &&
-    useCheckScript()
-  )
-    return true;
+  const useCheckBusiness = () => {
+    if (
+      bslNo &&
+      cbdAddr &&
+      cbdNm &&
+      ombRptNo &&
+      rpsvNm &&
+      ptpPicEmailAddr &&
+      ptpPicNm &&
+      ptpPicPhcNo
+    )
+      return true;
+    return false;
+  };
+  const useCheckTerms = () => {
+    if (
+      tavoClusCntn &&
+      pinfPrcsPlcyCntn &&
+      piuaBcmemCntn &&
+      piuaBbsCntn &&
+      advRcvAgrmYnCntn &&
+      pinfSttgYnCntn
+    )
+      return true;
+    return false;
+  };
+
+  const useCheckScript = () => {
+    if (siteItrCntn && siteNm && gganltcScptCntn && chntkScptCntn) return true;
+    return false;
+  };
+
+  if (useCheckBasicValue()) return true;
   return false;
 };
