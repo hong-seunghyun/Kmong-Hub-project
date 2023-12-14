@@ -7,8 +7,18 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import Badge from "/src/components/label/badge"
 import Icon from "/src/components/icon/icon.tsx"
+import { useRouter } from "next/router";
+import { useLayoutEffect } from "react";
 
 const Component = () => {
+
+	const router = useRouter();
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		console.log(router.query);
+	});
+
 	return(
 			<div className="login find- sing-up find-3">
 				<h1 className="display-5-B flex_">

@@ -7,7 +7,7 @@ const Component = (props) => {
 
 	const onClickActive = async () => {
 		setButton(!isButton);
-		await props.onclick();
+		props.onclick && await props.onclick();
 	}
 	const ButtonPrimaryL = () => {
 		return(
