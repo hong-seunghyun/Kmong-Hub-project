@@ -12,7 +12,7 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import { useState } from "react";
-import { checkTheEmail } from "../../asset/apis/signup";
+import { checkTheEmail, searchOrgn } from "../../asset/apis/signup";
 
 const Component = () => {
 
@@ -35,13 +35,24 @@ const Component = () => {
 	const [ nickname, setNickname ] = useState('');
 	const [ tel, setTel ] = useState('');
 
+	const [ orgn, setOrgn ] = useState('');
+
 	const checkEmail = async () => {
+		if(!email.includes('@')) return;
 		await checkTheEmail({email}).then(res => {
 			console.log(res.data);
 			alert('사용하실 수 없는 이메일 입니다!')
 		}).catch((err) => {
 			alert('사용하실 수 있는 이메일 입니다!');
 		});
+	}
+
+	const searchOrgan = async () => {
+		await searchOrgn({query: orgn}).then(res => {
+			console.log(res.data);
+		}).catch(err => {
+			console.log(err);
+		})
 	}
 
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -72,7 +83,7 @@ const Component = () => {
 							</div>
 							<div className="flex_ check_flex txt-disabled caption-R"style={{color: containsAlphabet(password) ? "#952dff" : "#b3b6b8"}}>
 								<Icon icon="checkNone" size={7} color={containsAlphabet(password) ? "#952dff" : "#b3b6b8"} stroke=""/>
-								영문 입력
+								특수문자 입력
 							</div>
 						</div>
 					</div>
@@ -105,7 +116,8 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar />
+						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan}/>
+						<p>{}</p>
 					</div>
 
 					<CheckBox size="small" label="전체 동의" />
