@@ -18,7 +18,7 @@ const Component = () => {
   const getTechnologyTransferFunc = async () => {
     await getTechnologyTransfer()
       .then((e) => setTechnologyTransferContent([...e.data.data]))
-      .catch((e) => console.log(e));
+      .catch((_) => {});
   };
 
   useLayoutEffect(() => {
