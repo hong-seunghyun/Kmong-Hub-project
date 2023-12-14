@@ -10,11 +10,10 @@ import { useRecoilState } from "recoil";
 import { PhoneNumber } from "../../store/auth/atom";
 
 const Component = () => {
-  const [phoneNumber, setPhoneNumber] = useRecoilState(PhoneNumber);
+  const [mobileNo, setMobileNo] = useRecoilState(PhoneNumber);
   const verification = async () => {
     window.addEventListener("message", (message) => {
-      setPhoneNumber(message.data);
-      alert(message.data);
+      setMobileNo(message.data);
       window.location = "http://localhost:3000/user/find_result_id";
     });
 
