@@ -6,14 +6,17 @@ import LoginBtn from "/src/components/buttons/button_primary_l"
 import Link from "next/link"
 import Badge from "/src/components/label/badge"
 import { kotechUrl } from "/src/asset/config/config.json";
+import { useRouter } from "next/router";
 
 const Component = () => {
+
+	const router = useRouter();
 
 	const verification = async () => {
     window.addEventListener("message", (message) => {
 			if(message.data != '') {
 				console.log(message.data);
-				window.location = `/user/find_pw_3?hpno=${message.data}`;
+				window.location = `/user/find_pw_3?hpno=${message.data}&email=${router.query.email}`;
 			}
     });
 

@@ -15,7 +15,7 @@ const Component = () => {
 
 	const checkEmail = () => {
 		checkTheEmail({email}).then(res => {
-			window.location = '/user/find_pw_2';
+			window.location = `/user/find_pw_2?email=${email}`;
 		}).catch(_ => {
 			alert('존재 하지 않는 이메일 입니다!');
 		});

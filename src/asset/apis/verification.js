@@ -12,3 +12,21 @@ export const findEmail = ({hpNo}) => {
   const response = Api.post('/viewapi/mngr/site/v2/findEmail', findEmailDTO);
   return response;
 }
+
+export const findPassword = ({email, hpNo}) => {
+  const findPasswordDTO = {
+    email,
+    hpNo
+  };
+  const response = Api.post('/viewapi/mngr/site/v2/findPwd', findPasswordDTO);
+  return response;
+}
+
+export const rePassword = ({mbrNo, password}) => {
+  const rePasswordDTO = {
+    mbrNo,
+    password
+  };
+  const response = Api.post('/viewapi/mngr/site/v2/findPwd/reset', rePasswordDTO);
+  return response;
+}
