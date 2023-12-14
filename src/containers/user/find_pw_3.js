@@ -29,7 +29,7 @@ const Component = () => {
 	}
 
 	function containsAlphabet(str) {
-		return /[a-zA-Z]/g.test(str);
+		return /[!@#^*_]/g.test(str);
 	}
 
 	function isBetween8and12(str) {
@@ -87,7 +87,7 @@ const Component = () => {
 							</div>
 							<div className="flex_ check_flex txt-disabled caption-R" style={{color: containsAlphabet(password) ? "#952dff" : "#b3b6b8"}}>
 								<Icon icon="checkNone" size={7} color="#b3b6b8" stroke="" style={{color: containsAlphabet(password) ? "#952dff" : "#b3b6b8"}}/>
-								영문 입력
+								특수문자 입력
 							</div>
 						</div>
 					</div>

@@ -20,7 +20,7 @@ const Component = () => {
 	}
 
 	function containsAlphabet(str) {
-		return /[a-zA-Z]/g.test(str);
+		return /[!@#^*_]/g.test(str);
 	}
 
 	function isBetween8and12(str) {
