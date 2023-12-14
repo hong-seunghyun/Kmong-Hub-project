@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import TextArea from "/src/components/textFields/textArea.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
@@ -16,6 +16,7 @@ import {
   SettingTavoClusCntn,
 } from "../../store/setting/terms/atom";
 import { useSettingHandler } from "../../util/ButtonHandler/setting";
+import { getSiteClus, setSiteClus } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
@@ -257,7 +258,7 @@ const Component = () => {
   const [activeSubTab, setActiveSubTab] = useState(0);
 
   const getValue = async () => {
-    awaitgetSiteClus()
+    await getSiteClus()
       .then((e) => {
         if (e.data.data.advRcvAgrmYnCntn)
           setAdvRcvAgrmYnCntn(e.data.data.advRcvAgrmYnCntn);
@@ -285,7 +286,7 @@ const Component = () => {
       piuaBcmemCntn !== "" &&
       piuaBbsCntn !== "" &&
       advRcvAgrmYnCntn !== "" &&
-      advRcvAgrmYnCntn !== ""
+      pinfSttgYnCntn !== ""
     )
       setIsSave(false);
     else setIsSave(true);
@@ -295,8 +296,21 @@ const Component = () => {
     piuaBcmemCntn,
     piuaBbsCntn,
     advRcvAgrmYnCntn,
-    advRcvAgrmYnCntn,
+    pinfSttgYnCntn,
   ]);
+
+  const saveValue = async () => {
+    await setSiteClus({
+      tavoClusCntn,
+      pinfPrcsPlcyCntn,
+      piuaBcmemCntn,
+      piuaBbsCntn,
+      advRcvAgrmYnCntn,
+      pinfSttgYnCntn,
+    })
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
+  };
 
   return (
     <div className="container">
@@ -312,7 +326,11 @@ const Component = () => {
           {subTab === 5 && <TabContentF setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state={iSave && "disabled"} />
+            <PrimaryBtn
+              text="저장"
+              state={iSave && "disabled"}
+              onclick={saveValue}
+            />
           </div>
         </div>
       </div>
