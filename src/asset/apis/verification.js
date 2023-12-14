@@ -5,10 +5,10 @@ export const decryptData = ({token_version_id, enc_data, integrity_value}) => {
   return response;
 }
 
-export const findEmail = (hpNo) => {
+export const findEmail = ({hpNo}) => {
   const findEmailDTO = {
     hpNo
   };
-  const response = Api.get('/viewapi/mngr/site/v2/findEmail', findEmailDTO);
+  const response = Api.post('/viewapi/mngr/site/v2/findEmail', findEmailDTO);
   return response;
 }

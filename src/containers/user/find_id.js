@@ -8,13 +8,16 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { PhoneNumber } from "../../store/auth/atom";
+import { useState } from "react";
 
 const Component = () => {
-  const [mobileNo, setMobileNo] = useRecoilState(PhoneNumber);
+	const [ mobileNo, setMobileNo ] = useState('');
   const verification = async () => {
     window.addEventListener("message", (message) => {
-      setMobileNo(message.data);
-      window.location = "http://localhost:3000/user/find_result_id";
+			setMobileNo(message.data);
+			if(mobileNo != '') {
+				console.log(mobileNo);
+			} window.location = `/user/find_result_id?hpno=${mobileNo}`;
     });
 
     const left = window.screen.width / 2 - 500 / 2;

@@ -6,17 +6,16 @@ import { useState } from "react";
 const Component = () => {
 
   const router = useRouter();
-  const [ mobileno, setMobileno ] = useState();
+  const [ mobileno, setMobileno ] = useState('');
 
   const postMobileno = () => {
     setMobileno(router.query.mobileno);
-    window.opener.postMessage(mobileno, "http://localhost:3000/user/find_id");
-    alert(mobileno);
+    mobileno !== '' && window.opener.postMessage(mobileno, "http://localhost:3000/user/find_id");
   }
 
   useEffect(() => {
     if(!router.isReady) return;
-    router.query.mobileno != null && typeof router.query.mobileno !== 'undefined' && postMobileno();
+    postMobileno();
   });
 
 	return(

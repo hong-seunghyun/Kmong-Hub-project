@@ -8,24 +8,30 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import { findEmail } from "../../asset/apis/verification";
 import { useEffect } from "react";
-import { PhoneNumber } from "../../store/auth/atom";
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 const Component = () => {
 
 	const [ email, setEmail ] = useState("");
 	const [ createdDate, setCreatedDate ] = useState("");
 
-	const [ mobileNo, setMobileNo ] = useRecoilState(
-		PhoneNumber
-	);
+	const [ mobileNo, setMobileNo ] = useState('');
+
+	const router = useRouter();
 
 	useEffect(() => {
-		findEmail(mobileNo).then(res => {
+		if(!router.isReady) return;
+		setMobileNo(router.query.hpno);
+		const hpNo = mobileNo
+		.replace(/[^0-9]/g, '')
+		.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+		console.log(hpNo);
+		findEmail({hpNo}).then(res => {
 			setEmail(res.data.data.email);
 			setCreatedDate(res.data.data.createdDate);
-		})
+		});
 	});
 
 	return(
