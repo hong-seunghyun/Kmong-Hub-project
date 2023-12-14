@@ -17,15 +17,25 @@ import {
   SettingSiteScriptItrCntn,
   SettingSiteScriptNm,
 } from "../../store/setting/script/atom";
+import {
+  SettingBslNo,
+  SettingCbdAddr,
+  SettingCbdNm,
+  SettingOmbRptNo,
+  SettingPtpPicEmailAddr,
+  SettingPtpPicNm,
+  SettingPtpPicPhcNo,
+  SettingRpsvNm,
+} from "../../store/setting/business/atom";
 
-const checkBasicValue = () => {
+const useCheckBasicValue = () => {
   const name = useRecoilValue(SettingSiteNm);
   const introduce = useRecoilValue(SettingSiteItrCntn);
   if (name && introduce) return true;
   return false;
 };
 
-const checkBusiness = () => {
+const useCheckBusiness = () => {
   const bslNo = useRecoilValue(SettingBslNo);
   const cbdAddr = useRecoilValue(SettingCbdAddr);
   const cbdNm = useRecoilValue(SettingCbdNm);
@@ -34,6 +44,7 @@ const checkBusiness = () => {
   const ptpPicEmailAddr = useRecoilValue(SettingPtpPicEmailAddr);
   const ptpPicNm = useRecoilValue(SettingPtpPicNm);
   const ptpPicPhcNo = useRecoilValue(SettingPtpPicPhcNo);
+
   if (
     bslNo &&
     cbdAddr &&
@@ -48,7 +59,7 @@ const checkBusiness = () => {
   return false;
 };
 
-const checkTerms = () => {
+const useCheckTerms = () => {
   const tavoClusCntn = useRecoilValue(SettingTavoClusCntn);
   const pinfPrcsPlcyCntn = useRecoilValue(SettingPinfPrcsPlcyCntn);
   const piuaBcmemCntn = useRecoilValue(SettingPiuaBcmemCntn);
@@ -68,7 +79,7 @@ const checkTerms = () => {
   return false;
 };
 
-const checkScript = () => {
+const useCheckScript = () => {
   const siteItrCntn = useRecoilValue(SettingSiteScriptItrCntn);
   const siteNm = useRecoilValue(SettingSiteScriptNm);
   const gganltcScptCntn = useRecoilValue(SettingGganltcScptCntn);
@@ -78,8 +89,13 @@ const checkScript = () => {
   return false;
 };
 
-export const settingHandler = () => {
-  if (checkBasicValue() && checkBusiness() && checkTerms() && checkScript())
+export const useSettingHandler = () => {
+  if (
+    useCheckBasicValue() &&
+    useCheckBusiness() &&
+    useCheckTerms() &&
+    useCheckScript()
+  )
     return true;
   return false;
 };
