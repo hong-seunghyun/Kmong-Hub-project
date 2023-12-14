@@ -6,6 +6,7 @@ const Component = (props) => {
 	const [isButton, setButton ] = useState(false);
 
 	const onClickActive = () => {
+		props.onclick();
 		setButton(!isButton);
 	}
 	const ButtonPrimaryL = () => {

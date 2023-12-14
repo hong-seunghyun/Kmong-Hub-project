@@ -1,3 +1,4 @@
 {
-  "baseUrl": "http://dev-kotech-hub-api-admin-alb-848394048.ap-northeast-2.elb.amazonaws.com:8080"
+  "baseUrl": "http://dev-kotech-hub-api-admin-alb-848394048.ap-northeast-2.elb.amazonaws.com:8080",
+  "kotechUrl": "https://swagger.kotechhub.com"
 }

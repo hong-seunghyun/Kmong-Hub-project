@@ -1,11 +1,14 @@
 import React from "react";
 import ButtonCta from "/src/components/buttons/button_cta";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Component = () => {
 
+	const router = useRouter();
+
 	const linkBtn = () => {
-    window.location.href="/home";
+    router.push("/user/login");
   };
 
 	return(

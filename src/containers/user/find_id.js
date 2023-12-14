@@ -8,6 +8,11 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 
 const Component = () => {
+
+	const verification = () => {
+		window.open('https://swagger.kotechhub.com/api/v1/nice/encrypt/data?returnUrl=http://localhost:3000/user/verification&redirectUrl=http://localhost:3000/user/find_id', '_blank', 'width=600,height=400');
+	}
+
 	return(
 			<div className="login waiting-sign-up">
 				<h1 className="display-5-B">
@@ -18,7 +23,7 @@ const Component = () => {
 				본인인증 해주세요.
 				</p>
 				<Link href="/user/find_result_id">
-					<LoginBtn text="본인인증" />
+					<LoginBtn text="본인인증" onclick={verification}/>
 				</Link>
 			</div>
 	)
