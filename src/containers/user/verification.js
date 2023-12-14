@@ -9,12 +9,14 @@ const Component = () => {
   const [ mobileno, setMobileno ] = useState('');
 
   const postMobileno = () => {
-    setMobileno(router.query.mobileno);
-    mobileno !== '' && window.opener.postMessage(mobileno, "http://localhost:3000/user/find_id");
+    setMobileno(router.query.mobileno); 
+    mobileno !== '' && window.opener.postMessage(mobileno, `http://localhost:3000${router.query.to}`);
+    window.close();
   }
 
   useEffect(() => {
     if(!router.isReady) return;
+    if(router.query == null || router.query.mobileno == '') return;
     postMobileno();
   });
 
