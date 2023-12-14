@@ -14,7 +14,7 @@ import {
   SettingSiteScriptNm,
 } from "../../store/setting/script/atom";
 import { useGetSiteScriptAtom } from "../../util/setSettingAtom";
-import { settingHandler } from "../../util/saveHandler/setting";
+import { useSettingHandler } from "../../util/saveHandler/setting";
 
 const Component = () => {
   useGetSiteScriptAtom();
@@ -140,7 +140,7 @@ const Component = () => {
               onclick={() => {
                 console.log("dfdfdfsavesvave");
               }}
-              state={!settingHandler() && "disabled"}
+              state={!useSettingHandler() && "disabled"}
             />
           </div>
         </div>
