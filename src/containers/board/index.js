@@ -9,10 +9,12 @@ import Link from "next/link";
 import { getBoardList } from "../../asset/apis/boardApis";
 import { useRecoilState } from "recoil";
 import { BoardListAtom } from "../../store/board/list/atom";
+import { BoardInfoAtom } from "../../store/board/add/atom";
 
 const Component = () => {
   const [pageIdx, setPageIdx] = useState(1);
   const [boardList, setBoardList] = useRecoilState(BoardListAtom);
+  const [boardAtom, setBoardAtom] = useRecoilState(BoardInfoAtom);
 
   const getValue = async () => {
     await getBoardList({ currentIndex: pageIdx })
@@ -64,6 +66,15 @@ const Component = () => {
                 listLink="/board/board_retouch"
                 link="#"
                 boardLink="/board/board_list"
+                onclick={() => {
+                  console.log(e);
+                  setBoardAtom({
+                    bbsNm: e.bbsNm,
+                    bbsNo: e.bbsNo,
+                    useYn: e.useYn,
+                    delYn: e.delYn,
+                  });
+                }}
               />
             ))}
             <Pagnation
