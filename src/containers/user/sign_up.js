@@ -38,6 +38,8 @@ const Component = () => {
 
 	const [ orgn, setOrgn ] = useState('');
 
+	const [ allCheckState, setAllCheckState ] = useState(false);
+
 	const [ checkState1, setCheckState1 ] = useState(false);
 	const [ checkState2, setCheckState2 ] = useState(false);
 	const [ checkState3, setCheckState3 ] = useState(false);
@@ -147,7 +149,7 @@ const Component = () => {
 						<p>{}</p>
 					</div>
 
-					<CheckBox size="small" label="전체 동의" />
+					<CheckBox size="small" label="전체 동의" checked={false} setCheckState={setAllCheckState}/>
 					<div class="bar bg-gray-5" />
 					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>
 					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={false} setCheckState={setCheckState2}/>
