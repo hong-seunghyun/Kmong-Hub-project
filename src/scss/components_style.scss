@@ -667,6 +667,8 @@
 		}
 	}
 	.wrap{
+		position:absolute;
+		z-index:3;
 		margin-top:8px;
 		width:100%;
 		height:auto;
@@ -701,6 +703,7 @@
 				background:#EAEDF0;
 			}
 		}
+		display:none;
 	}
 }
 
