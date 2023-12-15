@@ -1,10 +1,9 @@
-import React, {useState} from "react";
 import Icon from "/src/components/icon/icon.tsx";
 
-const Component = () => {
-	const [ search, setSearch ] = useState("");
+const Component = (props) => {
 	const onChange = (e) => {
-		setSearch(e.target.value);
+		props.setState(e.target.value);
+		props.onchange();
 	}
 
 	return(
@@ -14,7 +13,7 @@ const Component = () => {
 					className="body-3-R txt-primary" 
 					type="text" 
 					placeholder="검색어를 입력해 주세요."
-					value={search}
+					value={props.state}
 					onChange={onChange}	
 				/>
 				<span className="icon_serach">

@@ -333,6 +333,7 @@
 				position: absolute;
 				left:0;
 				bottom:-0px;
+				width:max-content;
 				> li{
 					cursor:pointer;
 					height: 38px;
@@ -367,16 +368,7 @@
 		}
 		
 		&::-webkit-scrollbar{display:none;}
-		&::before{
-			content:'';
-			position:absolute;
-			right:0%;
-			top:0;
-			width:50px;
-			height:100%;
-			background: linear-gradient(269.76deg, #FFFFFF 0.17%, rgba(255, 255, 255, 0) 99.76%);
-			z-index: 2;
-		}
+		
 	}
 }
 .tab-scrollable-bg{

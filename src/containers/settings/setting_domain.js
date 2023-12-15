@@ -9,11 +9,8 @@ import {
   SettingBsicDmiAddr,
   SettingIdvdDmiAddr,
 } from "../../store/setting/business/atom";
-import { useGetSiteBusinessAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  useGetSiteBusinessAtom();
-
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
@@ -62,7 +59,7 @@ const Component = () => {
           <TabContents />
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state="disabled" />
+            <PrimaryBtn text="저장" />
           </div>
         </div>
       </div>

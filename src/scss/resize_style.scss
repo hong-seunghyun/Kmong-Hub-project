@@ -1,0 +1,49 @@
+// resize style scss
+
+/* 1200px */
+@media screen and (max-width:1370px){
+	.home-container .content-container{width:768px;}
+	.home-container .content-container .box_.box-05 > div{width:48%;}
+	.setting-contents{width:768px;}
+
+	.contents-{width:768px;}
+	.table-head-container,.table-cell-container{width:100%;}
+	.board-{width:768px;}
+	.table-cell-container .title-cell{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+	
+  .table-horizontal-container{width:100%;}
+  .contents-.contents-technology-retouch .right-flex > div .date-picker-container input{width:167px;}
+
+	.member-{width:768px;}
+
+	.contents-.contents-event .table-cell-container .title-cell{width:300px;}
+	.contents-.content-support-list-detail .table-container .title-cell{width:300px;}
+
+	.contents-.contents-event-writer .date-flex > div .date-picker-container input{width:160px;}
+	.contents-.contents-event-writer .date-flex > div .date-picker-container input{text-align: center;}
+
+	.researcher-contents{width:768px;}
+	.researcher-contents .table-container .writer-cell{width:100px;}
+	.researcher-contents .table-container .position-cell{width:80px; justify-content: center;}
+
+	.transaction-container{width:768px;}
+	
+	.board-.board-list .table-container .note-cell{width:65px;}
+
+	.design-{width:768px;}
+	.design- .content-2 .skin-box > div .skin-wrap{width:230px; height:300px;}
+	.design- .content-2 .skin-box > div .skin-wrap img{width:100%;}
+
+	.marketing-contents{width:768px;}
+	.marketing-contents.news-writer-c .table-cell-container .date-cell{text-align: center;}
+
+	.inquiry-{width:768px;}
+
+	.mypage-contents{width:768px;}
+
+	.mypage-contents.mypage-payment .rate-plan-list{flex-wrap: wrap; gap:30px;}
+	.mypage-contents.mypage-payment .rate-plan-list > li{width:48%;}
+
+	.summing-container .content-wrap{width:768px;}
+}
+/* //1200px */

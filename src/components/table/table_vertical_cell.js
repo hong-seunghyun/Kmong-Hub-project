@@ -23,7 +23,7 @@ const Component = (props) => {
 				{props.date}
 			</div>
 			<div className="etc-cell">
-				<Link href={`${props.link}`}>
+				<Link href={`${props.link}`} style={{width:'auto'}}>
 				<TextButtonUnderlinePrimaryS text="조회"/>
 				</Link>
 			</div>
