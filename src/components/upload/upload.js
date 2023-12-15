@@ -20,6 +20,7 @@ const Component = (props) => {
 
   useEffect(() => {
     if (props.urlState) {
+      console.log("dfdf");
       setState("done");
       setType("preview");
       props.setFileState(props.fileState);

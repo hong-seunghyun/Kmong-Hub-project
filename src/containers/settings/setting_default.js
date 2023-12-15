@@ -6,7 +6,7 @@ import Upload from "/src/components/upload/upload";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   SettingCutspEmailAddr,
   SettingCutspPhcNo,
@@ -143,6 +143,7 @@ const Component = () => {
   useLayoutEffect(() => {
     getSiteBasicInfo()
       .then((e) => {
+        setSiteNo(e.data.data.siteNo);
         setSiteNm(e.data.data.siteNm);
         setSiteItrCntn(e.data.data.siteItrCntn);
         setMngRcvEmailAddr(e.data.data.mngRcvEmailAddr);
