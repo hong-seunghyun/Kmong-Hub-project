@@ -3,18 +3,10 @@ import Label from "/src/components/label/label";
 import ButtonCta from "/src/components/buttons/button_cta";
 import ButtonLine from "/src/components/buttons/text_button_underline_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
-import { getUserInfo } from "../../asset/apis/home";
 
 const Component = () => {
   const [userData, setUserData] = useState({ data: "" });
-  useLayoutEffect(() => {
-    getUserInfo()
-      .then((res) => {
-        console.log(res.data.data);
-        setUserData({ ...res.data.data });
-      })
-      .catch((e) => console.log(e));
-  }, []);
+ 
 
   return (
     <div className="page-wrap">
