@@ -15,8 +15,8 @@ export const searchOrgn = ({ query }) => {
       row_count: 3,
       is_using: true,
       query: query,
-      ordr_by: "id",
-      order_sort: "id"
+      order_by: "id",
+      order_sort: "asc"
     }
   });
   return response;
