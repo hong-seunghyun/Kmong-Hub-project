@@ -43,14 +43,14 @@ const Component = () => {
 				</div>
 				<div className="box-">
 					<p className="table-caption body-2-B">PC 팝업<span className="txt-violet-1">*</span></p>
-					<Upload state="default" type="normal" />
+					<Upload state="default" type="normal" fileState={pcImg} setFileState={setPcImg}/>
 					<p className="caption-R helper-txt">
 						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>50mb</span>
 					</p>
 				</div>
 				<div className="box-">
 					<p className="table-caption body-2-B">모바일 팝업<span className="txt-violet-1">*</span></p>
-					<Upload state="default" type="normal" />
+					<Upload state="default" type="normal" fileState={mobImg} setFileState={setMobImg}/>
 					<p className="caption-R helper-txt">
 						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>50mb</span>
 					</p>
