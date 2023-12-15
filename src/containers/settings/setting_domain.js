@@ -4,22 +4,13 @@ import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import TextButtonUnderlineS from "/src/components/buttons/text_button_underline_s";
-import { useRecoilState } from "recoil";
-import {
-  SettingBsicDmiAddr,
-  SettingIdvdDmiAddr,
-} from "../../store/setting/business/atom";
-import { useGetSiteBusinessAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  useGetSiteBusinessAtom();
 
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
   const TabContents = () => {
-    const [bsicDmiAddr, setBsicDmiAddr] = useRecoilState(SettingBsicDmiAddr);
-    const [idvdDmiAddr, setIdvdDmiAddr] = useRecoilState(SettingIdvdDmiAddr);
     setActiveSubTab(subTab);
     return (
       <div className="sub-page-0">
@@ -28,19 +19,15 @@ const Component = () => {
           labelText="기본 도메인설정"
           placeholder="기본 도메인을 입력해 주세요."
           valueType=""
-          state={bsicDmiAddr}
-          setState={setBsicDmiAddr}
           helperTextResult="none"
           iconState="false"
         />
-        <div className="flex_ button-input">
+        <div className="flex_ button-input domain-input-wrap">
           <Input
             importState="none"
             labelText="개인 도메인"
             placeholder="기본 도메인을 입력해 주세요."
             valueType=""
-            state={idvdDmiAddr}
-            setState={setIdvdDmiAddr}
             helperTextResult="none"
             iconState="false"
           />

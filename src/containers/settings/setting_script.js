@@ -5,30 +5,13 @@ import TextArea from "/src/components/textFields/textArea.tsx";
 import Upload from "/src/components/upload/upload";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
-import { useRecoilState } from "recoil";
-import {
-  SettingChntkScptCntn,
-  SettingGganltcScptCntn,
-  SettingOgImgPathAddr,
-  SettingSiteScriptItrCntn,
-  SettingSiteScriptNm,
-} from "../../store/setting/script/atom";
-import { useGetSiteScriptAtom } from "../../util/setSettingAtom";
 
 const Component = () => {
-  useGetSiteScriptAtom();
-
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
 
   const TabContentA = () => {
     setActiveSubTab(subTab);
-    const [ogImgPathAddr, setOgImgPathAddr] =
-      useRecoilState(SettingOgImgPathAddr);
-    const [siteItrCntn, setSiteItrCntn] = useRecoilState(
-      SettingSiteScriptItrCntn
-    );
-    const [siteNm, setSiteNm] = useRecoilState(SettingSiteScriptNm);
 
     return (
       <div className="sub-page-0">
@@ -36,8 +19,6 @@ const Component = () => {
           labelText="사이트 이름"
           placeholder="사이트 이름을 입력해주세요."
           valueType=""
-          state={siteNm}
-          setState={setSiteNm}
           helperTextResult="none"
           iconState="false"
         />
@@ -45,8 +26,6 @@ const Component = () => {
           labelText="사이트 소개"
           placeholder="사이트 소개를 입력해 주세요."
           valueType=""
-          state={siteItrCntn}
-          setState={setSiteItrCntn}
           helperTextResult="none"
         />
         <div className="flex_ button-input">
@@ -54,8 +33,6 @@ const Component = () => {
             labelText="키워드"
             placeholder="사이트의 내용과 관련된 주요 키워드를 입력해 주세요."
             valueType=""
-            state={siteNm}
-            setState={setSiteNm}
             helperTextResult="none"
             iconState="false"
           />
@@ -75,17 +52,12 @@ const Component = () => {
 
   const TabContentB = () => {
     setActiveSubTab(subTab);
-    const [gganltcScptCntn, setGganltcScptCntn] = useRecoilState(
-      SettingGganltcScptCntn
-    );
     return (
       <div className="sub-page-1">
         <TextArea
           labelText="스크립트"
           placeholder="스크립트를 삽입해 주세요."
           valueType=""
-          state={gganltcScptCntn}
-          setState={setGganltcScptCntn}
           helperTextResult="none"
         />
       </div>
@@ -94,16 +66,12 @@ const Component = () => {
 
   const TabContentC = () => {
     setActiveSubTab(subTab);
-    const [chntkScptCntn, setChntkScptCntn] =
-      useRecoilState(SettingChntkScptCntn);
     return (
       <div className="sub-page-2">
         <TextArea
           labelText="스크립트"
           placeholder="스크립트를 삽입해 주세요."
           valueType=""
-          state={chntkScptCntn}
-          setState={setChntkScptCntn}
           helperTextResult="none"
         />
       </div>

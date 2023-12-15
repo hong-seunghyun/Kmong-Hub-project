@@ -12,33 +12,35 @@ const Component = () => {
     <div className="page-wrap">
       <div className="home-container bg-violet-6">
         <div className="content-container">
-          <div className="head-wrap flex_">
-            <img src="/images/user_icon_l.png" alt="user_icon_l" />
-            <h1 className="display-5-B ">
-              환영합니다.{" "}
-              <span className="txt-violet-1">
-                {userData?.nnmNm ? userData.nnmNm : ""}
-              </span>
-              님
-            </h1>
-          </div>
+					<div className="m-content-top-wrap">
+						<div className="head-wrap flex_">
+							<img src="/images/user_icon_l.png" alt="user_icon_l" />
+							<h1 className="display-5-B ">
+								환영합니다.{" "}
+								<span className="txt-violet-1">
+									{userData?.nnmNm ? userData.nnmNm : ""}
+								</span>
+								님
+							</h1>
+						</div>
 
-          <div className="flex_ box_ box-01 radius-20">
-            <span className="flex_">
-              <Label
-                backgroundColor="bg-violet-1"
-                fontColor="txt-white"
-                text="BASIC"
-                icon="false"
-                iconColor=""
-              />
-              <p className="body-3-R">N개월</p>
-            </span>
-            <span className="flex_">
-              <p className="body-3-R txt-violet-1">만료까지 [N]일 남았어요.</p>
-              <ButtonCta text="플랜 업그레이드" />
-            </span>
-          </div>
+						<div className="flex_ box_ box-01 radius-20">
+							<span className="flex_">
+								<Label
+									backgroundColor="bg-violet-1"
+									fontColor="txt-white"
+									text="BASIC"
+									icon="false"
+									iconColor=""
+								/>
+								<p className="body-3-R">N개월</p>
+							</span>
+							<span className="flex_">
+								<p className="body-3-R txt-violet-1">만료까지 [N]일 남았어요.</p>
+								<ButtonCta text="플랜 업그레이드" />
+							</span>
+						</div>
+					</div>
 
           <h6 className="body-2-B box-title">저장 용량</h6>
 
