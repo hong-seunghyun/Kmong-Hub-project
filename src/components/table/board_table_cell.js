@@ -12,7 +12,9 @@ const Component = (props) => {
 				<span>{props.number}</span>
 			</div>
 			<div className="title-cell">
+			<Link style={{width:'auto'}} href={`${props.boardLink}`}>
 				{props.title}
+				</Link>
 			</div>
 			<div className="writer-cell">
 				<Link style={{width:'auto'}} href={`${props.boardLink}`}>
