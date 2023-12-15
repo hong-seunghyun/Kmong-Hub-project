@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Badge from "/src/components/label/badge"
 import Radio from "/src/components/radio/radio"
 import Input from "/src/components/textFields/textInput.tsx";
@@ -9,6 +9,11 @@ import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 
 const Component = () => {
+
+	const [ nameState, setNameState ] = useState('');
+	const [ startState, setStartState ] = useState('');
+	const [ endState, setEndState ] = useState('');
+
 	return(
 		<div className="page-wrap">
 			<div className="design- design-popup">
@@ -25,12 +30,12 @@ const Component = () => {
 				</div>
 
 				<div className="box-">
-					<Input labelText="팝업 이름" placeholder="테스트명" valueType="" helperTextResult="none" iconState="false"/>
+					<Input labelText="팝업 이름" placeholder="테스트명" valueType="" helperTextResult="none" iconState="false" state={nameState} setState={setNameState}/>
 				</div>
 				<div className="box-">
 					<p className="table-caption body-2-B">로고 이미지<span className="txt-violet-1">*</span></p>
 					<Radio label="노출 무제한" id="radio-a" name="radio-a"/>
-					<DatePicker />
+					<DatePicker setStart={setStartState} setEnd={setEndState}/>
 				</div>
 				<div className="box-">
 					<p className="table-caption body-2-B">PC 팝업<span className="txt-violet-1">*</span></p>
