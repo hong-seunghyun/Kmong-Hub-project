@@ -63,23 +63,12 @@ const Component = () => {
             {boadrListInfo.map((e, idx) => (
               <TableCell
                 choice="number"
-                number="1"
-                title="[게시물 이름]"
+                number={idx + 1}
+                title={e.titleNm}
                 view="174"
-                writer="[미나 마수드]"
-                listLink="/board/board_detail"
-                date="YYYY.MM.DD"
-                onclick={() =>
-                  setBoardDetailInfo({
-                    cntn: e.cntn,
-                    mbrNm: e.mbrNm,
-                    mbrNo: e.mbrNo,
-                    modifiedDate: e.modifiedDate,
-                    ntceYn: e.ntceYn,
-                    rpstNo: e.rpstNo,
-                    titleNm: e.titleNm,
-                  })
-                }
+                writer={e.mbrNm}
+                listLink={`/board/board_detail/${e.rpstNo}`}
+                date={e.modifiedDate}
               />
             ))}
             <TableCell
