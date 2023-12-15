@@ -46,6 +46,15 @@ const Component = () => {
 
 	const [ data, setData ] = useState([]);
 
+	const allCheck = (checked) => {
+		setAllCheckState(checked);
+		if(checked) {
+			setCheckState1(true);
+			setCheckState2(true);
+			setCheckState3(true);
+		}
+	}
+
 	const checkEmail = async () => {
 		if(!email.includes('@')) return;
 		await checkTheEmail({email}).then(res => {
@@ -149,11 +158,11 @@ const Component = () => {
 						<p>{}</p>
 					</div>
 
-					<CheckBox size="small" label="전체 동의" checked={false} setCheckState={setAllCheckState}/>
+					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
 					<div class="bar bg-gray-5" />
-					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>
-					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={false} setCheckState={setCheckState2}/>
-					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={false} setCheckState={setCheckState3}/>
+					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={checkState1} setCheckState={setCheckState1}/>
+					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={checkState2} setCheckState={setCheckState2}/>
+					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={checkState3} setCheckState={setCheckState3}/>
 					<Link href="/user/sign_up">
 						<LoginBtn text="회원가입" onclick={registerMember}/>
 					</Link>
