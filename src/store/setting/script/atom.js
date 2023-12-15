@@ -29,3 +29,8 @@ export const SettingSiteScriptScptId = atom({
   key: "SettingSiteScriptScptId",
   default: "",
 });
+
+export const SettingIptKwdCntn = atom({
+  key: "SettingIptKwdCntn",
+  default: [],
+});

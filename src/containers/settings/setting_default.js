@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/settings_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import TextArea from "/src/components/textFields/textArea.tsx";
@@ -6,9 +6,24 @@ import Upload from "/src/components/upload/upload";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  SettingCutspEmailAddr,
+  SettingCutspPhcNo,
+  SettingFvcPathAddr,
+  SettingMngRcvEmailAddr,
+  SettingSiteItrCntn,
+  SettingSiteNm,
+  SettingSiteNo,
+} from "../../store/setting/basic/atom";
+import { getSiteBasicInfo, setSiteBasicInfo } from "../../asset/apis/siteApis";
 
 const TabContentA = ({ setActiveSubTab }) => {
   setActiveSubTab(0);
+
+  const [name, setName] = useRecoilState(SettingSiteNm);
+  const [introduce, setIntroduce] = useRecoilState(SettingSiteItrCntn);
+  const [favcon, setFavcon] = useRecoilState(SettingFvcPathAddr);
 
   return (
     <div className="sub-page-0">
@@ -16,6 +31,8 @@ const TabContentA = ({ setActiveSubTab }) => {
         labelText="사이트 이름"
         placeholder="사이트 이름을 입력해주세요."
         valueType=""
+        state={name}
+        setState={setName}
         helperTextResult="none"
         iconState="false"
       />
@@ -23,6 +40,8 @@ const TabContentA = ({ setActiveSubTab }) => {
         labelText="사이트 소개"
         placeholder="사이트 소개를 입력해 주세요."
         valueType=""
+        state={introduce}
+        setState={setIntroduce}
         helperTextResult="none"
       />
       <div className="favicon-wrap">
@@ -31,6 +50,8 @@ const TabContentA = ({ setActiveSubTab }) => {
           state="default"
           type="normal"
           accept=".ico"
+          urlState={favcon}
+          setUrlState={setFavcon}
         />
         <p className="caption-R helper-txt">
           허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
@@ -43,6 +64,8 @@ const TabContentA = ({ setActiveSubTab }) => {
 const TabContentB = ({ setActiveSubTab }) => {
   setActiveSubTab(1);
 
+  const [phNumber, setPhNumber] = useRecoilState(SettingCutspEmailAddr);
+  const [email, setEmail] = useRecoilState(SettingCutspPhcNo);
 
   return (
     <div className="sub-page-1">
@@ -51,6 +74,8 @@ const TabContentB = ({ setActiveSubTab }) => {
         labelText="전화번호"
         placeholder="전화번호를 입력해 주세요"
         valueType=""
+        state={phNumber}
+        setState={setPhNumber}
         helperTextResult="none"
         iconState="false"
       />
@@ -59,6 +84,8 @@ const TabContentB = ({ setActiveSubTab }) => {
         labelText="이메일"
         placeholder="이메일을 입력해 주세요."
         valueType=""
+        state={email}
+        setState={setEmail}
         helperTextResult="none"
       />
     </div>
@@ -68,15 +95,18 @@ const TabContentB = ({ setActiveSubTab }) => {
 const TabContentC = ({ setActiveSubTab }) => {
   setActiveSubTab(2);
 
+  const [email, setEmail] = useRecoilState(SettingMngRcvEmailAddr);
 
   return (
     <div className="sub-page-2">
-      <div className="flex_ button-input email-input-wrap">
+      <div className="flex_ button-input">
         <Input
           importState="none"
           labelText="관리자 수신 주소"
           placeholder="관리자 수신 주소를 입력해 주세요"
           valueType=""
+          state={email}
+          setState={setEmail}
           helperTextResult="none"
           iconState="false"
         />
@@ -89,18 +119,53 @@ const TabContentC = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
+  const [siteNm, setSiteNm] = useRecoilState(SettingSiteNm);
+  const [siteNo, setSiteNo] = useRecoilState(SettingSiteNo);
+  const [siteItrCntn, setSiteItrCntn] = useRecoilState(SettingSiteItrCntn);
+  const [mngRcvEmailAddr, setMngRcvEmailAddr] = useRecoilState(
+    SettingMngRcvEmailAddr
+  );
+  const [cutspPhcNo, setCutspPhcNo] = useRecoilState(SettingCutspPhcNo);
+  const [cutspEmailAddr, setCutspEmailAddr] = useRecoilState(
+    SettingCutspEmailAddr
+  );
+  const [fvcPathAddr, setFvcPathAddr] = useRecoilState(SettingFvcPathAddr);
+
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
+  const [iSave, setIsSave] = useState(false);
 
+  useEffect(() => {
+    if (siteNm !== "" && siteItrCntn !== "") setIsSave(true);
+    else setIsSave(false);
+  }, [siteNm, siteItrCntn]);
 
-  const TabContents = () => {
-    if (subTab === 0) {
-      return <TabContentA setActiveSubTab={setActiveSubTab} />;
-    } else if (subTab === 1) {
-      return <TabContentB setActiveSubTab={setActiveSubTab} />;
-    } else if (subTab === 2) {
-      return <TabContentC setActiveSubTab={setActiveSubTab} />;
-    }
+  useLayoutEffect(() => {
+    getSiteBasicInfo()
+      .then((e) => {
+        setSiteNm(e.data.data.siteNm);
+        setSiteItrCntn(e.data.data.siteItrCntn);
+        setMngRcvEmailAddr(e.data.data.mngRcvEmailAddr);
+        setCutspPhcNo(e.data.data.cutspPhcNo);
+        setCutspEmailAddr(e.data.data.cutspEmailAddr);
+        setFvcPathAddr(e.data.data.fvcPathAddr);
+      })
+      .catch((e) => console.log(e));
+  }, []);
+
+  const saveValue = async () => {
+    await setSiteBasicInfo({
+      cutspEmailAddr,
+      cutspPhcNo,
+      fvcPathAddr,
+      mngRcvEmailAddr,
+      siteItrCntn,
+      siteNm,
+      siteNo,
+      snrEmailAddr: "",
+    })
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -109,10 +174,16 @@ const Component = () => {
         <div className="setting-contents">
           <h1 className="display-5-B">사이트 설정</h1>
           <Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={0} />
-          <TabContents />
+          {subTab === 0 && <TabContentA setActiveSubTab={setActiveSubTab} />}
+          {subTab === 1 && <TabContentB setActiveSubTab={setActiveSubTab} />}
+          {subTab === 2 && <TabContentC setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state="disabled" />
+            <PrimaryBtn
+              text="저장"
+              state={!iSave && "disabled"}
+              onclick={saveValue}
+            />
           </div>
         </div>
       </div>

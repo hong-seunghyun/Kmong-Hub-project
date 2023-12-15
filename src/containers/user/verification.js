@@ -1,25 +1,24 @@
 import { useRouter } from "next/router";
 import { decryptData, decryptDataOptions } from "../../asset/apis/verification";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Component = () => {
 
   const router = useRouter();
+  const [ mobileno, setMobileno ] = useState('');
 
-  const { token_version_id, enc_data, integrity_value } = router.query;
-  console.log(token_version_id);
-  console.log(enc_data);
-  console.log(integrity_value);
-
-  const verificate = async () => { 
-    await decryptData({token_version_id, enc_data, integrity_value})
-    .then(res => {
-      console.log(res);
-    }).catch(err => {
-      alert(err);
-    });
+  const postMobileno = () => {
+    setMobileno(router.query.mobileno); 
+    mobileno !== '' && window.opener.postMessage(mobileno, `http://localhost:3000${router.query.to}`);
+    window.close();
   }
 
-  verificate();
+  useEffect(() => {
+    if(!router.isReady) return;
+    if(router.query == null || router.query.mobileno == '') return;
+    postMobileno();
+  });
 
 	return(
     <></>

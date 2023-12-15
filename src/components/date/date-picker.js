@@ -20,6 +20,10 @@ const Component = (props) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+		props.setStart(start && `${start.getFullYear()}${String(start.getMonth()+1).padStart(2, '0')}${String(start.getDate()).padStart(2, '0')}`);
+		props.setEnd(end && `${end.getFullYear()}${String(end.getMonth()+1).padStart(2, '0')}${String(end.getDate()).padStart(2, '0')}`);
+		console.log(start && `${start.getFullYear()}${String(start.getMonth()+1).padStart(2, '0')}${String(start.getDate()).padStart(2, '0')}`);
+		console.log(end && `${end.getFullYear()}${String(end.getMonth()+1).padStart(2, '0')}${String(end.getDate()).padStart(2, '0')}`);
 		setBtnActive(true);
   };
 
