@@ -13,7 +13,11 @@ const Component = (props) => {
       </div>
       <div className="title-cell">{props.title}</div>
       <div className="writer-cell">
-        <Link style={{ width: "auto" }} href={`${props.boardLink}`}>
+        <Link
+          style={{ width: "auto" }}
+          href={`${props.boardLink}`}
+          onClick={props.onclick}
+        >
           {props.writer}
         </Link>
       </div>

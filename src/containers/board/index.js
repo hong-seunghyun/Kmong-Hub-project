@@ -56,6 +56,7 @@ const Component = () => {
             />
             {boardList.map((e, idx) => (
               <TableCell
+                key={idx}
                 choice="number"
                 number={idx + 1}
                 title={e.bbsNm}

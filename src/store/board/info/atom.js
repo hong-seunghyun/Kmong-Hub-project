@@ -9,3 +9,8 @@ export const BoardInfoAtom = atom({
     useYn: "",
   },
 });
+
+export const BoardListInfoAtom = atom({
+  key: "BoardListInfoAtom",
+  default: [],
+});
