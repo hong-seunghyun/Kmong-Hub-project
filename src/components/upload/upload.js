@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Icon from "/src/components/icon/icon.tsx";
 import Label from "/src/components/label/label";
@@ -14,21 +14,11 @@ const Component = (props) => {
 
   const [state, setState] = useState(null);
   const [type, setType] = useState(null);
-  const [urlState, setUrlState] = useState(null);
 
   const fileInputRef = useRef();
 
-  useEffect(() => {
-    if (props.urlState) {
-      setState("done");
-      setType("preview");
-      props.setFileState(props.fileState);
-    }
-  }, [props.fileState]);
-
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    props.setFileState(file);
     setFileSize(e.target.files[0].size);
     const MAX_SIZE = 100 * 1024 * 1024;
 
@@ -46,7 +36,7 @@ const Component = (props) => {
           alert("이미지 크기가 너무 큽니다!");
         }
 
-        setUrlState(reader.result);
+        props.setUrlState(reader.result);
       };
       reader.readAsDataURL(file);
 
@@ -74,7 +64,7 @@ const Component = (props) => {
 
     img.onload = () => {
       setImgWidth(img.width);
-      setImgHeight(img.height);
+      setImgheight(img.height);
     };
   };
 
@@ -95,7 +85,7 @@ const Component = (props) => {
         <img className="img-pdf img-" src="/images/pdf.png" alt="pdf" />
         <img
           className="img-preview"
-          src={urlState}
+          src={props.urlState}
           alt="file"
           style={{
             maxWidth: imgWidth > imgHeight ? "auto" : "60px",
