@@ -9,7 +9,16 @@ export const checkTheEmail = ({ email }) => {
 
 // get(소속 검색)
 export const searchOrgn = ({ query }) => {
-  const response = ApiOrgn.get(`/organ?page=1&row_count=3&is_using=true&query=${query}&order_by=id&order_sort=id`);
+  const response = ApiOrgn.get(`/organ`, {
+    params: {
+      page: 1,
+      row_count: 3,
+      is_using: true,
+      query: query,
+      ordr_by: "id",
+      order_sort: "id"
+    }
+  });
   return response;
 }
 
@@ -26,13 +35,18 @@ export const register = ({ emailAddr, hpNo, mbrNm, nnmNm, nwlAgrmYn, pwd, smsRcv
     ucmdCd,
     orgnPhcNo
   };
+  const blob = new Blob([JSON.stringify(registerDTO)], {
+    type: "application/json"
+  });
+  console.log(blob);
   const formData = new FormData();
   formData.append('pflImg', pflImg);
   formData.append('pslAttchFile', pslAttchFile);
-  formData.append('signUpReq', registerDTO);
+  formData.append('signUpReq',blob);
   const response = Api.post(`/viewapi/mngr/site/v2/member`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
+      Accept: "application/json"
     }
   });
   return response;
