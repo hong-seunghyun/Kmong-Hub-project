@@ -63,17 +63,19 @@ const Component = () => {
   const [file2, setFile2] = useState(null);
 
 	const registerMember = () => {
-		register({
+		const dto = {
 			emailAddr: email,
+			hpNo: tel,
 			mbrNm: name,
 			nnmNm: nickname,
-			nwlAgrmYn: checkState3,
-			hpNo: tel,
-			orgnPhcNo: tel,
+			nwlAgrmYn: checkState3 ? "Y" : "N",
 			pwd: password,
-			smsRcvAgrmYn: checkState2,
-			ucmdCd: "1234567"
-		}, file, file2).then(res => {
+			smsRcvAgrmYn: checkState2 ? "Y" : "N",
+			ucmdCd: "435589",
+			orgnPhcNo: tel
+		};
+		console.log(dto);
+		register(dto, file, file2).then(res => {
 			console.log(res.data);
 		}).catch(err => {
 			console.log(err);

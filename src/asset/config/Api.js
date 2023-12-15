@@ -29,12 +29,8 @@ export const ApiKotech = axios.create({
 
 export const ApiOrgn = axios.create({
   baseURL: orgnUrl,
-  withCredentials: true,
   headers: {
-    "Cache-Control": "no-cache",
-    Pragma: "no-cache",
-    Expires: "0",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
   auth: {
     username: 'eef2e99a0012f85478408d15770b8108',
