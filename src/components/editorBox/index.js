@@ -5,7 +5,7 @@ export default function App({ setState }) {
   const editorRef = useRef(null);
   const [value, setValue] = useState("");
   useEffect(() => {
-    setState(value);
+    if (setState) setState(value);
   }, [value]);
 
   // const log = () => {
