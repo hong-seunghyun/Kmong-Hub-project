@@ -13,6 +13,10 @@ const Component = () => {
 	const [ nameState, setNameState ] = useState('');
 	const [ startState, setStartState ] = useState('');
 	const [ endState, setEndState ] = useState('');
+	const [ pathState, setPathState ] = useState('');
+
+	const [ pcImg, setPcImg ] = useState(null);
+	const [ mobImg, setMobImg ] = useState(null);
 
 	return(
 		<div className="page-wrap">
@@ -41,18 +45,18 @@ const Component = () => {
 					<p className="table-caption body-2-B">PC 팝업<span className="txt-violet-1">*</span></p>
 					<Upload state="default" type="normal" />
 					<p className="caption-R helper-txt">
-						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>00mb</span>
+						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>50mb</span>
 					</p>
 				</div>
 				<div className="box-">
 					<p className="table-caption body-2-B">모바일 팝업<span className="txt-violet-1">*</span></p>
 					<Upload state="default" type="normal" />
 					<p className="caption-R helper-txt">
-						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>00mb</span>
+						허용 사이즈: <span>Npx x Npx</span> <span className="bar">|</span> 파일 형식: <span>PNG</span><span className="bar">|</span> 최대 파일 크기: <span>50mb</span>
 					</p>
 				</div>
 				<div className="box-">
-					<Input labelText="팝업 링크" placeholder="www.google.co.kr" valueType="" helperTextResult="none" iconState="false"/>
+					<Input labelText="팝업 링크" placeholder="www.google.co.kr" valueType="" helperTextResult="none" iconState="false" state={pathState} setState={setPathState}/>
 				</div>
 
 				<div className="btn-wrap flex_">
