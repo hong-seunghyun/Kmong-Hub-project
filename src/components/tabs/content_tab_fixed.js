@@ -56,7 +56,7 @@ const Component = (props) => {
 			onMouseLeave={onDragEnd}
 		>
 			<ul className="flex_">
-				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
 				<span>
 						<Link href="/contents">
 						기술 이전
@@ -64,7 +64,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
 				<span>
 						<Link href="/contents/news">
 						뉴스
@@ -72,7 +72,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 2 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
 				<span>
 						<Link href="/contents/event">
 						행사
@@ -80,7 +80,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 3 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
 				<span>
 						<Link href="/contents/support">
 						지원 사업
@@ -88,7 +88,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 4 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}>
 				<span>
 						<Link href="/contents/contents">
 						콘텐츠 노출
