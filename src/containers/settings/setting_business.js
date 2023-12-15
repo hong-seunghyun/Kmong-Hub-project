@@ -5,14 +5,17 @@ import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import { useRecoilState } from "recoil";
 import {
+  SettingBsicDmiAddr,
   SettingBslNo,
   SettingCbdAddr,
   SettingCbdNm,
+  SettingIdvdDmiAddr,
   SettingOmbRptNo,
   SettingPtpPicEmailAddr,
   SettingPtpPicNm,
   SettingPtpPicPhcNo,
   SettingRpsvNm,
+  SettingSiteInfoId,
 } from "../../store/setting/business/atom";
 import { getSiteBsl } from "../../asset/apis/siteApis";
 
@@ -116,11 +119,14 @@ const TabContentB = ({ setActiveSubTab }) => {
 };
 
 const Component = () => {
+  const [bsicDmiAddr, setBsicDmiAddr] = useRecoilState(SettingBsicDmiAddr);
+  const [idvdDmiAddr, setIdvdDmiAddr] = useRecoilState(SettingIdvdDmiAddr);
   const [bslNo, setBslNo] = useRecoilState(SettingBslNo);
   const [cbdAddr, setCbdAddr] = useRecoilState(SettingCbdAddr);
   const [cbdNm, setCbdNm] = useRecoilState(SettingCbdNm);
   const [ombRptNo, setOmbRptNo] = useRecoilState(SettingOmbRptNo);
   const [rpsvNm, setRpsvNm] = useRecoilState(SettingRpsvNm);
+  const [siteInfoId, setSiteInfoId] = useRecoilState(SettingSiteInfoId);
   const [ptpPicEmailAddr, setptpPicEmailAddr] = useRecoilState(
     SettingPtpPicEmailAddr
   );

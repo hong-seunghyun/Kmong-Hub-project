@@ -12,6 +12,7 @@ import {
   SettingOgImgPathAddr,
   SettingSiteScriptItrCntn,
   SettingSiteScriptNm,
+  SettingSiteScriptScptId,
 } from "../../store/setting/script/atom";
 // import { useSettingHandler } from "../../util/ButtonHandler/setting";
 import { getSiteScpt, setSiteScpt } from "../../asset/apis/siteApis";
@@ -124,6 +125,10 @@ const Component = () => {
   );
   const [chntkScptCntn, setChntkScptCntn] =
     useRecoilState(SettingChntkScptCntn);
+
+  const [siteScptId, setSiteScriptScptId] = useRecoilState(
+    SettingSiteScriptScptId
+  );
   const [iSave, setIsSave] = useState(false);
 
   const getValue = async () => {
@@ -150,6 +155,7 @@ const Component = () => {
       activeSubTab,
       siteNm,
       siteItrCntn,
+      siteScptId,
       ogImgPathAddr,
       gganltcScptCntn,
     })

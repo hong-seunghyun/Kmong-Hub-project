@@ -13,6 +13,7 @@ import {
   SettingPinfSttgYnCntn,
   SettingPiuaBbsCntn,
   SettingPiuaBcmemCntn,
+  SettingSiteClusId,
   SettingTavoClusCntn,
 } from "../../store/setting/terms/atom";
 import { useSettingHandler } from "../../util/ButtonHandler/setting";
@@ -252,6 +253,7 @@ const Component = () => {
   const [pinfSttgYnCntn, setPinfSttgYnCntn] = useRecoilState(
     SettingPinfSttgYnCntn
   );
+  const [siteClusId, setSiteClusId] = useRecoilState(SettingSiteClusId);
 
   const [iSave, setIsSave] = useState(false);
   const [subTab, setSubTab] = useState(0);
@@ -307,6 +309,7 @@ const Component = () => {
       piuaBbsCntn,
       advRcvAgrmYnCntn,
       pinfSttgYnCntn,
+      siteClusId,
     })
       .then((e) => console.log(e))
       .catch((e) => console.log(e));
