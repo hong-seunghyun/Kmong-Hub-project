@@ -12,9 +12,9 @@ const Component = () => {
     <div className="page-wrap">
       <div className="board- board-list">
         <div className="head-wrap flex_">
-          <h1 className="display-5-B">게시판 관리</h1>
+          <h1 className="display-5-B">게시물 관리</h1>
           <Link href="/board/board_writer">
-            <ButtonM text="게시판 등록" />
+            <ButtonM text="게시물 등록" />
           </Link>
         </div>
 

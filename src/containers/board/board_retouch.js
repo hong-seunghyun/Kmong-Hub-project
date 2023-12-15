@@ -5,7 +5,7 @@ import Input from "/src/components/textFields/textInput.tsx";
 import ButtonL from "/src/components/buttons/button_outline_l";
 import Button from "/src/components/buttons/button_primary_l";
 import { useRecoilState } from "recoil";
-import { BoardInfoAtom } from "../../store/board/add/atom";
+import { BoardInfoAtom } from "../../store/board/info/atom";
 import { setBoardInfo } from "../../asset/apis/boardApis";
 import { useRouter } from "next/router";
 

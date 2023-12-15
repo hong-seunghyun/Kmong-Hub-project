@@ -9,7 +9,7 @@ import Link from "next/link";
 import { getBoardList } from "../../asset/apis/boardApis";
 import { useRecoilState } from "recoil";
 import { BoardListAtom } from "../../store/board/list/atom";
-import { BoardInfoAtom } from "../../store/board/add/atom";
+import { BoardInfoAtom } from "../../store/board/info/atom";
 
 const Component = () => {
   const [pageIdx, setPageIdx] = useState(1);
