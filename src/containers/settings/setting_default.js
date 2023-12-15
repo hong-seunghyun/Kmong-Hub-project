@@ -50,8 +50,8 @@ const TabContentA = ({ setActiveSubTab }) => {
           state="default"
           type="normal"
           accept=".ico"
-          urlState={favcon}
-          setUrlState={setFavcon}
+          fileState={favcon}
+          setFileState={setFavcon}
         />
         <p className="caption-R helper-txt">
           허용 사이즈: <span>16px x 16px</span> | 파일 형식: <span>ICO</span>
