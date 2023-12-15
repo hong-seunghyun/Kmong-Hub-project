@@ -7,6 +7,7 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { login } from "../../asset/apis/login";
 
 const Component = () => {
   const [email, setEmail] = useState("");

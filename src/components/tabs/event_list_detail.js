@@ -57,7 +57,7 @@ const Component = (props) => {
 			onMouseLeave={onDragEnd}
 		>
 			<ul className="flex_">
-				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
+				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
                     <span>
                         <Link href="/event/list_detail">
                         전체 00
@@ -65,7 +65,7 @@ const Component = (props) => {
                     </span>
 				</li>
 
-				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
+				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
                     <span>
                         <Link href="/event/list_detail_2">
                         승인 완료 00
@@ -73,7 +73,7 @@ const Component = (props) => {
                     </span>
 				</li>
                 
-                <li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
+                <li className={`tab-item body-3-B ${props.active === 2 ? "active" : ""}`}>
                     <span>
                         <Link href="/event/list_detail_3">
                         취소 요청 00
@@ -81,7 +81,7 @@ const Component = (props) => {
                     </span>
 				</li>
 
-                <li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
+                <li className={`tab-item body-3-B ${props.active === 3 ? "active" : ""}`}>
                     <span>
                         <Link href="/event/list_detail_4">
                         승인 대기 00

@@ -50,6 +50,8 @@ const TabContentA = ({ setActiveSubTab }) => {
           labelText="키워드"
           placeholder="사이트의 내용과 관련된 주요 키워드를 입력해 주세요."
           valueType=""
+          state={siteNm}
+          setState={setSiteNm}
           helperTextResult="none"
           iconState="false"
         />
@@ -171,33 +173,6 @@ const Component = () => {
       setIsSave(true);
     else setIsSave(false);
   }, [siteNm, siteItrCntn, gganltcScptCntn, chntkScptCntn]);
-  const TabContentB = () => {
-    setActiveSubTab(subTab);
-    return (
-      <div className="sub-page-1">
-        <TextArea
-          labelText="스크립트"
-          placeholder="스크립트를 삽입해 주세요."
-          valueType=""
-          helperTextResult="none"
-        />
-      </div>
-    );
-  };
-
-  const TabContentC = () => {
-    setActiveSubTab(subTab);
-    return (
-      <div className="sub-page-2">
-        <TextArea
-          labelText="스크립트"
-          placeholder="스크립트를 삽입해 주세요."
-          valueType=""
-          helperTextResult="none"
-        />
-      </div>
-    );
-  };
 
   useEffect(() => {
     getValue();
