@@ -15,8 +15,6 @@ const Component = () => {
   const [activeSubTab, setActiveSubTab] = useState(0);
 
   const TabContents = () => {
-    const [bsicDmiAddr, setBsicDmiAddr] = useRecoilState(SettingBsicDmiAddr);
-    const [idvdDmiAddr, setIdvdDmiAddr] = useRecoilState(SettingIdvdDmiAddr);
     setActiveSubTab(subTab);
     return (
       <div className="sub-page-0">
@@ -25,19 +23,15 @@ const Component = () => {
           labelText="기본 도메인설정"
           placeholder="기본 도메인을 입력해 주세요."
           valueType=""
-          state={bsicDmiAddr}
-          setState={setBsicDmiAddr}
           helperTextResult="none"
           iconState="false"
         />
-        <div className="flex_ button-input">
+        <div className="flex_ button-input domain-input-wrap">
           <Input
             importState="none"
             labelText="개인 도메인"
             placeholder="기본 도메인을 입력해 주세요."
             valueType=""
-            state={idvdDmiAddr}
-            setState={setIdvdDmiAddr}
             helperTextResult="none"
             iconState="false"
           />

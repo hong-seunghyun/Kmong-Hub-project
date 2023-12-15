@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import Tabs from "/src/components/tabs/login_tab"
 import Input from "/src/components/textFields/textInput.tsx";
-import TelInput from "/src/components/textFields/telInput.tsx"
 import ButtonSecondary from "/src/components/buttons/button_secondary_l"
 import InputPassword from "/src/components/textFields/passwordInput.tsx"
 import Icon from "/src/components/icon/icon.tsx"
@@ -91,18 +90,18 @@ const Component = () => {
 				</p>
 				<div className="sign-up-form">
 					<div className="flex_ button-input box-">
-						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail} />
-						<ButtonSecondary text="중복 확인" state={email.includes('@') ? "enabled" : "disabled"} onclick={checkEmail}/>
+						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
+						<ButtonSecondary text="중복 확인" state="disabled"/>
 					</div>
 					<div className="flex_ box-">
-						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword}/>
+						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
 						<div className="flex_">
-							<div className="flex_ check_flex txt-disabled caption-R" style={{color: containsNumbers(password) ? "#952dff" : "#b3b6b8"}}>
-								<Icon icon="checkNone" size={7} color={containsNumbers(password) ? "#952dff" : "#b3b6b8"} stroke="" />
+							<div className="flex_ check_flex txt-disabled caption-R">
+								<Icon icon="checkNone" size={7} color="#b3b6b8" stroke="" />
 								숫자 입력
 							</div>
-							<div className="flex_ check_flex txt-disabled caption-R" style={{color: isBetween8and12(password) ? "#952dff" : "#b3b6b8"}}>
-								<Icon icon="checkNone" size={7} color={isBetween8and12(password) ? "#952dff" : "#b3b6b8"} stroke=""/>
+							<div className="flex_ check_flex txt-disabled caption-R">
+								<Icon icon="checkNone" size={7} color="#b3b6b8" stroke="" />
 								8자 이상 ~ 12자 이하
 							</div>
 							<div className="flex_ check_flex txt-disabled caption-R"style={{color: containsAlphabet(password) ? "#952dff" : "#b3b6b8"}}>
@@ -112,16 +111,16 @@ const Component = () => {
 						</div>
 					</div>
 					<div className="flex_ box-">
-						<InputPassword importState="" labelText="비밀번호 확인" placeholder="비밀번호를 다시 입력해 주세요." valueType="" helperTextResult="none" iconState="true" status={password2} setState={setPassword2}/>
+						<InputPassword importState="" labelText="비밀번호 확인" placeholder="비밀번호를 다시 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
 					</div>
 					<div className="box-">
-						<Input importState="" labelText="이름" placeholder="이름을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={name} setState={setName}/>
+						<Input importState="" labelText="이름" placeholder="이름을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
 					</div>
 					<div className="box-">
-						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
+						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
 					</div>
 					<div className="flex_ button-input box-">
-						<TelInput importState="" labelText="휴대폰 번호" placeholder="휴대전화를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={tel} setState={setTel}/>
+						<Input importState="" labelText="휴대폰 번호" placeholder="휴대전화를 입력해 주세요." valueType="" helperTextResult="none" iconState="true"/>
 						<ButtonSecondary text="중복 확인" state="disabled"/>
 					</div>
 					<div className="input-box box-">
@@ -143,7 +142,10 @@ const Component = () => {
 						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan}/>
 						<p>{}</p>
 					</div>
-
+					<div className="box-">
+						<Input importState="" labelText="소속 전화번호" placeholder="소속 전화번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+					</div>
+					<div className="m-24" />
 					<CheckBox size="small" label="전체 동의" />
 					<div class="bar bg-gray-5" />
 					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>

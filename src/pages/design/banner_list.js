@@ -1,11 +1,11 @@
 
 import Component from "/src/containers/design/banner_list";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
-import NavigationSide from "/src/components/navigations/navigation_side";
+
 const Page = ({ ...props }) => (
   <>
 		<NavigationTopLogin />
-		<NavigationSide />
+		
     <Component {...props} />
   </>
 );

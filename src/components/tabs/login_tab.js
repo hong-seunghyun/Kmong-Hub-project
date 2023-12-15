@@ -58,7 +58,7 @@ const Component = (props) => {
 			onMouseLeave={onDragEnd}
 		>
 			<ul className="flex_">
-				<li className={`tab-item body-3-B ${props.active === 0 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
 				<span>
 						<Link href="/user/login">
 						대표 관리자
@@ -66,7 +66,7 @@ const Component = (props) => {
 					</span>
 				</li>
 
-				<li className={`tab-item body-3-B ${props.active === 1 ? "active" : ""}`}>
+				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
 				<span>
 						<Link href="/user/login-2">
 						운영자
