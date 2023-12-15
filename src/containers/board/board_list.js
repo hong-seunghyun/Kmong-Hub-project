@@ -6,14 +6,19 @@ import TableHead from "/src/components/table/board_list_table_head";
 import TableCell from "/src/components/table/board_list_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
-import { useRecoilState } from "recoil";
-import { BoardInfoAtom, BoardListInfoAtom } from "../../store/board/info/atom";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import {
+  BoardDetailInfoAtom,
+  BoardInfoAtom,
+  BoardListInfoAtom,
+} from "../../store/board/info/atom";
 import { getDetailBoardList } from "../../asset/apis/boardApis";
 import { useRouter } from "next/router";
 
 const Component = () => {
   const [boadrInfo, setBoardInfo] = useRecoilState(BoardInfoAtom);
   const [boadrListInfo, setBoardListInfo] = useRecoilState(BoardListInfoAtom);
+  const setBoardDetailInfo = useSetRecoilState(BoardDetailInfoAtom);
   const router = useRouter();
 
   const getValue = async () => {
@@ -64,6 +69,17 @@ const Component = () => {
                 writer="[미나 마수드]"
                 listLink="/board/board_detail"
                 date="YYYY.MM.DD"
+                onclick={() =>
+                  setBoardDetailInfo({
+                    cntn: e.cntn,
+                    mbrNm: e.mbrNm,
+                    mbrNo: e.mbrNo,
+                    modifiedDate: e.modifiedDate,
+                    ntceYn: e.ntceYn,
+                    rpstNo: e.rpstNo,
+                    titleNm: e.titleNm,
+                  })
+                }
               />
             ))}
             <TableCell

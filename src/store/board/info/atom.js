@@ -10,6 +10,19 @@ export const BoardInfoAtom = atom({
   },
 });
 
+export const BoardDetailInfoAtom = atom({
+  key: "BoardInfoAtom",
+  default: {
+    cntn: "",
+    mbrNm: "",
+    mbrNo: "",
+    modifiedDate: "",
+    ntceYn: "",
+    rpstNo: "",
+    titleNm: "",
+  },
+});
+
 export const BoardListInfoAtom = atom({
   key: "BoardListInfoAtom",
   default: [],

@@ -35,7 +35,7 @@ const Component = (props) => {
           <TextButtonUnderlinePrimaryS text="수정" onclick={props.onclick} />
         </Link>
         <Link style={{ width: "auto" }} href={`${props.link}`}>
-          <TextButtonUnderlineS text="삭제" />
+          <TextButtonUnderlineS text="삭제" onclick={props.delete} />
         </Link>
       </div>
     </div>

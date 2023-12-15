@@ -26,7 +26,7 @@ export const getDetailBoardInfo = ({ search, isTitle, currentIndex }) => {
 };
 
 export const setBoardInfo = ({ boardName, boradIdx, isDel, isUse }) => {
-  const response = Api.get(`viewapi/mngr/site/v1/merge/board`, {
+  const response = Api.post(`viewapi/mngr/site/v1/merge/board`, {
     bbsNm: boardName,
     bbsNo: boradIdx ? boradIdx : null,
     delYn: isDel,
@@ -42,7 +42,7 @@ export const setDetailBoardInfo = ({
   isDel,
   isNotice,
 }) => {
-  const response = Api.get(`viewapi/mngr/site/v1/merge/boardDt`, {
+  const response = Api.post(`viewapi/mngr/site/v1/merge/boardDt`, {
     bbsNo: boradIdx,
     cntn: boardContent,
     delYn: isDel,
@@ -60,7 +60,7 @@ export const setEditDetailBoardInfo = ({
   isDel,
   isNotice,
 }) => {
-  const response = Api.get(`viewapi/mngr/site/v1/merge/boardDt`, {
+  const response = Api.post(`viewapi/mngr/site/v1/merge/boardDt`, {
     bbsNo: boradIdx,
     cntn: boardContent,
     delYn: isDel,
