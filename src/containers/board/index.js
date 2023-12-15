@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
@@ -7,13 +7,25 @@ import TableCell from "/src/components/table/board_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
 import { getBoardList } from "../../asset/apis/boardApis";
+import { useRecoilState } from "recoil";
+import { BoardListAtom } from "../../store/board/list/atom";
 
 const Component = () => {
-  useEffect(() => {
-    getBoardList({ currentIndex: 1 })
-      .then((e) => console.log(e))
+  const [pageIdx, setPageIdx] = useState(1);
+  const [boardList, setBoardList] = useRecoilState(BoardListAtom);
+
+  const getValue = async () => {
+    await getBoardList({ currentIndex: pageIdx })
+      .then((e) => {
+        setBoardList([...e.data.data]);
+        console.log(e);
+      })
       .catch((e) => console.log(e));
-  }, []);
+  };
+
+  useEffect(() => {
+    getValue();
+  }, [pageIdx]);
 
   return (
     <div className="page-wrap">
@@ -40,127 +52,25 @@ const Component = () => {
               headDate="사용 여부"
               headEtc="관리"
             />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
+            {boardList.map((e, idx) => (
+              <TableCell
+                choice="number"
+                number={idx + 1}
+                title={e.bbsNm}
+                writer={e.rpstCnt}
+                labelBg="bg-violet-1"
+                labelColor="txt-white"
+                label={e.useYn === "Y" ? "사용 중" : "사용 헤제"}
+                listLink="/board/board_retouch"
+                link="#"
+                boardLink="/board/board_list"
+              />
+            ))}
+            <Pagnation
+              size="regular"
+              pageIdx={pageIdx}
+              setPageIdx={setPageIdx}
             />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[게시판 이름]"
-              writer="174"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              label="사용 중"
-              listLink="/board/board_retouch"
-              link="#"
-              boardLink="/board/board_list"
-            />
-            <Pagnation size="regular" />
           </div>
         </div>
       </div>
