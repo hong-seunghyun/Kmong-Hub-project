@@ -1,10 +1,7 @@
-import React from "react";
-
+import React, { useEffect, useState, useRef } from "react";
 import Icon from "/src/components/icon/icon.tsx";
 import Label from "/src/components/label/label";
 import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
-import { useRef } from "react";
-import { useState } from "react";
 import { sleep } from "../../util/sleep";
 
 const Component = (props) => {
