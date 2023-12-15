@@ -1,62 +1,16 @@
 import React, {useState} from "react";
 import Icon from "/src/components/icon/icon.tsx";
 
-
-const dummy = [
-	{
-		id: 1,
-		title : "TestDate 1",
-	},
-	{
-		id: 2,
-		title : "TestDate 2",
-	},
-	{
-		id: 3,
-		title : "TestDate 3",
-	},
-	{
-		id: 4,
-		title : "TestDate 4",
-	},
-	{
-		id: 5,
-		title : "d",
-	},
-	{
-		id: 6,
-		title : "c",
-	},
-	{
-		id: 7,
-		title : "b",
-	},
-	{
-		id: 8,
-		title : "a",
-	},
-	{
-		id: 9,
-		title : "ㄱㄴㄷㄹ",
-	},
-	{
-		id: 10,
-		title : "ㅁㅂ ㅅㅇ",
-	},
-	{
-		id: 11,
-		title : "ㅈㅋㅍㅎ",
-	},
-]
-
-const Component = () => {
+const Component = (props) => {
 	const [ search, setSearch ] = useState("");
 	const onChange = (e) => {
 		setSearch(e.target.value);
+		props.setState(e.target.value);
+		props.onchange(e.target.value);
 	}
 
-	const filterTitle = dummy.filter((p) => {
-		return p.title.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
+	const filterTitle = props.data.filter((p) => {
+		return p.name.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
 	})
 	return(
 		<div className="search-container">
@@ -72,10 +26,10 @@ const Component = () => {
 					<Icon size={16} color="#574AFF" stroke="" icon="search" />
 				</span>
 			</div>
-			<div className="wrap radius-8 border-gray-4">
-				<div className="flex_ result-search-box  body-3-R ">
+			<div className="wrap radius-8 border-gray-4" style={{display: (props.data.length == 0 || search === '') ? 'none' : 'block'}}>
+				<div className="flex_ result-search-box body-3-R ">
 					{
-						filterTitle.map(dummy => <span>{dummy.title}</span>)
+						props.data.map(dummy => <span>{dummy.name}</span>)
 					}
 				</div>
 			</div>

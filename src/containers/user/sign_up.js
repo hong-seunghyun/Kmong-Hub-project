@@ -41,6 +41,8 @@ const Component = () => {
 	const [ checkState2, setCheckState2 ] = useState(false);
 	const [ checkState3, setCheckState3 ] = useState(false);
 
+	const [ data, setData ] = useState([]);
+
 	const checkEmail = async () => {
 		if(!email.includes('@')) return;
 		await checkTheEmail({email}).then(res => {
@@ -51,12 +53,12 @@ const Component = () => {
 		});
 	}
 
-	const searchOrgan = async () => {
-		await searchOrgn({query: orgn}).then(res => {
-			console.log(res.data);
+	const searchOrgan = async (organ) => {
+		await searchOrgn({query: organ}).then(res => {
+			setData(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
-		})
+		});
 	}
 
   const [file, setFile] = useState(null);
@@ -140,7 +142,7 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan}/>
+						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data}/>
 						<p>{}</p>
 					</div>
 
