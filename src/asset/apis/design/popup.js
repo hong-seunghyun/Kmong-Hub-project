@@ -1,7 +1,7 @@
-import { Api } from "../config/Api";
+import { Api } from "../../config/Api";
 
-// post(로그인)
-export const login = ({email, pw}) => {
+// post(팝업 불러오기)
+export const getPopUp = ({email, pw}) => {
   const loginDTO = {
     email: email,
     password: pw
