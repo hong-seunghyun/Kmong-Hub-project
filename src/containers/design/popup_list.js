@@ -23,9 +23,9 @@ const Component = () => {
 		});
 	}
 
-	// useLayoutEffect(() => {
-	// 	onchange();	
-	// }, []);
+	useLayoutEffect(() => {
+		onchange();	
+	}, []);
 
 	return(
 		<div className="page-wrap">
