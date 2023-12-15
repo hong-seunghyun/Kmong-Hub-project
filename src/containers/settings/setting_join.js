@@ -10,6 +10,7 @@ import {
   AddrAtom,
   BirthAtom,
   BsSectorAtom,
+  CncnTcqSprYnCdAtom,
   ComAddrAtom,
   ComNmAtom,
   ComNoAtom,
@@ -353,6 +354,8 @@ const Component = () => {
   const [bizSprYnCd, setBsSector] = useRecoilState(BsSectorAtom);
   const [techField, setTechField] = useRecoilState(TechFieldAtom);
   const [siteBcmemId, setSiteId] = useRecoilState(SiteBcmemIdAtom);
+  const [cncnTcqSprYnCd, setCncnTcqSprYnCd] =
+    useRecoilState(CncnTcqSprYnCdAtom);
 
   const getValue = async () => {
     await getSiteSttg()
@@ -368,6 +371,7 @@ const Component = () => {
         setBsSector(e.data.data.bizSprYnCd);
         setTechField(e.data.data.nmYnCd);
         setSiteId(e.data.data.siteBcmemId);
+        setCncnTcqSprYnCd(e.data.data.cncnTcqSprYnCd);
       })
       .catch((e) => console.log(e));
   };

@@ -39,6 +39,10 @@ export const ComUrlAtom = atom({
   key: "ComUrlAtom",
   default: "N",
 });
+export const CncnTcqSprYnCdAtom = atom({
+  key: "CncnTcqSprYnCdAtom",
+  default: "N",
+});
 
 export const BsSectorAtom = atom({
   key: "BsSectorAtom",
