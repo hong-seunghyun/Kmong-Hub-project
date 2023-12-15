@@ -17,6 +17,14 @@ const Component = (props) => {
 
   const fileInputRef = useRef();
 
+  useEffect(() => {
+    if (props.fileState) {
+      setState("done");
+      setType("preview");
+      props.setFileState(props.fileState);
+    }
+  }, [props.fileState]);
+
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     setFileSize(e.target.files[0].size);
