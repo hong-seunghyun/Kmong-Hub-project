@@ -34,6 +34,7 @@ const Component = () => {
 	const [ name, setName ] = useState('');
 	const [ nickname, setNickname ] = useState('');
 	const [ tel, setTel ] = useState('');
+	const [ ucmdCd, setUcmdCd ] = useState('');
 
 	const [ orgn, setOrgn ] = useState('');
 
@@ -73,7 +74,7 @@ const Component = () => {
 			nwlAgrmYn: checkState3 ? "Y" : "N",
 			pwd: password,
 			smsRcvAgrmYn: checkState2 ? "Y" : "N",
-			ucmdCd: "435589",
+			ucmdCd: ucmdCd,
 			orgnPhcNo: tel
 		};
 		console.log(dto);
@@ -142,7 +143,7 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data}/>
+						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
 					</div>
 

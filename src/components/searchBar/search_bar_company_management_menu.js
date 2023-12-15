@@ -29,7 +29,7 @@ const Component = (props) => {
 			<div className="wrap radius-8 border-gray-4" style={{display: (props.data.length == 0 || search === '') ? 'none' : 'block'}}>
 				<div className="flex_ result-search-box body-3-R ">
 					{
-						props.data.map(dummy => <span>{dummy.name}</span>)
+						props.data.map(dummy => <span onClick={props.setResult(String(dummy.id))}>{dummy.name}</span>)
 					}
 				</div>
 			</div>
