@@ -19,8 +19,7 @@ const Component = (props) => {
   const fileInputRef = useRef();
 
   useEffect(() => {
-    if (props.urlState) {
-      console.log("dfdf");
+    if (props.fileState) {
       setState("done");
       setType("preview");
       props.setFileState(props.fileState);
