@@ -56,7 +56,6 @@ const Component = () => {
               <tr>
                 <th className="thead ">썸네일</th>
                 <td className="tbody">
-                  {/* <Upload state="done" type="preview" /> */}
                   <img
                     onClick={() =>
                       window.open(
@@ -66,19 +65,11 @@ const Component = () => {
                     src={techState.thumAddr}
                     style={{ width: "100%", borderRadius: "15px" }}
                   />
-
-                  {/* <p className="caption-R helper-txt">
-                    허용 사이즈: <span>800px x 800px</span>{" "}
-                    <span className="bar">|</span> 파일 형식:{" "}
-                    <span>JPG,PNG,JPEG</span>
-                    <span className="bar">|</span> 최대 파일 크기:{" "}
-                    <span>100mb</span>
-                  </p> */}
                 </td>
               </tr>
               <tr>
                 <th className="thead">게시물 제목</th>
-                <td className="tbody">{techState.catgNm}</td>
+                <td className="tbody">{techState.tcqTitleNm}</td>
               </tr>
               <tr>
                 <th className="thead">등록일</th>
