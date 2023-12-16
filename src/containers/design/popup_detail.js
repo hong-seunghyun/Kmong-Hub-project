@@ -25,7 +25,7 @@ const Component = () => {
 		})
 	},[]);
 
-	return(
+	return data != {} ? (
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail">
@@ -49,7 +49,7 @@ const Component = () => {
 									노출 기간
 								</th>
 								<td className="tbody">
-									{`${data.expsStrDtm.split(' ')[0]} ~ ${data.expsEndDtm.split(' ')[0]}`}
+									{data.expsEndDtm && `${data.expsStrDtm.split(' ')[0]} ~ ${data.expsEndDtm.split(' ')[0]}`}
 								</td>
 							</tr>
 							<tr>
@@ -98,6 +98,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	) : (<></>)
 }
 export default Component;

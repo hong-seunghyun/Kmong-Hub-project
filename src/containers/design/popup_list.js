@@ -19,7 +19,7 @@ const Component = () => {
 	const onchange = () => {
 		getPopUp(page, 10, searchValue).then(res => {
 			console.log(res.data);
-			setDatas(res.data.data);	
+			setDatas(res.data.data);
 		}).catch(err => {
 			console.log(err);
 		});
