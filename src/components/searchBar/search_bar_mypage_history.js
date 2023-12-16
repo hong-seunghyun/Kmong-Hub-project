@@ -54,12 +54,14 @@ const Component = () => {
     setSearch(e.target.value);
   };
 
-  const filterTitle = dummy.filter((p) => {
-    return p.title
-      .replace(" ", "")
-      .toLocaleLowerCase()
-      .includes(search.toLocaleLowerCase());
-  });
+  const filterTitle = dummy
+    ? dummy.filter((p) => {
+        return p.title
+          .replace(" ", "")
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase());
+      })
+    : [];
   return (
     <div className="search-container">
       <div className="input-wrap radius-8 border-gray-4 bg-lightGray">
@@ -76,9 +78,8 @@ const Component = () => {
       </div>
       <div className="wrap radius-8 border-gray-4">
         <div className="flex_ result-search-box  body-3-R ">
-          {filterTitle.map((dummy) => (
-            <span>{dummy.title}</span>
-          ))}
+          {filterTitle &&
+            filterTitle.map((dummy) => <span>{dummy.title}</span>)}
         </div>
       </div>
     </div>

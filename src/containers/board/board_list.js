@@ -60,17 +60,18 @@ const Component = () => {
               headDate="최종수정일"
               headEtc="관리"
             />
-            {boadrListInfo.map((e, idx) => (
-              <TableCell
-                choice="number"
-                number={idx + 1}
-                title={e.titleNm}
-                view="174"
-                writer={e.mbrNm}
-                listLink={`/board/board_detail/${e.rpstNo}`}
-                date={e.modifiedDate}
-              />
-            ))}
+            {boadrListInfo &&
+              boadrListInfo.map((e, idx) => (
+                <TableCell
+                  choice="number"
+                  number={idx + 1}
+                  title={e.titleNm}
+                  view="174"
+                  writer={e.mbrNm}
+                  listLink={`/board/board_detail/${e.rpstNo}`}
+                  date={e.modifiedDate}
+                />
+              ))}
             <TableCell
               choice="number"
               number="1"

@@ -45,24 +45,25 @@ const Component = () => {
                 headDate="등록일"
                 headEtc="관리"
               />
-              {techList.map((e, idx) => (
-                <TableCell
-                  choice="number"
-                  number={idx + 1}
-                  img={e.thumAddr}
-                  title={e.titleNm}
-                  writer={e.wrterMbrNo}
-                  date={e.createdDate}
-                  labelBg={e.prcsYn === "Y" ? "bg-violet-1" : "bg-white"}
-                  labelColor={e.prcsYn === "Y" ? "txt-white" : "txt-violet-1"}
-                  label={e.prcsYn === "Y" ? "답변 완료" : "답변 전"}
-                  link={
-                    e.prcsYn === "Y"
-                      ? `/inquiry/technology_detail_complete/${e.iqryNo}`
-                      : `/inquiry/technology_detail/${e.iqryNo}`
-                  }
-                />
-              ))}
+              {techList &&
+                techList.map((e, idx) => (
+                  <TableCell
+                    choice="number"
+                    number={idx + 1}
+                    img={e.thumAddr}
+                    title={e.titleNm}
+                    writer={e.wrterMbrNo}
+                    date={e.createdDate}
+                    labelBg={e.prcsYn === "Y" ? "bg-violet-1" : "bg-white"}
+                    labelColor={e.prcsYn === "Y" ? "txt-white" : "txt-violet-1"}
+                    label={e.prcsYn === "Y" ? "답변 완료" : "답변 전"}
+                    link={
+                      e.prcsYn === "Y"
+                        ? `/inquiry/technology_detail_complete/${e.iqryNo}`
+                        : `/inquiry/technology_detail/${e.iqryNo}`
+                    }
+                  />
+                ))}
               <Pagnation
                 size="regular"
                 pageIdx={pageIdx}

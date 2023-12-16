@@ -58,30 +58,30 @@ const Component = () => {
     EventIntroduceExpAtom
   );
 
-  const initValue = (value) => {
-    switch (value.mnuDvCd) {
-      case "TTF":
-        setTTFTitle(value.mnuNm);
-        setTTFIntroduce(value.onelineItr);
-        setTTFTitleExp(value.ctntExpsYn);
-        break;
-      case "EVN":
-        setEventTitle(value.mnuNm);
-        setEventIntroduce(value.onelineItr);
-        setEventTitleExp(value.ctntExpsYn);
-        break;
-      case "NEWS":
-        setNewsTitle(value.mnuNm);
-        setNewsIntroduce(value.onelineItr);
-        setNewsTitleExp(value.ctntExpsYn);
-        break;
-      case "SPJ":
-        setSupportTitle(value.mnuNm);
-        setSupportIntroduce(value.onelineItr);
-        setSupportTitleExp(value.ctntExpsYn);
-        break;
-    }
-  };
+  // const initValue = (value) => {
+  //   switch (value.mnuDvCd) {
+  //     case "TTF":
+  //       setTTFTitle(value.mnuNm);
+  //       setTTFIntroduce(value.onelineItr);
+  //       setTTFTitleExp(value.ctntExpsYn);
+  //       break;
+  //     case "EVN":
+  //       setEventTitle(value.mnuNm);
+  //       setEventIntroduce(value.onelineItr);
+  //       setEventTitleExp(value.ctntExpsYn);
+  //       break;
+  //     case "NEWS":
+  //       setNewsTitle(value.mnuNm);
+  //       setNewsIntroduce(value.onelineItr);
+  //       setNewsTitleExp(value.ctntExpsYn);
+  //       break;
+  //     case "SPJ":
+  //       setSupportTitle(value.mnuNm);
+  //       setSupportIntroduce(value.onelineItr);
+  //       setSupportTitleExp(value.ctntExpsYn);
+  //       break;
+  //   }
+  // };
 
   const getMenuExpContentFunc = async () => {
     await getMenuExps()
