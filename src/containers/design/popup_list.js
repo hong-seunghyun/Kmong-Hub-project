@@ -47,6 +47,14 @@ const Component = () => {
 						</div>
 
 						<div className="table-container">
+						<TableHead
+								headTitle="제목"
+								headPc="PC 이미지"
+								headMobile="모바일 이미지"
+								headDate="기간"
+								headCategory="상태"
+								headEtc="관리"
+							/>
 						<TableCell 
 								title="[팝업 이름]"
 								pc="/images/file.png"
