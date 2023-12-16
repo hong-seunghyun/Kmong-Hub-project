@@ -25,7 +25,7 @@ const Component = () => {
 		})
 	},[]);
 
-	return data != {} ? (
+	return(
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail">
@@ -89,7 +89,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제" />
 							</Link>
-							<Link href="/design/popup_retouch">
+							<Link href={`/design/popup_retouch?popuNo=${router.query.popuNo}`}>
 								<Button text="수정" />
 							</Link>
 						</div>
@@ -98,6 +98,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	) : (<></>)
+	);
 }
 export default Component;
