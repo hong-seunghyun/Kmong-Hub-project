@@ -10,16 +10,17 @@ import { getTechTransferList } from "../../asset/apis/inquiry/techTransferApis";
 
 const Component = () => {
   const [techList, setTechList] = useState([]);
+  const [pageIdx, setPageIdx] = useState(1);
 
   const getValue = async () => {
-    await getTechTransferList({ currentIdx: 1 })
+    await getTechTransferList({ currentIdx: pageIdx })
       .then((e) => setTechList([...e.data.data]))
       .catch((e) => console.log(e));
   };
 
   useEffect(() => {
     getValue();
-  }, []);
+  }, [pageIdx]);
 
   return (
     <div className="page-wrap">
@@ -52,8 +53,8 @@ const Component = () => {
                   title={e.titleNm}
                   writer={e.wrterMbrNo}
                   date={e.createdDate}
-                  labelBg={e.prcsYn === "N" ? "bg-white" : "bg-violet-1"}
-                  labelColor={e.prcsYn === "N" ? "txt-violet-1" : "txt-white"}
+                  labelBg={e.prcsYn === "Y" ? "bg-violet-1" : "bg-white"}
+                  labelColor={e.prcsYn === "Y" ? "txt-white" : "txt-violet-1"}
                   label={e.prcsYn === "Y" ? "답변 완료" : "답변 전"}
                   link={
                     e.prcsYn === "Y"
@@ -62,7 +63,11 @@ const Component = () => {
                   }
                 />
               ))}
-              <Pagnation size="regular" />
+              <Pagnation
+                size="regular"
+                pageIdx={pageIdx}
+                setPageIdx={setPageIdx}
+              />
             </div>
           </div>
         </div>
