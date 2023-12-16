@@ -16,7 +16,7 @@ const Component = () => {
 	const [ page, setPage ] = useState(1);
 
 	const onchange = () => {
-		getPopUp(page, 1, searchValue).then(res => {
+		getPopUp(page, 10, searchValue).then(res => {
 			console.log(res.data);
 		}).catch(err => {
 			console.log(err);
