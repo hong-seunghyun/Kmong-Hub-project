@@ -68,17 +68,17 @@ const Component = () => {
       case "EVN":
         setEventTitle(value.mnuNm);
         setEventIntroduce(value.onelineItr);
-        setEventTitleExp(ctntExpsYn);
+        setEventTitleExp(value.ctntExpsYn);
         break;
       case "NEWS":
         setNewsTitle(value.mnuNm);
         setNewsIntroduce(value.onelineItr);
-        setNewsTitleExp(ctntExpsYn);
+        setNewsTitleExp(value.ctntExpsYn);
         break;
       case "SPJ":
         setSupportTitle(value.mnuNm);
         setSupportIntroduce(value.onelineItr);
-        setSupportTitleExp(ctntExpsYn);
+        setSupportTitleExp(value.ctntExpsYn);
         break;
     }
   };
