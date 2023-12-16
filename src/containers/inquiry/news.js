@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
@@ -6,172 +6,75 @@ import TableHead from "/src/components/table/inquiry_technology_table_head";
 import TableCell from "/src/components/table/inquiry_technology_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
+import { getNewsList } from "../../asset/apis/inquiry/newsApis";
 
 const Component = () => {
-	return(
-		<div className="page-wrap">
-			<div className="inquiry- ">
-				<div className="transaction-01">
+  const [newsList, setNewsList] = useState([]);
+  const [pageIdx, setPageIdx] = useState(1);
 
-					<div className="head-wrap flex_">
-						<h1 className="display-5-B">
-							뉴스 문의 관리
-						</h1>
-					</div>
+  const getValue = async () => {
+    await getNewsList({ currentIdx: pageIdx })
+      .then((e) => setNewsList([...e.data.data]))
+      .catch((e) => console.log(e));
+  };
 
-					<div>
-						<div className="flex_ search-wrap">
-							<DropDownMenu />
-							<SearchBar />
-						</div>
+  useEffect(() => {
+    getValue();
+  }, [pageIdx]);
 
-						<div className="table-container">
-							<TableHead
-								headChoice="번호"
-								headCategory="상태"
-								headTitle="제목"
-								headWriter="작성자"
-								headDate="등록일"
-								headEtc="관리"
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								label="답변 완료"
-								link="/inquiry/news_detail_2"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								label="답변 완료"
-								link="/inquiry/news_detail_2"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								label="답변 완료"
-								link="/inquiry/news_detail_2"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								label="답변 완료"
-								link="/inquiry/news_detail_2"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<TableCell 
-								choice="number"
-								number="1"
-								img="/images/sample-img.png"
-								title="문의 제목"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								labelBg="bg-violet-1"
-								labelColor="txt-white"
-								label="답변 전"
-								link="/inquiry/news_detail"
-								
-							/>
-							<Pagnation size="regular"/>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	)
+  return (
+    <div className="page-wrap">
+      <div className="inquiry- ">
+        <div className="transaction-01">
+          <div className="head-wrap flex_">
+            <h1 className="display-5-B">뉴스 문의 관리</h1>
+          </div>
+
+          <div>
+            <div className="flex_ search-wrap">
+              <DropDownMenu />
+              <SearchBar />
+            </div>
+
+            <div className="table-container">
+              <TableHead
+                headChoice="번호"
+                headCategory="상태"
+                headTitle="제목"
+                headWriter="작성자"
+                headDate="등록일"
+                headEtc="관리"
+              />
+              {newsList &&
+                newsList.map((e, idx) => (
+                  <TableCell
+                    choice="number"
+                    number={idx + 1}
+                    img={e.thumAddr}
+                    title={e.titleNm}
+                    writer={e.wrterMbrNo}
+                    date={e.createdDate}
+                    labelBg={e.prcsYn === "Y" ? "bg-violet-1" : "bg-white"}
+                    labelColor={e.prcsYn === "Y" ? "txt-white" : "txt-violet-1"}
+                    label={e.prcsYn === "Y" ? "답변 완료" : "답변 전"}
+                    link={
+                      e.prcsYn === "Y"
+                        ? `/inquiry/news_detail_complete/${e.iqryNo}`
+                        : `/inquiry/news_detail/${e.iqryNo}`
+                    }
+                  />
+                ))}
+              <Pagnation
+                size="regular"
+                pageIdx={pageIdx}
+                setPageIdx={setPageIdx}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Component;

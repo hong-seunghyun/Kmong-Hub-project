@@ -1,4 +1,4 @@
-import { Api } from "../config/Api";
+import { Api } from "../../config/Api";
 
 export const getNewsList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
