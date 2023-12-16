@@ -3,13 +3,8 @@ import { Api } from "../../config/Api";
 // get(팝업 불러오기)
 export const getPopUp = (currentPage, limit, searchValue) => {
   const response = Api.get(`/viewapi/mngr/site/v1/popu`, {
-    params: searchValue ? {
-      currentPage: currentPage,
-      limit: limit,
-      searchValue: searchValue
-    } : {
-      currentPage: currentPage,
-      limit: limit
+    params: {
+      
     },
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
@@ -42,23 +37,6 @@ export const createPopup = ({delYn, expsEndDtm, expsStrDtm, popuNm, popuPath}, m
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`,
       'Content-Type': 'multipart/form-data',
       Accept: "application/json"
-    }
-  });
-  return response;
-}
-
-// post(팝업 불러오기)
-export const getPopUpActive = (currentPage, limit, searchType, searchValue) => {
-  const response = Api.get(`/viewapi/mngr/site/v1/popu`, {
-    params: searchValue == '' ? {
-      currentPage: currentPage,
-      limit: limit,
-      searchType: searchType,
-    } : {
-      currentPage: currentPage,
-      limit: limit,
-      searchType: searchType,
-      searchValue: searchValue
     }
   });
   return response;
