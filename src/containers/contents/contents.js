@@ -63,22 +63,22 @@ const Component = () => {
       case "TTF":
         setTTFTitle(value.mnuNm);
         setTTFIntroduce(value.onelineItr);
-        setTTFTitleExp(ctntExpsYn);
+        setTTFTitleExp(value.ctntExpsYn);
         break;
       case "EVN":
-        setTTFTitle(value.mnuNm);
-        setTTFIntroduce(value.onelineItr);
-        setTTFTitleExp(ctntExpsYn);
+        setEventTitle(value.mnuNm);
+        setEventIntroduce(value.onelineItr);
+        setEventTitleExp(ctntExpsYn);
         break;
       case "NEWS":
-        setTTFTitle(value.mnuNm);
-        setTTFIntroduce(value.onelineItr);
-        setTTFTitleExp(ctntExpsYn);
+        setNewsTitle(value.mnuNm);
+        setNewsIntroduce(value.onelineItr);
+        setNewsTitleExp(ctntExpsYn);
         break;
       case "SPJ":
-        setTTFTitle(value.mnuNm);
-        setTTFIntroduce(value.onelineItr);
-        setTTFTitleExp(ctntExpsYn);
+        setSupportTitle(value.mnuNm);
+        setSupportIntroduce(value.onelineItr);
+        setSupportTitleExp(ctntExpsYn);
         break;
     }
   };
