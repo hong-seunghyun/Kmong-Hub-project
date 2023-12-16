@@ -111,9 +111,7 @@ const Component = () => {
               </Link>
             </div>
             <div className="flex_">
-              <Link href="/inquiry/technology_detail_2">
-                <Button text="답변하기" onclick={setAnswer} />
-              </Link>
+              <Button text="답변하기" onclick={setAnswer} />
             </div>
           </div>
         </div>

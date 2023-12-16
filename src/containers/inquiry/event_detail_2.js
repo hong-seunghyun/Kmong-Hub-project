@@ -47,7 +47,7 @@ const Component = () => {
               </tr>
               <tr>
                 <th className="thead">게시물 제목</th>
-                <td className="tbody">{evnetState.tcqTitleNm}</td>
+                <td className="tbody">{evnetState.evenTitleNm}</td>
               </tr>
               <tr>
                 <th className="thead">등록일</th>

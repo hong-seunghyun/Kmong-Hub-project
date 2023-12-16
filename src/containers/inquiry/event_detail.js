@@ -30,7 +30,7 @@ const Component = () => {
     await setEventAnswer({ iqryNo: id, rpyCntn })
       .then((e) => {
         console.log(e);
-        router.push("/inquiry/technology");
+        router.push("/inquiry/evnet");
       })
       .catch((e) => console.log(e));
   };
@@ -64,7 +64,7 @@ const Component = () => {
               </tr>
               <tr>
                 <th className="thead">게시물 제목</th>
-                <td className="tbody">{evnetState.tcqTitleNm}</td>
+                <td className="tbody">{evnetState.evenTitleNm}</td>
               </tr>
               <tr>
                 <th className="thead">등록일</th>
@@ -112,9 +112,7 @@ const Component = () => {
               </Link>
             </div>
             <div className="flex_">
-              <Link href="/inquiry/event_detail_2">
-                <Button text="답변하기" onclick={setAnswer} />
-              </Link>
+              <Button text="답변하기" onclick={setAnswer} />
             </div>
           </div>
         </div>
