@@ -127,7 +127,7 @@ const Component = () => {
             </div>
             <div className="flex_">
               <Link href="/inquiry/technology_detail_2">
-                <Button text="답변하기" />
+                <Button text="답변하기" onclick={setAnswer} />
               </Link>
             </div>
           </div>
