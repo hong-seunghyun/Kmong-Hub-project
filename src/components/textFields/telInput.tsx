@@ -69,6 +69,7 @@ const Input = ({
             onChange={onInputHandler}
             className="body-2-R radius-8"
             placeholder={placeholder}
+            disabled={true}
           />
           <span className={`input-count caption-R ${inputCountState}`}>
             <span className="txt-second-default">{inputCount}</span> /{" "}
