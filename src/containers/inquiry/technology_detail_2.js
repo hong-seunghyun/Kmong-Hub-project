@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Tabs from "/src/components/tabs/technical_document_detail_tab_1";
 import ButtonL from "/src/components/buttons/button_outline_l";
-import ButtonErrorL from "/src/components/buttons/button_error_l";
-import Button from "/src/components/buttons/button_primary_l";
 import Link from "next/link";
-import Label from "/src/components/label/label";
-import Editor from "/src/components/editorBox/index";
-import TextBtn from "/src/components/buttons/text_button_underline_primary_m";
-import Upload from "/src/components/upload/upload";
-import TextArea from "/src/components/textFields/textArea.tsx";
 import { useRouter } from "next/router";
 import { getTechTransferDetail } from "../../asset/apis/inquiry/techTransferApis";
 
