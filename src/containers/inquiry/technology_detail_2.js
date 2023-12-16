@@ -87,13 +87,14 @@ const Component = () => {
           </table>
 
           <p className="table-caption body-2-B">답변내용</p>
-          <TextArea
-            labelText=""
-            placeholder="답변 내용이 없습니다."
-            valueType=""
-            helperTextResult="none"
-            state={techState.rpyCntn}
-          />
+          <div className="text-fields-wrap textarea-fildes-wrap">
+            <div
+              className="wrap radius-8 bg-lightGray"
+              style={{ padding: "1rem" }}
+            >
+              <p className="body-3-R radius-8">{techState.rpyCntn}</p>
+            </div>
+          </div>
 
           <div className="btn-wrap flex_">
             <div className="flex_">
