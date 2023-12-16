@@ -3,8 +3,8 @@ import { Api } from "../config/Api";
 export const getNewsList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
     `/viewapi/mngr/site/v1/inquiry/news?currentPage=${currentIdx}&limit=10${
-      searchType && `&searchType=${searchType}`
-    }&searchValue=${search}`
+      searchType ? `&searchType=${searchType}` : ""
+    }${search ? `&searchValue=${search}` : ""}`
   );
   return response;
 };

@@ -35,6 +35,7 @@ const Component = () => {
 		console.log(dto);
 		createPopup(dto, mobImg, pcImg).then(res => {
 			console.log(res.data);
+			// window.location = '/design/popup_list';
 		}).catch(err => {
 			console.log(err);
 		});
@@ -86,7 +87,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonL text="초기화" />
 							</Link>
-							<Link href="/design/popup_list">
+							<Link href="/design/popup_add">
 								<Button text="등록" onclick={addPopup}/>
 							</Link>
 						</div>

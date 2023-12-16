@@ -6,19 +6,30 @@ import TableHead from "/src/components/table/board_table_head";
 import TableCell from "/src/components/table/board_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
-import { getBoardList } from "../../asset/apis/boardApis";
+import { getBoardList, setBoardInfo } from "../../asset/apis/boardApis";
 import { useRecoilState } from "recoil";
 import { BoardListAtom } from "../../store/board/list/atom";
+import { BoardInfoAtom } from "../../store/board/info/atom";
 
 const Component = () => {
   const [pageIdx, setPageIdx] = useState(1);
   const [boardList, setBoardList] = useRecoilState(BoardListAtom);
+  const [boardAtom, setBoardAtom] = useRecoilState(BoardInfoAtom);
 
   const getValue = async () => {
     await getBoardList({ currentIndex: pageIdx })
       .then((e) => {
-        setBoardList([...e.data.data]);
+        let copyArr = e.data.data.filter((e) => e.delYn === "N");
+        setBoardList([...copyArr]);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const deleteBoard = async ({ boardName, boradIdx, isUse }) => {
+    await setBoardInfo({ boardName, boradIdx, isDel: "Y", isUse })
+      .then((e) => {
         console.log(e);
+        window.location.reload();
       })
       .catch((e) => console.log(e));
   };
@@ -54,6 +65,7 @@ const Component = () => {
             />
             {boardList.map((e, idx) => (
               <TableCell
+                key={idx}
                 choice="number"
                 number={idx + 1}
                 title={e.bbsNm}
@@ -64,6 +76,22 @@ const Component = () => {
                 listLink="/board/board_retouch"
                 link="#"
                 boardLink="/board/board_list"
+                onclick={() => {
+                  console.log(e);
+                  setBoardAtom({
+                    bbsNm: e.bbsNm,
+                    bbsNo: e.bbsNo,
+                    useYn: e.useYn,
+                    delYn: e.delYn,
+                  });
+                }}
+                delete={() => {
+                  deleteBoard({
+                    boardName: e.bbsNm,
+                    boradIdx: e.bbsNo,
+                    isUse: e.useYn,
+                  });
+                }}
               />
             ))}
             <Pagnation

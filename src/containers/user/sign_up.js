@@ -34,12 +34,26 @@ const Component = () => {
 	const [ name, setName ] = useState('');
 	const [ nickname, setNickname ] = useState('');
 	const [ tel, setTel ] = useState('');
+	const [ ucmdCd, setUcmdCd ] = useState('');
 
 	const [ orgn, setOrgn ] = useState('');
+
+	const [ allCheckState, setAllCheckState ] = useState(false);
 
 	const [ checkState1, setCheckState1 ] = useState(false);
 	const [ checkState2, setCheckState2 ] = useState(false);
 	const [ checkState3, setCheckState3 ] = useState(false);
+
+	const [ data, setData ] = useState([]);
+
+	const allCheck = (checked) => {
+		setAllCheckState(checked);
+		if(checked) {
+			setCheckState1(true);
+			setCheckState2(true);
+			setCheckState3(true);
+		}
+	}
 
 	const checkEmail = async () => {
 		if(!email.includes('@')) return;
@@ -51,12 +65,12 @@ const Component = () => {
 		});
 	}
 
-	const searchOrgan = async () => {
-		await searchOrgn({query: orgn}).then(res => {
-			console.log(res.data);
+	const searchOrgan = async (organ) => {
+		await searchOrgn({query: organ}).then(res => {
+			setData(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
-		})
+		});
 	}
 
   const [file, setFile] = useState(null);
@@ -71,12 +85,13 @@ const Component = () => {
 			nwlAgrmYn: checkState3 ? "Y" : "N",
 			pwd: password,
 			smsRcvAgrmYn: checkState2 ? "Y" : "N",
-			ucmdCd: "435589",
+			ucmdCd: ucmdCd,
 			orgnPhcNo: tel
 		};
 		console.log(dto);
 		register(dto, file, file2).then(res => {
 			console.log(res.data);
+			window.location = '/user/waiting_sign_up'
 		}).catch(err => {
 			console.log(err);
 		});
@@ -140,15 +155,15 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan}/>
+						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
 					</div>
 
-					<CheckBox size="small" label="전체 동의" />
+					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
 					<div class="bar bg-gray-5" />
-					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>
-					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={false} setCheckState={setCheckState2}/>
-					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={false} setCheckState={setCheckState3}/>
+					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={checkState1} setCheckState={setCheckState1}/>
+					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={checkState2} setCheckState={setCheckState2}/>
+					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={checkState3} setCheckState={setCheckState3}/>
 					<Link href="/user/sign_up">
 						<LoginBtn text="회원가입" onclick={registerMember}/>
 					</Link>
