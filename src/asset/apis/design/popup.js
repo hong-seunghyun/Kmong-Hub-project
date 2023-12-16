@@ -63,3 +63,15 @@ export const getPopUpActive = (currentPage, limit, searchType, searchValue) => {
   });
   return response;
 }
+
+export const getPopUpDetails = (popuNo) => {
+  const response = Api.get(`/viewapi/mngr/site/v1/popuDetail`, {
+    params: {
+      popuNo: popuNo
+    },
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
+    }
+  });
+  return response;
+}
