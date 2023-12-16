@@ -29,6 +29,7 @@ const Component = () => {
 			delYn: delYn ? "Y" : "N",
 			expsEndDtm: endState,
 			expsStrDtm: startState,
+			popuNo: 1,
 			popuNm: nameState,
 			popuPath: pathState
 		}

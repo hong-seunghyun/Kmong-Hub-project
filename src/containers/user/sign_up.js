@@ -91,6 +91,7 @@ const Component = () => {
 		console.log(dto);
 		register(dto, file, file2).then(res => {
 			console.log(res.data);
+			window.location = '/user/waiting_sign_up'
 		}).catch(err => {
 			console.log(err);
 		});

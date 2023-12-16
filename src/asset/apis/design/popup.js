@@ -13,12 +13,13 @@ export const getPopUp = (currentPage, limit, searchValue) => {
 }
 
 // post(팝업 등록, 수정)
-export const createPopup = ({delYn, expsEndDtm, expsStrDtm, popuNm, popuPath}, mobImg, pcImg) => {
+export const createPopup = ({delYn, expsEndDtm, expsStrDtm, popuNm, popuNo, popuPath}, mobImg, pcImg) => {
   const mergePopupDTO = {
     delYn,
     expsEndDtm,
     expsStrDtm,
     popuNm,
+    popuNo,
     popuPath
   };
   const blob = new Blob([JSON.stringify(mergePopupDTO)], {
