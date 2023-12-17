@@ -34,7 +34,7 @@ export const deleteMember = ({ siteMbrNo }) => {
 
 export const getManagerList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
-    `viewapi/mngr/site/v1/mngList?currentPage=${currentIdx}&limit=10$${
+    `viewapi/mngr/site/v1/mngList?currentPage=${currentIdx}&limit=10${
       searchType && searchType !== "" ? `&searchType=${searchType}` : ""
     }${search && search !== "" ? `&searchValue=${search}` : ""}`
   );
