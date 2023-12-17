@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
@@ -6,8 +6,47 @@ import TableHead from "/src/components/table/member_list_table_head";
 import TableCell from "/src/components/table/member_list_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { getMemberList } from "../../asset/apis/memberApis";
 
 const Component = () => {
+  const [memberList, setMemberList] = useState([]);
+  const [pageIdx, setPageIdx] = useState(1);
+  const [type, setType] = useState("");
+  const [search, setSearch] = useState("");
+  const router = useRouter();
+
+  const getValue = async () => {
+    await getMemberList({
+      currentIdx: pageIdx,
+      searchType: type,
+      search,
+    })
+      .then((e) => {
+        setMemberList([...e.data.data]);
+        console.log(e);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const getSearchValue = async () => {
+    setPageIdx(1);
+    await getMemberList({
+      currentIdx: 1,
+      searchType: type,
+      search,
+    })
+      .then((e) => {
+        setMemberList([...e.data.data]);
+        console.log(e);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    getValue();
+  }, [pageIdx]);
+
   return (
     <div className="page-wrap">
       <div className="member- ">
@@ -30,97 +69,23 @@ const Component = () => {
               headAccess="최근 접속일"
               headEtc="관리"
             />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
+            {memberList &&
+              memberList.map((e, idx) => (
+                <TableCell
+                  choice="number"
+                  number={idx + 1}
+                  title={e.mbrNm}
+                  email={e.emailAddr}
+                  date={e.createdDate}
+                  access={e.lastAccssDate}
+                  listLink={`/member/member_detail/${e.siteMbrNo}`}
+                />
+              ))}
+            <Pagnation
+              size="regular"
+              pageIdx={pageIdx}
+              setPageIdx={setPageIdx}
             />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <TableCell
-              choice="number"
-              number="1"
-              title="[이름]"
-              email="kotech@kotech.co.kr"
-              date="YYYY.MM.DD"
-              access="YYYY.MM.DD HH:MM:SS"
-              listLink="/member/member_detail"
-            />
-            <Pagnation size="regular" />
           </div>
         </div>
       </div>

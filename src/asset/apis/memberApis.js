@@ -3,8 +3,8 @@ import { Api } from "../config/Api";
 export const getDormantMemberList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
     `viewapi/mngr/site/v1/dorUserList?currentPage=${currentIdx}&limit=10${
-      searchType ? `&searchType=${searchType}` : ""
-    }${search ? `&searchValue=${search}` : ""}`
+      searchType && searchType !== "" ? `&searchType=${searchType}` : ""
+    }${search && search !== "" ? `&searchValue=${search}` : ""}`
   );
   return response;
 };
@@ -12,8 +12,8 @@ export const getDormantMemberList = ({ currentIdx, searchType, search }) => {
 export const getMemberList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
     `viewapi/mngr/site/v1/siteUserList?currentPage=${currentIdx}&limit=10${
-      searchType ? `&searchType=${searchType}` : ""
-    }${search ? `&searchValue=${search}` : ""}`
+      searchType && searchType !== "" ? `&searchType=${searchType}` : ""
+    }${search && search !== "" ? `&searchValue=${search}` : ""}`
   );
   return response;
 };
@@ -34,9 +34,9 @@ export const deleteMember = ({ siteMbrNo }) => {
 
 export const getManagerList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
-    `viewapi/mngr/site/v1/mngList?currentPage=${currentIdx}&limit=10${
-      searchType ? `&searchType=${searchType}` : ""
-    }${search ? `&searchValue=${search}` : ""}`
+    `viewapi/mngr/site/v1/mngList?currentPage=${currentIdx}&limit=10$${
+      searchType && searchType !== "" ? `&searchType=${searchType}` : ""
+    }${search && search !== "" ? `&searchValue=${search}` : ""}`
   );
   return response;
 };
