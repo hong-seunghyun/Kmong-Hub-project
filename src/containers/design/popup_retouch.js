@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useLayoutEffect } from "react";
-import { getPopUpDetails } from "../../asset/apis/design/popup";
+import { createPopup, getPopUpDetails } from "../../asset/apis/design/popup";
 
 const Component = () => {
 
