@@ -70,7 +70,7 @@ const useRscCarerInfos = () => {
       })
       return updated
     })
-  }, [rscCarerInfos])
+  }, [])
 
   /** 회사명 업데이트 */
   const updateCmpyNm = useCallback((index) => (value) => {
@@ -83,7 +83,7 @@ const useRscCarerInfos = () => {
       })
       return updated
     })
-  }, [rscCarerInfos])
+  }, [])
 
   /** 담당 업무 업데이트 */
   const updateRspbTaskCntn = useCallback((index) => (value) => {
@@ -96,12 +96,13 @@ const useRscCarerInfos = () => {
       })
       return updated
     })
-  }, [rscCarerInfos])
+  }, [])
 
+  /** 경력 정보 입력 완료 여부 */
   const rscCarerInfosAvailable = useMemo(() => {
     return rscCarerInfos.reduce((acc, curr) => (
       acc && curr.cmpyNm && curr.jncpmYm && curr.resignYm && curr.rspbTaskCntn
-    ), true)
+    ), rscCarerInfos.length > 0)
   }, [rscCarerInfos])
   
   const value = useMemo(() => ({
