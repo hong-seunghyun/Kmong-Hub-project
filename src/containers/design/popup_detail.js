@@ -5,8 +5,25 @@ import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
+import { useRouter } from "next/router";
+import { useLayoutEffect } from "react";
+import { getPopUpDetails } from "../../asset/apis/design/popup";
+import { useState } from "react";
 
 const Component = () => {
+
+	const router = useRouter();
+	const [ data, setData ] = useState({});
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		getPopUpDetails(router.query.popuNo).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		})
+	},[]);
 
 	return(
 		<div className="container">
@@ -24,7 +41,7 @@ const Component = () => {
 								팝업이름
 								</th>
 								<td className="tbody">
-									O
+									{data.popuNm}
 								</td>
 							</tr>
 							<tr>
@@ -32,7 +49,7 @@ const Component = () => {
 									노출 기간
 								</th>
 								<td className="tbody">
-									YYYY.MM.DD
+									{data.expsEndDtm && `${data.expsStrDtm.split(' ')[0]} ~ ${data.expsEndDtm.split(' ')[0]}`}
 								</td>
 							</tr>
 							<tr>
@@ -40,7 +57,7 @@ const Component = () => {
 									PC팝업
 								</th>
 								<td className="tbody">
-									<img src="/images/sample-img.png" alt=""/>
+									<img src={data.pcImgPath} alt=""/>
 								</td>
 							</tr>
 							<tr>
@@ -48,7 +65,7 @@ const Component = () => {
 									모바일 팝업
 								</th>
 								<td className="tbody">
-									<img src="/images/sample-img.png" alt=""/>
+									<img src={data.mobImgPath} alt=""/>
 								</td>
 							</tr>
 							<tr>
@@ -56,7 +73,7 @@ const Component = () => {
 									팝업링크
 								</th>
 								<td className="tbody">
-									www.naver.com
+									{data.popuPath}
 								</td>
 							</tr>
 						</tbody>
@@ -72,7 +89,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제" />
 							</Link>
-							<Link href="/design/popup_retouch">
+							<Link href={`/design/popup_retouch?popuNo=${router.query.popuNo}`}>
 								<Button text="수정" />
 							</Link>
 						</div>
@@ -81,6 +98,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 export default Component;

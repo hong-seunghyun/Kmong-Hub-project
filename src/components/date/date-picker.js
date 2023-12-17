@@ -10,8 +10,8 @@ import Icon from "/src/components/icon/icon.tsx";
 const Component = (props) => {
 	const _ = require("lodash");
 	const [ isCalenderShow, setCalenderShow ] = useState(false);
-	const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(props.start ? props.start : new Date());
+  const [endDate, setEndDate] = useState(props.end ? props.end : new Date());
 	const [ btnActive, setBtnActive ] = useState(false);
 	const years = _.range(1990, getYear(new Date()) + 1, 1); // 수정
 	const months = ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]; 

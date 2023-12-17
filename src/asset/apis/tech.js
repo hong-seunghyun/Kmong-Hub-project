@@ -1,10 +1,15 @@
 import { Api } from "../../config/Api";
 
 // get(팝업 불러오기)
-export const getPopUp = (currentPage, limit, searchValue) => {
+export const getTechList = (currentPage, limit, searchValue) => {
   const response = Api.get(`/viewapi/mngr/site/v1/popu`, {
-    params: {
-      
+    params: searchValue ? {
+      currentPage: currentPage,
+      limit: limit,
+      searchValue: searchValue
+    } : {
+      currentPage: currentPage,
+      limit: limit
     },
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
@@ -14,25 +19,12 @@ export const getPopUp = (currentPage, limit, searchValue) => {
 }
 
 // post(팝업 등록, 수정)
-export const createPopup = ({delYn, expsEndDtm, expsStrDtm, popuNm, popuPath}, mobImg, pcImg) => {
-  const mergePopupDTO = {
-    delYn,
-    expsEndDtm,
-    expsStrDtm,
-    popuNm,
-    popuPath
+export const createPopup = ({typeCd, }, mobImg, pcImg) => {
+  const mergeTechDTO = {
+
   };
-  const blob = new Blob([JSON.stringify(mergePopupDTO)], {
-    type: "application/json"
-  });
-  console.log(blob);
 
-  const formData = new FormData();
-  formData.append('mergePopupDto', blob);
-  mobImg && formData.append('mobImg', mobImg);
-  pcImg && formData.append('pcImg', pcImg);
-
-  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, formData, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`,
       'Content-Type': 'multipart/form-data',

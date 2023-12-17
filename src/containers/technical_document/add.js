@@ -9,8 +9,19 @@ import Icon from "/src/components/icon/icon.tsx";
 import DatePicker from "/src/components/date/date-picker-single";
 import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
+import { useState } from "react";
 
 const Component = () => {
+
+  const [ typeCd, setTypeCd ] = useState('');
+  const [ tcqNm, setTcqNm ] = useState('');
+  const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
+  const [ apyNo, setApyNo ] = useState('');
+  const [ rgstNo, setRgstNo ] = useState('');
+  const [ ivtNm, setIvtNm ] = useState('');
+  const [ icpVal, setIcpVal ] = useState('');
+  const [ cpcVal, setCpcVal ] = useState('');
+
   return (
     <div className="page-wrap">
       <div className="board- board-add document- technical-document-add">
