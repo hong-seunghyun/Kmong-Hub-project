@@ -1,4 +1,4 @@
-import { Api } from "../../config/Api";
+import { Api } from "../config/Api";
 
 // get(팝업 불러오기)
 export const getTechList = (currentPage, limit, searchValue) => {
@@ -18,17 +18,37 @@ export const getTechList = (currentPage, limit, searchValue) => {
   return response;
 }
 
-// post(팝업 등록, 수정)
-export const createPopup = ({typeCd, }, mobImg, pcImg) => {
+// post(특허 저장하기)
+export const addPatent = ({
+  typeCd,
+  tcqNm,
+  rsacUcmdCd,
+  apyNm,
+  apyAd,
+  statCd,
+  rgstNo,
+  ivtNm,
+  ipcVal,
+  cpcVal,
+  piuaYn
+}) => {
   const mergeTechDTO = {
-
+    typeCd,
+    tcqNm,
+    rsacUcmdCd,
+    apyNm,
+    apyAd,
+    statCd,
+    rgstNo,
+    ivtNm,
+    ipcVal,
+    cpcVal,
+    piuaYn
   };
 
   const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
     headers: {
-      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`,
-      'Content-Type': 'multipart/form-data',
-      Accept: "application/json"
+      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
     }
   });
   return response;

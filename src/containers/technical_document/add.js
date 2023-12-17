@@ -12,6 +12,7 @@ import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
+import { addPatent } from "../../asset/apis/tech";
 
 const Component = () => {
 
@@ -73,21 +74,6 @@ const Component = () => {
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
 
-
-  const saveDoc = () => {
-    console.log(typeCd);
-    console.log(tcqNm);
-    console.log(rsacUcmdCd);
-    console.log(apyNo);
-    console.log(rgstNo);
-    console.log(statCd);
-    console.log(apyAd);
-    console.log(ivtNm);
-    console.log(ipcVal);
-    console.log(cpcVal);
-    console.log(piuaYn);
-  }
-
   const searchOrgan = async (organ) => {
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
@@ -95,6 +81,25 @@ const Component = () => {
 			console.log(err);
 		});
 	}
+
+  const createPatent = () => {
+    addPatent({
+      tcqNm,
+      rsacUcmdCd,
+      apyNm,
+      apyAd,
+      statCd,
+      rgstNo,
+      ivtNm,
+      ipcVal,
+      cpcVal,
+      piuaYn
+    }).then(res => {
+      console.log(res.data);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <div className="page-wrap">
@@ -233,7 +238,7 @@ const Component = () => {
                 <ButtonL text="초기화" />
               </Link>
               <Link href="/technical_document/add">
-                <Button text="저장" onclick={saveDoc}/>
+                <Button text="저장" onclick={createPatent}/>
               </Link>
             </div>
           </div>
