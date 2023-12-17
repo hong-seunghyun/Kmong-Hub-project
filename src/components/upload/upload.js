@@ -5,7 +5,6 @@ import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 import { sleep } from "../../util/sleep";
 
 const Component = (props) => {
-  const [selectedFile, setSelectedFile] = useState(null);
   const [fileSize, setFileSize] = useState(null);
   const [process, setProcess] = useState(20);
 
@@ -34,8 +33,6 @@ const Component = (props) => {
     }
 
     if (file) {
-      setSelectedFile(file);
-
       const reader = new FileReader();
       reader.onloadend = () => {
         getImageSize(reader.result);
@@ -57,8 +54,18 @@ const Component = (props) => {
 
       await sleep(100);
 
-      setState("done");
-      setType("preview");
+      const ext = e.target.files[0].name.split('0').pop().toLowerCase();
+      if(ext in ['jpg', 'jpeg', 'png']) {
+        setState("done");
+        setType("preview");
+      } else if(ext in ['hwp', 'docx', 'pdf']) {
+        setState('done');
+        setType('technology')
+      } else {
+        console.log('지원되지 않는 파일 형식입니다.');
+        setState('default');
+        setType(props.type)
+      }
     }
   };
 

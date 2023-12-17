@@ -18,15 +18,15 @@ const Component = () => {
 
   const drop_datas = [
     {
-      id: 1,
+      id: "P",
       title: '특허'
     },
     {
-      id: 2,
+      id: "T",
       title: '논문'
     },
     {
-      id: 3,
+      id: "R",
       title: '보고서'
     }
   ];
@@ -99,7 +99,7 @@ const Component = () => {
       console.log(res.data);
     }).catch(err => {
       console.log(err);
-    })
+    });
   }
 
   return (
