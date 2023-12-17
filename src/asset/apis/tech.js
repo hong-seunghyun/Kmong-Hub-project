@@ -2,7 +2,7 @@ import { Api } from "../config/Api";
 
 // get(팝업 불러오기)
 export const getTechList = (currentPage, limit, searchValue) => {
-  const response = Api.get(`/viewapi/mngr/site/v1/popu`, {
+  const response = Api.get(`/viewapi/mngr/site/v1/tdcList`, {
     params: searchValue ? {
       currentPage: currentPage,
       limit: limit,
