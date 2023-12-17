@@ -8,6 +8,26 @@ import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
 
 const Component = () => {
+
+  const temp_data = [
+    {
+      "apyAd": "20231010",
+      "apyNo": "10-2023-0071496",
+      "cpcVal": "B60J7/053",
+      "ipcVal": "D",
+      "ivtNm": "이날파 루프 시스템즈 그룹 비.브이.",
+      "orgCntn": "1",
+      "piuaYn": "Y",
+      "rgstNo": "11",
+      "rsacUcmdCd": "435589",
+      "sbmyn": "1026139310000",
+      "statCd": "A",
+      "tcqNm": "asdfasdfsda",
+      "typeCd": "A",
+      "uniqueNo": "13123"
+    }
+  ]
+
   return (
     <div className="page-wrap">
       <div className="contents-technology contents- document-">

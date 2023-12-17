@@ -18,14 +18,14 @@ const Component = (props) => {
     setSearch(dummy.name);
   };
 
-  const filterTitle = props.data
-    ? props.data.filter((p) => {
-        return p.name
-          .replace(" ", "")
-          .toLocaleLowerCase()
-          .includes(search.toLocaleLowerCase());
-      })
-    : [];
+  const filterTitle =
+    props.data &&
+    props.data.filter((p) => {
+      return p.name
+        .replace(" ", "")
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase());
+    });
   return (
     <div className="search-container">
       <div className="input-wrap radius-8 border-gray-4 bg-lightGray">

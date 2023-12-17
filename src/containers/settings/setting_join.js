@@ -363,10 +363,8 @@ const Component = () => {
   const [cmpyUrlYnCd, setComUrl] = useRecoilState(ComUrlAtom);
   const [sexYnCd, setSex] = useRecoilState(SexAtom);
   const [bizSprYnCd, setBsSector] = useRecoilState(BsSectorAtom);
-  const [techField, setTechField] = useRecoilState(TechFieldAtom);
+  const [cncnTcqSprYnCd, setCncnTcqSprYnCd] = useRecoilState(TechFieldAtom);
   const [siteBcmemId, setSiteId] = useRecoilState(SiteBcmemIdAtom);
-  const [cncnTcqSprYnCd, setCncnTcqSprYnCd] =
-    useRecoilState(CncnTcqSprYnCdAtom);
 
   const getValue = async () => {
     await getSiteSttg()
@@ -380,7 +378,6 @@ const Component = () => {
         setComUrl(e.data.data.cmpyUrlYnCd);
         setSex(e.data.data.sexYnCd);
         setBsSector(e.data.data.bizSprYnCd);
-        setTechField(e.data.data.nmYnCd);
         setSiteId(e.data.data.siteBcmemId);
         setCncnTcqSprYnCd(e.data.data.cncnTcqSprYnCd);
       })
@@ -398,7 +395,7 @@ const Component = () => {
       cmpyUrlYnCd,
       cncnTcqSprYnCd,
       fdtYrYnCd,
-      nmYnCd: techField,
+      nmYnCd: "Y",
       sexYnCd,
       siteBcmemId,
     });

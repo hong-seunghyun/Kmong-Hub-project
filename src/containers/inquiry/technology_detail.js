@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Tabs from "/src/components/tabs/technical_document_detail_tab_1";
 import ButtonL from "/src/components/buttons/button_outline_l";
-import ButtonErrorL from "/src/components/buttons/button_error_l";
 import Button from "/src/components/buttons/button_primary_l";
 import Link from "next/link";
-import Label from "/src/components/label/label";
-import Editor from "/src/components/editorBox/index";
-import TextBtn from "/src/components/buttons/text_button_underline_primary_m";
-import Upload from "/src/components/upload/upload";
 import TextArea from "/src/components/textFields/textArea.tsx";
 import {
   getTechTransferDetail,
@@ -56,7 +50,6 @@ const Component = () => {
               <tr>
                 <th className="thead ">썸네일</th>
                 <td className="tbody">
-                  {/* <Upload state="done" type="preview" /> */}
                   <img
                     onClick={() =>
                       window.open(
@@ -66,19 +59,11 @@ const Component = () => {
                     src={techState.thumAddr}
                     style={{ width: "100%", borderRadius: "15px" }}
                   />
-
-                  {/* <p className="caption-R helper-txt">
-                    허용 사이즈: <span>800px x 800px</span>{" "}
-                    <span className="bar">|</span> 파일 형식:{" "}
-                    <span>JPG,PNG,JPEG</span>
-                    <span className="bar">|</span> 최대 파일 크기:{" "}
-                    <span>100mb</span>
-                  </p> */}
                 </td>
               </tr>
               <tr>
                 <th className="thead">게시물 제목</th>
-                <td className="tbody">{techState.catgNm}</td>
+                <td className="tbody">{techState.tcqTitleNm}</td>
               </tr>
               <tr>
                 <th className="thead">등록일</th>
@@ -126,9 +111,7 @@ const Component = () => {
               </Link>
             </div>
             <div className="flex_">
-              <Link href="/inquiry/technology_detail_2">
-                <Button text="답변하기" onclick={setAnswer} />
-              </Link>
+              <Button text="답변하기" onclick={setAnswer} />
             </div>
           </div>
         </div>

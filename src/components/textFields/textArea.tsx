@@ -24,7 +24,7 @@ const Email = ({
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e) => {
-    setState(e.target.value);
+    if (setState) setState(e.target.value);
     setInputCount(e.target.value.length);
   };
   return (
