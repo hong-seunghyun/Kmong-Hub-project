@@ -54,11 +54,14 @@ const Component = (props) => {
 
       await sleep(100);
 
-      const ext = e.target.files[0].name.split('0').pop().toLowerCase();
-      if(ext in ['jpg', 'jpeg', 'png']) {
+      console.log(e.target.files[0].name);
+
+      const ext = e.target.files[0].name.split('.').pop().toLowerCase();
+      console.log(ext);
+      if(ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
         setState("done");
         setType("preview");
-      } else if(ext in ['hwp', 'docx', 'pdf']) {
+      } else if(ext === 'hwp' || ext === 'docx' || ext === 'pdf') {
         setState('done');
         setType('technology')
       } else {
