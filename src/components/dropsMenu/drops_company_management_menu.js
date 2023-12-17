@@ -1,28 +1,11 @@
 import React, {useState} from "react";
 import Icon from "/src/components/icon/icon.tsx";
 
-
-const dummy = [
-	{
-		id: 1,
-		title : "전체",
-	},
-	{
-		id: 2,
-		title : "업체명",
-	},
-	{
-		id: 3,
-		title : "대표자",
-	},
-	{
-		id: 4,
-		title : "업종",
-	},
-]
-
 const Component = (props) => {
 	const [ search, setSearch ] = useState("");
+
+	const dummy = props.datas;
+
 	const onChange = (e) => {
 		setSearch(e.target.value);
 	}
