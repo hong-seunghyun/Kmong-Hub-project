@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Badge from "/src/components/label/badge";
 import Input from "/src/components/textFields/textInput.tsx";
+import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
 import ButtonL from "/src/components/buttons/button_outline_l";
 import Button from "/src/components/buttons/button_primary_l";
 import DropsMenu from "/src/components/dropsMenu/drops_menu";
@@ -10,6 +11,7 @@ import DatePicker from "/src/components/date/date-picker-single";
 import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
 import { useState } from "react";
+import { searchOrgn } from "../../asset/apis/signup";
 
 const Component = () => {
 
@@ -28,14 +30,71 @@ const Component = () => {
     }
   ];
 
+  const send_datas = [
+    {
+      id: 1,
+      title: '출원 중'
+    },
+    {
+      id: 2,
+      title: '미공개 상태'
+    },
+    {
+      id: 3,
+      title: '공개 상태'
+    },
+    {
+      id: 4,
+      title: '등록 완료'
+    },
+    {
+      id: 5,
+      title: '취하 상태'
+    },
+    {
+      id: 6,
+      title: '거절 상태'
+    }
+  ];
+
   const [ typeCd, setTypeCd ] = useState('');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
   const [ apyNo, setApyNo ] = useState('');
+  const [ apyAd, setApyAd ] = useState('');
+  const [ statCd, setStatCd ] = useState('');
   const [ rgstNo, setRgstNo ] = useState('');
   const [ ivtNm, setIvtNm ] = useState('');
-  const [ icpVal, setIcpVal ] = useState('');
+  const [ ipcVal, setIpcVal ] = useState('');
   const [ cpcVal, setCpcVal ] = useState('');
+  const [ piuaYn, setPiuaYn ] = useState('');
+  
+  const [ data, setData ] = useState([]);
+  const [ orgn, setOrgn ] = useState('');
+  const [ file, setFile ] = useState('');
+
+
+  const saveDoc = () => {
+    console.log(typeCd);
+    console.log(tcqNm);
+    console.log(rsacUcmdCd);
+    console.log(apyNo);
+    console.log(rgstNo);
+    console.log(statCd);
+    console.log(apyAd);
+    console.log(ivtNm);
+    console.log(ipcVal);
+    console.log(cpcVal);
+    console.log(piuaYn);
+  }
+
+  const searchOrgan = async (organ) => {
+		await searchOrgn({query: organ}).then(res => {
+			setData(res.data.result.rows);
+		}).catch(err => {
+			console.log(err);
+		});
+	}
 
   return (
     <div className="page-wrap">
@@ -61,16 +120,19 @@ const Component = () => {
               placeholder="기술명을 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              setState={setTcqNm}
+              state={tcqNm}
             />
           </div>
 
           <div className="flex_ input-search box-">
-            <Input
+            <CompanyInput
               labelText="소속"
               placeholder="소속을 검색해 주세요."
               valueType=""
               helperTextResult="none"
               iconState="false"
+              state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setRsacUcmdCd}
             />
             <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>
@@ -82,6 +144,8 @@ const Component = () => {
               placeholder="출원번호를 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              state={apyNo}
+              setState={setApyNo}
             />
           </div>
 
@@ -92,21 +156,23 @@ const Component = () => {
               placeholder="등록번호 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              state={rgstNo}
+              setState={setRgstNo}
             />
           </div>
 
           <div className="flex_ box- flex_date">
             <div>
               <p className="table-caption body-2-B">
-                발송 선택<span className="txt-violet-1">*</span>
+                상태  <span className="txt-violet-1">*</span>
               </p>
-              <DropsMenu />
+              <DropsMenu placeholder={"상태를 선택해 주세요."} datas={send_datas} setState={setStatCd}/>
             </div>
             <div>
               <p className="table-caption body-2-B">
-                발송 선택<span className="txt-violet-1">*</span>
+                출원 일자<span className="txt-violet-1">*</span>
               </p>
-              <DatePicker />
+              <DatePicker setDate={setApyAd}/>
             </div>
           </div>
 
@@ -116,6 +182,8 @@ const Component = () => {
               placeholder="발명자를 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              state={ivtNm}
+              setState={setIvtNm}
             />
           </div>
 
@@ -125,6 +193,8 @@ const Component = () => {
               placeholder="IPC를 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              state={ipcVal}
+              setState={setIpcVal}
             />
           </div>
 
@@ -134,6 +204,8 @@ const Component = () => {
               placeholder="CPC를 입력해 주세요."
               helperTextResult="none"
               iconState="false"
+              state={cpcVal}
+              setState={setCpcVal}
             />
           </div>
 
@@ -141,7 +213,7 @@ const Component = () => {
             <p className="table-caption body-2-B">
               첨부파일<span className="txt-violet-1">*</span>
             </p>
-            <Upload state="default" type="normal" file="" />
+            <Upload state="default" type="pdf" fileState={file} setFileState={setFile}/>
             <p className="caption-R helper-txt">
               파일 형식: <span>PDF, DOCX, HWP</span>{" "}
               <span className="bar">|</span> 최대 파일 크기: <span>500mb</span>
@@ -151,6 +223,8 @@ const Component = () => {
             <CheckBox
               size="small"
               label="개인정보 수집 및 이용에 동의합니다."
+              checkState={piuaYn}
+              setCheckState={setPiuaYn}
             />
           </div>
           <div className="btn-wrap flex_">
@@ -158,8 +232,8 @@ const Component = () => {
               <Link href="#">
                 <ButtonL text="초기화" />
               </Link>
-              <Link href="/technical_document">
-                <Button text="저장" />
+              <Link href="/technical_document/add">
+                <Button text="저장" onclick={saveDoc}/>
               </Link>
             </div>
           </div>

@@ -41,6 +41,7 @@ const Component = (props) => {
 							filterTitle.map(dummy => <span onClick={() => {
 								setSearch(dummy.title);
 								setToggle(false);
+								props.setState(dummy.id);
 							}}>{dummy.title}</span>)
 						}
 					</div>
