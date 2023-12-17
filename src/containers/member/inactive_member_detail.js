@@ -28,7 +28,7 @@ const Component = () => {
   const deleteUser = async () => {
     await deleteMember({ siteMbrNo: id })
       .then((e) => {
-        router.push("/member");
+        router.push("/member/inactive_member");
         console.log(e);
       })
       .catch((e) => console.log(e));
