@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
-import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+import SearchBar from "/src/components/searchBar/search_bar_none_drops_menu";
 import TableHead from "/src/components/table/popup_table_head";
 import TableCell from "/src/components/table/popup_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
@@ -16,7 +16,7 @@ const Component = () => {
 	const [ page, setPage ] = useState(1);
 
 	const onchange = () => {
-		getPopUp(page, 1, searchValue).then(res => {
+		getPopUp(page, 10, searchValue).then(res => {
 			console.log(res.data);
 		}).catch(err => {
 			console.log(err);
@@ -47,6 +47,14 @@ const Component = () => {
 						</div>
 
 						<div className="table-container">
+						<TableHead
+								headTitle="제목"
+								headPc="PC 이미지"
+								headMobile="모바일 이미지"
+								headDate="기간"
+								headCategory="상태"
+								headEtc="관리"
+							/>
 						<TableCell 
 								title="[팝업 이름]"
 								pc="/images/file.png"

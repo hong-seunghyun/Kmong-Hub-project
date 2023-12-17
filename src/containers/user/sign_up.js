@@ -13,6 +13,7 @@ import Link from "next/link"
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import { useState } from "react";
 import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
+import { kotechUrl } from "/src/asset/config/config.json"
 
 const Component = () => {
 
@@ -34,12 +35,29 @@ const Component = () => {
 	const [ name, setName ] = useState('');
 	const [ nickname, setNickname ] = useState('');
 	const [ tel, setTel ] = useState('');
+	const [ ucmdCd, setUcmdCd ] = useState('');
 
 	const [ orgn, setOrgn ] = useState('');
+
+	const [ allCheckState, setAllCheckState ] = useState(false);
 
 	const [ checkState1, setCheckState1 ] = useState(false);
 	const [ checkState2, setCheckState2 ] = useState(false);
 	const [ checkState3, setCheckState3 ] = useState(false);
+
+	const [ data, setData ] = useState([]);
+
+	const [ phoneToggle, setPhoneToggle ] = useState(false);
+	const [ emailToggle, setEmailToggle ] = useState(false);
+
+	const allCheck = (checked) => {
+		setAllCheckState(checked);
+		if(checked) {
+			setCheckState1(true);
+			setCheckState2(true);
+			setCheckState3(true);
+		}
+	}
 
 	const checkEmail = async () => {
 		if(!email.includes('@')) return;
@@ -51,12 +69,34 @@ const Component = () => {
 		});
 	}
 
-	const searchOrgan = async () => {
-		await searchOrgn({query: orgn}).then(res => {
-			console.log(res.data);
+	const verification = async () => {
+    window.addEventListener("message", (message) => {
+			if(message.data != '') {
+				console.log(message.data);
+				const encoded = message.data
+					.replace(/[^0-9]/g, '')
+					.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+				setPhoneToggle(false);
+				setTel(encoded);
+			}
+    });
+
+    const left = window.screen.width / 2 - 500 / 2;
+    const top = window.screen.height / 2 - 800 / 2;
+    const option = `menubar=no, toolbar=no, resizable=no, width=500, height=600, left=${left}, top=${top}`;
+    await window.open(
+      `${kotechUrl}/api/v1/nice/encrypt/data?returnUrl=${kotechUrl}/api	/v1/nice/decrypt/data&redirectUrl=http://localhost:3000/user/verification?to=/user/sign_up`,
+      "nicePopup",
+      option
+    );
+  };
+
+	const searchOrgan = async (organ) => {
+		await searchOrgn({query: organ}).then(res => {
+			setData(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
-		})
+		});
 	}
 
   const [file, setFile] = useState(null);
@@ -71,12 +111,13 @@ const Component = () => {
 			nwlAgrmYn: checkState3 ? "Y" : "N",
 			pwd: password,
 			smsRcvAgrmYn: checkState2 ? "Y" : "N",
-			ucmdCd: "435589",
+			ucmdCd: ucmdCd,
 			orgnPhcNo: tel
 		};
 		console.log(dto);
 		register(dto, file, file2).then(res => {
 			console.log(res.data);
+			window.location = '/user/waiting_sign_up'
 		}).catch(err => {
 			console.log(err);
 		});
@@ -91,7 +132,7 @@ const Component = () => {
 				</p>
 				<div className="sign-up-form">
 					<div className="flex_ button-input box-">
-						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail} />
+						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail}/>
 						<ButtonSecondary text="중복 확인" state={email.includes('@') ? "enabled" : "disabled"} onclick={checkEmail}/>
 					</div>
 					<div className="flex_ box-">
@@ -121,8 +162,8 @@ const Component = () => {
 						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
 					</div>
 					<div className="flex_ button-input box-">
-						<TelInput importState="" labelText="휴대폰 번호" placeholder="휴대전화를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={tel} setState={setTel}/>
-						<ButtonSecondary text="중복 확인" state="disabled"/>
+						<TelInput importState="" labelText="휴대폰 번호" placeholder="휴대전화 인증을 해주세요." valueType="" helperTextResult="none" iconState="true" state={tel} setState={setTel}/>
+						<ButtonSecondary text="번호 인증" state="enabled" onclick={verification}/>
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
@@ -140,15 +181,15 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan}/>
+						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
 					</div>
 
-					<CheckBox size="small" label="전체 동의" />
+					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
 					<div class="bar bg-gray-5" />
-					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={false} setCheckState={setCheckState1}/>
-					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={false} setCheckState={setCheckState2}/>
-					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={false} setCheckState={setCheckState3}/>
+					<CheckBox size="small"  label="(필수) 만 14세 이상이에요." checked={checkState1} setCheckState={setCheckState1}/>
+					<CheckBox size="small"  label="(선택) 이메일/SMS 등 수신을 동의해요." checked={checkState2} setCheckState={setCheckState2}/>
+					<CheckBox size="small"  label="(선택) 한국기술마켓의 뉴스레터 발송에 동의해요." checked={checkState3} setCheckState={setCheckState3}/>
 					<Link href="/user/sign_up">
 						<LoginBtn text="회원가입" onclick={registerMember}/>
 					</Link>

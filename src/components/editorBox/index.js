@@ -1,20 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-export default function App() {
+export default function App({ setState }) {
   const editorRef = useRef(null);
-  const initialText = "<p>This is the initial content of the editor.</p>";
-  const [text, setText] = useState(initialText);
+  const [value, setValue] = useState("");
+  useEffect(() => {
+    if (setState) setState(value);
+  }, [value]);
+
   // const log = () => {
   // 	if (editorRef.current) {
   // 		console.log(editorRef.current.getContent());
   // 	}
   // };
+
   return (
     <>
       <Editor
         onInit={(evt, editor) => (editorRef.current = editor)}
-        initialValue={initialText}
+        initialValue={"<p></p>"}
+        value={value}
         init={{
           height: 500,
           menubar: false,
@@ -31,9 +36,10 @@ export default function App() {
           content_style:
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
-        onEditorChange={(newText) => setText(newText)}
+        onEditorChange={(content) => {
+          setValue(content);
+        }}
       />
-      {text}
     </>
   );
 }
