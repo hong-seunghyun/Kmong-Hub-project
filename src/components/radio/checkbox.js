@@ -18,7 +18,9 @@ const Component = (props) => {
         onChange={onchange}
         checked={props.checked}
       />
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={props.id} onClick={onchange}>
+        {props.label}
+      </label>
     </div>
   );
 };
