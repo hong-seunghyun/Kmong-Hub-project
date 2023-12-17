@@ -14,12 +14,21 @@ const Component = () => {
 
   const drop_datas = [
     {
-      id: 0,
-      title: ''
+      id: "P",
+      title: '특허'
+    },
+    {
+      id: "T",
+      title: '논문'
+    },
+    {
+      id: "R",
+      title: '보고서'
     }
-  ]
+  ];
 
   const [ techList, setTechList ] = useState([]);
+  const [ typeCd, setTypeCd ] = useState('');
 
   useLayoutEffect(() => {
     getTechList(1, 5).then(res => {
@@ -43,7 +52,7 @@ const Component = () => {
 
           <div>
             <div className="flex_ search-wrap">
-              <DropDownMenu datas={drop_datas}/>
+              <DropDownMenu datas={drop_datas} setState={setTypeCd}/>
               <SearchBar />
             </div>
 

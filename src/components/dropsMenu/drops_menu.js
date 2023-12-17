@@ -14,6 +14,11 @@ const Component = (props) => {
 		setToggle(true);
 	}
 
+	const onClick = () => {
+		setSearch('');
+		setToggle(!toggle);
+	}
+
 	let filterTitle;
 
 	if(dummy) {
@@ -32,7 +37,7 @@ const Component = (props) => {
 						onChange={onChange}
 					/>
 					<span className="icon_serach">
-						<Icon size={9} color="#464749" stroke="" icon="chevronDown" />
+						<Icon size={9} color="#464749" stroke="" icon="chevronDown" onClick={onClick}/>
 					</span>
 				</div>
 				<div className="wrap radius-8 border-gray-4" style={{display: toggle ? "block" : "none"}}>

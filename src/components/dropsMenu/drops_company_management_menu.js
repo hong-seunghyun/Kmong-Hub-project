@@ -3,11 +3,18 @@ import Icon from "/src/components/icon/icon.tsx";
 
 const Component = (props) => {
 	const [ search, setSearch ] = useState("");
+	const [ toggle, setToggle ] = useState(false);
 
 	const dummy = props.datas;
 
 	const onChange = (e) => {
 		setSearch(e.target.value);
+		setToggle(true);
+	}
+
+	const onClick = () => {
+		setSearch('');
+		setToggle(!toggle);
 	}
 
 	const filterTitle = dummy.filter((p) => {
@@ -24,13 +31,17 @@ const Component = (props) => {
 					onChange={onChange}	
 				/>
 				<span className="icon_serach">
-					<Icon size={9} color="#464749" stroke="" icon="chevronDown" />
+					<Icon size={9} color="#464749" stroke="" icon="chevronDown" onClick={onClick}/>
 				</span>
 			</div>
-			<div className="wrap radius-8 border-gray-4">
+			<div className="wrap radius-8 border-gray-4" style={{display: toggle ? "block" : "none"}}>
 				<div className="flex_ result-search-box  body-3-R ">
 					{
-						filterTitle.map(dummy => <span>{dummy.title}</span>)
+						filterTitle.map(dummy => <span onClick={() => {
+							setSearch(dummy.title);
+							setToggle(false);
+							props.setState(dummy.id);
+						}}>{dummy.title}</span>)
 					}
 				</div>
 			</div>

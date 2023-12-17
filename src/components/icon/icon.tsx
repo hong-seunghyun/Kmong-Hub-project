@@ -8,9 +8,10 @@ interface IconProps {
 	color?: string;
 	stroke?: string;
 	className?: string;
+	onClick?: VoidFunction;
 }
 
-const Icon = ({ icon, size, color, stroke, className }: IconProps) => (
+const Icon = ({ icon, size, color, stroke, className, onClick }: IconProps) => (
 	<svg
 		height={size}
 		viewBox={IconSet[icon].viewBox}
@@ -19,6 +20,7 @@ const Icon = ({ icon, size, color, stroke, className }: IconProps) => (
 		stroke={stroke}
 		className={className}
 		xmlns="http://www.w3.org/2000/svg"
+		onClick={onClick}
 	>
 		<path fillRule="evenodd" clipRule="evenodd" d={IconSet[icon].path} />
 		<path fillRule="evenodd" clipRule="evenodd" d={IconSet[icon].subPath} />
