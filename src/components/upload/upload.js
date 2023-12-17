@@ -23,6 +23,14 @@ const Component = (props) => {
     }
   }, [props.fileState]);
 
+  const cancelFile = () => {
+    if (props.setFileState) {
+      setState("default");
+      setType("normal");
+      props.setFileState(null);
+    }
+  };
+
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     props.setFileState(file);
@@ -163,7 +171,9 @@ const Component = (props) => {
           </div>
           <div className="flex_">
             <ButtonSecondaryS text="AI 수정" />
-            <Icon icon="cancel" size={9} color="#464749" stroke="" />
+            <div onClick={cancelFile}>
+              <Icon icon="cancel" size={9} color="#464749" stroke="" />
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Component = ({ state, id, setState, checked }) => {
         checked={checked}
         onChange={(e) => (e.target.checked ? setState("I") : setState("N"))}
       />
-      <label for={id} />
+      <label htmlFor={id} />
     </div>
   );
 };
