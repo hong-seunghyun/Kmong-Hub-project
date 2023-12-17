@@ -10,6 +10,7 @@ import Badge from "/src/components/label/badge";
 import CheckBox from "/src/components/radio/checkbox";
 import { useRouter } from "next/router";
 import { getManagerDetail, setManager } from "../../asset/apis/memberApis";
+import { checkTheEmail } from "../../asset/apis/signup";
 
 const Component = () => {
   const numRegEx = /\d/;
@@ -124,6 +125,19 @@ const Component = () => {
     }
   };
 
+  const checkEmail = async () => {
+    await checkTheEmail({ email: newEmail })
+      .then((res) => {
+        console.log(res.data);
+        alert("사용하실 수 없는 이메일 입니다!");
+      })
+      .catch((e) => {
+        console.log(e);
+        setEmail(newEmail);
+        alert("사용하실 수 있는 이메일 입니다!");
+      });
+  };
+
   const setValue = () => {
     const authInfoValue = getAuthInfo();
     const formData = new FormData();
@@ -173,7 +187,11 @@ const Component = () => {
               helperTextResult="none"
               iconState="true"
             />
-            <ButtonSecondary text="중복 확인" state="disabled" />
+            <ButtonSecondary
+              text="중복 확인"
+              state={newEmail === email ? "disabled" : ""}
+              onclick={checkEmail}
+            />
             <div
               className={`flex_ caption-R ${
                 newEmail === email ? "txt-violet-1" : ""
