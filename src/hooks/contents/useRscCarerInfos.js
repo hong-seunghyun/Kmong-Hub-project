@@ -26,7 +26,7 @@ const useRscCarerInfos = () => {
   }, [rscCarerInfos])
 
   /** 경력 정보 삭제 */
-  const deleteCarerInfo = useCallback((index) => {
+  const deleteCarerInfo = useCallback((index) => () => {
     setRscCarerInfos(prev => {
       const filtered = prev.filter((item, i) => i !== index)
       return filtered.map((item, i) => ({...item, carerSeq: i + 1}))
@@ -71,6 +71,38 @@ const useRscCarerInfos = () => {
       return updated
     })
   }, [rscCarerInfos])
+
+  /** 회사명 업데이트 */
+  const updateCmpyNm = useCallback((index) => (value) => {
+    setRscCarerInfos(prev => {
+      const updated = prev.map((item, i) => {
+        if(i === index) {
+          return {...item, cmpyNm: value}
+        }
+        return item
+      })
+      return updated
+    })
+  }, [rscCarerInfos])
+
+  /** 담당 업무 업데이트 */
+  const updateRspbTaskCntn = useCallback((index) => (value) => {
+    setRscCarerInfos(prev => {
+      const updated = prev.map((item, i) => {
+        if(i === index) {
+          return {...item, rspbTaskCntn: value}
+        }
+        return item
+      })
+      return updated
+    })
+  }, [rscCarerInfos])
+
+  const rscCarerInfosAvailable = useMemo(() => {
+    return rscCarerInfos.reduce((acc, curr) => (
+      acc && curr.cmpyNm && curr.jncpmYm && curr.resignYm && curr.rspbTaskCntn
+    ), true)
+  }, [rscCarerInfos])
   
   const value = useMemo(() => ({
     rscCarerInfos,
@@ -78,7 +110,10 @@ const useRscCarerInfos = () => {
     deleteCarerInfo,
     updateStartDate,
     updateEndDate,
-    updateHdofYn
+    updateHdofYn,
+    updateCmpyNm, 
+    updateRspbTaskCntn, 
+    rscCarerInfosAvailable
   }), [rscCarerInfos])
 
   return value

@@ -28,12 +28,11 @@ const Component = () => {
 
   /** 필수값 */
   const [rscNm, setRscNm] = useState() // 연구자명
-  const [pflFile, setPflFile] = useState() // 프로필 사진
-  const [ytbPath, setYtbPath] = useState() // 유튜브 주소
   const [deptMajrs, setDeptMajrs] = useState([]) // 부서/학과
+  const [pstnNm, setPstnNm] = useState() // 직책
 
   /** 선택값 */
-  const [pstnNm, setPstnNm] = useState() // 직책
+  const [pflFile, setPflFile] = useState() // 프로필 사진
   const [labNm, setLabNm] = useState() // 연구실
   const [labWebAddr, setLabWebAddr] = useState() // 연구실 홈페이지
   const [hpNo, setHpNo] = useState() // 전화번호
@@ -44,6 +43,7 @@ const Component = () => {
   const [inaCntn, setInaCntn] = useState() // 대외활동
   const [aosCntn, setAosCntn] = useState() // 연구 내역
   const [educationCntn, setEducationCntn] = useState() // 학력 내역
+  const [ytbPath, setYtbPath] = useState() // 유튜브 주소
   
   const [crtTypeCd, setCrtTypeCd] = useState("") // 생성 유형 코드
 
@@ -52,20 +52,21 @@ const Component = () => {
     appendCarerInfo,
     deleteCarerInfo,
     updateStartDate,
-    updateEndDate
+    updateEndDate, 
+    updateHdofYn, 
+    updateCmpyNm, 
+    updateRspbTaskCntn, 
+    rscCarerInfosAvailable
   } = useRscCarerInfos()
+
+  const submitAvailable = useMemo(() => {
+    //return rscNm && deptMajrs.length > 0 && pstnNm && rscCarerInfosAvailable
+    console.log(rscNm, deptMajrs.length > 0, pstnNm, rscCarerInfosAvailable)
+    return rscNm && pstnNm && rscCarerInfosAvailable
+  }, [rscNm, deptMajrs, pstnNm, rscCarerInfosAvailable])
 
   const formData = useMemo(() => {
     const formData = new FormData();
-    /*
-    const $rscCarerInfos = rscCarerInfos.map((item, index) => {
-      return {
-        ...item,
-        jncpmYm: item.jncpmYm?.format("YYYY.MM.DD"), 
-        resignYm: item.resignYm?.format("YYYY.MM.DD")
-      }
-    })
-    */
     const dto = {
       aosCntn,
       deptMajrs,
@@ -80,7 +81,6 @@ const Component = () => {
       lctCntn,
       ofcPhcNo,
       pstnNm,
-      //rscCarerInfos: $rscCarerInfos,
       rscCarerInfos,
       rscNm,
       webAddr,
@@ -89,7 +89,6 @@ const Component = () => {
 
     formData.append("rscRegiDto", JSON.stringify(dto));
     formData.append("pflFile", pflFile);
-    console.log(dto)
     return formData;
   }, [
       aosCntn,
@@ -115,7 +114,6 @@ const Component = () => {
   const submit = useCallback(async () => {
     if(registType === 2) {
       const res = await setResearcher(formData)
-      /** `res` is axios response  */
       if (res.status === 200) {
 
       }
@@ -198,7 +196,7 @@ const Component = () => {
             </div>
 
             <div className="input-wrap">
-              <p className="table-caption body-2-B">연구자 프로필<span className="txt-violet-1">*</span></p>
+              <p className="table-caption body-2-B">연구자 프로필</p>
               <Upload state="default" type="normal" fileState={pflFile} setFileState={setPflFile}/>
               <p className="caption-R helper-txt">
                 허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
@@ -213,7 +211,6 @@ const Component = () => {
 
             <div className="input-wrap">
               <Input 
-                importState="none" 
                 labelText="직책" 
                 placeholder="직책을 입력해 주세요." 
                 valueType="" 
@@ -221,6 +218,7 @@ const Component = () => {
                 iconState="false"
                 state={pstnNm}
                 setState={setPstnNm}
+                required
               />
             </div>
 
@@ -275,9 +273,15 @@ const Component = () => {
                 <div className="direct_input radius-8">
                   <p className="direct_input_title flex_">
                     경력
+                    <button
+                      onClick={deleteCarerInfo(index)}
+                    >
                     <Icon icon="cancel" size={9} color="#464749" stroke="none" />
+                    </button>
                   </p>
-                  <Input importState="none" labelText="회사명" placeholder="회사명을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+                  <p className="table-caption body-2-B">회사명<span className="txt-violet-1">*</span></p>
+                  <Input importState="none" labelText="회사명" placeholder="회사명을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={item.cmpyNm} setState={updateCmpyNm(index)}
+                  />
                   <div className="flex_ right-flex">
                     <div>
                       <p className="table-caption body-2-B">입사년월<span className="txt-violet-1">*</span></p>
@@ -286,12 +290,14 @@ const Component = () => {
                     <div>
                       <p className="table-caption body-2-B">퇴사년월<span className="txt-violet-1">*</span></p>
                       <DatePicker setDate={updateEndDate(index)} />
-                      <CheckBox size="small" label="재직 중" />
+                      <CheckBox size="small" label="재직 중" setCheckState={updateHdofYn(index)} />
                     </div>
                   </div>
                   <p className="table-caption body-2-B">담당 업무<span className="txt-violet-1">*</span></p>
-                  <TextArea labelText="" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요" valueType="" helperTextResult="none"/>
-
+                  <TextArea labelText="" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요" valueType="" helperTextResult="none"
+                    state={item.rspbTaskCntn}
+                    setState={updateRspbTaskCntn(index)}
+                  />
                 </div>
               ))}
               <div className="flex_ button-input custom-button-wrap">
@@ -385,7 +391,7 @@ const Component = () => {
                   <ButtonL text="초기화" />
                 </Link>
                 <Link href="/news/news_writer">
-                  <Button text="저장" />
+                  <Button text="저장" state={!submitAvailable ? 'disabled' : ''} />
                 </Link>
               </div>
             </div>
