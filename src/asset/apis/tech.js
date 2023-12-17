@@ -1,6 +1,6 @@
-import { Api } from "../config/Api";
+import { Api, ApiKotech } from "../config/Api";
 
-// get(팝업 불러오기)
+// get(기술문서 불러오기)
 export const getTechList = (currentPage, limit, searchValue) => {
   const response = Api.get(`/viewapi/mngr/site/v1/tdcList`, {
     params: searchValue ? {
@@ -11,6 +11,29 @@ export const getTechList = (currentPage, limit, searchValue) => {
       currentPage: currentPage,
       limit: limit
     },
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
+    }
+  });
+  return response;
+}
+
+// get(특허 기본정보)
+export const getTechDetails = (no) => {
+  const response = Api.get(`/viewapi/mngr/site/v1/tdcDetail`, {
+    params: {
+      tdcNo: no
+    },
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
+    }
+  });
+  return response;
+}
+
+// get(소속 상세 정보)
+export const getOrgnDetails = (id) => {
+  const response = ApiKotech.get(`/organ/${id}`, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
     }

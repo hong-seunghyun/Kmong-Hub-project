@@ -7,15 +7,35 @@ import Link from "next/link";
 import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
+import { useLayoutEffect } from "react";
+import { useRouter } from "next/router";
+import { getOrgnDetails, getTechDetails } from "../../asset/apis/tech";
+import { useState } from "react";
+import { set } from "date-fns";
 
 const Component = () => {
 
-	return(
+	const router = useRouter();
+	const [ data, setData ] = useState();
+	const [ orgn, setOrgn ] = useState();
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+		getTechDetails(no).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	},[]);
+
+	return data ? (
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail document-">
 					<h1 className="display-5-B title flex_">
-						[제목]
+						{data.tcqNm}
 					</h1>
 					<Tabs active={0} />
 					
@@ -41,7 +61,7 @@ const Component = () => {
 									연구기관
 								</th>
 								<td className="tbody">
-									서울대, 연세대, 고려대
+									{data.orgnNm}
 								</td>
 							</tr>
 							<tr>
@@ -49,7 +69,7 @@ const Component = () => {
 									출원번호
 								</th>
 								<td className="tbody">
-									123456789
+									{data.apyNo}
 								</td>
 							</tr>
 							<tr>
@@ -57,7 +77,7 @@ const Component = () => {
 									등록번호
 								</th>
 								<td className="tbody">
-									123456789
+									{data.rgstNo}
 								</td>
 							</tr>
 							<tr>
@@ -65,7 +85,7 @@ const Component = () => {
 									상태
 								</th>
 								<td className="tbody">
-									123456789
+									{data.statCd}
 								</td>
 							</tr>
 							<tr>
@@ -73,7 +93,7 @@ const Component = () => {
 									출원일자
 								</th>
 								<td className="tbody">
-									YYYY.MM.DD
+									{data.apyAd}
 								</td>
 							</tr>
 							<tr>
@@ -81,7 +101,7 @@ const Component = () => {
 									발명자
 								</th>
 								<td className="tbody">
-									발명자
+									{data.ivtNm}
 								</td>
 							</tr>
 							<tr>
@@ -89,7 +109,7 @@ const Component = () => {
 									IPC
 								</th>
 								<td className="tbody">
-								A01B1/00 
+								{data.ipcVal}
 								</td>
 							</tr>
 							<tr>
@@ -97,7 +117,7 @@ const Component = () => {
 								CPC
 								</th>
 								<td className="tbody">
-								A01B1/00 
+								{data.cpcVal}
 								</td>
 							</tr>
 							<tr>
@@ -138,6 +158,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	) : (<></>)
 }
 export default Component;
