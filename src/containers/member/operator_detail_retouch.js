@@ -155,7 +155,7 @@ const Component = () => {
     <div className="container">
       <div className="page-wrap">
         <div className="member- operator-add operator-detail-retouch">
-          <h1 className="display-5-B">운영자 등록/수정</h1>
+          <h1 className="display-5-B">운영자 수정</h1>
 
           <div className="sub-title body-2-B flex_">
             <Badge value="1" />
@@ -256,7 +256,7 @@ const Component = () => {
               iconState="true"
             />
             <div className="flex_ txt-violet-1 caption-R">
-              {"비밀번호가 일치해요."}
+              {chPassword === password ? "비밀번호가 일치해요." : "ㅤ"}
             </div>
           </div>
 
