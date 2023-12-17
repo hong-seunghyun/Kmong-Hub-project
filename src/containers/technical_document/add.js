@@ -13,6 +13,21 @@ import { useState } from "react";
 
 const Component = () => {
 
+  const drop_datas = [
+    {
+      id: 1,
+      title: '특허'
+    },
+    {
+      id: 2,
+      title: '논문'
+    },
+    {
+      id: 3,
+      title: '보고서'
+    }
+  ];
+
   const [ typeCd, setTypeCd ] = useState('');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
@@ -33,7 +48,7 @@ const Component = () => {
           <Badge value="1" />
           유형 선택
         </div>
-        <DropsMenu />
+        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd}/>
 
         <div className="content- content-2">
           <div className="sub-title body-2-B flex_">
