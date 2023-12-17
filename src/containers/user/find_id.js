@@ -15,8 +15,9 @@ const Component = () => {
     const left = window.screen.width / 2 - 500 / 2;
     const top = window.screen.height / 2 - 800 / 2;
     const option = `menubar=no, toolbar=no, resizable=no, width=500, height=600, left=${left}, top=${top}`;
+    const origin = url.origin;
     await window.open(
-      `${kotechUrl}/api/v1/nice/encrypt/data?returnUrl=${kotechUrl}/api/v1/nice/decrypt/data&redirectUrl=http://localhost:3000/user/verification?to=/user/find_id`,
+      `${kotechUrl}/api/v1/nice/encrypt/data?returnUrl=${kotechUrl}/api/v1/nice/decrypt/data&redirectUrl=${origin}/user/verification?to=/user/find_id`,
       "nicePopup",
       option
     );
