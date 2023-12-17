@@ -25,6 +25,17 @@ const Component = () => {
 		});
 	}
 
+	const drop_datas = [
+		{
+			id: 0,
+			title: '노출 중'
+		},
+		{
+			id: 1,
+			title: '노출 안함'
+		}
+	]
+
 	useLayoutEffect(() => {
 		onchange();	
 	}, []);
@@ -44,7 +55,7 @@ const Component = () => {
 
 					<div>
 						<div className="flex_ search-wrap">
-							<DropDownMenu />
+							<DropDownMenu datas={drop_datas}/>
 							<SearchBar state={searchValue} setState={setSaerchValue} onchange={onchange}/>
 						</div>
 
