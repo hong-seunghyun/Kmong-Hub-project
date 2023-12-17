@@ -84,6 +84,7 @@ const Component = () => {
 
   const createPatent = () => {
     addPatent({
+      typeCd,
       tcqNm,
       rsacUcmdCd,
       apyNm,
