@@ -9,6 +9,13 @@ import Link from "next/link";
 
 const Component = () => {
 
+  const drop_datas = [
+    {
+      id: 0,
+      title: ''
+    }
+  ]
+
   const temp_data = [
     {
       "apyAd": "20231010",
@@ -41,7 +48,7 @@ const Component = () => {
 
           <div>
             <div className="flex_ search-wrap">
-              <DropDownMenu />
+              <DropDownMenu datas={drop_datas}/>
               <SearchBar />
             </div>
 

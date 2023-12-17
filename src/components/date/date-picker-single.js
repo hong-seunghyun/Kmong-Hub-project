@@ -10,10 +10,14 @@ import Icon from "/src/components/icon/icon.tsx";
 const Component = (props) => {
 	const _ = require("lodash");
 	const [ isCalenderShow, setCalenderShow ] = useState(false);
-	const [startDate, setStartDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(props.date ? props.date : new Date());
 	const years = _.range(1990, getYear(new Date()) + 1, 1); // 수정
 	const months = ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]; 
 
+	const onChange = (date) => {
+		setStartDate(date);
+		props.setDate(date && `${date.getFullYear()}${String(date.getMonth()+1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`);
+	}
 
 	const onCalender = () => {
 		if(!isCalenderShow){
@@ -30,7 +34,7 @@ const Component = (props) => {
 				<DatePicker
 					locale={ko}
 					selected={startDate}
-					onChange={(date) => setStartDate(date)} 
+					onChange={(date) => {onChange(date)}} 
 					dateFormat="yyyy-mm-dd"
 					inline
 					monthsShown={1}
