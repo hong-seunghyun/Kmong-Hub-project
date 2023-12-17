@@ -8,18 +8,21 @@ import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Badge from "/src/components/label/badge";
 import CheckBox from "/src/components/radio/checkbox";
-import { checkTheEmail } from "../../asset/apis/signup";
+import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+import { checkTheEmail, searchOrgn } from "../../asset/apis/signup";
 
 const Component = () => {
   const numRegEx = /\d/;
   const engRegEx = /[a-zA-Z]/;
 
+  const [data, setData] = useState([]);
   const [email, setEmail] = useState("");
   const [chEmail, setChEmail] = useState(false);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [chPassword, setChPassword] = useState("");
   const [ucmdNm, setUcmdNm] = useState("");
+  const [ucmdCd, setUcmdCd] = useState("");
   const [authInfo, setAuthInfo] = useState([
     { menuAuthCd: "SS", title: "사이트 설정", isActive: false },
     { menuAuthCd: "BM", title: "게시판 관리", isActive: false },
@@ -40,7 +43,7 @@ const Component = () => {
   const [pfFile, setPfFile] = useState(null);
 
   const checkEmail = async () => {
-    await checkTheEmail({ email: newEmail })
+    await checkTheEmail({ email })
       .then((res) => {
         console.log(res.data);
         alert("사용하실 수 없는 이메일 입니다!");
@@ -66,6 +69,16 @@ const Component = () => {
     }
   };
 
+  const searchOrgan = async (organ) => {
+    await searchOrgn({ query: organ })
+      .then((res) => {
+        setData(res.data.result.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const getAuthInfo = () => {
     const authInfoValue = [];
     if (Array.isArray(authInfo))
@@ -77,11 +90,32 @@ const Component = () => {
     return authInfoValue;
   };
 
+  const setInitValue = () => {
+    setEmail("");
+    setChEmail(false);
+    setName("");
+    setPassword("");
+    setUcmdNm("");
+    setUcmdCd("");
+    setPhNo("");
+    setNickName("");
+    setPfFile(null);
+    setAuthInfo((prev) =>
+      prev.map((e) => {
+        return {
+          menuAuthCd: e.menuAuthCd,
+          title: e.title,
+          isActive: false,
+          menuAuthId: "",
+        };
+      })
+    );
+  };
+
   const setValue = () => {
     const authInfoValue = getAuthInfo();
     const formData = new FormData();
     formData.append("mergeManagerInfo", {
-      mbrNo: id,
       emailAddr: email,
       hpNo: phNo,
       mbrNm: name,
@@ -89,7 +123,7 @@ const Component = () => {
       nwlAgrmYn: "N",
       pwd: password,
       smsRcvAgrmYn: "Y",
-      ucmdCd: "A",
+      ucmdCd,
       orgnPhcNo: "010-1834-5678",
       memMenuAuthInfo: authInfoValue,
     });
@@ -319,8 +353,8 @@ const Component = () => {
           </div>
 
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
+            <PrimaryBtn text="저장" state="default" onclick={fixValue} />
           </div>
         </div>
       </div>
