@@ -42,11 +42,6 @@ const Component = () => {
 					</div>
 				</div>
 
-				<div className="sub-title body-2-B flex_">
-					<Badge value="2"/>
-						기본 정보
-				</div>
-
 				<div className="input-wrap">
 					<Input labelText="부서/학과" placeholder="부서 또는 학과를 입력해주세요 (예: 컴퓨터공학과)" valueType="" helperTextResult="none" iconState="false"/>
 					<p className="caption-R helper-txt">
@@ -64,9 +59,6 @@ const Component = () => {
 						</Link>
 					</div>
 				</div>
-
-                
-				
 
 			</div>
 		</div>

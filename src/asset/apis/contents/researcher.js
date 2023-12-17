@@ -1,5 +1,5 @@
 /** 콘텐츠 - 연구자 관리 API */
-import { Api } from "../../config/Api"
+import { Api, ApiForm } from "../../config/Api"
 
 /** 연구원 리스트 */
 export const getResearchers = ({
@@ -24,6 +24,12 @@ export const getResearcher = ({ rscNo }) => {
     rscNo
   })
   const response = Api.get(`/veiwapi/mngr/site/v1/rscDetail?` + queryParams)
+  return response
+}
+
+/** 연구원 등록 및 수정 */
+export const setResearcher = (formData) => {
+  const response = ApiForm.post(`/viewapi/mngr/site/v1/merge/rsc`, formData)
   return response
 }
 
