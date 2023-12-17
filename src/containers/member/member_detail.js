@@ -184,9 +184,7 @@ const Component = () => {
               </Link>
             </div>
             <div className="flex_">
-              <Link href="#">
-                <ButtonErrorL text="삭제" onclick={isDelete} />
-              </Link>
+              <ButtonErrorL text="삭제" onclick={isDelete} />
             </div>
           </div>
         </div>

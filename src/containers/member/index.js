@@ -6,7 +6,6 @@ import TableHead from "/src/components/table/member_list_table_head";
 import TableCell from "/src/components/table/member_list_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { getMemberList } from "../../asset/apis/memberApis";
 
 const Component = () => {
@@ -14,7 +13,6 @@ const Component = () => {
   const [pageIdx, setPageIdx] = useState(1);
   const [type, setType] = useState("");
   const [search, setSearch] = useState("");
-  const router = useRouter();
 
   const getValue = async () => {
     await getMemberList({
