@@ -76,7 +76,7 @@ const Component = () => {
                     title={tech.tcqNm}
                     writer={tech.ivtNm}
                     date={tech.apyAd}
-                    link={`/technical_document/detail_patent_1?no=${tech.tdcNo}`}
+                    link={`/technical_document/detail_${tech.typeCd == 'P' ? "patent" : tech.typeCd == 'T' ? 'thesis' : 'report'}_1?no=${tech.tdcNo}`}
                   />
                 })
               }
