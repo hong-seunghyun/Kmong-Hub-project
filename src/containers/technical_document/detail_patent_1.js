@@ -12,13 +12,14 @@ import { useRouter } from "next/router";
 import { getOrgnDetails, getTechDetails } from "../../asset/apis/tech";
 import { useState } from "react";
 import { set } from "date-fns";
+import { useEffect } from "react";
 
 const Component = () => {
 
 	const router = useRouter();
 	const [ data, setData ] = useState();
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
 		getTechDetails(no).then(res => {
@@ -36,7 +37,7 @@ const Component = () => {
 					<h1 className="display-5-B title flex_">
 						{data.tcqNm}
 					</h1>
-					<Tabs active={0} link={}/>
+					<Tabs active={0}/>
 					
 					<p className="table-caption body-2-B">기본 정보</p>
 						<table className="table-horizontal-container radius-20 body-3-R">
