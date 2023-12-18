@@ -23,9 +23,14 @@ const Component = (props) => {
 		if(search === '') setToggle(false);
 	},[]);
 
-	const filterTitle = props.data.filter((p) => {
-		return p.name.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
-	})
+	let filterTitle
+	
+	if(props.datas) {
+		filterTitle = props.data.filter((p) => {
+			return p.name.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
+		});
+	}
+	
 	return(
 		<div className="search-container">
 			<div className="input-wrap radius-8 border-gray-4 bg-lightGray">
@@ -44,7 +49,7 @@ const Component = (props) => {
 			<div className="wrap radius-8 border-gray-4" style={{display: toggle ? 'block' : 'none'}}>
 				<div className="flex_ result-search-box body-3-R ">
 					{
-						filterTitle.map(dummy => <span onClick={() => {onclickSpan(dummy)}}>{dummy.name}</span>)
+						props.datas && filterTitle.map(dummy => <span onClick={() => {onclickSpan(dummy)}}>{dummy.name}</span>)
 					}
 				</div>
 			</div>
