@@ -26,7 +26,7 @@ const Component = () => {
 		<div className="page-wrap">
 			<div className="contents-technology contents- contents-news-writer contents-event-writer contents-add">
 				<h1 className="flex_ display-5-B">
-				뉴스 등록/수정
+					기술 이전 등록/수정
 					<span className="flex_ ai-cnt bg-lightGray radius-8">
 						<span className="flex_ caption-R txt-disabled">
 							<Icon icon="ai" size={13} color="#574AFF" stroke="" />
@@ -72,9 +72,10 @@ const Component = () => {
 							<Radio label="사용 안함" state="disabled" name="radio-a" id="radio-a-4"/>
 						</span>
 					</div>
-					<Upload state="default" type="normal" />
+					<TextArea labelText="" placeholder="기술에 대한 상세 정보를 입력해주시면, 이를 바탕으로 AI가 콘텐츠를 자동 생성해요." valueType="" helperTextResult="none"/>
+
 					<div className="flex_ btn_flex">
-						<Link href="/technology/add_select_document">
+						<Link href="#">
 							<Button text="AI 수정" />
 						</Link>
 					</div>

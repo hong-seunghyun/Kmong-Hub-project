@@ -74,7 +74,7 @@ const Component = () => {
 					</div>
 					<Upload state="default" type="normal" />
 					<div className="flex_ btn_flex">
-						<Link href="/technology/add_select_document">
+						<Link href="#">
 							<Button text="AI 수정" />
 						</Link>
 					</div>

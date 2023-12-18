@@ -56,7 +56,7 @@ const Component = () => {
 
 				<div className="content-1 content-wrap">
 					<div className="flex_ radio-flex">
-					<span className="flex_">
+						<span className="flex_">
 							<Radio label="기술문서 업로드" state="disabled" name="radio-a" id="radio-a-1"/>
 							<Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
 						</span>
@@ -72,6 +72,13 @@ const Component = () => {
 							<Radio label="사용 안함" state="disabled" name="radio-a" id="radio-a-4"/>
 						</span>
 					</div>
+					<Upload state="default" type="normal" />
+					<div className="flex_ btn_flex">
+						<Link href="/technology/add_select_document">
+							<Button text="AI 수정" />
+						</Link>
+					</div>
+					
 				</div>
 
 				<div className="btn-wrap flex_">

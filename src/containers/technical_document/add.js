@@ -9,6 +9,8 @@ import Icon from "/src/components/icon/icon.tsx";
 import DatePicker from "/src/components/date/date-picker-single";
 import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
+import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+
 
 const Component = () => {
   return (
@@ -38,16 +40,10 @@ const Component = () => {
             />
           </div>
 
-          <div className="flex_ input-search box-">
-            <Input
-              labelText="소속"
-              placeholder="소속을 검색해 주세요."
-              valueType=""
-              helperTextResult="none"
-              iconState="false"
-            />
-            <Icon icon="search" size={16} stroke="none" color="#574AFF" />
-          </div>
+					<div className="input-search box-">
+						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
+						<SearchBar />
+					</div>
 
           <div className="box-">
             <Input
