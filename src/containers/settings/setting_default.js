@@ -154,6 +154,15 @@ const Component = () => {
       .catch((e) => console.log(e));
   }, []);
 
+  const setInitValue = () => {
+    setSiteNm("");
+    setSiteItrCntn("");
+    setMngRcvEmailAddr("");
+    setCutspPhcNo("");
+    setCutspEmailAddr("");
+    setFvcPathAddr(null);
+  };
+
   const saveValue = async () => {
     await setSiteBasicInfo({
       cutspEmailAddr,
@@ -179,7 +188,7 @@ const Component = () => {
           {subTab === 1 && <TabContentB setActiveSubTab={setActiveSubTab} />}
           {subTab === 2 && <TabContentC setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn
               text="저장"
               state={!iSave && "disabled"}

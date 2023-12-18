@@ -153,6 +153,17 @@ const Component = () => {
       .catch((e) => console.log(e));
   };
 
+  const setInitValue = () => {
+    setBslNo("");
+    setCbdAddr("");
+    setCbdNm("");
+    setOmbRptNo("");
+    setptpPicEmailAddr("");
+    setPtpPicNm("");
+    setPtpPicPhcNo("");
+    setRpsvNm("");
+  };
+
   useEffect(() => {
     setValue();
   }, []);
@@ -193,7 +204,7 @@ const Component = () => {
           {subTab === 0 && <TabContentA setActiveSubTab={setActiveSubTab} />}
           {subTab === 1 && <TabContentB setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn text="저장" state={iSave && "disabled"} />
           </div>
         </div>

@@ -4,7 +4,7 @@ import Input from "/src/components/textFields/textInput.tsx";
 import OutlineBtn from "/src/components/buttons/button_outline_l";
 import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import TextButtonUnderlineS from "/src/components/buttons/text_button_underline_s";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import {
   SettingBsicDmiAddr,
   SettingIdvdDmiAddr,
@@ -13,6 +13,14 @@ import {
 const Component = () => {
   const [subTab, setSubTab] = useState(0);
   const [activeSubTab, setActiveSubTab] = useState(0);
+
+  const setBsicDmiAddr = useSetRecoilState(SettingBsicDmiAddr);
+  const setIdvdDmiAddr = useSetRecoilState(SettingIdvdDmiAddr);
+  const setInitValue = () => {
+    setBsicDmiAddr("");
+
+    setIdvdDmiAddr("");
+  };
 
   const TabContents = () => {
     const [bsicDmiAddr, setBsicDmiAddr] = useRecoilState(SettingBsicDmiAddr);
@@ -58,7 +66,7 @@ const Component = () => {
           <Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={4} />
           <TabContents />
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn text="저장" />
           </div>
         </div>

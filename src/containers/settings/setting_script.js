@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 import {
   SettingChntkScptCntn,
   SettingGganltcScptCntn,
+  SettingIptKwdCntn,
   SettingOgImgPathAddr,
   SettingSiteScriptItrCntn,
   SettingSiteScriptNm,
@@ -24,6 +25,8 @@ const TabContentA = ({ setActiveSubTab }) => {
   const [siteItrCntn, setSiteItrCntn] = useRecoilState(
     SettingSiteScriptItrCntn
   );
+  const [keywordList, setSiteKeywordList] = useRecoilState(SettingIptKwdCntn);
+  const [keyword, setKeyword] = useState("");
   const [siteNm, setSiteNm] = useRecoilState(SettingSiteScriptNm);
 
   return (
@@ -50,20 +53,25 @@ const TabContentA = ({ setActiveSubTab }) => {
           labelText="키워드"
           placeholder="사이트의 내용과 관련된 주요 키워드를 입력해 주세요."
           valueType=""
-          state={siteNm}
-          setState={setSiteNm}
+          state={keyword}
+          setState={setKeyword}
           helperTextResult="none"
           iconState="false"
         />
         <OutlineBtn text="등록" />
+      </div>
+      <div>
+        {keywordList.map((e) => (
+          <p>{e.title}</p>
+        ))}
       </div>
       <div className="favicon-wrap">
         <p className="body-2-B">OG 이미지</p>
         <Upload
           state="default"
           type="normal"
-          urlState={ogImgPathAddr}
-          setUrlState={setOgImgPathAddr}
+          fileState={ogImgPathAddr}
+          setFileState={setOgImgPathAddr}
         />
         <p className="caption-R helper-txt">
           허용 사이즈: <span>1200px x 630px</span> | 파일 형식:{" "}
@@ -129,6 +137,7 @@ const Component = () => {
   const [siteScptId, setSiteScriptScptId] = useRecoilState(
     SettingSiteScriptScptId
   );
+  const [keywordList, setSiteKeywordList] = useRecoilState(SettingIptKwdCntn);
   const [iSave, setIsSave] = useState(false);
 
   const getValue = async () => {
@@ -144,6 +153,7 @@ const Component = () => {
         if (e.data.data.siteItrCntn) setSiteItrCntn(e.data.data.siteItrCntn);
         if (e.data.data.siteNm) setSiteNm(e.data.data.siteNm);
         if (e.data.data.siteScptId) setSiteScriptScptId(e.data.data.siteScptId);
+        if (e.data.data.iptKwdCntn) setSiteKeywordList(e.data.data.iptKwdCntn);
       })
       .catch((e) => console.log(e));
   };
@@ -178,6 +188,16 @@ const Component = () => {
     getValue();
   }, []);
 
+  const setInitValue = () => {
+    setChntkScptCntn("");
+    setGganltcScptCntn("");
+    setOgImgPathAddr("");
+    setSiteItrCntn("");
+    setSiteNm("");
+    setSiteScriptScptId("");
+    setSiteKeywordList([]);
+  };
+
   return (
     <div className="container">
       <div className="page-wrap">
@@ -188,7 +208,7 @@ const Component = () => {
           {subTab === 1 && <TabContentB setActiveSubTab={setActiveSubTab} />}
           {subTab === 2 && <TabContentC setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn
               text="저장"
               state={!iSave && "disabled"}

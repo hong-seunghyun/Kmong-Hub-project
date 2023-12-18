@@ -315,6 +315,16 @@ const Component = () => {
       .catch((e) => console.log(e));
   };
 
+  const setInitValue = () => {
+    setAdvRcvAgrmYnCntn("");
+    setPinfPrcsPlcyCntn("");
+    setPinfSttgYnCntn("");
+    setPiuaBbsCntn("");
+    setPiuaBcmemCntn("");
+    setTavoClusCntn("");
+    setSiteClusId("");
+  };
+
   return (
     <div className="container">
       <div className="page-wrap">
@@ -328,7 +338,7 @@ const Component = () => {
           {subTab === 4 && <TabContentE setActiveSubTab={setActiveSubTab} />}
           {subTab === 5 && <TabContentF setActiveSubTab={setActiveSubTab} />}
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn
               text="저장"
               state={iSave && "disabled"}
