@@ -82,27 +82,21 @@ export const addThesis = ({
   typeCd,
   tcqNm,
   rsacUcmdCd,
-  apyNm,
+  uniqueNo,
   apyAd,
-  statCd,
-  rgstNo,
+  sbmyn,
   ivtNm,
-  ipcVal,
-  cpcVal,
-  piuaYn
+  orgCntn
 }) => {
   const mergeTechDTO = {
     typeCd,
     tcqNm,
     rsacUcmdCd,
-    apyNm,
+    uniqueNo,
     apyAd,
-    statCd,
-    rgstNo,
+    sbmyn,
     ivtNm,
-    ipcVal,
-    cpcVal,
-    piuaYn
+    orgCntn
   };
 
   const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {

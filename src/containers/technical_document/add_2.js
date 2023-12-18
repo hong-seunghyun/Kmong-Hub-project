@@ -14,7 +14,7 @@ import Radio from "/src/components/radio/radio"
 import { useEffect } from "react";
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
-import { addPatent } from "../../asset/apis/tech";
+import { addPatent, addThesis } from "../../asset/apis/tech";
 
 const Component = () => {
 
@@ -67,13 +67,20 @@ const Component = () => {
 		console.log(`orgCntn : ${orgCntn}`);
 
 
-    // addPatent({
-
-    // }).then(res => {
-    //   console.log(res.data);
-    // }).catch(err => {
-    //   console.log(err);
-    // });
+    addThesis({
+			typeCd,
+			tcqNm,
+			rsacUcmdCd,
+			uniqueNo,
+			apyAd,
+			sbmyn,
+			ivtNm,
+			orgCntn
+    }).then(res => {
+      console.log(res.data);
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
 	useEffect(() => {

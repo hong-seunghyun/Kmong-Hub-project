@@ -7,15 +7,33 @@ import Link from "next/link";
 import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
+import { useLayoutEffect } from "react";
+import { getTechDetails } from "../../asset/apis/tech";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Component = () => {
 
-	return(
+	const router = useRouter();
+	const [ data, setData ] = useState();
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+		getTechDetails(no).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	},[]);
+
+	return data ? (
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail document-">
 					<h1 className="display-5-B title flex_">
-						[제목]
+						{data.tcqNm}
 					</h1>
 					<Tabs active={1} />
 					
@@ -41,6 +59,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	) : (<></>)
 }
 export default Component;
