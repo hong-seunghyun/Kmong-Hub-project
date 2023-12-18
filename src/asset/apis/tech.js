@@ -87,7 +87,7 @@ export const addThesis = ({
   sbmyn,
   ivtNm,
   orgCntn
-}) => {
+}, file) => {
   const mergeTechDTO = {
     typeCd,
     tcqNm,
@@ -98,8 +98,15 @@ export const addThesis = ({
     ivtNm,
     orgCntn
   };
+  const blob = new Blob([JSON.stringify(registerDTO)], {
+    type: "application/json"
+  });
 
-  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('tecDocRgstDto', blob);
+
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, blob, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
     }

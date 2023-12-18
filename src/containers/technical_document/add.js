@@ -99,7 +99,7 @@ const Component = () => {
       ipcVal,
       cpcVal,
       piuaYn
-    }).then(res => {
+    }, file).then(res => {
       console.log(res.data);
     }).catch(err => {
       console.log(err);
