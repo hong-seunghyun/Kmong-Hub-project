@@ -1,10 +1,10 @@
-import { Api } from "../config/Api";
+import { Api } from "../../config/Api";
 
 export const getEventList = ({ currentIdx, searchType, search }) => {
   const response = Api.get(
     `/viewapi/mngr/site/v1/inquiry/even?currentPage=${currentIdx}&limit=10${
-      searchType && `&searchType=${searchType}`
-    }&searchValue=${search}`
+      searchType ? `&searchType=${searchType}` : ""
+    }${search ? `&searchValue=${search}` : ""}`
   );
   return response;
 };

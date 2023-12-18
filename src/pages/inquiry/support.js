@@ -1,4 +1,3 @@
-
 import Component from "/src/containers/inquiry/support";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 

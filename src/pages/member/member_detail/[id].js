@@ -1,4 +1,3 @@
-
 import Component from "/src/containers/member/member_detail";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 

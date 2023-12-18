@@ -1,5 +1,4 @@
-
-import Component from "/src/containers/member/operator_detail";
+import Component from "/src/containers/inquiry/support_detail_2";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 
 const Page = ({ ...props }) => (

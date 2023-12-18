@@ -1,5 +1,4 @@
-
-import Component from "/src/containers/inquiry/technology_detail";
+import Component from "/src/containers/inquiry/news_detail";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 
 const Page = ({ ...props }) => (

@@ -32,6 +32,7 @@ const TabContents = () => {
   const [comUrl, setComUrl] = useRecoilState(ComUrlAtom);
   const [bsSector, setBsSector] = useRecoilState(BsSectorAtom);
   const [techField, setTechField] = useRecoilState(TechFieldAtom);
+
   return (
     <div className="sub-page-0">
       <div className="flex_">
@@ -43,6 +44,7 @@ const TabContents = () => {
               state="default"
               checked={addr !== "N"}
               setState={setAddr}
+              onclick={() => setAddr("N")}
             />
             <span className="flex_">
               <Radio
@@ -73,6 +75,7 @@ const TabContents = () => {
               state="default"
               checked={startYear !== "N"}
               setState={setStartYear}
+              onclick={() => setStartYear("N")}
             />
             <span className="flex_">
               <Radio
@@ -103,6 +106,7 @@ const TabContents = () => {
               state="default"
               checked={birth !== "N"}
               setState={setBirth}
+              onclick={() => setBirth("N")}
             />
             <span className="flex_">
               <Radio
@@ -133,6 +137,7 @@ const TabContents = () => {
               state="default"
               checked={comAddr !== "N"}
               setState={setComAddr}
+              onclick={() => setComAddr("N")}
             />
             <span className="flex_">
               <Radio
@@ -163,6 +168,7 @@ const TabContents = () => {
               state="default"
               checked={sex !== "N"}
               setState={setSex}
+              onclick={() => setSex("N")}
             />
             <span className="flex_">
               <Radio
@@ -193,6 +199,7 @@ const TabContents = () => {
               state="default"
               checked={comNo !== "N"}
               setState={setComNo}
+              onclick={() => setComNo("N")}
             />
             <span className="flex_">
               <Radio
@@ -223,6 +230,7 @@ const TabContents = () => {
               state="default"
               checked={comNm !== "N"}
               setState={setComNm}
+              onclick={() => setComNm("N")}
             />
             <span className="flex_">
               <Radio
@@ -253,6 +261,7 @@ const TabContents = () => {
               state="default"
               checked={comUrl !== "N"}
               setState={setComUrl}
+              onclick={() => setComUrl("N")}
             />
             <span className="flex_">
               <Radio
@@ -283,6 +292,7 @@ const TabContents = () => {
               state="default"
               checked={bsSector !== "N"}
               setState={setBsSector}
+              onclick={() => setBsSector("N")}
             />
             <span className="flex_">
               <Radio
@@ -313,6 +323,7 @@ const TabContents = () => {
               state="default"
               checked={techField !== "N"}
               setState={setTechField}
+              onclick={() => setTechField("N")}
             />
             <span className="flex_">
               <Radio
@@ -352,10 +363,8 @@ const Component = () => {
   const [cmpyUrlYnCd, setComUrl] = useRecoilState(ComUrlAtom);
   const [sexYnCd, setSex] = useRecoilState(SexAtom);
   const [bizSprYnCd, setBsSector] = useRecoilState(BsSectorAtom);
-  const [techField, setTechField] = useRecoilState(TechFieldAtom);
+  const [cncnTcqSprYnCd, setCncnTcqSprYnCd] = useRecoilState(TechFieldAtom);
   const [siteBcmemId, setSiteId] = useRecoilState(SiteBcmemIdAtom);
-  const [cncnTcqSprYnCd, setCncnTcqSprYnCd] =
-    useRecoilState(CncnTcqSprYnCdAtom);
 
   const getValue = async () => {
     await getSiteSttg()
@@ -369,7 +378,6 @@ const Component = () => {
         setComUrl(e.data.data.cmpyUrlYnCd);
         setSex(e.data.data.sexYnCd);
         setBsSector(e.data.data.bizSprYnCd);
-        setTechField(e.data.data.nmYnCd);
         setSiteId(e.data.data.siteBcmemId);
         setCncnTcqSprYnCd(e.data.data.cncnTcqSprYnCd);
       })
@@ -387,7 +395,7 @@ const Component = () => {
       cmpyUrlYnCd,
       cncnTcqSprYnCd,
       fdtYrYnCd,
-      nmYnCd: techField,
+      nmYnCd: "Y",
       sexYnCd,
       siteBcmemId,
     });
@@ -395,7 +403,7 @@ const Component = () => {
 
   useEffect(() => {
     getValue();
-  });
+  }, []);
 
   return (
     <div className="container">
@@ -406,7 +414,7 @@ const Component = () => {
           <TabContents />
           <div className="button-wrap flex_">
             <OutlineBtn text="초기화" state="default" />
-            <PrimaryBtn text="저장" />
+            <PrimaryBtn text="저장" onclick={setValue} />
           </div>
         </div>
       </div>
