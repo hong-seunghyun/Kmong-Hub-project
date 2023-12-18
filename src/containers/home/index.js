@@ -20,16 +20,18 @@ const Component = () => {
     <div className="page-wrap">
       <div className="home-container bg-violet-6">
         <div className="content-container">
-          <div className="head-wrap flex_">
-            <img src="/images/user_icon_l.png" alt="user_icon_l" />
-            <h1 className="display-5-B ">
-              환영합니다.{" "}
-              <span className="txt-violet-1">
-                {userData?.nnmNm ? userData.nnmNm : ""}
-              </span>
-              님
-            </h1>
-          </div>
+					<div className="m-content-top-wrap">
+						<div className="head-wrap flex_">
+							<img src="/images/user_icon_l.png" alt="user_icon_l" />
+							<h1 className="display-5-B ">
+								환영합니다.{" "}
+								<span className="txt-violet-1">
+									{userData?.nnmNm ? userData.nnmNm : ""}
+								</span>
+								님
+							</h1>
+						</div>
+					</div>
 
           <div className="flex_ box_ box-01 radius-20">
             <span className="flex_">
@@ -48,7 +50,7 @@ const Component = () => {
             </span>
           </div>
 
-          <h6 className="body-2-B box-title">저장 용량</h6>
+          <h6 className="body-2-B box-title m-title-none">저장 용량</h6>
 
           <div className="box_ box-02 radius-20">
             <div className="data-count">
@@ -127,261 +129,265 @@ const Component = () => {
             방문자 접속 조회 <span>최근 7일 방문자 수 입니다</span>
           </h6>
 
-          <div className="box_ box-04 radius-20 flex_">
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+					<div className="m-scroll-wrap">
+						<div className="box_ box-04 radius-20 flex_">
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
 
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
 
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
 
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
 
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
 
-            <div className="flex_">
-              <div className="top-count body-2-R txt-second-defalut bg-violet-4">
-                00/00
-              </div>
+							<div className="flex_">
+								<div className="top-count body-2-R txt-second-defalut bg-violet-4">
+									00/00
+								</div>
 
-              <div className="bottom-count heading-2-B">0</div>
-            </div>
-          </div>
+								<div className="bottom-count heading-2-B">0</div>
+							</div>
+						</div>
+					</div>
 
           <h6 className="body-2-B box-title">사이트 현황</h6>
 
-          <div className="box_ box-05 flex_">
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon icon="member" size={15} color="none" stroke="#fff" />
-                  회원 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>전체</p>
-                  <p>
-                    <span className="txt-primary">[10]</span>명
-                  </p>
-                </div>
+					<div className="m-scroll-wrap">
+						<div className="box_ box-05 flex_">
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon icon="member" size={15} color="none" stroke="#fff" />
+										회원 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>전체</p>
+										<p>
+											<span className="txt-primary">[10]</span>명
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>신규</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>명
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>신규</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>명
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>휴먼</p>
-                  <p>
-                    <span className=" txt-disabled">[10]</span>명
-                  </p>
-                </div>
-              </div>
-            </div>
+									<div className="body-2-R flex_">
+										<p>휴먼</p>
+										<p>
+											<span className=" txt-disabled">[10]</span>명
+										</p>
+									</div>
+								</div>
+							</div>
 
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon icon="content" size={15} color="none" stroke="#fff" />
-                  콘텐츠 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>기술이전</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon icon="content" size={15} color="none" stroke="#fff" />
+										콘텐츠 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>기술이전</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>행사</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>행사</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>지원사업</p>
-                  <p>
-                    <span className=" txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>지원사업</p>
+										<p>
+											<span className=" txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>뉴스</p>
-                  <p>
-                    <span className=" txt-violet-1">[10]</span>건
-                  </p>
-                </div>
-              </div>
-            </div>
+									<div className="body-2-R flex_">
+										<p>뉴스</p>
+										<p>
+											<span className=" txt-violet-1">[10]</span>건
+										</p>
+									</div>
+								</div>
+							</div>
 
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon icon="document" size={15} color="none" stroke="#fff" />
-                  기술 문서 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>특허</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon icon="document" size={15} color="none" stroke="#fff" />
+										기술 문서 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>특허</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>논문</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>논문</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>보고서</p>
-                  <p>
-                    <span className=" txt-violet-1">[10]</span>건
-                  </p>
-                </div>
-              </div>
-            </div>
+									<div className="body-2-R flex_">
+										<p>보고서</p>
+										<p>
+											<span className=" txt-violet-1">[10]</span>건
+										</p>
+									</div>
+								</div>
+							</div>
 
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon icon="document" size={15} color="none" stroke="#fff" />
-                  게시판 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>전체</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon icon="document" size={15} color="none" stroke="#fff" />
+										게시판 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>전체</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>신규</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
-              </div>
-            </div>
+									<div className="body-2-R flex_">
+										<p>신규</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
+								</div>
+							</div>
 
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon icon="question" size={15} color="none" stroke="#fff" />
-                  문의 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>전체</p>
-                  <p>
-                    <span className="txt-primary">[10]</span>건
-                  </p>
-                </div>
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon icon="question" size={15} color="none" stroke="#fff" />
+										문의 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>전체</p>
+										<p>
+											<span className="txt-primary">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>미확인</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
-              </div>
-            </div>
+									<div className="body-2-R flex_">
+										<p>미확인</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
+								</div>
+							</div>
 
-            <div>
-              <div className="title-wrap flex_ txt-white body-2-B">
-                <span>
-                  <Icon
-                    icon="transaction"
-                    size={12}
-                    color="none"
-                    stroke="#fff"
-                  />
-                  거래 관리
-                </span>
-                <Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
-              </div>
-              <div className="content_ content-1 txt-second-defalut">
-                <div className="body-2-R flex_">
-                  <p>거래 요청</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+							<div>
+								<div className="title-wrap flex_ txt-white body-2-B">
+									<span>
+										<Icon
+											icon="transaction"
+											size={12}
+											color="none"
+											stroke="#fff"
+										/>
+										거래 관리
+									</span>
+									<Icon icon="chevronRight" size={9} color="#fff" stroke="none" />
+								</div>
+								<div className="content_ content-1 txt-second-defalut">
+									<div className="body-2-R flex_">
+										<p>거래 요청</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>진행 중</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>진행 중</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>거래 성공</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>거래 성공</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>거래 실패</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
+									<div className="body-2-R flex_">
+										<p>거래 실패</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
 
-                <div className="body-2-R flex_">
-                  <p>보류</p>
-                  <p>
-                    <span className="txt-violet-1">[10]</span>건
-                  </p>
-                </div>
-              </div>
+									<div className="body-2-R flex_">
+										<p>보류</p>
+										<p>
+											<span className="txt-violet-1">[10]</span>건
+										</p>
+									</div>
+								</div>
+							</div>
             </div>
           </div>
         </div>

@@ -87,9 +87,95 @@ const Component = () => {
                 </div>
 
 				<div className="input-wrap input-search">
-					<Input labelText="부서/학과" placeholder="부서/학과를 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+					<Input labelText="소속" placeholder="소속을 선택해 주세요." valueType="" helperTextResult="none" iconState="false"/>
 					<Icon icon="search" size={16} stroke="none" color="#574AFF" /> 
 					<Icon icon="delete" size={16} stroke="none" color="#B3B6B8" /> 
+				</div>
+				<div className="flex_ select-flex">
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
+					<SelectLabel 
+						backgroundColor="bg-violet-5" 
+						fontColor="txt-violet-1" 
+						text="AI 사용" 
+						icon="true" 
+						iconColor="#574AFF"
+					/>
 				</div>
 
 				<div className="input-wrap">
