@@ -23,8 +23,15 @@ const Component = () => {
 					</div>
 
 					<div>
-						<div className="flex_ search-wrap">
+						<div className="flex_ search-wrap pc-search-wrap">
 							<DropDownMenu />
+							<SearchBar />
+						</div>
+						<div className="flex_ search-wrap m-search-wrap">
+							<span className="flex_">
+								<DropDownMenu />
+								<DropDownMenu />
+							</span>
 							<SearchBar />
 						</div>
 
@@ -48,6 +55,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-violet-5"
@@ -60,6 +68,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="true"
 							/>
 							<TableCell 
 								labelBg="bg-violet-1"
@@ -72,6 +81,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="true"
 							/>
 							<TableCell 
 								labelBg="bg-violet-1"
@@ -84,6 +94,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="true"
 							/>
 							<TableCell 
 								labelBg="bg-violet-1"
@@ -96,6 +107,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-gray"
@@ -108,6 +120,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-gray"
@@ -120,6 +133,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-gray"
@@ -132,6 +146,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-gray"
@@ -144,6 +159,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<TableCell 
 								labelBg="bg-gray"
@@ -156,6 +172,7 @@ const Component = () => {
 								date="YYYY.MM.DD"
 								link="/technology/detail"
 								img="/images/sample-img.png"
+								pin="false"
 							/>
 							<Pagnation size="regular"/>
 						</div>
