@@ -139,7 +139,7 @@ const Component = () => {
 					<div className="flex_ box- flex_date">
 						<div>
 							<p className="table-caption body-2-B">발행연도<span className="txt-violet-1">*</span></p>
-							<DatePicker />
+							<DatePicker setDate={setApyAd}/>
 						</div>
 						<div>
 							<p className="table-caption body-2-B">투고 선택<span className="txt-violet-1">*</span></p>
@@ -160,7 +160,7 @@ const Component = () => {
 
 					<div className="box-">
 						<p className="table-caption body-2-B">첨부파일<span className="txt-violet-1">*</span></p>
-						<Upload state="default" type="normal" file=""/>
+						<Upload state="default" type="pdf" fileState={file} setFileState={setFile}/>
 						<p className="caption-R helper-txt">
 						파일 형식: <span>PDF, DOCX, HWP</span> <span className="bar">|</span> 최대 파일 크기: <span>500mb</span>
 						</p>
