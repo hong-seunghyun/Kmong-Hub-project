@@ -5,8 +5,8 @@ import ButtonSecondaryS from "/src/components/buttons/button_secondary_s";
 import { sleep } from "../../util/sleep";
 
 const Component = (props) => {
-  const [selectedFile, setSelectedFile] = useState(null);
   const [fileSize, setFileSize] = useState(null);
+  const [fileName, setFileName] = useState('');
   const [process, setProcess] = useState(20);
 
   const [state, setState] = useState(null);
@@ -23,26 +23,37 @@ const Component = (props) => {
     }
   }, [props.fileState]);
 
+  const cancelFile = () => {
+    if (props.setFileState) {
+      setState("default");
+      setType("normal");
+      props.setFileState(null);
+    }
+  };
+
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     props.setFileState(file);
     setFileSize(e.target.files[0].size);
+    setFileName(e.target.files[0].name);
     const MAX_SIZE = 100 * 1024 * 1024;
 
+    const ext = e.target.files[0].name.split('.').pop().toLowerCase();
+    console.log(ext);
+
     if (fileSize > MAX_SIZE) {
-      alert("이미지가 너무 무겁습니다!");
+      alert("파일이 너무 무겁습니다!");
     }
 
     if (file) {
-      setSelectedFile(file);
-
       const reader = new FileReader();
       reader.onloadend = () => {
-        getImageSize(reader.result);
-        if (imgWidth + imgHeight > 1600) {
-          alert("이미지 크기가 너무 큽니다!");
+        if(ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
+          getImageSize();
+          if (imgWidth + imgHeight > 1600) {
+            alert("이미지 크기가 너무 큽니다!");
+          }
         }
-
         setUrlState(reader.result);
       };
       reader.readAsDataURL(file);
@@ -57,8 +68,19 @@ const Component = (props) => {
 
       await sleep(100);
 
-      setState("done");
-      setType("preview");
+      console.log(e.target.files[0].name);
+
+      if(ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
+        setState("done");
+        setType("preview");
+      } else if(ext === 'hwp' || ext === 'docx' || ext === 'pdf') {
+        setState('done');
+        setType('normal')
+      } else {
+        alert('지원되지 않는 파일 형식입니다.');
+        setState('default');
+        setType(props.type)
+      }
     }
   };
 
@@ -78,6 +100,12 @@ const Component = (props) => {
   const handleSpanClick = () => {
     fileInputRef.current.click();
   };
+
+  const changeOrigin = () => {
+    setState('default');
+    setType(props.type);
+    setUrlState(null);
+  }
 
   return (
     <div
@@ -150,20 +178,22 @@ const Component = (props) => {
 
         <div className="done-normal-text-box flex_">
           <div className="text-wrap">
-            <h6 className="body-3-B">파일명.확장자</h6>
-            <p className="caption-R">파일크기 mb</p>
+            <h6 className="body-3-B">{fileName}</h6>
+            <p className="caption-R">{fileSize / 100 / 1024 / 1024} mb</p>
           </div>
-          <Icon icon="cancel" size={9} color="#464749" stroke="" />
+          <Icon icon="cancel" size={9} color="#464749" stroke="" onClick={changeOrigin}/>
         </div>
 
         <div className="done-preview-text-box flex_">
           <div className="text-wrap">
-            <h6 className="body-3-B">파일명.확장자</h6>
+            <h6 className="body-3-B">{fileName}</h6>
             <p className="caption-R">파일크기 {fileSize / 1024 / 1024}mb</p>
           </div>
           <div className="flex_">
             <ButtonSecondaryS text="AI 수정" />
-            <Icon icon="cancel" size={9} color="#464749" stroke="" />
+            <div onClick={cancelFile}>
+              <Icon icon="cancel" size={9} color="#464749" stroke="" />
+            </div>
           </div>
         </div>
       </div>

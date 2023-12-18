@@ -6,27 +6,38 @@ import TableHead from "/src/components/table/table_vertical_head";
 import TableCell from "/src/components/table/technology_table_vertical_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
+import { useLayoutEffect } from "react";
+import { getTechList } from "../../asset/apis/tech";
+import { useState } from "react";
 
 const Component = () => {
 
-  const temp_data = [
+  const drop_datas = [
     {
-      "apyAd": "20231010",
-      "apyNo": "10-2023-0071496",
-      "cpcVal": "B60J7/053",
-      "ipcVal": "D",
-      "ivtNm": "이날파 루프 시스템즈 그룹 비.브이.",
-      "orgCntn": "1",
-      "piuaYn": "Y",
-      "rgstNo": "11",
-      "rsacUcmdCd": "435589",
-      "sbmyn": "1026139310000",
-      "statCd": "A",
-      "tcqNm": "asdfasdfsda",
-      "typeCd": "A",
-      "uniqueNo": "13123"
+      id: "P",
+      title: '특허'
+    },
+    {
+      id: "T",
+      title: '논문'
+    },
+    {
+      id: "R",
+      title: '보고서'
     }
-  ]
+  ];
+
+  const [ techList, setTechList ] = useState([]);
+  const [ typeCd, setTypeCd ] = useState('');
+
+  useLayoutEffect(() => {
+    getTechList(1, 10).then(res => {
+      console.log(res.data.data);
+      setTechList(res.data.data);
+    }).catch(err => {
+      console.log(err);
+    })
+  },[]);
 
   return (
     <div className="page-wrap">
@@ -41,7 +52,7 @@ const Component = () => {
 
           <div>
             <div className="flex_ search-wrap">
-              <DropDownMenu />
+              <DropDownMenu datas={drop_datas} setState={setTypeCd}/>
               <SearchBar />
             </div>
 
@@ -55,20 +66,22 @@ const Component = () => {
                 headEtc="관리"
               />
               {
-                
+                techList.map((tech) => {
+                  return <TableCell
+                    labelBg={tech.typeCd == 'P' ? "bg-violet-5" : tech.typeCd == 'T' ? 'bg-violet-1' : 'bg-purple-1'}
+                    labelColor={tech.typeCd == 'P' ? "txt-violet-1" : tech.typeCd == 'T' ? "txt-white" : "txt-white"}
+                    label={tech.typeCd == 'P' ? "특허" : tech.typeCd == 'T' ? '논문' : '보고서'}
+                    choice="number"
+                    number={tech.tdcNo  }
+                    title={tech.tcqNm}
+                    writer={tech.ivtNm}
+                    date={tech.apyAd}
+                    link={`/technical_document/detail_${tech.typeCd == 'P' ? "patent" : tech.typeCd == 'T' ? 'thesis' : 'report'}_1?no=${tech.tdcNo}`}
+                  />
+                })
               }
-              <TableCell
-                labelBg="bg-violet-5"
-                labelColor="txt-violet-1"
-                label="특허"
-                choice="number"
-                number="1"
-                title="기술이전명"
-                writer="미나 마수드 외 2명"
-                date="YYYY.MM.DD"
-                link="/technical_document/detail_patent_1"
-              />
-              <TableCell
+              
+              {/* <TableCell
                 labelBg="bg-violet-5"
                 labelColor="txt-violet-1"
                 label="특허"
@@ -166,7 +179,7 @@ const Component = () => {
                 writer="미나 마수드 외 2명"
                 date="YYYY.MM.DD"
                 link="/technical_document/detail_report_1"
-              />
+              /> */}
 
               <Pagnation size="regular" />
             </div>

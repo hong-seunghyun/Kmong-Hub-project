@@ -26,7 +26,9 @@ const Component = () => {
 		<div className="page-wrap">
 			<div className="contents-technology contents- contents-news-writer contents-event-writer contents-technology-retouch">
 				<h1 className="flex_ display-5-B">
-					기술 이전 등록/수정
+					<span className="m-none">
+						기술 이전 등록/수정
+					</span>
 					<span className="flex_ ai-cnt bg-lightGray radius-8">
 						<span className="flex_ caption-R txt-disabled">
 							<Icon icon="ai" size={13} color="#574AFF" stroke="" />
@@ -49,7 +51,7 @@ const Component = () => {
 					</span>
 				</h1>
 
-				<div className="sub-title body-2-B flex_">
+				<div className="sub-title body-2-B flex_ m-none">
 					<Badge value="1"/>
 						유형 선택
 				</div>

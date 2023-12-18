@@ -7,15 +7,33 @@ import Link from "next/link";
 import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useLayoutEffect } from "react";
+import { getTechDetails } from "../../asset/apis/tech";
 
 const Component = () => {
+
+	const router = useRouter();
+	const [ data, setData ] = useState();
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+		getTechDetails(no).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	},[]);
 
 	return(
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail document-">
 					<h1 className="display-5-B title flex_">
-						[제목]
+						{data.tcqNm}
 					</h1>
 					<Tabs active={0} />
 					
@@ -41,7 +59,7 @@ const Component = () => {
 									연구기관
 								</th>
 								<td className="tbody">
-									서울대, 연세대, 고려대
+									{data.orgnNm}
 								</td>
 							</tr>
 							<tr>
@@ -49,7 +67,7 @@ const Component = () => {
 									문서번호
 								</th>
 								<td className="tbody">
-									123456789
+									{data.tdcNo}
 								</td>
 							</tr>
 							<tr>
@@ -57,7 +75,7 @@ const Component = () => {
 									발행연도
 								</th>
 								<td className="tbody">
-									YYYY.MM.DD
+									{data.apyAd}
 								</td>
 							</tr>
 							<tr>
@@ -65,12 +83,12 @@ const Component = () => {
 									발명자
 								</th>
 								<td className="tbody">
-									발명자
+									{data.ivtNm}
 								</td>
 							</tr>
 							<tr>
 								<th className="thead">
-								출처
+								{data.orgCntn}
 								</th>
 								<td className="tbody">
 								출처

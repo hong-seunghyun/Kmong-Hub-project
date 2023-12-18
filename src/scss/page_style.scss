@@ -1513,6 +1513,22 @@
 				}
 			}
 		}
+		.content-wrap{
+			.btn_flex{
+				> a{
+					width: auto;
+				}
+				.btn_{
+					text-align: right;
+					svg{display:none;}
+				}
+				justify-content: end;
+				margin-top:32px;
+			}
+			.textarea-fildes-wrap{
+				p{display: none;}
+			}
+		}
 	}
 	&.content-support-detail{
 		.table-container{
@@ -4123,6 +4139,15 @@
 		}
 		.box- + .check-box{
 			margin-top:51px;
+		}
+		.txt-second-default{
+			margin-bottom:8px;
+		}
+		.search-container{
+			width:100%;
+			svg{
+				position: initial;
+			}
 		}
 	}
 

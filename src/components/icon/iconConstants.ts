@@ -1,4 +1,4 @@
-export type iconName = "chatbot" |"setting" | "mail" | "pw" | "eye" | "chevronRight" | "chevronDown" | "chevronUp" | "chevronLeft" | "inform" | "delete" | "plus" | "bell" | "ai" | "cancel" | "checkNone" | "search" | "minus" | "checkCircle" | "home" | "content" | "card" | "document" | "researcher" | "member" | "transaction" | "design" | "marketing" | "question" | "mypage" | "statistic" | "board" | "more" | "arrowRight" | "arrowLeft" | "menu";
+export type iconName = "pin" |"chatbot" |"setting" | "mail" | "pw" | "eye" | "chevronRight" | "chevronDown" | "chevronUp" | "chevronLeft" | "inform" | "delete" | "plus" | "bell" | "ai" | "cancel" | "checkNone" | "search" | "minus" | "checkCircle" | "home" | "content" | "card" | "document" | "researcher" | "member" | "transaction" | "design" | "marketing" | "question" | "mypage" | "statistic" | "board" | "more" | "arrowRight" | "arrowLeft" | "menu";
 
 type icon = {
 	path: string;
@@ -14,6 +14,17 @@ type icon = {
 
 // icon의 path와 viewBox
 const IconSet: Record<iconName, icon> = {
+	pin: {
+		path: "M10.0445 5.31688C10.2169 5.0153 10.6012 4.91063 10.9028 5.08308L12.2921 5.87757L17.5716 8.89664L18.6831 9.53225C18.9847 9.7047 19.0894 10.089 18.9169 10.3906C18.7445 10.6921 18.3602 10.7968 18.0586 10.6243L17.4887 10.2984L15.0274 14.5208L15.312 16.9604C15.3395 17.1962 15.232 17.4273 15.0339 17.5582C14.8359 17.689 14.581 17.6972 14.375 17.5793L10.7485 15.5055L8.98757 18.5264C8.81262 18.8266 8.42749 18.9281 8.12736 18.7531C7.82722 18.5782 7.72574 18.193 7.90069 17.8929L9.65635 14.881L6.31677 12.9713C6.10967 12.8528 5.9874 12.6275 6.00103 12.3893C6.01467 12.1511 6.16188 11.9411 6.38114 11.8471L8.65996 10.87L11.117 6.65482L10.2783 6.17519C9.9767 6.00273 9.87202 5.61845 10.0445 5.31688Z",
+		subPath:"",
+		thrPath:"",
+		fourPath:"",
+		fivePath:"",
+		sixPath:"",
+		sevenPath:"",
+		viewBox:"0 0 24 24",
+		strokeWidth:"2",
+	},
 	chatbot: {
 		path: "M11.5534 19.5827C12.5266 19.5827 13.3219 18.7874 13.3219 17.8142C13.3219 16.841 12.5266 16.0457 11.5534 16.0457C10.5802 16.0457 9.78491 16.841 9.78491 17.8142C9.78491 18.7874 10.5698 19.5827 11.5534 19.5827Z",
 		subPath:"M22.4573 19.5827C23.4305 19.5827 24.2258 18.7874 24.2258 17.8142C24.2258 16.841 23.4305 16.0457 22.4573 16.0457C21.4841 16.0457 20.6888 16.841 20.6888 17.8142C20.6784 18.7874 21.4737 19.5827 22.4573 19.5827Z",

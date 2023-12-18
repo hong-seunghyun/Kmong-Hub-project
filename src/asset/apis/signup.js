@@ -8,13 +8,12 @@ export const checkTheEmail = ({ email }) => {
 }
 
 // get(소속 검색)
-export const searchOrgn = ({ query }) => {
+export const searchOrgn = () => {
   const response = ApiOrgn.get(`/organ`, {
     params: {
       page: 1,
       row_count: 3,
       is_using: true,
-      query: query,
       order_by: "id",
       order_sort: "asc"
     }
