@@ -11,7 +11,7 @@ export const BoardInfoAtom = atom({
 });
 
 export const BoardDetailInfoAtom = atom({
-  key: "BoardInfoAtom",
+  key: "BoardDetailInfoAtom",
   default: {
     cntn: "",
     mbrNm: "",

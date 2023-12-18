@@ -48,4 +48,5 @@ const Component = (props) => {
 		</div>
 	)
 } 
+
 export default Component;

@@ -19,8 +19,9 @@ const Component = () => {
   const getValue = async () => {
     await getBoardList({ currentIndex: pageIdx })
       .then((e) => {
-        let copyArr = e.data.data.filter((e) => e.delYn === "N");
-        setBoardList([...copyArr]);
+        let arr = [...e.data.data] || [];
+        // let copyArr = arr.filter((e) => e.delYn === "N");
+        setBoardList([...arr]);
       })
       .catch((e) => console.log(e));
   };
@@ -63,37 +64,38 @@ const Component = () => {
               headDate="사용 여부"
               headEtc="관리"
             />
-            {boardList.map((e, idx) => (
-              <TableCell
-                key={idx}
-                choice="number"
-                number={idx + 1}
-                title={e.bbsNm}
-                writer={e.rpstCnt}
-                labelBg="bg-violet-1"
-                labelColor="txt-white"
-                label={e.useYn === "Y" ? "사용 중" : "사용 헤제"}
-                listLink="/board/board_retouch"
-                link="#"
-                boardLink="/board/board_list"
-                onclick={() => {
-                  console.log(e);
-                  setBoardAtom({
-                    bbsNm: e.bbsNm,
-                    bbsNo: e.bbsNo,
-                    useYn: e.useYn,
-                    delYn: e.delYn,
-                  });
-                }}
-                delete={() => {
-                  deleteBoard({
-                    boardName: e.bbsNm,
-                    boradIdx: e.bbsNo,
-                    isUse: e.useYn,
-                  });
-                }}
-              />
-            ))}
+            {boardList &&
+              boardList.map((e, idx) => (
+                <TableCell
+                  key={idx}
+                  choice="number"
+                  number={idx + 1}
+                  title={e.bbsNm}
+                  writer={e.rpstCnt}
+                  labelBg="bg-violet-1"
+                  labelColor="txt-white"
+                  label={e.useYn === "Y" ? "사용 중" : "사용 헤제"}
+                  listLink="/board/board_retouch"
+                  link="#"
+                  boardLink="/board/board_list"
+                  onclick={() => {
+                    console.log(e);
+                    setBoardAtom({
+                      bbsNm: e.bbsNm,
+                      bbsNo: e.bbsNo,
+                      useYn: e.useYn,
+                      delYn: e.delYn,
+                    });
+                  }}
+                  delete={() => {
+                    deleteBoard({
+                      boardName: e.bbsNm,
+                      boradIdx: e.bbsNo,
+                      isUse: e.useYn,
+                    });
+                  }}
+                />
+              ))}
             <Pagnation
               size="regular"
               pageIdx={pageIdx}

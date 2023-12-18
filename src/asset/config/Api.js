@@ -16,6 +16,19 @@ export const Api = axios.create({
   },
 });
 
+export const ApiForm = axios.create({
+  baseURL: baseUrl,
+  headers: {
+    "Cache-Control": "no-cache",
+    Pragma: "no-cache",
+    Expires: "0",
+    "Content-Type": "multipart/form-data",
+    Authorization: `Bearer ${
+      typeof window !== "undefined" && localStorage.getItem("accessToken")
+    }`,
+  },
+});
+
 export const ApiKotech = axios.create({
   baseURL: kotechUrl,
   withCredentials: true,
