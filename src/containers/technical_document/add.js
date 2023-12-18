@@ -78,6 +78,7 @@ const Component = () => {
   const searchOrgan = async (organ) => {
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
+      console.log(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
 		});
@@ -110,6 +111,7 @@ const Component = () => {
     } else if(typeCd === 'R') {
       window.location = '/technical_document/add_3';
     }
+		searchOrgan();
   }, [typeCd]);
 
   return (
@@ -148,7 +150,7 @@ const Component = () => {
               valueType=""
               helperTextResult="none"
               iconState="false"
-              state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setRsacUcmdCd}
+              state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
             />
             <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>

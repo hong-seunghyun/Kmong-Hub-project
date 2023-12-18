@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Badge from "/src/components/label/badge";
 import Input from "/src/components/textFields/textInput.tsx";
-import ButtonL from "/src/components/buttons/button_outline_l"
+import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
+import ButtonL from "/src/components/buttons/button_outline_l"	
 import Button from "/src/components/buttons/button_primary_l"
 import DropsMenu from "/src/components/dropsMenu/drops_menu";
 import Icon from "/src/components/icon/icon.tsx"
@@ -48,9 +49,10 @@ const Component = () => {
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
 
-  const searchOrgan = async (organ) => {
-		await searchOrgn({query: organ}).then(res => {
+  const searchOrgan = async () => {
+		await searchOrgn().then(res => {
 			setData(res.data.result.rows);
+			console.log(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
 		});
@@ -83,6 +85,7 @@ const Component = () => {
     } else if(typeCd === 'R') {
       window.location = '/technical_document/add_3';
     }
+		searchOrgan();
   }, [typeCd]);
 
 	return(
@@ -107,13 +110,27 @@ const Component = () => {
 							기본 정보
 					</div>
 					<div className="box-">
-						<Input labelText="기술명" placeholder="기술명을 입력해 주세요." helperTextResult="none" iconState="false"/>
-					</div>
+            <Input
+              labelText="기술명"
+              placeholder="기술명을 입력해 주세요."
+              helperTextResult="none"
+              iconState="false"
+              setState={setTcqNm}
+              state={tcqNm}
+            />
+          </div>
 
 					<div className="flex_ input-search box-">
-						<Input labelText="연구기관" placeholder="연구기관을 검색해 주세요." valueType="" helperTextResult="none" iconState="false"/>
-						<Icon icon="search" size={16} stroke="none" color="#574AFF" /> 
-					</div>
+            <CompanyInput
+              labelText="연구 기관"
+              placeholder="연구 기관을 검색해 주세요."
+              valueType=""
+              helperTextResult="none"
+              iconState="false"
+              state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
+            />
+            <Icon icon="search" size={16} stroke="none" color="#574AFF" />
+          </div>
 
 					<div className="box-">
 						<Input importState="none" labelText="문서번호" placeholder="문서번호를 입력해 주세요." helperTextResult="none" iconState="false"/>
