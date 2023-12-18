@@ -31,7 +31,7 @@ const Component = () => {
   const [ typeCd, setTypeCd ] = useState('');
 
   useLayoutEffect(() => {
-    getTechList(1, 5).then(res => {
+    getTechList(1, 10).then(res => {
       console.log(res.data.data);
       setTechList(res.data.data);
     }).catch(err => {

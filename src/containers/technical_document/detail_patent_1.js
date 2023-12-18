@@ -17,7 +17,6 @@ const Component = () => {
 
 	const router = useRouter();
 	const [ data, setData ] = useState();
-	const [ orgn, setOrgn ] = useState();
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
@@ -125,7 +124,7 @@ const Component = () => {
 								출처
 								</th>
 								<td className="tbody">
-								출처
+								{data.orgCntn}
 								</td>
 							</tr>
 							<tr>
@@ -133,7 +132,7 @@ const Component = () => {
 								원문
 								</th>
 								<td className="tbody">
-									<TextBtn text="PDF 보기" />
+									<TextBtn text="PDF 보기" link={data.techDocDetails[0].filePath}/>
 								</td>
 							</tr>
 						</tbody>
