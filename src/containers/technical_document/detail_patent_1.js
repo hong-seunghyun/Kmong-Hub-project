@@ -36,7 +36,7 @@ const Component = () => {
 					<h1 className="display-5-B title flex_">
 						{data.tcqNm}
 					</h1>
-					<Tabs active={0} />
+					<Tabs active={0} link={}/>
 					
 					<p className="table-caption body-2-B">기본 정보</p>
 						<table className="table-horizontal-container radius-20 body-3-R">
