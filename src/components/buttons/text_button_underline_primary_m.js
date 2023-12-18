@@ -7,7 +7,10 @@ const Component = (props) => {
 
 	const onClickActive = () => {
 		console.log(props.link);
-		if(props.link) window.open(props.link);
+		if(props.link) {
+			if(props.link.split('/')[0] === '') window.location = props.link;
+			else window.open(props.link);
+		}
 		setButton(!isButton);
 	}
 

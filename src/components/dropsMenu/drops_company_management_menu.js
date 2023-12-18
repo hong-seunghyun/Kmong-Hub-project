@@ -17,6 +17,10 @@ const Component = (props) => {
 		setToggle(!toggle);
 	}
 
+	const onBlur = () => {
+		setToggle(false);
+	}
+
 	let filterTitle;
 
 	if(dummy) {
@@ -33,7 +37,8 @@ const Component = (props) => {
 					type="text" 
 					placeholder={props.placeholder}
 					value={search}
-					onChange={onChange}	
+					onChange={onChange}
+					onBlur={onBlur}
 				/>
 				<span className="icon_serach">
 					<Icon size={9} color="#464749" stroke="" icon="chevronDown" onClick={onClick}/>

@@ -14,6 +14,7 @@ import SearchBar from "/src/components/searchBar/search_bar_company_management_m
 import { useState } from "react";
 import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json"
+import { useLayoutEffect } from "react";
 
 const Component = () => {
 
@@ -96,6 +97,7 @@ const Component = () => {
 	const searchOrgan = async (organ) => {
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
+			console.log(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
 		});
@@ -124,6 +126,10 @@ const Component = () => {
 			console.log(err);
 		});
 	};
+
+	useLayoutEffect(() => {
+		searchOrgan();
+	},[]);
 
 	return(
 			<div className="login sing-up">
@@ -183,7 +189,7 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
+						<SearchBar state={orgn} setState={setOrgn} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
 					</div>
 					<div className="box-">
@@ -200,12 +206,12 @@ const Component = () => {
 					</Link>
 					<p className="ps-txt caption-R txt-second-default flex_">
 						회원가입 시 
-						<Link href="#">
-							<TextBtn text="이용약관" />
+						<Link href="/etc/user-guide-01">
+							<TextBtn text="이용약관"/>
 						</Link>
 						및
-						<Link href="#">
-							<TextBtn text="개인정보처리방침" />
+						<Link href="/etc/user-guide-02">
+							<TextBtn text="개인정보처리방침"/>
 						</Link>
 						에 동의하게 됩니다.
 					</p>
