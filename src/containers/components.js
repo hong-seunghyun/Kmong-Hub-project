@@ -2,7 +2,7 @@
 // HSD Project index.js
 import React from "react";
 
-import NavigationSide from "/src/components/navigations/navigation_side";
+
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 import NavigationTop from "/src/components/navigations/navigation_top";
 import ButtonCta from "/src/components/buttons/button_cta";
@@ -68,7 +68,7 @@ const Component = () => {
       <div style={{ margin: "20px" }}>
         <h1>Navigation Side</h1>
 
-        <NavigationSide />
+        
         <div style={{ margin: "100vh" }} />
         <hr />
 
