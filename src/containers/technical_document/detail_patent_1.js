@@ -19,7 +19,7 @@ const Component = () => {
 	const router = useRouter();
 	const [ data, setData ] = useState();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
 		getTechDetails(no).then(res => {
@@ -28,7 +28,7 @@ const Component = () => {
 		}).catch(err => {
 			console.log(err);
 		});
-	},[]);
+	},[router.isReady]);
 
 	return data ? (
 		<div className="container">

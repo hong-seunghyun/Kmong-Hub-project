@@ -15,9 +15,7 @@ import { useState } from "react";
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState({
-		"asdf": 'asdf'
-	});
+	const [ data, setData ] = useState();
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
@@ -28,7 +26,7 @@ const Component = () => {
 		}).catch(err => {
 			console.log(err);
 		});
-	},[]);
+	},[router.isReady]);
 
 	return data ? (
 		<div className="container">
@@ -52,7 +50,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제 요청" />
 							</Link>
-							<Link href="/technical_document/retouch_patent">
+							<Link href={`/technical_document/retouch_patent?no=${router.query ? router.query.no : ''}`}>
 								<Button text="수정 요청" />
 							</Link>
 						</div>
