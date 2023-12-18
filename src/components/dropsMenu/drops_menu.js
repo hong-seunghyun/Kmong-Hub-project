@@ -4,7 +4,7 @@ import { useLayoutEffect } from "react";
 
 // 특허 페이지
 const Component = (props) => {
-	const [ search, setSearch ] = useState("");
+	const [ search, setSearch ] = useState(props.default ? props.default : '');
 	const [ toggle, setToggle ] = useState(false);
 
 	const dummy = props.datas;

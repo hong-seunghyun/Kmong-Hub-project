@@ -10,8 +10,81 @@ import DatePicker from "/src/components/date/date-picker-single"
 import Upload from "/src/components/upload/upload"
 import CheckBox from "/src/components/radio/checkbox"
 import Radio from "/src/components/radio/radio"
+import { useEffect } from "react";
+import { useState } from "react";
+import { searchOrgn } from "../../asset/apis/signup";
+import { addPatent } from "../../asset/apis/tech";
 
 const Component = () => {
+
+	const drop_datas = [
+    {
+      id: "P",
+      title: '특허'
+    },
+    {
+      id: "T",
+      title: '논문'
+    },
+    {
+      id: "R",
+      title: '보고서'
+    }
+  ];
+
+	const [ typeCd, setTypeCd ] = useState('T');
+  const [ tcqNm, setTcqNm ] = useState('');
+  const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
+  const [ apyNo, setApyNo ] = useState('');
+  const [ apyAd, setApyAd ] = useState('');
+  const [ statCd, setStatCd ] = useState('');
+  const [ rgstNo, setRgstNo ] = useState('');
+  const [ ivtNm, setIvtNm ] = useState('');
+  const [ ipcVal, setIpcVal ] = useState('');
+  const [ cpcVal, setCpcVal ] = useState('');
+  const [ piuaYn, setPiuaYn ] = useState('');
+  
+  const [ data, setData ] = useState([]);
+  const [ orgn, setOrgn ] = useState('');
+  const [ file, setFile ] = useState('');
+
+  const searchOrgan = async (organ) => {
+		await searchOrgn({query: organ}).then(res => {
+			setData(res.data.result.rows);
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+
+  const createThesis = () => {
+    addPatent({
+      typeCd,
+      tcqNm,
+      rsacUcmdCd,
+      apyNm,
+      apyAd,
+      statCd,
+      rgstNo,
+      ivtNm,
+      ipcVal,
+      cpcVal,
+      piuaYn
+    }).then(res => {
+      console.log(res.data);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+	useEffect(() => {
+    console.log(typeCd);
+    if(typeCd === 'P') {
+      window.location = '/technical_document/add';
+    } else if(typeCd === 'R') {
+      window.location = '/technical_document/add_3';
+    }
+  }, [typeCd]);
+
 	return(
 		<div className="page-wrap">
 			<div className="board- board-add document- technical-document-add">
@@ -23,10 +96,10 @@ const Component = () => {
 				</div>
 
 				<div className="sub-title body-2-B flex_">
-					<Badge value="1"/>
-						유형 선택
-				</div>
-				<DropsMenu />
+          <Badge value="1" />
+          유형 선택
+        </div>
+        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd} default="논문"/>
 
 				<div className="content- content-2">
 					<div className="sub-title body-2-B flex_">

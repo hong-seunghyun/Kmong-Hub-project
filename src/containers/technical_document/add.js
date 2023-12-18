@@ -13,6 +13,7 @@ import CheckBox from "/src/components/radio/checkbox";
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
 import { addPatent } from "../../asset/apis/tech";
+import { useEffect } from "react";
 
 const Component = () => {
 
@@ -58,7 +59,7 @@ const Component = () => {
     }
   ];
 
-  const [ typeCd, setTypeCd ] = useState('');
+  const [ typeCd, setTypeCd ] = useState('P');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
   const [ apyNo, setApyNo ] = useState('');
@@ -102,6 +103,15 @@ const Component = () => {
     });
   }
 
+  useEffect(() => {
+    console.log(typeCd);
+    if(typeCd === 'T') {
+      window.location = '/technical_document/add_2';
+    } else if(typeCd === 'R') {
+      window.location = '/technical_document/add_3';
+    }
+  }, [typeCd]);
+
   return (
     <div className="page-wrap">
       <div className="board- board-add document- technical-document-add">
@@ -113,7 +123,7 @@ const Component = () => {
           <Badge value="1" />
           유형 선택
         </div>
-        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd}/>
+        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd} default="특허"/>
 
         <div className="content- content-2">
           <div className="sub-title body-2-B flex_">

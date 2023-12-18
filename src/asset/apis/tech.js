@@ -76,3 +76,39 @@ export const addPatent = ({
   });
   return response;
 }
+
+// post(특허 저장하기)
+export const addThesis = ({
+  typeCd,
+  tcqNm,
+  rsacUcmdCd,
+  apyNm,
+  apyAd,
+  statCd,
+  rgstNo,
+  ivtNm,
+  ipcVal,
+  cpcVal,
+  piuaYn
+}) => {
+  const mergeTechDTO = {
+    typeCd,
+    tcqNm,
+    rsacUcmdCd,
+    apyNm,
+    apyAd,
+    statCd,
+    rgstNo,
+    ivtNm,
+    ipcVal,
+    cpcVal,
+    piuaYn
+  };
+
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
+    }
+  });
+  return response;
+}
