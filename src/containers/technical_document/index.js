@@ -29,15 +29,16 @@ const Component = () => {
 
   const [ techList, setTechList ] = useState([]);
   const [ typeCd, setTypeCd ] = useState('');
+  const [ pageIdx, setPageIdx ] = useState(1);
 
   useLayoutEffect(() => {
-    getTechList(1, 10).then(res => {
+    getTechList(pageIdx, 10).then(res => {
       console.log(res.data.data);
       setTechList(res.data.data);
     }).catch(err => {
       console.log(err);
     })
-  },[]);
+  },[pageIdx]);
 
   return (
     <div className="page-wrap">
@@ -181,7 +182,7 @@ const Component = () => {
                 link="/technical_document/detail_report_1"
               /> */}
 
-              <Pagnation size="regular" />
+              <Pagnation size="regular" setPageIdx={setPageIdx}/>
             </div>
           </div>
         </div>
