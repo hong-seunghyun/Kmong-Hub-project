@@ -45,47 +45,53 @@ const Component = () => {
     };
     return (
       <div className="sub-page-0">
-        {technologyList.map((e, idx) => {
-          return (
-            <>
-              <div className="flex_ button-input">
-                <Input
-                  importState=""
-                  labelText={`카테고리 ${idx + 1}`}
-                  placeholder="카테고리 제목을 입력해 주세요."
-                  valueType=""
-                  state={e.catgNm}
-                  setStateFunc={(event) => {
-                    console.log(idx);
-                    changeCategoryValue({
-                      event: event.target.value,
-                      index: idx,
-                    });
-                  }}
-                  helperTextResult="helperA"
-                  iconState="false"
-                />
-                {idx !== 0 && (
+        {technologyList &&
+          technologyList.map((e, idx) => {
+            return (
+              <>
+                <div className="flex_ button-input">
+                  <Input
+                    importState=""
+                    labelText={`카테고리 ${idx + 1}`}
+                    placeholder="카테고리 제목을 입력해 주세요."
+                    valueType=""
+                    state={e.catgNm}
+                    setStateFunc={(event) => {
+                      console.log(idx);
+                      changeCategoryValue({
+                        event: event.target.value,
+                        index: idx,
+                      });
+                    }}
+                    helperTextResult="helperA"
+                    iconState="false"
+                  />
+                  {idx !== 0 && (
+                    <OutlineBtn
+                      text={
+                        <Icon
+                          icon="minus"
+                          size={3}
+                          color="#464749"
+                          stroke="none"
+                        />
+                      }
+                    />
+                  )}
                   <OutlineBtn
                     text={
                       <Icon
-                        icon="minus"
-                        size={3}
+                        icon="plus"
+                        size={16}
                         color="#464749"
                         stroke="none"
                       />
                     }
                   />
-                )}
-                <OutlineBtn
-                  text={
-                    <Icon icon="plus" size={16} color="#464749" stroke="none" />
-                  }
-                />
-              </div>
-            </>
-          );
-        })}
+                </div>
+              </>
+            );
+          })}
       </div>
     );
   };

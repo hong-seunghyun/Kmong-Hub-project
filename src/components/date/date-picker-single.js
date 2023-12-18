@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import DatePicker from "react-datepicker";
 import { ko } from "date-fns/locale";
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 import { getYear, getMonth } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import Icon from "/src/components/icon/icon.tsx";
@@ -63,40 +63,50 @@ const Component = (props) => {
 									))}
 								</select>
 
-								<select
-								className="years-wrap body-2-B"
-									value={getYear(date)}
-									onChange={({ target: { value } }) => changeYear(value)}
-								>
-									{years.map(option => (
-										<option key={option} value={option}>
-											{option}
-										</option>
-									))}
-								</select>
-							
-							</div>
-							<div className="header-btn-wrap flex_">
-								<button
-									type="button"
-									onClick={decreaseMonth}
-									disabled={prevMonthButtonDisabled}
-								>
-									<Icon icon="chevronLeft" size={9} color="#464749" stroke="none" />
-								</button>
-								<button
-									type="button"
-									onClick={increaseMonth}
-									disabled={nextMonthButtonDisabled}
-								>
-									<Icon icon="chevronRight" size={9} color="#464749" stroke="none" />
-								</button>
-							</div>
-						</div>
-					)}
-				/>
-			</div>
-		</div>
+                <select
+                  className="years-wrap body-2-B"
+                  value={getYear(date)}
+                  onChange={({ target: { value } }) => changeYear(value)}
+                >
+                  {years &&
+                    years.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className="header-btn-wrap flex_">
+                <button
+                  type="button"
+                  onClick={decreaseMonth}
+                  disabled={prevMonthButtonDisabled}
+                >
+                  <Icon
+                    icon="chevronLeft"
+                    size={9}
+                    color="#464749"
+                    stroke="none"
+                  />
+                </button>
+                <button
+                  type="button"
+                  onClick={increaseMonth}
+                  disabled={nextMonthButtonDisabled}
+                >
+                  <Icon
+                    icon="chevronRight"
+                    size={9}
+                    color="#464749"
+                    stroke="none"
+                  />
+                </button>
+              </div>
+            </div>
+          )}
+        />
+      </div>
+    </div>
   );
 };
 

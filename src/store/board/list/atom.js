@@ -6,6 +6,6 @@ export const BoardListAtom = atom({
 });
 
 export const BoardDetailListAtom = atom({
-  key: "BoardListAtom",
+  key: "BoardDetailListAtom",
   default: [],
 });

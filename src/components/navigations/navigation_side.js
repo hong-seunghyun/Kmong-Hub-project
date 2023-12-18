@@ -150,56 +150,56 @@ const Component = (props) => {
   };
 
   const onMenuContent = () => {
-    if(!isContentMenu){
-			setContentMenu(true)
-		}else{
-			setContentMenu(false)
-		}
+    if (!isContentMenu) {
+      setContentMenu(true);
+    } else {
+      setContentMenu(false);
+    }
   };
-	const onMenuMember = () => {
-    if(!isContentMember){
-			setContentMember(true)
-		}else{
-			setContentMember(false)
-		}
+  const onMenuMember = () => {
+    if (!isContentMember) {
+      setContentMember(true);
+    } else {
+      setContentMember(false);
+    }
   };
-	const onMenuTransaction = () => {
-    if(!isContentTransaction){
-			setContentTransaction(true)
-		}else{
-			setContentTransaction(false)
-		}
+  const onMenuTransaction = () => {
+    if (!isContentTransaction) {
+      setContentTransaction(true);
+    } else {
+      setContentTransaction(false);
+    }
   };
-	const onMenuDesign = () => {
-    if(!isContentDesign){
-			setContentDesign(true)
-		}else{
-			setContentDesign(false)
-		}
+  const onMenuDesign = () => {
+    if (!isContentDesign) {
+      setContentDesign(true);
+    } else {
+      setContentDesign(false);
+    }
   };
-	const onMenuMarketing = () => {
-    if(!isContentMarketing){
-			setContentMarketing(true)
-		}else{
-			setContentMarketing(false)
-		}
+  const onMenuMarketing = () => {
+    if (!isContentMarketing) {
+      setContentMarketing(true);
+    } else {
+      setContentMarketing(false);
+    }
   };
-	const onMenuQuestion = () => {
-    if(!isContentQuestion){
-			setContentQuestion(true)
-		}else{
-			setContentQuestion(false)
-		}
+  const onMenuQuestion = () => {
+    if (!isContentQuestion) {
+      setContentQuestion(true);
+    } else {
+      setContentQuestion(false);
+    }
   };
 
-	const onMenuResearcher = () => {
-    if(!isContentResearcher){
-			setContentResearcher(true)
-		}else{
-			setContentResearcher(false)
-		}
+  const onMenuResearcher = () => {
+    if (!isContentResearcher) {
+      setContentResearcher(true);
+    } else {
+      setContentResearcher(false);
+    }
   };
-  
+
   return (
     <div className="sidebar-wrap">
       <ul>
@@ -254,11 +254,12 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_CONTENT.map((item, index) => (
-              <p key={index} className={item.state}>
-                {item.name}
-              </p>
-            ))}
+            {SUB_MENU_LIST_CONTENT &&
+              SUB_MENU_LIST_CONTENT.map((item, index) => (
+                <p key={index} className={item.state}>
+                  {item.name}
+                </p>
+              ))}
           </div>
         </li>
         <li className="radius-8 ">
@@ -298,9 +299,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_RESEARCHER.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_RESEARCHER &&
+              SUB_MENU_LIST_RESEARCHER.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li className={`radius-8 list-wrap ${isContentMember ? "show" : ""}`}>
@@ -322,9 +324,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_MEMBER.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_MEMBER &&
+              SUB_MENU_LIST_MEMBER.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li
@@ -353,9 +356,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_TRANSACTION.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_TRANSACTION &&
+              SUB_MENU_LIST_TRANSACTION.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li className="radius-8">
@@ -393,9 +397,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_DESIGN.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_DESIGN &&
+              SUB_MENU_LIST_DESIGN.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li
@@ -417,9 +422,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_MARKETING.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_MARKETING &&
+              SUB_MENU_LIST_MARKETING.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li
@@ -441,9 +447,10 @@ const Component = (props) => {
             </span>
           </div>
           <div className="sub-nav-box bg-gray-8">
-            {SUB_MENU_LIST_QUESTION.map((item, index) => (
-              <p key={index}>{item.name}</p>
-            ))}
+            {SUB_MENU_LIST_QUESTION &&
+              SUB_MENU_LIST_QUESTION.map((item, index) => (
+                <p key={index}>{item.name}</p>
+              ))}
           </div>
         </li>
         <li className="radius-8">
