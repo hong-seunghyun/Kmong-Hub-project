@@ -23,7 +23,6 @@ import CheckBox from "/src/components/radio/checkbox"
 const Component = () => {
 	const [ isRadioValue, setRadioValue ] = useState('');
 
-	console.log(isRadioValue);
 	const PageA = () => {
 		return(
 			<div>
@@ -41,7 +40,7 @@ const Component = () => {
 			<div>
 				<Upload state="default" type="normal" />
 					<div className="flex_ btn_flex">
-						<Link href="#">
+						<Link href="/technology/add_select_document">
 							<Button text="AI 수정" />
 						</Link>
 					</div>
@@ -54,7 +53,7 @@ const Component = () => {
 				<TextArea labelText="" placeholder="기술에 대한 상세 정보를 입력해주시면, 이를 바탕으로 AI가 콘텐츠를 자동 생성해요." valueType="" helperTextResult="none"/>
 
 				<div className="flex_ btn_flex">
-					<Link href="#">
+					<Link href="/technology/add_select_document">
 						<Button text="AI 수정" />
 					</Link>
 				</div>
@@ -725,10 +724,10 @@ const Component = () => {
 						</span>
 					</div>
 					
-					{isRadioValue == 'page1' && <PageA />}
-					{isRadioValue == 'page2' && <PageB  />}
-					{isRadioValue == 'page3' && <PageC />}
-					{isRadioValue == 'page4' && <PageD />}
+					{isRadioValue === 'page1' && <PageA />}
+					{isRadioValue === 'page2' && <PageB  />}
+					{isRadioValue === 'page3' && <PageC />}
+					{isRadioValue === 'page4' && <PageD />}
 				</div>
 
 				

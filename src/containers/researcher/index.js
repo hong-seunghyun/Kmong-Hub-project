@@ -29,9 +29,9 @@ const Component = () => {
 						headEtc="관리"
 					/>
 					<TableCell 
-						labelBg="bg-violet-5"
+						labelBg="bg-mint-1"
 						label="임시저장"
-						labelColor="txt-violet-1"
+						labelColor="txt-white"
 						img="/images/sample-img.png"
 						title="유하민"
 						belong="고려대학교, 서강대학교..."
@@ -40,19 +40,8 @@ const Component = () => {
 						link="/researcher/detail"
 					/>
 					<TableCell 
-						labelBg="bg-violet-5"
+						labelBg="bg-mint-1"
 						label="임시저장"
-						labelColor="txt-violet-1"
-						img="/images/sample-img.png"
-						title="유하민"
-						belong="고려대학교, 서강대학교..."
-						writer="전자공학"
-						position="정교수"
-						link="/researcher/detail"
-					/>
-					<TableCell 
-						labelBg="bg-violet-1"
-						label="AI 생성중"
 						labelColor="txt-white"
 						img="/images/sample-img.png"
 						title="유하민"
@@ -84,42 +73,9 @@ const Component = () => {
 						link="/researcher/detail"
 					/>
 					<TableCell 
-						labelBg="bg-gray"
-						label="생성완료"
-						labelColor="txt-third"
-						img="/images/sample-img.png"
-						title="유하민"
-						belong="고려대학교, 서강대학교..."
-						writer="전자공학"
-						position="정교수"
-						link="/researcher/detail"
-					/>
-					<TableCell 
-						labelBg="bg-gray"
-						label="생성완료"
-						labelColor="txt-third"
-						img="/images/sample-img.png"
-						title="유하민"
-						belong="고려대학교, 서강대학교..."
-						writer="전자공학"
-						position="정교수"
-						link="/researcher/detail"
-					/>
-					<TableCell 
-						labelBg="bg-gray"
-						label="생성완료"
-						labelColor="txt-third"
-						img="/images/sample-img.png"
-						title="유하민"
-						belong="고려대학교, 서강대학교..."
-						writer="전자공학"
-						position="정교수"
-						link="/researcher/detail"
-					/>
-					<TableCell 
-						labelBg="bg-gray"
-						label="생성완료"
-						labelColor="txt-third"
+						labelBg="bg-violet-1"
+						label="AI 생성중"
+						labelColor="txt-white"
 						img="/images/sample-img.png"
 						title="유하민"
 						belong="고려대학교, 서강대학교..."
@@ -129,8 +85,52 @@ const Component = () => {
 					/>
 					<TableCell 
 						labelBg="bg-violet-5"
-						label="임시저장"
+						label="생성완료"
 						labelColor="txt-violet-1"
+						img="/images/sample-img.png"
+						title="유하민"
+						belong="고려대학교, 서강대학교..."
+						writer="전자공학"
+						position="정교수"
+						link="/researcher/detail"
+					/>
+					<TableCell 
+						labelBg="bg-violet-5"
+						label="생성완료"
+						labelColor="txt-violet-1"
+						img="/images/sample-img.png"
+						title="유하민"
+						belong="고려대학교, 서강대학교..."
+						writer="전자공학"
+						position="정교수"
+						link="/researcher/detail"
+					/>
+					<TableCell 
+						labelBg="bg-gray"
+						label="등록완료"
+						labelColor="txt-third"
+						img="/images/sample-img.png"
+						title="유하민"
+						belong="고려대학교, 서강대학교..."
+						writer="전자공학"
+						position="정교수"
+						link="/researcher/detail"
+					/>
+					<TableCell 
+						labelBg="bg-gray"
+						label="등록완료"
+						labelColor="txt-third"
+						img="/images/sample-img.png"
+						title="유하민"
+						belong="고려대학교, 서강대학교..."
+						writer="전자공학"
+						position="정교수"
+						link="/researcher/detail"
+					/>
+					<TableCell 
+						labelBg="bg-mint-1"
+						label="임시저장"
+						labelColor="txt-white"
 						img="/images/sample-img.png"
 						title="유하민"
 						belong="고려대학교, 서강대학교..."

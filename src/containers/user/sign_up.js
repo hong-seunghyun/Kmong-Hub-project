@@ -163,9 +163,9 @@ const Component = () => {
 					<div className="box-">
 						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
 					</div>
-					<div className="flex_ button-input box-">
-						<TelInput importState="" labelText="휴대폰 번호" placeholder="휴대전화 인증을 해주세요." valueType="" helperTextResult="none" iconState="true" state={tel} setState={setTel}/>
-						<ButtonSecondary text="번호 인증" state="enabled" onclick={verification}/>
+					<div className="flex_ button-input box- button-full">
+						<p className="body-2-B txt-second-default">휴대폰<span className="txt-violet-1">*</span></p>
+						<ButtonSecondary text="PASS 인증" state="enabled" onclick={verification}/>
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
