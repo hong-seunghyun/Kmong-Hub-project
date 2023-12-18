@@ -1,25 +1,18 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect, useLayoutEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
+import SelectLabel from "/src/components/label/select_label";
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
-import SelectLabel from "/src/components/label/select_label";
-import Editor from "/src/components/editorBox/index"
 import Icon from "/src/components/icon/icon.tsx"
 import Badge from "/src/components/label/badge"
 import Radio from "/src/components/radio/radio"
 import Upload from "/src/components/upload/upload"
-import ButtonSecondary from "/src/components/buttons/button_secondary_l"
 import Input from "/src/components/textFields/textInput.tsx"
 import TextArea from "/src/components/textFields/textArea.tsx"
 import DatePicker from "/src/components/date/date-picker-single"
-import OutlineBtn from "/src/components/buttons/button_outline_l"
-import ToggleButton from "/src/components/radio/slide_toggle_btn";
-import SearchBox from "/src/components/searchBar/search_bar_email_history"
-import DropDownMenu from "/src/components/dropsMenu/drops_menu";
-import TextUnderline from "/src/components/buttons/text_button_underline_primary_s"
 import CheckBox from "/src/components/radio/checkbox"
-import { setResearcher } from "/src/asset/apis/contents/researcher";
+import { setResearcher, getResearcherCategory } from "/src/asset/apis/contents/researcher";
 import useRscCarerInfos from "../../hooks/contents/useRscCarerInfos";
 
 const Component = () => {
@@ -45,7 +38,62 @@ const Component = () => {
   const [educationCntn, setEducationCntn] = useState() // 학력 내역
   const [ytbPath, setYtbPath] = useState() // 유튜브 주소
 
-  const [crtTypeCd, setCrtTypeCd] = useState("") // 생성 유형 코드
+  const crtTypeCd = useMemo(() => {
+    if(registType === 0) return 'A'
+    if(registType === 1) return 'B'
+    if(registType === 2) return 'N'
+    return null
+  }) // 생성 유형 코드
+  
+  const [search, setSearch] = useState("")
+  const [toggle, setToggle] = useState(false)
+
+  const [data, setData] = useState([])
+  const searchResult = useMemo(() => (
+    data.filter(item => item.catgNm.includes(search))
+  ), [data, search])
+
+  const searchDeptMajr = useCallback(async () => {
+    const res = await getResearcherCategory()
+    if(res.status === 200) {
+      setData(res.data.data)
+    } else {
+      console.log('error')
+    }
+  })
+
+  useLayoutEffect(() => {
+    searchDeptMajr()
+  }, [])
+
+  const appendDeptMajr = useCallback((idx) => () => {
+    const isExist = deptMajrs.filter(item => item.deptMajrNo === searchResult[idx].catgNo)
+    if(isExist.length > 0) {
+      setToggle(false)
+      return
+    }
+    setDeptMajrs([...deptMajrs, {
+      deptMajrNo: searchResult[idx].catgNo,
+      deptMajrNm: searchResult[idx].catgNm,
+      seq: deptMajrs.length + 1,
+    }])
+    setSearch('')
+    setToggle(false)
+  }, [deptMajrs, searchResult])
+
+  const deleteDeptMajr = useCallback((idx) => () => {
+    const filtered = deptMajrs.filter(item => item.seq !== idx)
+    const reIndexed = filtered.map((item, index) => ({
+      ...item,
+      seq: index + 1
+    }))
+    setDeptMajrs(reIndexed)
+  }, [deptMajrs])
+  const onChange = (e) => {
+    setSearch(e.target.value);
+    if(data.length == 0) setToggle(false);
+    else setToggle(true)
+  }
 
   const {
     rscCarerInfos,
@@ -60,36 +108,42 @@ const Component = () => {
   } = useRscCarerInfos()
 
   const submitAvailable = useMemo(() => {
-    //return rscNm && deptMajrs.length > 0 && pstnNm && rscCarerInfosAvailable
-    console.log(rscNm, deptMajrs.length > 0, pstnNm, rscCarerInfosAvailable)
-    return rscNm && pstnNm && rscCarerInfosAvailable
+    return rscNm && deptMajrs.length > 0 && pstnNm && rscCarerInfosAvailable
   }, [rscNm, deptMajrs, pstnNm, rscCarerInfosAvailable])
 
   const formData = useMemo(() => {
-    const formData = new FormData();
+    const _formData = new FormData();
     const dto = {
-      aosCntn,
-      deptMajrs,
-      crtTypeCd,
-      deptMajrs,
-      educationCntn,
-      emailAdr,
-      hpNo,
-      inaCntn,
-      labNm,
-      labWebAddr,
-      lctCntn,
-      ofcPhcNo,
-      pstnNm,
-      rscCarerInfos,
       rscNm,
-      webAddr,
-      ytbPath
+      deptMajrs: {
+        deptMajrNo: deptMajrs.length > 0 ? deptMajrs[0].deptMajrNo : undefined, 
+        //seq: deptMajrs.length > 0 ? deptMajrs[0].seq : undefined,
+      },
+      pstnNm,
+      ...(crtTypeCd && {crtTypeCd}), 
+      ...(aosCntn && {aosCntn}),
+      ...(educationCntn && {educationCntn}),
+      ...(emailAdr && {emailAdr}),
+      ...(hpNo && {hpNo}),
+      ...(inaCntn && {inaCntn}),
+      ...(labNm && {labNm}),
+      ...(labWebAddr && {labWebAddr}),
+      ...(lctCntn && {lctCntn}),
+      ...(ofcPhcNo && {ofcPhcNo}),
+      ...(rscCarerInfos && {rscCarerInfos}),
+      ...(webAddr && {webAddr}),
+      ...(ytbPath && {ytbPath}),
     }
 
-    formData.append("rscRegiDto", JSON.stringify(dto));
-    formData.append("pflFile", pflFile);
-    return formData;
+    console.log(JSON.stringify(dto))
+
+    const blob = new Blob([JSON.stringify(dto)], { type: "application/json" });
+
+    _formData.append("rscRegiDto", blob);
+    if(pflFile) {
+      _formData.append("pflFile", pflFile);
+    }
+    return _formData;
   }, [
       aosCntn,
       deptMajrs,
@@ -115,7 +169,7 @@ const Component = () => {
     if(registType === 2) {
       const res = await setResearcher(formData)
       if (res.status === 200) {
-
+        alert('연구자 등록이 완료되었습니다.')
       }
     }
   }, [formData])
@@ -203,10 +257,46 @@ const Component = () => {
               </p>
             </div>
 
-            <div className="input-wrap input-search">
-              <Input labelText="부서/학과" placeholder="부서/학과를 입력해 주세요." valueType="" helperTextResult="none" iconState="false"/>
+            <div className="input-wrap input-search search-container-large">
+              <Input 
+                labelText="부서/학과" 
+                placeholder="부서/학과를 입력해 주세요." 
+                valueType="" 
+                helperTextResult="none" 
+                iconState="false"
+                setStateFunc={onChange}
+                state={search}
+              />
               <Icon icon="search" size={16} stroke="none" color="#574AFF" /> 
               <Icon icon="delete" size={16} stroke="none" color="#B3B6B8" /> 
+              <div
+                className="wrap radius-8 border-gray-4"
+                style={{ display: toggle ? "block" : "none" }}
+              >
+                <div className="flex_ result-search-box body-3-R ">
+                  {
+                    searchResult.map((item, index) => (
+                      <span
+                        onClick={appendDeptMajr(index)}
+                      >
+                        {item.catgNm}
+                      </span>
+                    ))
+                  }
+                </div>
+            </div>
+            </div>
+            <div className="flex_ select-flex">
+              {deptMajrs.map((item, index) => ( 
+                <SelectLabel 
+                  backgroundColor="bg-violet-5" 
+                  fontColor="txt-violet-1" 
+                  text={item.deptMajrNm} 
+                  icon="true" 
+                  iconColor="#574AFF"
+                  onClickDelete={deleteDeptMajr(item.seq)}
+                />
+              ))}
             </div>
 
             <div className="input-wrap">
@@ -390,8 +480,8 @@ const Component = () => {
                 <Link href="#">
                   <ButtonL text="초기화" />
                 </Link>
-                <Link href="/news/news_writer">
-                  <Button text="저장" state={!submitAvailable ? 'disabled' : ''} />
+                <Link href="/researcher/">
+                  <Button text="저장" state={!submitAvailable ? 'disabled' : ''} onclick={submit} />
                 </Link>
               </div>
             </div>

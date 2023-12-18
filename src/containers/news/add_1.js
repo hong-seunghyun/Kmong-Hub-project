@@ -673,6 +673,8 @@ const Component = () => {
 		)
 	}
 
+  const [registType, setRegistType] = useState(-1)
+
 	return(
 		<div className="page-wrap">
 			<div className="contents-technology contents- contents-news-writer contents-event-writer contents-add contents-technology-retouch">

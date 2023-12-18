@@ -16,7 +16,7 @@ const Component = (props) => {
 
 	const onChange = (date) => {
 		setStartDate(date);
-		props.setDate(date && `${date.getFullYear()}${String(date.getMonth()+1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`);
+		props.setDate(date && `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`);
 	}
 
 	const onCalender = () => {
