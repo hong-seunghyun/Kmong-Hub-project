@@ -4,7 +4,7 @@ import { useLayoutEffect } from "react";
 
 // 특허 페이지
 const Component = (props) => {
-	const [ search, setSearch ] = useState("");
+	const [ search, setSearch ] = useState(props.default ? props.default : '');
 	const [ toggle, setToggle ] = useState(false);
 
 	const dummy = props.datas;
@@ -12,6 +12,11 @@ const Component = (props) => {
 	const onChange = (e) => {
 		setSearch(e.target.value);
 		setToggle(true);
+	}
+
+	const onClick = () => {
+		setSearch('');
+		setToggle(!toggle);
 	}
 
 	let filterTitle;
@@ -32,7 +37,7 @@ const Component = (props) => {
 						onChange={onChange}
 					/>
 					<span className="icon_serach">
-						<Icon size={9} color="#464749" stroke="" icon="chevronDown" />
+						<Icon size={9} color="#464749" stroke="" icon="chevronDown" onClick={onClick}/>
 					</span>
 				</div>
 				<div className="wrap radius-8 border-gray-4" style={{display: toggle ? "block" : "none"}}>

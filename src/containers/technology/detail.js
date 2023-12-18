@@ -12,7 +12,7 @@ const Component = () => {
 	return(
 		<div className="container">
 			<div className="page-wrap">
-				<div className="contents- contents-technology">
+				<div className="contents- contents-technology caption-show">
 					<h1 className="display-5-B title">[제목]</h1>
 					
 					<p className="table-caption body-2-B">유형 선택</p>
@@ -129,7 +129,7 @@ const Component = () => {
 									파일
 								</th>
 								<td className="tbody">
-									<div className="data-wrap flex_">
+									<div className="data-wrap img-data-wrap flex_">
 										<img className="img-preview" src="/images/sample-img.png" alt="file" />
 										<div className="text-wrap flex_">
 											<h6 className="body-3-B">파일명.확장자</h6>
@@ -249,7 +249,7 @@ const Component = () => {
 					</table>
 
 					<p className="table-caption body-2-B">연관 기술 정보</p>
-						<table className="table-horizontal-container radius-20 body-3-R">
+						<table className="table-horizontal-container radius-20 body-3-R technology-info-table">
 						<tbody>
 							<tr>
 								<th className="thead" rowSpan={3}>

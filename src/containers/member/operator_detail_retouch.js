@@ -10,11 +10,15 @@ import Badge from "/src/components/label/badge";
 import CheckBox from "/src/components/radio/checkbox";
 import { useRouter } from "next/router";
 import { getManagerDetail, setManager } from "../../asset/apis/memberApis";
-import { checkTheEmail } from "../../asset/apis/signup";
+import { checkTheEmail, searchOrgn } from "../../asset/apis/signup";
 
 const Component = () => {
   const numRegEx = /\d/;
   const engRegEx = /[a-zA-Z]/;
+
+  const [searchList, setSearchList] = useState([]);
+  const [viewList, setViewList] = useState([]);
+  const [activeSearch, setActiveSearch] = useState(false);
 
   const [email, setEmail] = useState("");
   const [newEmail, setNewEmail] = useState("");
@@ -22,6 +26,7 @@ const Component = () => {
   const [password, setPassword] = useState("");
   const [chPassword, setChPassword] = useState("");
   const [ucmdNm, setUcmdNm] = useState("");
+  const [ucmdCd, setUcmdCd] = useState("");
   const [authInfo, setAuthInfo] = useState([
     { menuAuthCd: "SS", title: "사이트 설정", isActive: false, menuAuthId: "" },
     { menuAuthCd: "BM", title: "게시판 관리", isActive: false, menuAuthId: "" },
@@ -138,6 +143,16 @@ const Component = () => {
       });
   };
 
+  const searchOrgan = async () => {
+    await searchOrgn({ query: "" })
+      .then((res) => {
+        setSearchList([...res.data.result.rows]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const setValue = () => {
     const authInfoValue = getAuthInfo();
     const formData = new FormData();
@@ -164,6 +179,10 @@ const Component = () => {
   useEffect(() => {
     if (id) getValue();
   }, [id]);
+
+  useEffect(() => {
+    searchOrgan();
+  }, []);
 
   return (
     <div className="container">
@@ -278,22 +297,55 @@ const Component = () => {
             </div>
           </div>
 
-          <div className="flex_ input-search">
-            <Input
-              labelText="소속"
-              placeholder="한국기술HUB"
-              valueType=""
-              state={ucmdNm}
-              setState={setUcmdNm}
-              helperTextResult="none"
-              iconState="false"
-            />
-            <Icon icon="search" size={16} stroke="#574AFF" fill="none" />
+          <div style={{ position: "relative" }}>
+            <div className="flex_ input-search">
+              <Input
+                labelText="소속"
+                placeholder="한국기술HUB"
+                valueType=""
+                state={ucmdNm}
+                setState={setUcmdNm}
+                onClick={() => setActiveSearch(true)}
+                onBlur={() => setActiveSearch(false)}
+                helperTextResult="none"
+                iconState="false"
+              />
+              <Icon icon="search" size={16} stroke="#574AFF" fill="none" />
+            </div>
+            {activeSearch && (
+              <div
+                style={{
+                  backgroundColor: "white",
+                  border: "1px solid #E9EDF0",
+                  borderRadius: "10px",
+                  position: "absolute",
+                  zIndex: "10",
+                  width: "100%",
+                }}
+              >
+                {viewList &&
+                  viewList.map(
+                    (e, idx) =>
+                      idx < 5 && (
+                        <p
+                          onMouseDown={() => {
+                            console.log(e);
+                            setUcmdCd(e.id);
+                            setUcmdNm(e.name);
+                          }}
+                          style={{ padding: "1rem" }}
+                        >
+                          {e.name}
+                        </p>
+                      )
+                  )}
+              </div>
+            )}
+            <p className="caption-R helper-txt txt-third">
+              원하는 기관을 선택해주세요. 선택한 기관의 특허, 논문, 보고서 등의
+              정보를 불러와 보실 수 있어요.
+            </p>
           </div>
-          <p className="caption-R helper-txt txt-third">
-            원하는 기관을 선택해주세요. 선택한 기관의 특허, 논문, 보고서 등의
-            정보를 불러와 보실 수 있어요.
-          </p>
 
           <div className="box-">
             <Input

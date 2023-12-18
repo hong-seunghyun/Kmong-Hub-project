@@ -44,7 +44,7 @@ const Component = () => {
   const [aosCntn, setAosCntn] = useState() // 연구 내역
   const [educationCntn, setEducationCntn] = useState() // 학력 내역
   const [ytbPath, setYtbPath] = useState() // 유튜브 주소
-  
+
   const [crtTypeCd, setCrtTypeCd] = useState("") // 생성 유형 코드
 
   const {
@@ -120,50 +120,50 @@ const Component = () => {
     }
   }, [formData])
 
-	return(
-		<div className="page-wrap">
-			<div className="contents-technology contents- contents-news-writer contents-event-writer contents-technology-retouch researcher-add researcher-contents">
-				<h1 className="flex_ display-5-B">
-					연구자 등록/수정
-					<span className="flex_ ai-cnt bg-lightGray radius-8">
-						<span className="flex_ caption-R txt-disabled">
-							<Icon icon="ai" size={13} color="#574AFF" stroke="" />
-							AI 생성 1회 사용 중
-						</span>
-						<span className="flex_ total-cnt body-3-R txt-second-default">
-							AI 수정 가능 횟수
-							<span className="flex_ number- body-3-B">
-								<span className="left txt-violet-1">
-									40
-								</span>
-								<span className="txt-disabled">
-									/
-								</span>
-								<span className="total ">
-									40
-								</span>
-							</span>
-						</span>
-					</span>
-				</h1>
+  return(
+    <div className="page-wrap">
+      <div className="contents-technology contents- contents-news-writer contents-event-writer contents-technology-retouch researcher-add researcher-contents">
+        <h1 className="flex_ display-5-B">
+          연구자 등록/수정
+          <span className="flex_ ai-cnt bg-lightGray radius-8">
+            <span className="flex_ caption-R txt-disabled">
+              <Icon icon="ai" size={13} color="#574AFF" stroke="" />
+              AI 생성 1회 사용 중
+            </span>
+            <span className="flex_ total-cnt body-3-R txt-second-default">
+              AI 수정 가능 횟수
+              <span className="flex_ number- body-3-B">
+                <span className="left txt-violet-1">
+                  40
+                </span>
+                <span className="txt-disabled">
+                  /
+                </span>
+                <span className="total ">
+                  40
+                </span>
+              </span>
+            </span>
+          </span>
+        </h1>
 
-				<div className="sub-title body-2-B flex_">
-					<Badge value="1"/>
-						유형 선택
-				</div>
+        <div className="sub-title body-2-B flex_">
+          <Badge value="1"/>
+          유형 선택
+        </div>
 
-				<div className="content-1 content-wrap">
-					<div className="flex_ radio-flex">
-						<span className="flex_">
-							<Radio label="파일 업로드" state="disabled" name="radio-a" id="radio-a-2"/>
-							<Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
-						</span>
-						<span className="flex_">
-							<Radio label="텍스트 입력" state="disabled" name="radio-a" id="radio-a-3"/>
-							<Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
-						</span>
-						<span className="flex_">
-							<Radio 
+        <div className="content-1 content-wrap">
+          <div className="flex_ radio-flex">
+            <span className="flex_">
+              <Radio label="파일 업로드" state="disabled" name="radio-a" id="radio-a-2"/>
+              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
+            </span>
+            <span className="flex_">
+              <Radio label="텍스트 입력" state="disabled" name="radio-a" id="radio-a-3"/>
+              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
+            </span>
+            <span className="flex_">
+              <Radio 
                 label="사용 안함" 
                 name="radio-a" 
                 id="radio-a-4"
@@ -172,9 +172,9 @@ const Component = () => {
                 }}
                 checked={registType === 2}
               />
-						</span>
-					</div>
-				</div>
+            </span>
+          </div>
+        </div>
 
         {registType === 2 && ( 
           <>
@@ -276,7 +276,7 @@ const Component = () => {
                     <button
                       onClick={deleteCarerInfo(index)}
                     >
-                    <Icon icon="cancel" size={9} color="#464749" stroke="none" />
+                      <Icon icon="cancel" size={9} color="#464749" stroke="none" />
                     </button>
                   </p>
                   <p className="table-caption body-2-B">회사명<span className="txt-violet-1">*</span></p>
@@ -397,8 +397,8 @@ const Component = () => {
             </div>
           </>
         )}
-			</div>
-		</div>
-	)
+      </div>
+    </div>
+  )
 }
 export default Component;

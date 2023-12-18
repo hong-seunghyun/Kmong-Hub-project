@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "/src/components/icon/icon.tsx";
 import Input from "/src/components/textFields/textInput.tsx";
 import InputPassword from "/src/components/textFields/passwordInput.tsx";
@@ -10,12 +10,16 @@ import Badge from "/src/components/label/badge";
 import CheckBox from "/src/components/radio/checkbox";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import { checkTheEmail, searchOrgn } from "../../asset/apis/signup";
+import { setManager } from "../../asset/apis/memberApis";
+import { useRouter } from "next/router";
 
 const Component = () => {
   const numRegEx = /\d/;
   const engRegEx = /[a-zA-Z]/;
 
-  const [data, setData] = useState([]);
+  const [searchList, setSearchList] = useState([]);
+  const [viewList, setViewList] = useState([]);
+  const [activeSearch, setActiveSearch] = useState(false);
   const [email, setEmail] = useState("");
   const [chEmail, setChEmail] = useState(false);
   const [name, setName] = useState("");
@@ -42,6 +46,8 @@ const Component = () => {
   const [nickName, setNickName] = useState("");
   const [pfFile, setPfFile] = useState(null);
 
+  const router = useRouter();
+
   const checkEmail = async () => {
     await checkTheEmail({ email })
       .then((res) => {
@@ -63,16 +69,17 @@ const Component = () => {
       name !== "" &&
       phNo !== ""
     ) {
+      // console.log(authInfo);
       setValue();
     } else {
       alert("필수 값을 확인해주세요!");
     }
   };
 
-  const searchOrgan = async (organ) => {
-    await searchOrgn({ query: organ })
+  const searchOrgan = async () => {
+    await searchOrgn({ query: "" })
       .then((res) => {
-        setData(res.data.result.rows);
+        setSearchList([...res.data.result.rows]);
       })
       .catch((err) => {
         console.log(err);
@@ -130,9 +137,21 @@ const Component = () => {
     if (pfFile) formData.append("pflImg", pfFile);
 
     setManager(formData)
-      .then((e) => console.log(e))
+      .then((e) => {
+        console.log(e);
+        router.push("/operator_list");
+      })
       .catch((e) => console.log(e));
   };
+
+  useEffect(() => {
+    searchOrgan();
+  }, []);
+
+  useEffect(() => {
+    const cpList = [...searchList];
+    setViewList(cpList.filter((e) => e.name.includes(ucmdNm)));
+  }, [searchList, ucmdNm]);
 
   return (
     <div className="container">
@@ -245,22 +264,55 @@ const Component = () => {
             </div>
           </div>
 
-          <div className="flex_ input-search">
-            <Input
-              labelText="소속"
-              placeholder="한국기술HUB"
-              valueType=""
-              state={ucmdNm}
-              setState={setUcmdNm}
-              helperTextResult="none"
-              iconState="false"
-            />
-            <Icon icon="search" size={16} stroke="#574AFF" fill="none" />
+          <div style={{ position: "relative" }}>
+            <div className="flex_ input-search">
+              <Input
+                labelText="소속"
+                placeholder="한국기술HUB"
+                valueType=""
+                state={ucmdNm}
+                setState={setUcmdNm}
+                onClick={() => setActiveSearch(true)}
+                onBlur={() => setActiveSearch(false)}
+                helperTextResult="none"
+                iconState="false"
+              />
+              <Icon icon="search" size={16} stroke="#574AFF" fill="none" />
+            </div>
+            {activeSearch && (
+              <div
+                style={{
+                  backgroundColor: "white",
+                  border: "1px solid #E9EDF0",
+                  borderRadius: "10px",
+                  position: "absolute",
+                  zIndex: "10",
+                  width: "100%",
+                }}
+              >
+                {viewList &&
+                  viewList.map(
+                    (e, idx) =>
+                      idx < 5 && (
+                        <p
+                          onMouseDown={() => {
+                            console.log(e);
+                            setUcmdCd(e.id);
+                            setUcmdNm(e.name);
+                          }}
+                          style={{ padding: "1rem" }}
+                        >
+                          {e.name}
+                        </p>
+                      )
+                  )}
+              </div>
+            )}
+            <p className="caption-R helper-txt txt-third">
+              원하는 기관을 선택해주세요. 선택한 기관의 특허, 논문, 보고서 등의
+              정보를 불러와 보실 수 있어요.
+            </p>
           </div>
-          <p className="caption-R helper-txt txt-third">
-            원하는 기관을 선택해주세요. 선택한 기관의 특허, 논문, 보고서 등의
-            정보를 불러와 보실 수 있어요.
-          </p>
 
           <div className="box-">
             <Input
