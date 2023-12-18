@@ -197,12 +197,12 @@ const Component = () => {
 					</Link>
 					<p className="ps-txt caption-R txt-second-default flex_">
 						회원가입 시 
-						<Link href="#">
-							<TextBtn text="이용약관" />
+						<Link href="/etc/user-guide-01">
+							<TextBtn text="이용약관"/>
 						</Link>
 						및
-						<Link href="#">
-							<TextBtn text="개인정보처리방침" />
+						<Link href="/etc/user-guide-02">
+							<TextBtn text="개인정보처리방침"/>
 						</Link>
 						에 동의하게 됩니다.
 					</p>
