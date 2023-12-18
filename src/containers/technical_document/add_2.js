@@ -36,14 +36,11 @@ const Component = () => {
 	const [ typeCd, setTypeCd ] = useState('T');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
-  const [ apyNo, setApyNo ] = useState('');
+	const [ uniqueNo, setUniqueNo ] = useState('');
   const [ apyAd, setApyAd ] = useState('');
-  const [ statCd, setStatCd ] = useState('');
-  const [ rgstNo, setRgstNo ] = useState('');
+  const [ sbmyn, setSbmyn ] = useState('');
   const [ ivtNm, setIvtNm ] = useState('');
-  const [ ipcVal, setIpcVal ] = useState('');
-  const [ cpcVal, setCpcVal ] = useState('');
-  const [ piuaYn, setPiuaYn ] = useState('');
+  const [ orgCntn, setOrgCntn ] = useState('');
   
   const [ data, setData ] = useState([]);
   const [ orgn, setOrgn ] = useState('');
@@ -59,23 +56,24 @@ const Component = () => {
 	}
 
   const createThesis = () => {
-    addPatent({
-      typeCd,
-      tcqNm,
-      rsacUcmdCd,
-      apyNm,
-      apyAd,
-      statCd,
-      rgstNo,
-      ivtNm,
-      ipcVal,
-      cpcVal,
-      piuaYn
-    }).then(res => {
-      console.log(res.data);
-    }).catch(err => {
-      console.log(err);
-    });
+
+		console.log(`typeCd : ${typeCd}`);
+		console.log(`tcqNm : ${tcqNm}`);
+		console.log(`rsacUcmdCd : ${rsacUcmdCd}`);
+		console.log(`uniqueNo : ${uniqueNo}`);
+		console.log(`apyAd : ${apyAd}`);
+		console.log(`sbmyn : ${sbmyn}`);
+		console.log(`ivtNm : ${ivtNm}`);
+		console.log(`orgCntn : ${orgCntn}`);
+
+
+    // addPatent({
+
+    // }).then(res => {
+    //   console.log(res.data);
+    // }).catch(err => {
+    //   console.log(err);
+    // });
   }
 
 	useEffect(() => {
@@ -133,7 +131,15 @@ const Component = () => {
           </div>
 
 					<div className="box-">
-						<Input importState="none" labelText="문서번호" placeholder="문서번호를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input
+							importState="none"
+							labelText="문서번호"
+							placeholder="문서번호를 입력해 주세요."
+							helperTextResult="none"
+							iconState="false"
+							state={uniqueNo}
+							setState={setUniqueNo}
+						/>
 					</div>
 
 					<div className="flex_ box- flex_date">
@@ -144,18 +150,32 @@ const Component = () => {
 						<div>
 							<p className="table-caption body-2-B">투고 선택<span className="txt-violet-1">*</span></p>
 							<div className="flex_">
-								<Radio label="O" id="radio-a-1" name="radio-a" /> 
-								<Radio label="X" id="radio-a-1" name="radio-a" /> 
+								<Radio label="O" id="radio-a-1" name="radio-a" onclick={() => {setSbmyn('O')}}/>
+								<Radio label="X" id="radio-a-1" name="radio-a" onclick={() => {setSbmyn('X')}}/>
 							</div>
 						</div>
 					</div>
 
 					<div className="box-">
-						<Input labelText="발명자" placeholder="발명자를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input
+							labelText="발명자"
+							placeholder="발명자를 입력해 주세요."
+							helperTextResult="none"
+							iconState="false"
+							state={ivtNm}
+							setState={setIvtNm}
+						/>
 					</div>
 
 					<div className="box-">
-						<Input labelText="출처" placeholder="출처를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input
+							labelText="출처"
+							placeholder="출처를 입력해 주세요."
+							helperTextResult="none"
+							iconState="false"
+							state={orgCntn}
+							setState={setOrgCntn}
+						/>
 					</div>
 
 					<div className="box-">
