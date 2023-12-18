@@ -72,9 +72,9 @@ const Component = () => {
                     labelColor={tech.typeCd == 'P' ? "txt-violet-1" : tech.typeCd == 'T' ? "txt-white" : "txt-white"}
                     label={tech.typeCd == 'P' ? "특허" : tech.typeCd == 'T' ? '논문' : '보고서'}
                     choice="number"
-                    number={tech.tdcNo  }
-                    title={tech.tcqNm}
-                    writer={tech.ivtNm}
+                    number={tech.tdcNo}
+                    title={tech.tcqNm.length > 38 ? `${tech.tcqNm.slice(0, 38)}...` : tech.tcqNm}
+                    writer={tech.ivtNm.length > 12 ? `${tech.ivtNm.slice(0, 13)}...` : tech.ivtNm}
                     date={tech.apyAd}
                     link={`/technical_document/detail_${tech.typeCd == 'P' ? "patent" : tech.typeCd == 'T' ? 'thesis' : 'report'}_1?no=${tech.tdcNo}`}
                   />
