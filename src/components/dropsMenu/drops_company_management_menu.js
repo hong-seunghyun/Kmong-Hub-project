@@ -17,9 +17,18 @@ const Component = (props) => {
 		setToggle(!toggle);
 	}
 
-	const filterTitle = dummy.filter((p) => {
-		return p.title.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
-	})
+	const onBlur = () => {
+		setToggle(false);
+	}
+
+	let filterTitle;
+
+	if(dummy) {
+		filterTitle = dummy.filter((p) => {
+			return p.title.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
+		})
+	}
+	
 	return(
 		<div className="drops-menu-container">
 			<div className="input-wrap radius-8 border-gray-4 bg-lightGray">
@@ -28,7 +37,8 @@ const Component = (props) => {
 					type="text" 
 					placeholder={props.placeholder}
 					value={search}
-					onChange={onChange}	
+					onChange={onChange}
+					onBlur={onBlur}
 				/>
 				<span className="icon_serach">
 					<Icon size={9} color="#464749" stroke="" icon="chevronDown" onClick={onClick}/>
@@ -37,7 +47,7 @@ const Component = (props) => {
 			<div className="wrap radius-8 border-gray-4" style={{display: toggle ? "block" : "none"}}>
 				<div className="flex_ result-search-box  body-3-R ">
 					{
-						filterTitle.map(dummy => <span onClick={() => {
+						dummy && filterTitle.map(dummy => <span onClick={() => {
 							setSearch(dummy.title);
 							setToggle(false);
 							props.setState(dummy.id);

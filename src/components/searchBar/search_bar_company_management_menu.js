@@ -19,13 +19,22 @@ const Component = (props) => {
 		setSearch(dummy.name);
 	}
 
+	const onBlur = (dummy) => {
+		setToggle(false);
+	}
+
 	useEffect(() => {
 		if(search === '') setToggle(false);
 	},[]);
 
-	const filterTitle = props.data.filter((p) => {
-		return p.name.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
-	})
+	let filterTitle
+	
+	if(props.data) {
+		filterTitle = props.data.filter((p) => {
+			return p.name.replace(" ","").toLocaleLowerCase().includes(search.toLocaleLowerCase());
+		});
+	}
+	
 	return(
 		<div className="search-container">
 			<div className="input-wrap radius-8 border-gray-4 bg-lightGray">
@@ -35,7 +44,8 @@ const Component = (props) => {
 					placeholder="검색어를 입력해 주세요."
 					value={search}
 					onChange={onChange}
-					// onBlur={onclickSpan({id:'', name: ''})}
+					onBlur={onBlur}
+					onClick={onChange}
 				/>
 				<span className="icon_serach">
 					<Icon size={16} color="#574AFF" stroke="" icon="search" />
@@ -44,7 +54,7 @@ const Component = (props) => {
 			<div className="wrap radius-8 border-gray-4" style={{display: toggle ? 'block' : 'none'}}>
 				<div className="flex_ result-search-box body-3-R ">
 					{
-						filterTitle.map(dummy => <span onClick={() => {onclickSpan(dummy)}}>{dummy.name}</span>)
+						props.data && filterTitle.map(dummy => <span onClick={() => {onclickSpan(dummy)}}>{dummy.name}</span>)
 					}
 				</div>
 			</div>

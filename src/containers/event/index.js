@@ -38,9 +38,9 @@ const Component = () => {
 								headEtc="관리"
 							/>
 							<TableCell 
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
+								labelBg="bg-mint-1"
 								label="임시저장"
+								labelColor="txt-white"
 								choice="number"
 								number="1"
 								title="뉴스명"
@@ -52,9 +52,9 @@ const Component = () => {
 								
 							/>
 							<TableCell 
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
+								labelBg="bg-mint-1"
 								label="임시저장"
+								labelColor="txt-white"
 								choice="number"
 								number="1"
 								title="뉴스명"
@@ -105,9 +105,9 @@ const Component = () => {
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
-								labelBg="bg-gray"
-								labelColor="txt-third"
+								labelBg="bg-violet-5"
 								label="생성완료"
+								labelColor="txt-violet-1"
 								choice="number"
 								number="1"
 								title="뉴스명"
@@ -118,9 +118,25 @@ const Component = () => {
 								img="/images/sample-img.png"
 							/>
 							<TableCell 
-								labelBg="bg-gray"
-								labelColor="txt-third"
+								labelBg="bg-violet-5"
 								label="생성완료"
+								labelColor="txt-violet-1"
+								choice="number"
+								number="1"
+								title="뉴스명"
+								writer="미나 마수드"
+								date="YYYY.MM.DD"
+								viewLink="/event/detail"
+								listLink="/event/list_detail"
+								img="/images/sample-img.png"
+								state="모집 중"
+								stateBg="bg-violet-1"
+								stateColor="txt-white"
+							/>
+							<TableCell 
+								labelBg="bg-violet-5"
+								label="생성완료"
+								labelColor="txt-violet-1"
 								choice="number"
 								number="1"
 								title="뉴스명"
@@ -135,24 +151,8 @@ const Component = () => {
 							/>
 							<TableCell 
 								labelBg="bg-gray"
+								label="등록완료"
 								labelColor="txt-third"
-								label="생성완료"
-								choice="number"
-								number="1"
-								title="뉴스명"
-								writer="미나 마수드"
-								date="YYYY.MM.DD"
-								viewLink="/event/detail"
-								listLink="/event/list_detail"
-								img="/images/sample-img.png"
-								state="모집 중"
-								stateBg="bg-violet-1"
-								stateColor="txt-white"
-							/>
-							<TableCell 
-								labelBg="bg-gray"
-								labelColor="txt-third"
-								label="생성완료"
 								choice="number"
 								number="1"
 								title="뉴스명"
@@ -167,8 +167,8 @@ const Component = () => {
 							/>
 							<TableCell 
 								labelBg="bg-gray"
+								label="등록완료"
 								labelColor="txt-third"
-								label="생성완료"
 								choice="number"
 								number="1"
 								title="뉴스명"

@@ -145,7 +145,10 @@ const Component = () => {
             />
           </div>
 
-          <div className="flex_ input-search box-">
+          <div className="input-search box-">
+						<p className="table-caption body-2-B">
+                소속  <span className="txt-violet-1">*</span>
+              </p>
             <CompanyInput
               labelText="소속"
               placeholder="소속을 검색해 주세요."
@@ -154,7 +157,6 @@ const Component = () => {
               iconState="false"
               state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
             />
-            <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>
 
           <div className="box-">

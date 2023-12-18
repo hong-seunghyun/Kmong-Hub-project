@@ -3953,6 +3953,14 @@
 		.search-container{
 			width:100%;
 		}
+		.box- + .check-container{
+			margin-top:24px;
+		}
+		.button-full{
+			.btn_{
+				width:100%;
+			}
+		}
 	}
 	&.waiting-sign-up{
 		text-align: center;

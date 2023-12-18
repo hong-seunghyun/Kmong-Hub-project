@@ -14,6 +14,7 @@ import SearchBar from "/src/components/searchBar/search_bar_company_management_m
 import { useState } from "react";
 import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json"
+import { useLayoutEffect } from "react";
 
 const Component = () => {
 
@@ -96,6 +97,7 @@ const Component = () => {
 	const searchOrgan = async (organ) => {
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
+			console.log(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
 		});
@@ -124,6 +126,10 @@ const Component = () => {
 			console.log(err);
 		});
 	};
+
+	useLayoutEffect(() => {
+		searchOrgan();
+	},[]);
 
 	return(
 			<div className="login sing-up">
@@ -163,9 +169,9 @@ const Component = () => {
 					<div className="box-">
 						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
 					</div>
-					<div className="flex_ button-input box-">
-						<TelInput importState="" labelText="휴대폰 번호" placeholder="휴대전화 인증을 해주세요." valueType="" helperTextResult="none" iconState="true" state={tel} setState={setTel}/>
-						<ButtonSecondary text="번호 인증" state="enabled" onclick={verification}/>
+					<div className="flex_ button-input box- button-full">
+						<p className="body-2-B txt-second-default">휴대폰<span className="txt-violet-1">*</span></p>
+						<ButtonSecondary text="PASS 인증" state="enabled" onclick={verification}/>
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
@@ -183,8 +189,11 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
+						<SearchBar state={orgn} setState={setOrgn} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
+					</div>
+					<div className="box-">
+						<Input importState="" labelText="소속 전화번호" placeholder="소속 전화번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
 					</div>
 
 					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
@@ -197,12 +206,12 @@ const Component = () => {
 					</Link>
 					<p className="ps-txt caption-R txt-second-default flex_">
 						회원가입 시 
-						<Link href="#">
-							<TextBtn text="이용약관" />
+						<Link href="/etc/user-guide-01">
+							<TextBtn text="이용약관"/>
 						</Link>
 						및
-						<Link href="#">
-							<TextBtn text="개인정보처리방침" />
+						<Link href="/etc/user-guide-02">
+							<TextBtn text="개인정보처리방침"/>
 						</Link>
 						에 동의하게 됩니다.
 					</p>
