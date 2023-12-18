@@ -3953,6 +3953,9 @@
 		.search-container{
 			width:100%;
 		}
+		.box- + .check-container{
+			margin-top:24px;
+		}
 	}
 	&.waiting-sign-up{
 		text-align: center;

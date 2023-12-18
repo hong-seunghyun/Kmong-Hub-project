@@ -186,6 +186,9 @@ const Component = () => {
 						<SearchBar state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setUcmdCd}/>
 						<p>{}</p>
 					</div>
+					<div className="box-">
+						<Input importState="" labelText="소속 전화번호" placeholder="소속 전화번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
+					</div>
 
 					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
 					<div class="bar bg-gray-5" />

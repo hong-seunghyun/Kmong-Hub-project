@@ -1,6 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Component = (props) => {
+
+	const [ isRadioValue, setRadioValue ] = useState('');
+	
+	const handleChange=(e)=>{
+		setRadioValue(e.target.value);
+		props.setRadioValue(isRadioValue);
+	}
+
+	const clickValue=(e)=>{
+
+		props.setRadioValue(isRadioValue);
+	}
+
+
   return (
     <div className={`radio-container flex_ body-3-R ${props.state}`}>
       <input
@@ -9,6 +23,8 @@ const Component = (props) => {
         name={props.name}
         onClick={props.onclick}
         checked={props.checked}
+				value={props.value}
+				onChange={handleChange}
       />
       <label htmlFor={props.id}>{props.label}</label>
     </div>
