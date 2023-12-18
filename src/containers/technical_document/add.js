@@ -12,52 +12,54 @@ import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
+import { addPatent } from "../../asset/apis/tech";
+import { useEffect } from "react";
 
 const Component = () => {
 
   const drop_datas = [
     {
-      id: 1,
+      id: "P",
       title: '특허'
     },
     {
-      id: 2,
+      id: "T",
       title: '논문'
     },
     {
-      id: 3,
+      id: "R",
       title: '보고서'
     }
   ];
 
   const send_datas = [
     {
-      id: 1,
+      id: 'O',
       title: '출원 중'
     },
     {
-      id: 2,
+      id: 'O',
       title: '미공개 상태'
     },
     {
-      id: 3,
+      id: 'O',
       title: '공개 상태'
     },
     {
-      id: 4,
+      id: 'O',
       title: '등록 완료'
     },
     {
-      id: 5,
+      id: "O",
       title: '취하 상태'
     },
     {
-      id: 6,
+      id: 'O',
       title: '거절 상태'
     }
   ];
 
-  const [ typeCd, setTypeCd ] = useState('');
+  const [ typeCd, setTypeCd ] = useState('P');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
   const [ apyNo, setApyNo ] = useState('');
@@ -73,28 +75,44 @@ const Component = () => {
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
 
-
-  const saveDoc = () => {
-    console.log(typeCd);
-    console.log(tcqNm);
-    console.log(rsacUcmdCd);
-    console.log(apyNo);
-    console.log(rgstNo);
-    console.log(statCd);
-    console.log(apyAd);
-    console.log(ivtNm);
-    console.log(ipcVal);
-    console.log(cpcVal);
-    console.log(piuaYn);
-  }
-
   const searchOrgan = async (organ) => {
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
+      console.log(res.data.result.rows);
 		}).catch(err => {
 			console.log(err);
 		});
 	}
+
+  const createPatent = () => {
+    addPatent({
+      typeCd,
+      tcqNm,
+      rsacUcmdCd,
+      apyNm,
+      apyAd,
+      statCd,
+      rgstNo,
+      ivtNm,
+      ipcVal,
+      cpcVal,
+      piuaYn
+    }).then(res => {
+      console.log(res.data);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  useEffect(() => {
+    console.log(typeCd);
+    if(typeCd === 'T') {
+      window.location = '/technical_document/add_2';
+    } else if(typeCd === 'R') {
+      window.location = '/technical_document/add_3';
+    }
+		searchOrgan();
+  }, [typeCd]);
 
   return (
     <div className="page-wrap">
@@ -107,7 +125,7 @@ const Component = () => {
           <Badge value="1" />
           유형 선택
         </div>
-        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd}/>
+        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd} default="특허"/>
 
         <div className="content- content-2">
           <div className="sub-title body-2-B flex_">
@@ -132,7 +150,7 @@ const Component = () => {
               valueType=""
               helperTextResult="none"
               iconState="false"
-              state={orgn} setState={setOrgn} onchange={searchOrgan} data={data} setResult={setRsacUcmdCd}
+              state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
             />
             <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>
@@ -233,7 +251,7 @@ const Component = () => {
                 <ButtonL text="초기화" />
               </Link>
               <Link href="/technical_document/add">
-                <Button text="저장" onclick={saveDoc}/>
+                <Button text="저장" onclick={createPatent}/>
               </Link>
             </div>
           </div>

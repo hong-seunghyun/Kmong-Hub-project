@@ -6,6 +6,8 @@ const Component = (props) => {
 	const [isButton, setButton ] = useState(false);
 
 	const onClickActive = () => {
+		console.log(props.link);
+		if(props.link) window.open(props.link);
 		setButton(!isButton);
 	}
 
