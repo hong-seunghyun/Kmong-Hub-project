@@ -24,15 +24,15 @@ const Component = () => {
 
 					<div>
 						<div className="flex_ search-wrap pc-search-wrap">
-							<DropDownMenu />
-							<SearchBar />
+							<DropDownMenu datas={[]} />
+							<SearchBar data={[]} />
 						</div>
 						<div className="flex_ search-wrap m-search-wrap">
 							<span className="flex_">
-								<DropDownMenu />
-								<DropDownMenu />
+								<DropDownMenu datas={[]}/>
+								<DropDownMenu datas={[]}/>
 							</span>
-							<SearchBar />
+							<SearchBar data={[]}/>
 						</div>
 
 						<div className="table-container">

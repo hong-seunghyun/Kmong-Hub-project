@@ -1,25 +1,17 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
-import SelectLabel from "/src/components/label/select_label";
-import Editor from "/src/components/editorBox/index"
 import Icon from "/src/components/icon/icon.tsx"
 import Badge from "/src/components/label/badge"
 import Radio from "/src/components/radio/radio"
 import Upload from "/src/components/upload/upload"
-import ButtonSecondary from "/src/components/buttons/button_secondary_l"
 import Input from "/src/components/textFields/textInput.tsx"
 import TextArea from "/src/components/textFields/textArea.tsx"
 import DatePicker from "/src/components/date/date-picker-single"
-import OutlineBtn from "/src/components/buttons/button_outline_l"
-import ToggleButton from "/src/components/radio/slide_toggle_btn";
-import SearchBox from "/src/components/searchBar/search_bar_email_history"
-import DropDownMenu from "/src/components/dropsMenu/drops_menu";
-import TextUnderline from "/src/components/buttons/text_button_underline_primary_s"
 import CheckBox from "/src/components/radio/checkbox"
-import { setResearcher } from "/src/asset/apis/contents/researcher";
+import { setResearcher, getResearcherCategory } from "/src/asset/apis/contents/researcher";
 import useRscCarerInfos from "../../hooks/contents/useRscCarerInfos";
 
 const Component = () => {
@@ -46,6 +38,17 @@ const Component = () => {
   const [ytbPath, setYtbPath] = useState() // 유튜브 주소
 
   const [crtTypeCd, setCrtTypeCd] = useState("") // 생성 유형 코드
+  
+  const [search, setSearch] = useState("")
+  const [deptMajrNm, setDeptMajrNm] = useState("")
+  const [deptMajrNo, setDeptMajrNo] = useState("")
+  const [toggle, setToggle] = useState(false)
+
+  const [searchResult, setSearchResult] = useState([])
+
+  const searchDeptMajr = useCallback(async (deptMajrNm) => {
+    const res = await getResearcherCategory()
+  })
 
   const {
     rscCarerInfos,
