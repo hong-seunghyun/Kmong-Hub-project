@@ -405,6 +405,19 @@ const Component = () => {
     getValue();
   }, []);
 
+  const setInitValue = () => {
+    setAddr("N");
+    setStartYear("N");
+    setBirth("N");
+    setComAddr("N");
+    setComNo("N");
+    setComNm("N");
+    setComUrl("N");
+    setSex("N");
+    setBsSector("N");
+    setCncnTcqSprYnCd("N");
+  };
+
   return (
     <div className="container">
       <div className="page-wrap">
@@ -413,7 +426,7 @@ const Component = () => {
           <Tab setSubTab={setSubTab} activeSubTab={activeSubTab} active={5} />
           <TabContents />
           <div className="button-wrap flex_">
-            <OutlineBtn text="초기화" state="default" />
+            <OutlineBtn text="초기화" state="default" onclick={setInitValue} />
             <PrimaryBtn text="저장" onclick={setValue} />
           </div>
         </div>

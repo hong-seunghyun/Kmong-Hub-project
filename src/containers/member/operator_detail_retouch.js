@@ -425,6 +425,7 @@ const Component = () => {
             <Upload
               state="default"
               type="normal"
+              isAi={false}
               accept=".jpg, .png, .jpeg"
               fileState={pfFile}
               setFileState={setPfFile}

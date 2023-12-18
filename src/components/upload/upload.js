@@ -6,7 +6,7 @@ import { sleep } from "../../util/sleep";
 
 const Component = (props) => {
   const [fileSize, setFileSize] = useState(null);
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
   const [process, setProcess] = useState(20);
 
   const [state, setState] = useState(null);
@@ -38,7 +38,7 @@ const Component = (props) => {
     setFileName(e.target.files[0].name);
     const MAX_SIZE = 100 * 1024 * 1024;
 
-    const ext = e.target.files[0].name.split('.').pop().toLowerCase();
+    const ext = e.target.files[0].name.split(".").pop().toLowerCase();
     console.log(ext);
 
     if (fileSize > MAX_SIZE) {
@@ -48,7 +48,7 @@ const Component = (props) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        if(ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
+        if (ext === "jpg" || ext === "jpeg" || ext === "png") {
           getImageSize();
           if (imgWidth + imgHeight > 1600) {
             alert("이미지 크기가 너무 큽니다!");
@@ -70,16 +70,16 @@ const Component = (props) => {
 
       console.log(e.target.files[0].name);
 
-      if(ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
+      if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
         setState("done");
         setType("preview");
-      } else if(ext === 'hwp' || ext === 'docx' || ext === 'pdf') {
-        setState('done');
-        setType('normal')
+      } else if (ext === "hwp" || ext === "docx" || ext === "pdf") {
+        setState("done");
+        setType("normal");
       } else {
-        alert('지원되지 않는 파일 형식입니다.');
-        setState('default');
-        setType(props.type)
+        alert("지원되지 않는 파일 형식입니다.");
+        setState("default");
+        setType(props.type);
       }
     }
   };
@@ -102,10 +102,10 @@ const Component = (props) => {
   };
 
   const changeOrigin = () => {
-    setState('default');
+    setState("default");
     setType(props.type);
     setUrlState(null);
-  }
+  };
 
   return (
     <div
@@ -181,7 +181,13 @@ const Component = (props) => {
             <h6 className="body-3-B">{fileName}</h6>
             <p className="caption-R">{fileSize / 100 / 1024 / 1024} mb</p>
           </div>
-          <Icon icon="cancel" size={9} color="#464749" stroke="" onClick={changeOrigin}/>
+          <Icon
+            icon="cancel"
+            size={9}
+            color="#464749"
+            stroke=""
+            onClick={changeOrigin}
+          />
         </div>
 
         <div className="done-preview-text-box flex_">
@@ -190,7 +196,7 @@ const Component = (props) => {
             <p className="caption-R">파일크기 {fileSize / 1024 / 1024}mb</p>
           </div>
           <div className="flex_">
-            <ButtonSecondaryS text="AI 수정" />
+            {props.isAi && <ButtonSecondaryS text="AI 수정" />}
             <div onClick={cancelFile}>
               <Icon icon="cancel" size={9} color="#464749" stroke="" />
             </div>

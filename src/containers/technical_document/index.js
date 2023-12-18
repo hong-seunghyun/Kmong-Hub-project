@@ -11,34 +11,35 @@ import { getTechList } from "../../asset/apis/tech";
 import { useState } from "react";
 
 const Component = () => {
-
   const drop_datas = [
     {
       id: "P",
-      title: '특허'
+      title: "특허",
     },
     {
       id: "T",
-      title: '논문'
+      title: "논문",
     },
     {
       id: "R",
-      title: '보고서'
-    }
+      title: "보고서",
+    },
   ];
 
-  const [ techList, setTechList ] = useState([]);
-  const [ typeCd, setTypeCd ] = useState('');
-  const [ pageIdx, setPageIdx ] = useState(1);
+  const [techList, setTechList] = useState([]);
+  const [typeCd, setTypeCd] = useState("");
+  const [pageIdx, setPageIdx] = useState(1);
 
   useLayoutEffect(() => {
-    getTechList(pageIdx, 10).then(res => {
-      console.log(res.data.data);
-      setTechList(res.data.data);
-    }).catch(err => {
-      console.log(err);
-    })
-  },[pageIdx]);
+    getTechList(pageIdx, 10)
+      .then((res) => {
+        console.log(res.data.data);
+        setTechList(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [pageIdx]);
 
   return (
     <div className="page-wrap">
@@ -53,7 +54,7 @@ const Component = () => {
 
           <div>
             <div className="flex_ search-wrap">
-              <DropDownMenu datas={drop_datas} setState={setTypeCd}/>
+              <DropDownMenu datas={drop_datas} setState={setTypeCd} />
               <SearchBar />
             </div>
 
@@ -66,22 +67,54 @@ const Component = () => {
                 headDate="등록연도"
                 headEtc="관리"
               />
-              {
-                techList.map((tech) => {
-                  return <TableCell
-                    labelBg={tech.typeCd == 'P' ? "bg-violet-5" : tech.typeCd == 'T' ? 'bg-violet-1' : 'bg-purple-1'}
-                    labelColor={tech.typeCd == 'P' ? "txt-violet-1" : tech.typeCd == 'T' ? "txt-white" : "txt-white"}
-                    label={tech.typeCd == 'P' ? "특허" : tech.typeCd == 'T' ? '논문' : '보고서'}
+              {techList.map((tech) => {
+                return (
+                  <TableCell
+                    labelBg={
+                      tech.typeCd == "P"
+                        ? "bg-violet-5"
+                        : tech.typeCd == "T"
+                        ? "bg-violet-1"
+                        : "bg-purple-1"
+                    }
+                    labelColor={
+                      tech.typeCd == "P"
+                        ? "txt-violet-1"
+                        : tech.typeCd == "T"
+                        ? "txt-white"
+                        : "txt-white"
+                    }
+                    label={
+                      tech.typeCd == "P"
+                        ? "특허"
+                        : tech.typeCd == "T"
+                        ? "논문"
+                        : "보고서"
+                    }
                     choice="number"
                     number={tech.tdcNo}
-                    title={tech.tcqNm.length > 38 ? `${tech.tcqNm.slice(0, 38)}...` : tech.tcqNm}
-                    writer={tech.ivtNm.length > 12 ? `${tech.ivtNm.slice(0, 13)}...` : tech.ivtNm}
+                    title={
+                      tech.tcqNm && tech.tcqNm.length > 38
+                        ? `${tech.tcqNm.slice(0, 38)}...`
+                        : tech.tcqNm
+                    }
+                    writer={
+                      tech.ivtNm && tech.ivtNm.length > 12
+                        ? `${tech.ivtNm.slice(0, 13)}...`
+                        : tech.ivtNm
+                    }
                     date={tech.apyAd}
-                    link={`/technical_document/detail_${tech.typeCd == 'P' ? "patent" : tech.typeCd == 'T' ? 'thesis' : 'report'}_1?no=${tech.tdcNo}`}
+                    link={`/technical_document/detail_${
+                      tech.typeCd == "P"
+                        ? "patent"
+                        : tech.typeCd == "T"
+                        ? "thesis"
+                        : "report"
+                    }_1?no=${tech.tdcNo}`}
                   />
-                })
-              }
-              
+                );
+              })}
+
               {/* <TableCell
                 labelBg="bg-violet-5"
                 labelColor="txt-violet-1"
@@ -182,7 +215,7 @@ const Component = () => {
                 link="/technical_document/detail_report_1"
               /> */}
 
-              <Pagnation size="regular" setPageIdx={setPageIdx}/>
+              <Pagnation size="regular" setPageIdx={setPageIdx} />
             </div>
           </div>
         </div>
