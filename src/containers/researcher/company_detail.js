@@ -1,12 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import TextButton from "/src/components/buttons/text_button_underline_primary_s"
 import ButtonL from "/src/components/buttons/button_outline_l"
 import ButtonErrorL from "/src/components/buttons/button_error_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Upload from "/src/components/upload/upload"
+import { deleteResearcherCategory } from "../../asset/apis/contents/researcher";
 
 const Component = () => {
+
+	const router = useRouter();
+	const [data,setData ] = useState();
+
+  const [no, setNo] = useState();
+
+  useEffect(() => {
+    alert('수정 및 삭제만 가능합니다.')
+  }, [])
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+    setNo(no)
+	},[]);
+
+  const deleteDetail = async () => {
+    await deleteResearcherCategory({
+      deptMajrNo: no
+    }).then(res => {
+      if(res.status === 200) {
+        alert('삭제되었습니다.')
+        router.push('/researcher/company')
+      }
+    })
+  }
 
 	return(
 		<div className="container">
@@ -22,7 +50,7 @@ const Component = () => {
 									소속
 								</th>
 								<td className="tbody">
-								한국외국어대학교(서울)
+                  -
 								</td>
 							</tr>
 							<tr>
@@ -30,7 +58,7 @@ const Component = () => {
 									부서/학과
 								</th>
 								<td className="tbody">
-								컴퓨터공학과
+                  -
 								</td>
 							</tr>
 							<tr>
@@ -38,7 +66,7 @@ const Component = () => {
 									최종 수정일
 								</th>
 								<td className="tbody">
-								YYYY.MM.DD
+                  -
 								</td>
 							</tr>
 							
@@ -53,9 +81,9 @@ const Component = () => {
 						</div>
 						<div className="flex_">
 							<Link href="#">
-								<ButtonErrorL text="삭제" />
+								<ButtonErrorL text="삭제" onclick={deleteDetail} />
 							</Link>
-							<Link href="/researcher/company_add">
+							<Link href={`/researcher/company_add?no=${no}`}>
 								<Button text="수정" />
 							</Link>
 						</div>

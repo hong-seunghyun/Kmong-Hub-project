@@ -1,19 +1,33 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useLayoutEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Icon from "/src/components/icon/icon.tsx"
 import Badge from "/src/components/label/badge"
 import Input from "/src/components/textFields/textInput.tsx"
-import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 import { searchOrgn } from "../../asset/apis/signup";
 import { setResearcherCategory } from "../../asset/apis/contents/researcher";
+import { useRouter } from "next/router";
 
 const Component = () => {
+
+	const router = useRouter();
+  const [no, setNo] = useState();
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+    setNo(no)
+	},[]);
 
   const [orgn, setOrgn] = useState('');
 	const [ucmdCd, setUcmdCd] = useState('');
 	const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [toggle, setToggle] = useState(false);
+  const searchResult = useMemo(() => (
+    data.filter(item => item.name.includes(search))
+  ), [data, search])
 
   const [deptMajrNm, setDeptMajrNm] = useState('');
 
@@ -26,40 +40,40 @@ const Component = () => {
 		});
 	}
 
-  const onclickSpan = (idx) => () => {
-    setUcmdCd(String(data[idx].id));
-    setSearch(data[idx].name)
+  const onClickSpan = (idx) => () => {
+    setUcmdCd(String(searchResult[idx].id));
+    setSearch(searchResult[idx].name)
+    setOrgn(searchResult[idx].name)
     setToggle(false)
   }
 
-  const [search, setSearch] = useState("");
-  const [toggle, setToggle] = useState(false);
-
   const onChange = (e) => {
-    setOrgn(e.target.value);
     setSearch(e.target.value);
-    searchOrgan(e.target.value);
+    if(data.length == 0) setToggle(false);
+    else setToggle(true)
   }
 
-  useEffect(() => {
-    if(data.length == 0 || search === "") setToggle(false);
-    else setToggle(true)
-  }, [search, data])
+  const onBlur = () => {
+    setToggle(false);
+  }
 
   const submitAvailable = useMemo(() => {
     return orgn !== "" && ucmdCd !== "" && deptMajrNm !== "";
-  }, [orgn, ucmdCd])
+  }, [orgn, ucmdCd, deptMajrNm])
 
   const submit = async () => {
     const res = await setResearcherCategory({
       deptMajrNm, 
+      ...(no && {deptMajrNo: no}),
       ucmdCd, 
       ucmdNm: orgn, 
-      useYn: "Y"
+      useYn: "Y",
+      catgNm: deptMajrNm
     })
 
     if(res.status === 200 || res.status === 201) {
-      alert('부서 등록이 완료되었습니다.')
+      const msg = no ? '부서 수정이 완료되었습니다.' : '부서 등록이 완료되었습니다.'
+      alert(msg)
     } else {
       alert('일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.')
     }
@@ -71,6 +85,10 @@ const Component = () => {
     setUcmdCd("");
     setDeptMajrNm("");
   }
+
+  useEffect(() => {
+    searchOrgan()
+  }, [])
 
 	return(
 		<div className="page-wrap">
@@ -103,9 +121,9 @@ const Component = () => {
             >
               <div className="flex_ result-search-box body-3-R ">
                 {
-                  data.map((item, index) => (
+                  searchResult.map((item, index) => (
                     <span
-                      onClick={onclickSpan(index)}
+                      onClick={onClickSpan(index)}
                     >
                       {item.name}
                     </span>

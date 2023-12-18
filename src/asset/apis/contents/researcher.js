@@ -66,7 +66,7 @@ export const setResearcherCategory = ({
     ...(useYn && {useYn}),
   }
 
-  const response = Api.post(`/viewapi/mngr/site/v1/rscCate`, rscCateListDto)
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/rscCate`, rscCateListDto)
   return response
 }
 
