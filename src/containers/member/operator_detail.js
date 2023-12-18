@@ -162,7 +162,7 @@ const Component = () => {
 
           <div className="btn-wrap flex_">
             <div className="flex_">
-              <Link href="/transaction">
+              <Link href="/member/operator_list">
                 <ButtonL text="목록으로" />
               </Link>
             </div>
