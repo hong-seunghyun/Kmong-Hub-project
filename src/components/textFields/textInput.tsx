@@ -14,12 +14,16 @@ interface InputProps {
   state: string;
   setState?: Dispatch<SetStateAction<string>>;
   setStateFunc?: (event: any) => void;
+  onBlur?: () => void;
+  onClick?: () => void;
 }
 
 const Input = ({
   state,
   setState,
   setStateFunc,
+  onBlur,
+  onClick,
   valueType,
   placeholder,
   helperTextResult,
@@ -68,6 +72,8 @@ const Input = ({
             onChange={setStateFunc ? setStateFunc : onInputHandler}
             className="body-2-R radius-8"
             placeholder={placeholder}
+            onBlur={onBlur && onBlur}
+            onClick={onClick && onClick}
           />
           <span className={`input-count caption-R ${inputCountState}`}>
             <span className="txt-second-default">{inputCount}</span> /{" "}
