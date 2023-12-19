@@ -4,7 +4,7 @@ import NavigationTopLogin from "/src/components/navigations/navigation_top_login
 
 const Page = ({ ...props }) => (
   <>
-		<NavigationTopLogin />
+    <NavigationTopLogin />
     <Component {...props} />
   </>
 );
