@@ -12,7 +12,7 @@ export const searchOrgn = () => {
   const response = ApiOrgn.get(`/organ`, {
     params: {
       page: 1,
-      row_count: 3,
+      row_count: 10,
       is_using: true,
       order_by: "id",
       order_sort: "asc"
