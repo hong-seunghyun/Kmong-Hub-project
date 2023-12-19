@@ -94,7 +94,7 @@ export const addPatent = (
   return response;
 };
 
-// post(특허 저장하기)
+// post(논문 저장하기)
 export const addThesis = (
   { typeCd, tcqNm, rsacUcmdCd, uniqueNo, apyAd, sbmyn, ivtNm, orgCntn },
   file
@@ -107,20 +107,24 @@ export const addThesis = (
     apyAd,
     sbmyn,
     ivtNm,
-    orgCntn,
+    orgCntn
   };
+  console.log(JSON.stringify(mergeTechDTO));
   const blob = new Blob([JSON.stringify(mergeTechDTO)], {
     type: "application/json",
   });
   console.log(blob);
+  console.log(file);
 
   const formData = new FormData();
   formData.append("file", file);
   formData.append("tecDocRgstDto", blob);
 
-  const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, blob, {
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, formData, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      'Content-Type': 'multipart/form-data',
+      Accept: "application/json"
     },
   });
   return response;

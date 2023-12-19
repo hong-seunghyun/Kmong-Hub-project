@@ -50,6 +50,7 @@ const Component = () => {
 		await searchOrgn().then(res => {
 			setData(res.data.result.rows);
 			console.log(res.data.result.rows);
+			window.location = '/technical_document';
 		}).catch(err => {
 			console.log(err);
 		});
@@ -65,7 +66,6 @@ const Component = () => {
 		console.log(`sbmyn : ${sbmyn}`);
 		console.log(`ivtNm : ${ivtNm}`);
 		console.log(`orgCntn : ${orgCntn}`);
-
 
     addThesis({
 			typeCd,
@@ -134,7 +134,6 @@ const Component = () => {
               iconState="false"
               state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
             />
-            <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>
 
 					<div className="box-">
@@ -198,10 +197,10 @@ const Component = () => {
 					<div className="btn-wrap flex_">
 						<div className="flex_">
 							<Link href="#">
-								<ButtonL text="초기화" />
+								<ButtonL text="초기화"/>
 							</Link>
-							<Link href="/technical_document">
-								<Button text="저장" />
+							<Link href="/technical_document/add_2">
+								<Button text="저장" onclick={createThesis}/>
 							</Link>
 						</div>
 					</div>
