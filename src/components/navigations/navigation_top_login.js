@@ -211,7 +211,11 @@ const Component = (props) => {
             <img src="/images/user_icon_s.png" alt="logo" />
             <p>test@naver.com</p>
           </div>
-          <Link href="/" className="logout-btn caption-R">
+          <Link
+            href="/"
+            className="logout-btn caption-R"
+            onClick={() => localStorage.removeItem("accessToken")}
+          >
             로그아웃
           </Link>
           <div className="link-btn">
