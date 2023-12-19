@@ -59,15 +59,14 @@ const Component = () => {
       typeCd,
       tcqNm,
       rsacUcmdCd,
+			sbmyn,
       apyAd,
-      statCd,
-      rgstNo,
       ivtNm,
-      ipcVal,
-      cpcVal,
       piuaYn
     }).then(res => {
       console.log(res.data);
+			alert('저장이 완료되었습니다.');
+			window.location = '/technical_document'
     }).catch(err => {
       console.log(err);
     });
