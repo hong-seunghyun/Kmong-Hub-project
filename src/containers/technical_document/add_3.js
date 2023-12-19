@@ -120,7 +120,7 @@ const Component = () => {
 					<div className="flex_ box- flex_date">
 						<div>
 							<p className="table-caption body-2-B">발행연도<span className="txt-violet-1">*</span></p>
-							<DatePicker setDate={setApyAd}/>
+							<DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}}/>
 						</div>
 					</div>
 
