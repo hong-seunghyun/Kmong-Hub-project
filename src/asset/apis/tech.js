@@ -119,7 +119,7 @@ export const addThesis = (
     ivtNm,
     orgCntn,
   };
-  const blob = new Blob([JSON.stringify(registerDTO)], {
+  const blob = new Blob([JSON.stringify(mergeTechDTO)], {
     type: "application/json",
   });
   console.log(blob);
