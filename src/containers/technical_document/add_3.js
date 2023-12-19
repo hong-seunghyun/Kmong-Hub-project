@@ -9,7 +9,6 @@ import Icon from "/src/components/icon/icon.tsx"
 import DatePicker from "/src/components/date/date-picker-single"
 import Upload from "/src/components/upload/upload"
 import CheckBox from "/src/components/radio/checkbox"
-import Radio from "/src/components/radio/radio"
 import { useEffect } from "react";
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
@@ -61,7 +60,6 @@ const Component = () => {
       typeCd,
       tcqNm,
       rsacUcmdCd,
-      apyNm,
       apyAd,
       statCd,
       rgstNo,

@@ -2,7 +2,6 @@
 // HSD Project index.js
 import React from "react";
 
-
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 import NavigationTop from "/src/components/navigations/navigation_top";
 import ButtonCta from "/src/components/buttons/button_cta";
@@ -54,9 +53,9 @@ import Modal from "/src/components/modal/modal";
 import Radio from "/src/components/radio/radio";
 import Checkbox from "/src/components/radio/checkbox";
 import ToggleButton from "/src/components/radio/slide_toggle_btn";
-import DatePicker from "/src/components/date/date-picker";
-import DatePickerSingle from "/src/components/date/date-picker-single";
-import DatePickerSingleTime from "/src/components/date/date-picker-single-time";
+// import DatePicker from "/src/components/date/date-picker";
+// import DatePickerSingle from "/src/components/date/date-picker-single";
+// import DatePickerSingleTime from "/src/components/date/date-picker-single-time";
 import Upload from "/src/components/upload/upload";
 import TabelVerticalCell from "/src/components/table/table_vertical_cell";
 import TabelVerticalHead from "/src/components/table/table_vertical_head";
@@ -68,7 +67,6 @@ const Component = () => {
       <div style={{ margin: "20px" }}>
         <h1>Navigation Side</h1>
 
-        
         <div style={{ margin: "100vh" }} />
         <hr />
 
@@ -643,7 +641,7 @@ const Component = () => {
         </div>
 
         <hr />
-        <div style={{ margin: "20px" }}>
+        {/* <div style={{ margin: "20px" }}>
           <DatePicker date="true" state="" />
         </div>
         <div style={{ margin: "20px" }}>
@@ -654,7 +652,7 @@ const Component = () => {
         </div>
         <div style={{ margin: "20px" }}>
           <DatePickerSingleTime date="true" state="" />
-        </div>
+        </div> */}
         <hr />
 
         <div style={{ margin: "20px" }}>

@@ -9,7 +9,7 @@ const Component = (props) => {
 		setSearch(e.target.value);
 		props.setState(e.target.value);
 		props.onchange && props.onchange(e.target.value);
-		if(props.data.length == 0) setToggle(false);
+		if(props.data.length === 0) setToggle(false);
 		else setToggle(true);
 	}
 
@@ -19,12 +19,13 @@ const Component = (props) => {
 		setSearch(dummy.name);
 	}
 
-	const onBlur = (dummy) => {
-		setToggle(false);
-	}
+	// const onBlur = (dummy) => {
+	// 	setToggle(false);
+	// }
 
 	useEffect(() => {
 		if(search === '') setToggle(false);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[]);
 
 	let filterTitle
@@ -44,7 +45,7 @@ const Component = (props) => {
 					placeholder="검색어를 입력해 주세요."
 					value={search}
 					onChange={onChange}
-					onBlur={onBlur}
+					// onBlur={onBlur}
 					onClick={onChange}
 				/>
 				<span className="icon_serach">

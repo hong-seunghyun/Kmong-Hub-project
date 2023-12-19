@@ -10,10 +10,10 @@ const Component = (props) => {
 				{props.title}
 			</div>
 			<div className="pc-cell">
-			<img src={props.pc} />
+			<images src={props.pc} />
 			</div>
 			<div className="mobile-cell">
-			<img src={props.mobile} />
+			<images src={props.mobile} />
 			</div>
 			<div className="date-cell">
 				{props.dateFrom}<br/>

@@ -144,7 +144,7 @@ const Component = (props) => {
             type="file"
             ref={fileInputRef}
             onChange={handleFileChange}
-            accept={props.accept || "image/*"}
+            accept={props.accept || "*/*"}
             style={{ display: "none" }}
           />
         </div>
