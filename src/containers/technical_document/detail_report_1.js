@@ -14,7 +14,19 @@ import { getTechDetails } from "../../asset/apis/tech";
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState();
+	const [ data, setData ] = useState({
+		tcqNm: '기술기술',
+		orgCntn: 'aaa',
+		ivtNm: 'bbb',
+		apyAd: 'ccc',
+		tdcNo: 'ddd',
+		orgnNm: 'eee',
+		techDocDetails: [
+			{
+				filePath: 'asdfasdf'
+			}
+		]
+	});
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
@@ -98,7 +110,7 @@ const Component = () => {
 								원문
 								</th>
 								<td className="tbody">
-									<TextBtn text="PDF 보기" />
+									<TextBtn text="PDF 보기" link={data.techDocDetails[0].filePath}/>
 								</td>
 							</tr>
 						</tbody>

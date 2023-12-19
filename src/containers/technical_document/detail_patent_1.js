@@ -17,7 +17,23 @@ import { useEffect } from "react";
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState();
+	const [ data, setData ] = useState({
+		tcqNm: '기술기술',
+		orgCntn: 'aaa',
+		cpcVal: 'bbb',
+		ipcVal: 'ccc',
+		ivtNm: 'ddd',
+		apyAd: 'eee',
+		statCd: 'fff',
+		rgstNo: 'ggg',
+		apyNo: 'hhh',
+		orgnNm: 'iii',
+		techDocDetails: [
+			{
+				filePath: 'asdfasdf'
+			}
+		]
+	});
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
