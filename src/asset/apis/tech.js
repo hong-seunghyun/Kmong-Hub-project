@@ -82,23 +82,13 @@ export const addPatent = (
 
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("tecDocRgstDto", {
-    typeCd,
-    tcqNm,
-    rsacUcmdCd,
-    apyNo,
-    apyAd,
-    statCd,
-    rgstNo,
-    ivtNm,
-    ipcVal,
-    cpcVal,
-    piuaYn,
-  });
+  formData.append("tecDocRgstDto", blob);
 
   const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, formData, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      'Content-Type': 'multipart/form-data',
+      Accept: "application/json"
     },
   });
   return response;

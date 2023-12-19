@@ -55,7 +55,12 @@ export const deleteManager = ({ mbrNo }) => {
   return response;
 };
 
-export const setManager = ({ formData }) => {
-  const response = Api.post(`viewapi/mngr/site/v1/merge/submanager`, formData);
+export const setManager = (formData) => {
+  const response = Api.post(`viewapi/mngr/site/v1/merge/submanager`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Accept: "application/json"
+    },
+  });
   return response;
 };
