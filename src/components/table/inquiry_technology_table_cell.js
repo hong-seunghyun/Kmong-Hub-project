@@ -11,7 +11,7 @@ const Component = (props) => {
         <span>{props.number}</span>
       </div>
       <div className="title-cell">
-        <img src={props.img} />
+        <images src={props.img} />
         {props.title}
       </div>
       <div className="writer-cell">{props.writer}</div>
