@@ -41,6 +41,7 @@ const Component = () => {
   const [ sbmyn, setSbmyn ] = useState('');
   const [ ivtNm, setIvtNm ] = useState('');
   const [ orgCntn, setOrgCntn ] = useState('');
+  const [piuaYn, setPiuaYn] = useState("");
   
   const [ data, setData ] = useState([]);
   const [ orgn, setOrgn ] = useState('');
@@ -192,7 +193,7 @@ const Component = () => {
 						</p>
 					</div>
 					<div className="box- check-box">
-						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." setCheckState={setSbmyn}/>
+						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." setCheckState={setPiuaYn}/>
 					</div>
 					<div className="btn-wrap flex_">
 						<div className="flex_">
