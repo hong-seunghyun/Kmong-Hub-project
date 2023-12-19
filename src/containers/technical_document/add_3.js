@@ -61,7 +61,7 @@ const Component = () => {
       typeCd,
       tcqNm,
       rsacUcmdCd,
-      apyNm,
+      apyNo,
       apyAd,
       statCd,
       rgstNo,

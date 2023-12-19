@@ -19,9 +19,9 @@ const Component = (props) => {
 		setSearch(dummy.name);
 	}
 
-	const onBlur = (dummy) => {
-		setToggle(false);
-	}
+	// const onBlur = (dummy) => {
+	// 	setToggle(false);
+	// }
 
 	useEffect(() => {
 		if(search === '') setToggle(false);
@@ -44,7 +44,7 @@ const Component = (props) => {
 					placeholder="검색어를 입력해 주세요."
 					value={search}
 					onChange={onChange}
-					onBlur={onBlur}
+					// onBlur={onBlur}
 					onClick={onChange}
 				/>
 				<span className="icon_serach">

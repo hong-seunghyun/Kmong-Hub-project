@@ -78,6 +78,7 @@ const Component = () => {
   const [ file, setFile ] = useState('');
 
   const searchOrgan = async (organ) => {
+    setApyAd(apyAd.replace('-', ''));
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
       console.log(res.data.result.rows);
@@ -91,7 +92,7 @@ const Component = () => {
       typeCd,
       tcqNm,
       rsacUcmdCd,
-      apyNm,
+      apyNo,
       apyAd,
       statCd,
       rgstNo,
