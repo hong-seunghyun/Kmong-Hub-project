@@ -192,7 +192,7 @@ const Component = () => {
 						</p>
 					</div>
 					<div className="box- check-box">
-						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." />
+						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." setCheckState={setSbmyn}/>
 					</div>
 					<div className="btn-wrap flex_">
 						<div className="flex_">
