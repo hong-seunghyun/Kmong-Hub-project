@@ -75,10 +75,9 @@ const Component = () => {
   
   const [ data, setData ] = useState([]);
   const [ orgn, setOrgn ] = useState('');
-  const [ file, setFile ] = useState();
+  const [ file, setFile ] = useState(null);
 
   const searchOrgan = async (organ) => {
-    setApyAd(apyAd.replace('-', ''));
 		await searchOrgn({query: organ}).then(res => {
 			setData(res.data.result.rows);
       console.log(res.data.result.rows);
@@ -88,6 +87,7 @@ const Component = () => {
 	}
 
   const createPatent = () => {
+    setApyAd(apyAd.replace('-', ''));
     const dto = {
       typeCd,
       tcqNm,
