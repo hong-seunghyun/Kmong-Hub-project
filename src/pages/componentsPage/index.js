@@ -1,11 +1,10 @@
-
-import Component from "/src/containers/components";
+import React from "react";
+import Component from "/src/containers/componentPage/index";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 
 const Page = ({ ...props }) => (
   <>
 		<NavigationTopLogin />
-		
     <Component {...props} />
   </>
 );

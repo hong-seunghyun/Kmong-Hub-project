@@ -11,7 +11,7 @@ const Component = (props) => {
 				<span>{props.number}</span>
 			</div>
 			<div className="category-cell">
-				<img src={props.img} />
+				<images src={props.img} />
 			</div>
 			<div className="title-cell">
 				<Link href={`${props.link}`}>{props.title}</Link>

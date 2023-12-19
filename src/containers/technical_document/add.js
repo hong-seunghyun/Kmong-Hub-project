@@ -6,11 +6,9 @@ import CompanyInput from "/src/components/searchBar/search_bar_company_managemen
 import ButtonL from "/src/components/buttons/button_outline_l";
 import Button from "/src/components/buttons/button_primary_l";
 import DropsMenu from "/src/components/dropsMenu/drops_menu";
-import Icon from "/src/components/icon/icon.tsx";
 import DatePicker from "/src/components/date/date-picker-single";
 import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
-import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
 
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
@@ -92,7 +90,6 @@ const Component = () => {
       typeCd,
       tcqNm,
       rsacUcmdCd,
-      apyNo,
       apyAd,
       statCd,
       rgstNo,

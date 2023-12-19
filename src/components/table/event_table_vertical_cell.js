@@ -13,7 +13,7 @@ const Component = (props) => {
 			</div>
 			<div className="category-cell">
 				<Label backgroundColor={props.labelBg} fontColor={props.labelColor} text={props.label} icon="false" iconColor="none"/>
-				<img src={props.img} />
+				<images src={props.img} />
 			</div>
 			<div className="title-cell">
 				<Link href={`${props.link}`}>{props.title}</Link>

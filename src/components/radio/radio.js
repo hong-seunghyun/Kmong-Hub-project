@@ -8,11 +8,6 @@ const Component = (props) => {
 		setRadioValue(e.target.value);
 		props.setRadioValue && props.setRadioValue(isRadioValue);
 	}
-
-	const clickValue=(e)=>{
-		props.setRadioValue(isRadioValue);
-	}
-
   return (
     <div className={`radio-container flex_ body-3-R ${props.state}`}>
       <input
