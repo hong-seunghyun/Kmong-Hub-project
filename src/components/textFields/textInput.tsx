@@ -40,7 +40,7 @@ const Input = ({
   };
 
   useEffect(() => {
-    setInputCount(state.length);
+    if (state) setInputCount(state.length);
   }, [state]);
 
   return (
