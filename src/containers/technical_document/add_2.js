@@ -50,7 +50,6 @@ const Component = () => {
 		await searchOrgn().then(res => {
 			setData(res.data.result.rows);
 			console.log(res.data.result.rows);
-			window.location = '/technical_document';
 		}).catch(err => {
 			console.log(err);
 		});
@@ -78,6 +77,7 @@ const Component = () => {
 			orgCntn
     }).then(res => {
       console.log(res.data);
+			window.location = '/technical_document';
     }).catch(err => {
       console.log(err);
     });
