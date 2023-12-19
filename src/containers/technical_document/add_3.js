@@ -147,7 +147,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonL text="초기화" />
 							</Link>
-							<Link href="/add_3">
+							<Link href="/technical_document/add_3">
 								<Button text="저장" onclick={createReport}/>
 							</Link>
 						</div>
