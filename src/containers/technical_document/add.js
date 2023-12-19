@@ -2,90 +2,90 @@ import React from "react";
 import Link from "next/link";
 import Badge from "/src/components/label/badge";
 import Input from "/src/components/textFields/textInput.tsx";
-import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
+import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu";
 import ButtonL from "/src/components/buttons/button_outline_l";
 import Button from "/src/components/buttons/button_primary_l";
 import DropsMenu from "/src/components/dropsMenu/drops_menu";
 import DatePicker from "/src/components/date/date-picker-single";
 import Upload from "/src/components/upload/upload";
 import CheckBox from "/src/components/radio/checkbox";
-
 import { useState } from "react";
 import { searchOrgn } from "../../asset/apis/signup";
 import { addPatent } from "../../asset/apis/tech";
 import { useEffect } from "react";
 
 const Component = () => {
-
   const drop_datas = [
     {
       id: "P",
-      title: '특허'
+      title: "특허",
     },
     {
       id: "T",
-      title: '논문'
+      title: "논문",
     },
     {
       id: "R",
-      title: '보고서'
-    }
+      title: "보고서",
+    },
   ];
 
   const send_datas = [
     {
-      id: 'O',
-      title: '출원 중'
-    },
-    {
-      id: 'O',
-      title: '미공개 상태'
-    },
-    {
-      id: 'O',
-      title: '공개 상태'
-    },
-    {
-      id: 'O',
-      title: '등록 완료'
+      id: "O",
+      title: "출원 중",
     },
     {
       id: "O",
-      title: '취하 상태'
+      title: "미공개 상태",
     },
     {
-      id: 'O',
-      title: '거절 상태'
-    }
+      id: "O",
+      title: "공개 상태",
+    },
+    {
+      id: "O",
+      title: "등록 완료",
+    },
+    {
+      id: "O",
+      title: "취하 상태",
+    },
+    {
+      id: "O",
+      title: "거절 상태",
+    },
   ];
 
-  const [ typeCd, setTypeCd ] = useState('P');
-  const [ tcqNm, setTcqNm ] = useState('');
-  const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
-  const [ apyNo, setApyNo ] = useState('');
-  const [ apyAd, setApyAd ] = useState('');
-  const [ statCd, setStatCd ] = useState('');
-  const [ rgstNo, setRgstNo ] = useState('');
-  const [ ivtNm, setIvtNm ] = useState('');
-  const [ ipcVal, setIpcVal ] = useState('');
-  const [ cpcVal, setCpcVal ] = useState('');
-  const [ piuaYn, setPiuaYn ] = useState('');
-  
-  const [ data, setData ] = useState([]);
-  const [ orgn, setOrgn ] = useState('');
-  const [ file, setFile ] = useState(null);
+  const [typeCd, setTypeCd] = useState("P");
+  const [tcqNm, setTcqNm] = useState("");
+  const [rsacUcmdCd, setRsacUcmdCd] = useState("");
+  const [apyNo, setApyNo] = useState("");
+  const [apyAd, setApyAd] = useState("");
+  const [statCd, setStatCd] = useState("");
+  const [rgstNo, setRgstNo] = useState("");
+  const [ivtNm, setIvtNm] = useState("");
+  const [ipcVal, setIpcVal] = useState("");
+  const [cpcVal, setCpcVal] = useState("");
+  const [piuaYn, setPiuaYn] = useState("");
+
+  const [data, setData] = useState([]);
+  const [orgn, setOrgn] = useState("");
+  const [file, setFile] = useState(null);
 
   const searchOrgan = async (organ) => {
-		await searchOrgn({query: organ}).then(res => {
-			setData(res.data.result.rows);
-      console.log(res.data.result.rows);
-		}).catch(err => {
-			console.log(err);
-		});
-	}
+    await searchOrgn({ query: organ })
+      .then((res) => {
+        setData(res.data.result.rows);
+        console.log(res.data.result.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const createPatent = () => {
-    setApyAd(apyAd.replace('-', ''));
+    setApyAd(apyAd.replace("-", ""));
     const dto = {
       typeCd,
       tcqNm,
@@ -96,23 +96,25 @@ const Component = () => {
       ivtNm,
       ipcVal,
       cpcVal,
-      piuaYn: piuaYn ? 'Y' : 'N'
+      piuaYn: piuaYn ? "Y" : "N",
     };
-    addPatent(dto, file).then(res => {
-      console.log(res.data);
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+    addPatent(dto, file)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     console.log(typeCd);
-    if(typeCd === 'T') {
-      window.location = '/technical_document/add_2';
-    } else if(typeCd === 'R') {
-      window.location = '/technical_document/add_3';
+    if (typeCd === "T") {
+      window.location = "/technical_document/add_2";
+    } else if (typeCd === "R") {
+      window.location = "/technical_document/add_3";
     }
-		searchOrgan();
+    searchOrgan();
   }, [typeCd]);
 
   return (
@@ -126,7 +128,12 @@ const Component = () => {
           <Badge value="1" />
           유형 선택
         </div>
-        <DropsMenu placeholder={"유형을 선택해 주세요."} datas={drop_datas} setState={setTypeCd} default="특허"/>
+        <DropsMenu
+          placeholder={"유형을 선택해 주세요."}
+          datas={drop_datas}
+          setState={setTypeCd}
+          default="특허"
+        />
 
         <div className="content- content-2">
           <div className="sub-title body-2-B flex_">
@@ -145,16 +152,19 @@ const Component = () => {
           </div>
 
           <div className="input-search box-">
-						<p className="table-caption body-2-B">
-                소속  <span className="txt-violet-1">*</span>
-              </p>
+            <p className="table-caption body-2-B">
+              소속 <span className="txt-violet-1">*</span>
+            </p>
             <CompanyInput
               labelText="소속"
               placeholder="소속을 검색해 주세요."
               valueType=""
               helperTextResult="none"
               iconState="false"
-              state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
+              state={orgn}
+              setState={setOrgn}
+              data={data}
+              setResult={setRsacUcmdCd}
             />
           </div>
 
@@ -185,15 +195,19 @@ const Component = () => {
           <div className="flex_ box- flex_date">
             <div>
               <p className="table-caption body-2-B">
-                상태  <span className="txt-violet-1">*</span>
+                상태 <span className="txt-violet-1">*</span>
               </p>
-              <DropsMenu placeholder={"상태를 선택해 주세요."} datas={send_datas} setState={setStatCd}/>
+              <DropsMenu
+                placeholder={"상태를 선택해 주세요."}
+                datas={send_datas}
+                setState={setStatCd}
+              />
             </div>
             <div>
               <p className="table-caption body-2-B">
                 출원 일자<span className="txt-violet-1">*</span>
               </p>
-              <DatePicker setDate={setApyAd}/>
+              <DatePicker setDate={setApyAd} />
             </div>
           </div>
 
@@ -234,7 +248,12 @@ const Component = () => {
             <p className="table-caption body-2-B">
               첨부파일<span className="txt-violet-1">*</span>
             </p>
-            <Upload state="default" type="pdf" fileState={file} setFileState={setFile}/>
+            <Upload
+              state="default"
+              type="pdf"
+              fileState={file}
+              setFileState={setFile}
+            />
             <p className="caption-R helper-txt">
               파일 형식: <span>PDF, DOCX, HWP</span>{" "}
               <span className="bar">|</span> 최대 파일 크기: <span>500mb</span>
@@ -254,7 +273,7 @@ const Component = () => {
                 <ButtonL text="초기화" />
               </Link>
               <Link href="/technical_document/add">
-                <Button text="저장" onclick={createPatent}/>
+                <Button text="저장" onclick={createPatent} />
               </Link>
             </div>
           </div>
