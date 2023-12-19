@@ -101,6 +101,7 @@ const Component = () => {
     addPatent(dto, file)
       .then((res) => {
         console.log(res.data);
+        window.location = '/technical_document'
       })
       .catch((err) => {
         console.log(err);
