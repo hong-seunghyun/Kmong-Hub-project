@@ -47,7 +47,7 @@ const Component = () => {
 									<Label 
 											backgroundColor="bg-violet-5" 
 											fontColor="txt-violet-1" 
-											text="논문" 
+											text="보고서" 
 											icon="false" 
 											iconColor=""
 										/>
