@@ -54,7 +54,8 @@ const Component = () => {
 		});
 	}
 
-  const createReport = () => {
+  const createReport = async () => {
+		await setApyAd(apyAd.replace("-", ""));
     addReport({
       typeCd,
       tcqNm,

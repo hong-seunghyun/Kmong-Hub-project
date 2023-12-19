@@ -84,8 +84,8 @@ const Component = () => {
       });
   };
 
-  const createPatent = () => {
-    setApyAd(apyAd.replace("-", ""));
+  const createPatent = async () => {
+    await setApyAd(apyAd.replace("-", ""));
     const dto = {
       typeCd,
       tcqNm,

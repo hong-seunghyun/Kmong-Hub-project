@@ -56,7 +56,9 @@ const Component = () => {
 		});
 	}
 
-  const createThesis = () => {
+  const createThesis = async () => {
+
+		await setApyAd(apyAd.replace("-", ""));
 
 		console.log(`typeCd : ${typeCd}`);
 		console.log(`tcqNm : ${tcqNm}`);
