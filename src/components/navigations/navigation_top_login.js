@@ -214,7 +214,10 @@ const Component = (props) => {
           <Link
             href="/"
             className="logout-btn caption-R"
-            onClick={() => localStorage.removeItem("accessToken")}
+            onClick={() => {
+              localStorage.removeItem("accessToken");
+              localStorage.removeItem("refreshToken");
+            }}
           >
             로그아웃
           </Link>
