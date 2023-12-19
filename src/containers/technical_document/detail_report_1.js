@@ -27,7 +27,7 @@ const Component = () => {
 		});
 	},[]);
 
-	return(
+	return data ? (
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail document-">
@@ -123,6 +123,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	) : (<></>)
 }
 export default Component;

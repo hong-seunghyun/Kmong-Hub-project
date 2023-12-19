@@ -46,7 +46,7 @@ export const addPatent = ({
   typeCd,
   tcqNm,
   rsacUcmdCd,
-  apyNm,
+  apyNo,
   apyAd,
   statCd,
   rgstNo,
@@ -54,12 +54,12 @@ export const addPatent = ({
   ipcVal,
   cpcVal,
   piuaYn
-}) => {
+}, file) => {
   const mergeTechDTO = {
     typeCd,
     tcqNm,
     rsacUcmdCd,
-    apyNm,
+    apyNo,
     apyAd,
     statCd,
     rgstNo,
@@ -68,8 +68,18 @@ export const addPatent = ({
     cpcVal,
     piuaYn
   };
+  console.log(JSON.stringify(mergeTechDTO));
+  const blob = new Blob([JSON.stringify(mergeTechDTO)], {
+    type: "application/json"
+  });
+  console.log(blob);
+  console.log(file);
 
-  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('tecDocRgstDto', blob);
+
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, formData, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
     }
@@ -87,7 +97,7 @@ export const addThesis = ({
   sbmyn,
   ivtNm,
   orgCntn
-}) => {
+}, file) => {
   const mergeTechDTO = {
     typeCd,
     tcqNm,
@@ -98,8 +108,16 @@ export const addThesis = ({
     ivtNm,
     orgCntn
   };
+  const blob = new Blob([JSON.stringify(registerDTO)], {
+    type: "application/json"
+  });
+  console.log(blob);
 
-  const response = Api.post(`/viewapi/mngr/site/v1/merge/popu`, mergeTechDTO, {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('tecDocRgstDto', blob);
+
+  const response = Api.post(`/viewapi/mngr/site/v1/merge/tdc`, blob, {
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
     }
