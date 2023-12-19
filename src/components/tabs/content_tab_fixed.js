@@ -1,8 +1,8 @@
-import React, {useRef, useState} from "react";
-import Link from 'next/link';
+import React, { useRef, useState } from "react";
+import Link from "next/link";
 
 const Component = (props) => {
-	const scrollRef = useRef(null);
+  const scrollRef = useRef(null);
 
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState();
@@ -18,85 +18,88 @@ const Component = (props) => {
   };
 
   const onDragMove = (e) => {
-		if (isDrag) {
-			const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
-	
-			scrollRef.current.scrollLeft = startX - e.pageX;
-	
-			if (scrollLeft === 0) {
-				setStartX(e.pageX);
-			} else if (scrollWidth <= clientWidth + scrollLeft) {
-				setStartX(e.pageX + scrollLeft);
-			}
-		}
-	};
+    if (isDrag) {
+      if (scrollRef.current) {
+        const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
 
-	const throttle = (func, ms) => {
-		let throttled = false;
-		return (...args) => {
-			if (!throttled) {
-				throttled = true;
-				setTimeout(() => {
-					func(...args);
-					throttled = false;
-				}, ms);
-			}
-		};
-	};
+        scrollRef.current.scrollLeft = startX - e.pageX;
 
-	const delay = 100;
-	const onThrottleDragMove = throttle(onDragMove, delay);
+        if (scrollLeft === 0) {
+          setStartX(e.pageX);
+        } else if (scrollWidth <= clientWidth + scrollLeft) {
+          setStartX(e.pageX + scrollLeft);
+        }
+      }
+    }
+  };
 
-	return(
-		<div className="tab-container tab-scrollable" 
-			ref={scrollRef}  
-			onMouseDown={onDragStart}
-			onMouseMove={isDrag ? onThrottleDragMove : null}
-			onMouseUp={onDragEnd}
-			onMouseLeave={onDragEnd}
-		>
-			<ul className="flex_">
-				<li className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}>
-				<span>
-						<Link href="/contents">
-						기술 이전
-						</Link>
-					</span>
-				</li>
+  const throttle = (func, ms) => {
+    let throttled = false;
+    return (...args) => {
+      if (!throttled) {
+        throttled = true;
+        setTimeout(() => {
+          func(...args);
+          throttled = false;
+        }, ms);
+      }
+    };
+  };
 
-				<li className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}>
-				<span>
-						<Link href="/contents/news">
-						뉴스
-						</Link>
-					</span>
-				</li>
+  const delay = 100;
+  const onThrottleDragMove = throttle(onDragMove, delay);
 
-				<li className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}>
-				<span>
-						<Link href="/contents/event">
-						행사
-						</Link>
-					</span>
-				</li>
+  return (
+    <div
+      className="tab-container tab-scrollable"
+      ref={scrollRef}
+      onMouseDown={onDragStart}
+      onMouseMove={isDrag ? onThrottleDragMove : null}
+      onMouseUp={onDragEnd}
+      onMouseLeave={onDragEnd}
+    >
+      <ul className="flex_">
+        <li
+          className={`tab-item body-2-B ${props.active === 0 ? "active" : ""}`}
+        >
+          <span>
+            <Link href="/contents">기술 이전</Link>
+          </span>
+        </li>
 
-				<li className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}>
-				<span>
-						<Link href="/contents/support">
-						지원 사업
-						</Link>
-					</span>
-				</li>
+        <li
+          className={`tab-item body-2-B ${props.active === 1 ? "active" : ""}`}
+        >
+          <span>
+            <Link href="/contents/news">뉴스</Link>
+          </span>
+        </li>
 
-				<li className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}>
-				<span>
-						<Link href="/contents/contents">
-						콘텐츠 노출
-						</Link>
-					</span>
-				</li>
-			</ul>
-		</div>
-	)
-}
+        <li
+          className={`tab-item body-2-B ${props.active === 2 ? "active" : ""}`}
+        >
+          <span>
+            <Link href="/contents/event">행사</Link>
+          </span>
+        </li>
+
+        <li
+          className={`tab-item body-2-B ${props.active === 3 ? "active" : ""}`}
+        >
+          <span>
+            <Link href="/contents/support">지원 사업</Link>
+          </span>
+        </li>
+
+        <li
+          className={`tab-item body-2-B ${props.active === 4 ? "active" : ""}`}
+        >
+          <span>
+            <Link href="/contents/contents">콘텐츠 노출</Link>
+          </span>
+        </li>
+      </ul>
+    </div>
+  );
+};
 export default Component;

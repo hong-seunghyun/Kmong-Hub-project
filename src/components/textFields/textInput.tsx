@@ -1,5 +1,5 @@
 // email_input.tsx
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { helperTxt, helperTxtSet } from "./helperText";
 
 interface InputProps {
@@ -38,6 +38,11 @@ const Input = ({
     if (setState) setState(e.target.value);
     setInputCount(e.target.value.length);
   };
+
+  useEffect(() => {
+    setInputCount(state.length);
+  }, [state]);
+
   return (
     <div className="text-fields-wrap">
       <p className="body-2-B">
