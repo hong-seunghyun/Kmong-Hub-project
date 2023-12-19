@@ -25,7 +25,7 @@ const Component = () => {
 		}).catch(err => {
 			console.log(err);
 		});
-	},[]);
+	},[router.isReady]);
 
 	return data ? (
 		<div className="container">
