@@ -10,12 +10,16 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 
 const Component = () => {
 
+	const [ data, setData ] = useState({
+		tcqNm: 'aaa'
+	});
+
 	return(
 		<div className="container">
 			<div className="page-wrap">
 				<div className="contents- contents-technology contents-news contents-news-detail document-">
 					<h1 className="display-5-B title flex_">
-						[제목]
+						{data.tcqNm}
 					</h1>
 					<Tabs active={1} />
 					

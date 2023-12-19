@@ -41,6 +41,7 @@ const Component = () => {
   const [ sbmyn, setSbmyn ] = useState('');
   const [ ivtNm, setIvtNm ] = useState('');
   const [ orgCntn, setOrgCntn ] = useState('');
+  const [piuaYn, setPiuaYn] = useState("");
   
   const [ data, setData ] = useState([]);
   const [ orgn, setOrgn ] = useState('');
@@ -55,7 +56,9 @@ const Component = () => {
 		});
 	}
 
-  const createThesis = () => {
+  const createThesis = async () => {
+
+		await setApyAd(apyAd.replace("-", ""));
 
 		console.log(`typeCd : ${typeCd}`);
 		console.log(`tcqNm : ${tcqNm}`);
@@ -65,7 +68,6 @@ const Component = () => {
 		console.log(`sbmyn : ${sbmyn}`);
 		console.log(`ivtNm : ${ivtNm}`);
 		console.log(`orgCntn : ${orgCntn}`);
-
 
     addThesis({
 			typeCd,
@@ -78,6 +80,8 @@ const Component = () => {
 			orgCntn
     }).then(res => {
       console.log(res.data);
+			alert('저장이 완료되었습니다.');
+			window.location = '/technical_document';
     }).catch(err => {
       console.log(err);
     });
@@ -134,7 +138,6 @@ const Component = () => {
               iconState="false"
               state={orgn} setState={setOrgn} data={data} setResult={setRsacUcmdCd}
             />
-            <Icon icon="search" size={16} stroke="none" color="#574AFF" />
           </div>
 
 					<div className="box-">
@@ -152,7 +155,7 @@ const Component = () => {
 					<div className="flex_ box- flex_date">
 						<div>
 							<p className="table-caption body-2-B">발행연도<span className="txt-violet-1">*</span></p>
-							<DatePicker setDate={setApyAd}/>
+							<DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}}/>
 						</div>
 						<div>
 							<p className="table-caption body-2-B">투고 선택<span className="txt-violet-1">*</span></p>
@@ -193,15 +196,15 @@ const Component = () => {
 						</p>
 					</div>
 					<div className="box- check-box">
-						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." />
+						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." setCheckState={setPiuaYn}/>
 					</div>
 					<div className="btn-wrap flex_">
 						<div className="flex_">
 							<Link href="#">
-								<ButtonL text="초기화" />
+								<ButtonL text="초기화"/>
 							</Link>
-							<Link href="/technical_document">
-								<Button text="저장" />
+							<Link href="/technical_document/add_2">
+								<Button text="저장" onclick={createThesis}/>
 							</Link>
 						</div>
 					</div>

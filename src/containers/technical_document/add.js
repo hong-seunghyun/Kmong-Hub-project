@@ -84,12 +84,12 @@ const Component = () => {
       });
   };
 
-  const createPatent = () => {
-    setApyAd(apyAd.replace("-", ""));
+  const createPatent = async () => {
     const dto = {
       typeCd,
       tcqNm,
       rsacUcmdCd,
+      apyNo,
       apyAd,
       statCd,
       rgstNo,
@@ -98,9 +98,11 @@ const Component = () => {
       cpcVal,
       piuaYn: piuaYn ? "Y" : "N",
     };
-    addPatent(dto, file)
+    await addPatent(dto, file)
       .then((res) => {
         console.log(res.data);
+        alert('저장이 완료되었습니다.');
+        window.location = '/technical_document'
       })
       .catch((err) => {
         console.log(err);
@@ -207,7 +209,7 @@ const Component = () => {
               <p className="table-caption body-2-B">
                 출원 일자<span className="txt-violet-1">*</span>
               </p>
-              <DatePicker setDate={setApyAd} />
+              <DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}} />
             </div>
           </div>
 

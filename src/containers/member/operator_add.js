@@ -122,7 +122,7 @@ const Component = () => {
   const setValue = () => {
     const authInfoValue = getAuthInfo();
     const formData = new FormData();
-    formData.append("mergeManagerInfo", {
+    const dto = {
       emailAddr: email,
       hpNo: phNo,
       mbrNm: name,
@@ -133,13 +133,18 @@ const Component = () => {
       ucmdCd,
       orgnPhcNo: "010-1834-5678",
       memMenuAuthInfo: authInfoValue,
-    });
+    };
+    console.log(JSON.stringify(dto));
+    const blob = new Blob([JSON.stringify(dto)], {
+      type: 'application/json'
+    })
+    formData.append("mergeManagerInfo", blob);
     if (pfFile) formData.append("pflImg", pfFile);
 
     setManager(formData)
       .then((e) => {
         console.log(e);
-        router.push("/operator_list");
+        // router.push("/operator_list");
       })
       .catch((e) => console.log(e));
   };

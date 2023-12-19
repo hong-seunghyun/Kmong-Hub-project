@@ -15,7 +15,9 @@ import { useState } from "react";
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState();
+	const [ data, setData ] = useState({
+		tcqNm: 'aaa'
+	});
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
