@@ -9,7 +9,7 @@ const Component = (props) => {
 		setSearch(e.target.value);
 		props.setState(e.target.value);
 		props.onchange && props.onchange(e.target.value);
-		if(props.data.length == 0) setToggle(false);
+		if(props.data.length === 0) setToggle(false);
 		else setToggle(true);
 	}
 
@@ -25,6 +25,7 @@ const Component = (props) => {
 
 	useEffect(() => {
 		if(search === '') setToggle(false);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[]);
 
 	let filterTitle

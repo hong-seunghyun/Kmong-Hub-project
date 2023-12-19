@@ -5,7 +5,6 @@ import ButtonErrorL from "/src/components/buttons/button_error_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
-import Editor from "/src/components/editorBox/index"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -107,7 +106,7 @@ const Component = () => {
 
 					<div className="btn-wrap flex_">
 						<div className="flex_">
-							<Link href="/technical_document">
+							<Link href="/technical_document/">
 								<ButtonL text="목록으로" />
 							</Link>
 						</div>

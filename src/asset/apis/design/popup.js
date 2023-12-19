@@ -50,7 +50,7 @@ export const createPopup = ({delYn, expsEndDtm, expsStrDtm, popuNm, popuPath}, m
 // post(팝업 불러오기)
 export const getPopUpActive = (currentPage, limit, searchType, searchValue) => {
   const response = Api.get(`/viewapi/mngr/site/v1/popu`, {
-    params: searchValue == '' ? {
+    params: searchValue === '' ? {
       currentPage: currentPage,
       limit: limit,
       searchType: searchType,

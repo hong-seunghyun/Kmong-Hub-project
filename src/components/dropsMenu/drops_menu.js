@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Icon from "/src/components/icon/icon.tsx";
-import { useLayoutEffect } from "react";
 
 // 특허 페이지
 const Component = (props) => {

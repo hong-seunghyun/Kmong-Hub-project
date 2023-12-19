@@ -146,18 +146,6 @@ const Component = (props) => {
     setMenu((isOpen) => !isOpen);
   };
 
-  const navigationNumberResult = () => {
-    if (props.navigationNumber === 0 || props.navigationNumber === 1) {
-      setContentMenu(true);
-      const resultNumber = props.navigationNumber;
-      SUB_MENU_LIST_CONTENT[resultNumber] = {
-        ...SUB_MENU_LIST_CONTENT[resultNumber],
-        state: "true",
-      };
-    }
-    return;
-  };
-
   const onMenuContent = () => {
     if (!isContentMenu) {
       setContentMenu(true);
