@@ -91,11 +91,19 @@ const Component = () => {
 	},[router.isReady]);
 
 	const initData = (data) => {
+
 		setTcqNm(data.tcqNm);
 		setRsacUcmdCd(data.rsacUcmdCd);
 		setOrgn(data.orgnNm);
 		setApyNo(data.apyNo);
 		setRgstNo(data.rgstNo);
+		statCd(data.statCd);
+		setApyAd(data.apyAd);
+		setIvtNm(data.ivtNm);
+		setIpcVal(data.ipcVal);
+		setCpcVal(data.cpcVal);
+		setFile();
+		setPiuaYn(data.piuaYn);
 	}
 
 	return(
@@ -125,7 +133,11 @@ const Component = () => {
               valueType=""
               helperTextResult="none"
               iconState="false"
-            /> 
+              state={orgn}
+              setState={setOrgn}
+              data={data}
+              setResult={setRsacUcmdCd}
+            />
 					</div>
 
 					<div className="box-">
@@ -143,28 +155,34 @@ const Component = () => {
 						</div>
 						<div>
 							<p className="table-caption body-2-B">출원 일자<span className="txt-violet-1">*</span></p>
-							<DatePicker />
+              <DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}} />
 						</div>
 					</div>
 
 					<div className="box-">
-						<Input labelText="발명자" placeholder="발명자를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="발명자" placeholder="발명자를 입력해 주세요." helperTextResult="none" iconState="false" state={ivtNm} setState={setIvtNm}/>
 					</div>
 
 					<div className="box-">
-						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false" state={ipcVal} setState={setIpcVal}/>
 					</div>
 
 					<div className="box-">
-						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false" state={cpcVal} setState={setCpcVal}/>
 					</div>
 
 					<div className="box-">
 						<p className="table-caption body-2-B">첨부파일<span className="txt-violet-1">*</span></p>
-						<Upload state="done" type="normal" file=""/>
-						<p className="caption-R helper-txt">
-						파일 형식: <span>PDF, DOCX, HWP</span> <span className="bar">|</span> 최대 파일 크기: <span>500mb</span>
-						</p>
+						<Upload
+              state="default"
+              type="pdf"
+              fileState={file}
+              setFileState={setFile}
+            />
+            <p className="caption-R helper-txt">
+              파일 형식: <span>PDF, DOCX, HWP</span>{" "}
+              <span className="bar">|</span> 최대 파일 크기: <span>500mb</span>
+            </p>
 					</div>
 					<div className="box-">
 						<p className="table-caption body-2-B">상세정보<span className="txt-violet-1">*</span></p>
