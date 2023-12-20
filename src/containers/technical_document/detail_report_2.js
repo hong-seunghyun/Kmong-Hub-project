@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Tabs from "/src/components/tabs/technical_document_detail_tab_1"
 import ButtonL from "/src/components/buttons/button_outline_l"
 import ButtonErrorL from "/src/components/buttons/button_error_l"
