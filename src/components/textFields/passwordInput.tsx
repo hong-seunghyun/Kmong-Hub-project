@@ -12,10 +12,11 @@ interface InputProps {
 	inputCountState?: string;
 	maxLength: number;
 	state: string;
+	light?: boolean
   setState: Dispatch<SetStateAction<string>>;
 };
 
-const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState, inputCountState, maxLength, state, setState }: InputProps) => {
+const Email = ({ valueType, placeholder, helperTextResult, labelText, importState, iconState, inputCountState, maxLength, state, setState, light }: InputProps) => {
 	const [inputCount, setInputCount] = useState(0);
 	const onInputHandler = (e) => {
 		setState(e.target.value);
@@ -25,7 +26,7 @@ const Email = ({ valueType, placeholder, helperTextResult, labelText, importStat
 		<div className="text-fields-wrap">
 			<p className="body-2-B">{labelText}<span className={importState}>*</span></p>
 			<div className={`input-container ${valueType} ${iconState}`} >
-				<div className="wrap radius-8 bg-lightGray">
+				<div className={`wrap radius-8 bg-lightGray ${light ? 'border-violet' : ''}`}>
 					<svg className="icon-email" xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
 						<path fillRule="evenodd" clipRule="evenodd" d="M10 5.5002H2C1.55817 5.5002 1.2 5.85837 1.2 6.3002V11.3002C1.2 11.742 1.55817 12.1002 2 12.1002H10C10.4418 12.1002 10.8 11.742 10.8 11.3002V6.3002C10.8 5.85837 10.4418 5.5002 10 5.5002ZM2 4.3002C0.895431 4.3002 0 5.19563 0 6.3002V11.3002C0 12.4048 0.895431 13.3002 2 13.3002H10C11.1046 13.3002 12 12.4048 12 11.3002V6.3002C12 5.19563 11.1046 4.3002 10 4.3002H2Z" fill="#B3B6B8"/>
 						<path fillRule="evenodd" clipRule="evenodd" d="M5.4 10.3002V7.3002H6.6V10.3002H5.4Z" fill="#B3B6B8"/>
