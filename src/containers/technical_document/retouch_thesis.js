@@ -148,15 +148,15 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						<Input labelText="발명자" placeholder="발명자를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="발명자" placeholder="발명자를 입력해 주세요." helperTextResult="none" iconState="false" state={ivtNm} setState={setIvtNm}/>
 					</div>
 
 					<div className="box-">
-						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false" state={ipcVal} setState={setIpcVal}/>
 					</div>
 
 					<div className="box-">
-						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false" state={cpcVal} setState={setCpcVal}/>
 					</div>
 
 					<div className="box-">
