@@ -44,7 +44,7 @@ const Input = ({
         <span className={importState}>*</span>
       </p>
       <div className={`input-container ${valueType} ${iconState}`}>
-        <div className={`wrap radius-8 bg-lightGray ${light ? "border-violet" : ""}`}>
+        <div className={`wrap radius-8 bg-lightGray ${light ? `border-${light}` : ''}`}>
           <svg
             className="icon-email"
             width="12"

@@ -38,7 +38,7 @@ const Component = (props) => {
 	
 	return(
 		<div className="search-container">
-			<div className="input-wrap radius-8 border-gray-4 bg-lightGray">
+			<div className={`input-wrap radius-8 border-gray-4 bg-lightGray ${props.light ? `border-${props.light}` : ''}`}>
 				<input 
 					className="body-3-R txt-primary" 
 					type="text" 
