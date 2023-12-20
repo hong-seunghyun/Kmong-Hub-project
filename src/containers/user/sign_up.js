@@ -15,6 +15,7 @@ import { useState } from "react";
 import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json"
 import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 const Component = () => {
 
@@ -46,10 +47,18 @@ const Component = () => {
 	const [ checkState2, setCheckState2 ] = useState(false);
 	const [ checkState3, setCheckState3 ] = useState(false);
 
+	const [ orgnTel, setOrgnTel ] = useState('');
+
 	const [ data, setData ] = useState([]);
 
-	const [ phoneToggle, setPhoneToggle ] = useState(false);
-	const [ emailToggle, setEmailToggle ] = useState(false);
+	const [ emailToggle, setEmailToggle ] = useState();
+	const [ passwordLight, setpasswordLight ] = useState();
+	const [ checkPwToggle, setCheckPwToggle ] = useState();
+	const [ telToggle, setTelToggle ] = useState();
+	const [ nameToggle, setNameToggle ] = useState();
+	const [ nicknameToggle, setNicknameToggle ] = useState();
+	const [ orgnToggle, setOrgnToggle ] = useState();
+	const [ orgnTelToggle, setOrgnTelToggle ] = useState();
 
 	const allCheck = (checked) => {
 		setAllCheckState(checked);
@@ -64,9 +73,10 @@ const Component = () => {
 		if(!email.includes('@')) return;
 		await checkTheEmail({email}).then(res => {
 			console.log(res.data);
-			alert('사용하실 수 없는 이메일 입니다!')
+			alert('사용하실 수 없는 이메일 입니다!');
+			setEmailToggle('filled');
 		}).catch((err) => {
-			alert('사용하실 수 있는 이메일 입니다!');
+			setEmailToggle('violet');
 		});
 	}
 
@@ -77,7 +87,6 @@ const Component = () => {
 				const encoded = message.data
 					.replace(/[^0-9]/g, '')
 					.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-				setPhoneToggle(false);
 				setTel(encoded);
 			}
     });
@@ -107,6 +116,19 @@ const Component = () => {
   const [file2, setFile2] = useState(null);
 
 	const registerMember = () => {
+
+		if(!(emailToggle == 'violet' &&
+			passwordLight == 'violet' &&
+			checkPwToggle == 'violet' &&
+			telToggle == 'violet' &&
+			nameToggle == 'violet' &&
+			nicknameToggle == 'violet' &&
+			orgnToggle == 'violet' &&
+			orgnTelToggle== 'violet')) {
+				alert('빈 칸을 모두 채워주세요.');
+				return;
+			}
+
 		const dto = {
 			emailAddr: email,
 			hpNo: tel,
@@ -116,7 +138,7 @@ const Component = () => {
 			pwd: password,
 			smsRcvAgrmYn: checkState2 ? "Y" : "N",
 			ucmdCd: ucmdCd,
-			orgnPhcNo: tel
+			orgnPhcNo: orgnTel
 		};
 		console.log(dto);
 		register(dto, file, file2).then(res => {
@@ -131,6 +153,34 @@ const Component = () => {
 		searchOrgan();
 	},[]);
 
+	useEffect(() => {
+		if(containsAlphabet(password) && containsNumbers(password) && isBetween8and12(password)) {
+			setpasswordLight('violet');
+		} else setpasswordLight('filled');
+		if(password === password2 && password !== '') {
+			setCheckPwToggle('violet');
+		} else setCheckPwToggle('filled');
+		if(name.length > 1) {
+			setNameToggle('violet');
+		} else setNameToggle('filled');
+		if(nickname.length > 1) {
+			setNicknameToggle('violet');
+		} else setNicknameToggle('filled');
+		if(orgn.length !== '') {
+			setOrgnToggle('violet');
+		} else setOrgnToggle('filled');
+		if(orgnTel !== '') {
+			setOrgnTelToggle('violet');
+		} else setOrgnTelToggle('filled');
+		if(tel !== '') {
+			setTelToggle('violet');
+		} else setTelToggle('filled');
+	}, [password, password2, name, nickname, orgnTel, orgn]);
+
+	useEffect(() => {
+		setEmailToggle('filled');
+	}, [email]);
+
 	return(
 			<div className="login sing-up">
 				<h1 className="display-5-B">환영합니다.</h1>
@@ -140,11 +190,17 @@ const Component = () => {
 				</p>
 				<div className="sign-up-form">
 					<div className="flex_ button-input box-">
-						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail}/>
+						<Input importState="" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={email} setState={setEmail} light={emailToggle}/>
 						<ButtonSecondary text="중복 확인" state={email.includes('@') ? "enabled" : "disabled"} onclick={checkEmail}/>
+						<div className="flex_">
+							<div className="flex_ check_flex txt-disabled caption-R" style={{color: emailToggle == 'violet' ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={emailToggle == 'violet' ? "#952dff" : "#b3b6b8"} stroke="" />
+								이메일이 확인 되었습니다
+							</div>
+						</div>
 					</div>
 					<div className="flex_ box-">
-						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword}/>
+						<InputPassword importState="" labelText="비밀번호" placeholder="비밀번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="true" state={password} setState={setPassword} light={passwordLight}/>
 						<div className="flex_">
 							<div className="flex_ check_flex txt-disabled caption-R" style={{color: containsNumbers(password) ? "#952dff" : "#b3b6b8"}}>
 								<Icon icon="checkNone" size={7} color={containsNumbers(password) ? "#952dff" : "#b3b6b8"} stroke="" />
@@ -161,17 +217,33 @@ const Component = () => {
 						</div>
 					</div>
 					<div className="flex_ box-">
-						<InputPassword importState="" labelText="비밀번호 확인" placeholder="비밀번호를 다시 입력해 주세요." valueType="" helperTextResult="none" iconState="true" status={password2} setState={setPassword2}/>
+						<InputPassword importState="" labelText="비밀번호 확인" placeholder="비밀번호를 다시 입력해 주세요." valueType="" helperTextResult="none" iconState="true" status={password2} setState={setPassword2} light={checkPwToggle}/>
+						<div className="flex_">
+							<div className="flex_ check_flex txt-disabled caption-R" style={{color: checkPwToggle == 'violet' ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={checkPwToggle == 'violet' ? "#952dff" : "#b3b6b8"} stroke="" />
+								비밀번호가 일치 합니다
+							</div>
+						</div>
 					</div>
 					<div className="box-">
-						<Input importState="" labelText="이름" placeholder="이름을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={name} setState={setName}/>
+						<Input importState="" labelText="이름" placeholder="이름을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={name} setState={setName} light={nameToggle}/>
 					</div>
 					<div className="box-">
-						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
+						<Input importState="" labelText="닉네임" placeholder="닉네임을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname} light={nicknameToggle}/>
 					</div>
-					<div className="flex_ button-input box- button-full">
+					<div className="flex_ button-input box- button-full" style={{display: tel ? 'none' : 'block'}}>
 						<p className="body-2-B txt-second-default">휴대폰<span className="txt-violet-1">*</span></p>
 						<ButtonSecondary text="PASS 인증" state="enabled" onclick={verification}/>
+					</div>
+					<div className="flex_ button-input box-" style={{display: tel == '' ? 'none' : 'flex'}}>
+						<TelInput importState="" labelText="휴대폰" placeholder="휴대폰을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={tel} setState={setTel} light={telToggle}/>
+						<ButtonSecondary text="중복 확인" state="enabled" onclick={verification}/>
+						<div className="flex_">
+							<div className="flex_ check_flex txt-disabled caption-R" style={{color: telToggle == 'violet' ? "#952dff" : "#b3b6b8"}}>
+								<Icon icon="checkNone" size={7} color={telToggle == 'violet' ? "#952dff" : "#b3b6b8"} stroke="" />
+								인증 되었습니다
+							</div>
+						</div>
 					</div>
 					<div className="input-box box-">
 						<p className="body-2-B txt-second-default">프로필<span className="txt-violet-1">*</span></p>
@@ -189,11 +261,11 @@ const Component = () => {
 					</div>
 					<div className="flex_ input-search box-">
 						<p className="body-2-B txt-second-default">소속<span className="txt-violet-1">*</span></p>
-						<SearchBar state={orgn} setState={setOrgn} data={data} setResult={setUcmdCd}/>
+						<SearchBar state={orgn} setState={setOrgn} data={data} setResult={setUcmdCd} light={orgnToggle}/>
 						<p>{}</p>
 					</div>
 					<div className="box-">
-						<Input importState="" labelText="소속 전화번호" placeholder="소속 전화번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={nickname} setState={setNickname}/>
+						<Input importState="" labelText="소속 전화번호" placeholder="소속 전화번호를 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={orgnTel} setState={setOrgnTel} light={orgnTelToggle}/>
 					</div>
 
 					<CheckBox size="small" label="전체 동의" checked={allCheckState} setCheckState={allCheck}/>
