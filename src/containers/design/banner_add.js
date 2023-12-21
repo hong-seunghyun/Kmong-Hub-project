@@ -25,6 +25,10 @@ const Component = () => {
   };
 
   const addBanner = () => {
+		if(delYn === '' || endState === '' || startState === '' || nameState === '' || pathState === '') {
+      alert('칸을 모두 채워주세요!');
+      return;
+		}
     const dto = {
       delYn: delYn ? "Y" : "N",
       expsEndDtm: endState,
@@ -131,7 +135,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonL text="초기화" />
 							</Link>
-							<Link href="/design/banner_list">
+							<Link href="/design/banner_add">
 								<Button text="등록" onclick={addBanner} />
 							</Link>
 						</div>
