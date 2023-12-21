@@ -3936,6 +3936,7 @@
 				}
 			}
 		}
+	
 		.ps-txt{
 			align-items: center;
 			justify-content: center;
@@ -3943,6 +3944,13 @@
 			margin-top:32px;
 			a{
 				width:auto;
+				.btn_{
+					svg{
+						display: none;
+					}
+				}
+			}
+			span{
 				.btn_{
 					svg{
 						display: none;

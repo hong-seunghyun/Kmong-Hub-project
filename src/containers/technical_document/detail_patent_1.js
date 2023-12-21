@@ -13,7 +13,6 @@ import { getOrgnDetails, getTechDetails } from "../../asset/apis/tech";
 import { set } from "date-fns";
 
 const Component = () => {
-
 	const router = useRouter();
 	const [ data, setData ] = useState({
 		tcqNm: '기술기술',
@@ -32,14 +31,28 @@ const Component = () => {
 			}
 		]
 	});
-	
+	const [ isTabOne, setTabOne ] = useState(true);
+	const [ isTabTwo, setTabTwo ] = useState(false);
+
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		const no = router.query.no;
+		getTechDetails(no).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	},[router.isReady]);
+
+
 	const Tab = () => {
 		const scrollRef = useRef(null);
 
 		const [isDrag, setIsDrag] = useState(false);
 		const [startX, setStartX] = useState();
-		const [ isTabOne, setTabOne ] = useState(true);
-		const [ isTabTwo, setTabTwo ] = useState(false);
+		
 	
 		const onDragStart = (e) => {
 			e.preventDefault();
@@ -91,7 +104,8 @@ const Component = () => {
 			setTabTwo(true)
 		}
 
-
+	
+		
 
 		return(
 			<div className="tab-container tab-scrollable" 
@@ -106,7 +120,9 @@ const Component = () => {
 					onClick={()=>{onClickTabOne()}}
 					>
 					<span>
+						<Link href="#">
 							기본 정보
+							</Link>
 						</span>
 					</li>
 
@@ -114,7 +130,9 @@ const Component = () => {
 					onClick={()=>{onClickTabTwo()}}
 					>
 					<span>
+						<Link href="#">
 							상세 정보
+							</Link>
 						</span>
 					</li>
 				</ul>
@@ -123,17 +141,116 @@ const Component = () => {
 	};
 
 
+	const DetailA = () => {
+		return(
+			<table className="table-horizontal-container radius-20 body-3-R">
+					<tbody>
+						<tr>
+							<th className="thead ">
+								유형
+							</th>
+							<td className="tbody">
+								<Label 
+										backgroundColor="bg-violet-5" 
+										fontColor="txt-violet-1" 
+										text="특허" 
+										icon="false" 
+										iconColor=""
+									/>
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								연구기관
+							</th>
+							<td className="tbody">
+								{data.orgnNm}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								출원번호
+							</th>
+							<td className="tbody">
+								{data.apyNo}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								등록번호
+							</th>
+							<td className="tbody">
+								{data.rgstNo}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								상태
+							</th>
+							<td className="tbody">
+								{data.statCd}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								출원일자
+							</th>
+							<td className="tbody">
+								{data.apyAd}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								발명자
+							</th>
+							<td className="tbody">
+								{data.ivtNm}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+								IPC
+							</th>
+							<td className="tbody">
+							{data.ipcVal}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+							CPC
+							</th>
+							<td className="tbody">
+							{data.cpcVal}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+							출처
+							</th>
+							<td className="tbody">
+							{data.orgCntn}
+							</td>
+						</tr>
+						<tr>
+							<th className="thead">
+							원문
+							</th>
+							<td className="tbody">
+								<TextBtn text="PDF 보기" link={data.techDocDetails[0].filePath}/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		)
+	}
 
-	useLayoutEffect(() => {
-		if(!router.isReady) return;
-		const no = router.query.no;
-		getTechDetails(no).then(res => {
-			console.log(res.data);
-			setData(res.data.data);
-		}).catch(err => {
-			console.log(err);
-		});
-	},[router.isReady]);
+	const DetailB = () => {
+
+		return(
+			<Editor />
+		)
+	}
+
 
 	return data ? (
 		<div className="container">
@@ -145,105 +262,9 @@ const Component = () => {
 					<Tab />
 					
 					<p className="table-caption body-2-B">기본 정보</p>
-						<table className="table-horizontal-container radius-20 body-3-R">
-						<tbody>
-							<tr>
-								<th className="thead ">
-									유형
-								</th>
-								<td className="tbody">
-									<Label 
-											backgroundColor="bg-violet-5" 
-											fontColor="txt-violet-1" 
-											text="특허" 
-											icon="false" 
-											iconColor=""
-										/>
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									연구기관
-								</th>
-								<td className="tbody">
-									{data.orgnNm}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									출원번호
-								</th>
-								<td className="tbody">
-									{data.apyNo}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									등록번호
-								</th>
-								<td className="tbody">
-									{data.rgstNo}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									상태
-								</th>
-								<td className="tbody">
-									{data.statCd}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									출원일자
-								</th>
-								<td className="tbody">
-									{data.apyAd}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									발명자
-								</th>
-								<td className="tbody">
-									{data.ivtNm}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-									IPC
-								</th>
-								<td className="tbody">
-								{data.ipcVal}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-								CPC
-								</th>
-								<td className="tbody">
-								{data.cpcVal}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-								출처
-								</th>
-								<td className="tbody">
-								{data.orgCntn}
-								</td>
-							</tr>
-							<tr>
-								<th className="thead">
-								원문
-								</th>
-								<td className="tbody">
-									<TextBtn text="PDF 보기" link={data.techDocDetails[0].filePath}/>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
+						
+					{isTabOne === true && <DetailA />}
+					{isTabTwo === true && <DetailB />}
 					<div className="btn-wrap flex_">
 						<div className="flex_">
 							<Link href="/technical_document">

@@ -11,6 +11,8 @@ import LoginBtn from "/src/components/buttons/button_primary_l"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import Link from "next/link"
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+import ModalGuideA from "/src/components/modal/modal_uesr_guide_1";
+import ModalGuideB from "/src/components/modal/modal_uesr_guide_2";
 import { useState } from "react";
 import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json"
@@ -59,6 +61,17 @@ const Component = () => {
 	const [ nicknameToggle, setNicknameToggle ] = useState();
 	const [ orgnToggle, setOrgnToggle ] = useState();
 	const [ orgnTelToggle, setOrgnTelToggle ] = useState();
+
+	const [ modalOpenA, setModalOpenA ] = useState(false);
+	const [ modalOpenB, setModalOpenB ] = useState(false);
+
+	const showModalA = () => {
+		setModalOpenA(true);
+	}
+	const showModalB = () => {
+		setModalOpenB(true);
+	}
+
 
 	const allCheck = (checked) => {
 		setAllCheckState(checked);
@@ -278,13 +291,15 @@ const Component = () => {
 					</Link>
 					<p className="ps-txt caption-R txt-second-default flex_">
 						회원가입 시 
-						<Link href="/etc/user-guide-01">
+						<span onClick={showModalA}>
 							<TextBtn text="이용약관"/>
-						</Link>
+							{modalOpenA === true && <ModalGuideA />}
+						</span>
 						및
-						<Link href="/etc/user-guide-02">
-							<TextBtn text="개인정보처리방침"/>
-						</Link>
+						<span onClick={showModalB}>
+							<TextBtn text="개인정보 처리방침"/>
+							{modalOpenB === true && <ModalGuideB />}
+						</span>
 						에 동의하게 됩니다.
 					</p>
 				</div>
