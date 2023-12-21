@@ -74,12 +74,12 @@ const Component = () => {
 										title={data.popuNm}
 										pc={data.pcImgPath}
 										mobile={data.mobImgPath}
-										dateFrom="YYYY.MM.DD"
-										dateTo="YYYY.MM.DD"
+										dateFrom={data.expsStrDtm && data.expsStrDtm.split(' ')[0]}
+										dateTo={data.expsEndDtm && data.expsEndDtm.split(' ')[0]}
 										label="노출 중"
 										labelBg="bg-violet-1"
 										labelColor="txt-white"
-										link={`/design/popup_detail?popuNo=${data.popuNo	}`}
+										link={`/design/popup_detail?popuNo=${data.popuNo}`}
 										/>;
 								})
 							}
