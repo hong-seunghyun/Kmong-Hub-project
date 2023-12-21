@@ -68,7 +68,7 @@ const Component = () => {
             {
               datas.map((data) => {
                 return <TableCell 
-                  title={data.popuNm}
+                  title={data.bnrNm}
                   pc={data.pcImgPath}
                   mobile={data.mobImgPath}
                   dateFrom={data.expsStrDtm && data.expsStrDtm.split(' ')[0]}
@@ -76,7 +76,7 @@ const Component = () => {
                   label="노출 중"
                   labelBg="bg-violet-1"
                   labelColor="txt-white"
-                  link={`/design/popup_detail?popuNo=${data.popuNo}`}
+                  link={`/design/popup_detail?popuNo=${data.bnrNo}`}
                   />;
               })
             }
