@@ -38,7 +38,7 @@ const Component = () => {
 
 	useLayoutEffect(() => {
 		onchange();
-	}, []);
+	}, [page]);
 
   return (
     <div className="page-wrap">
@@ -80,18 +80,7 @@ const Component = () => {
                   />;
               })
             }
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <Pagnation size="regular" />
+            <Pagnation size="regular" setPageIdx={setPage}/>
           </div>
         </div>
       </div>
