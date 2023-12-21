@@ -17,6 +17,7 @@ interface InputProps {
   setStateFunc?: (event: any) => void;
   onBlur?: () => void;
   onClick?: () => void;
+  onKeyPress?: () => void;
 }
 
 const Input = ({
@@ -25,6 +26,7 @@ const Input = ({
   setStateFunc,
   onBlur,
   onClick,
+  onKeyPress,
   valueType,
   placeholder,
   helperTextResult,
@@ -81,6 +83,7 @@ const Input = ({
             placeholder={placeholder}
             onBlur={onBlur && onBlur}
             onClick={onClick && onClick}
+            onKeyPress={onKeyPress && onKeyPress}
           />
           <span className={`input-count caption-R ${inputCountState}`}>
             <span className="txt-second-default">{inputCount}</span> /{" "}
