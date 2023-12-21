@@ -52,7 +52,7 @@ const Component = () => {
 
         <div>
           <div className="flex_ search-wrap">
-            <DropDownMenu />
+            <DropDownMenu datas={drop_datas}/>
             <SearchBar />
           </div>
 
