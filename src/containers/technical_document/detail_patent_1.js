@@ -1,5 +1,5 @@
 import React from "react";
-import Tabs from "/src/components/tabs/technical_document_detail_tab_1"
+import { useEffect, useRef, useState } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import ButtonErrorL from "/src/components/buttons/button_error_l"
 import Button from "/src/components/buttons/button_primary_l"
@@ -10,9 +10,7 @@ import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import { useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 import { getOrgnDetails, getTechDetails } from "../../asset/apis/tech";
-import { useState } from "react";
 import { set } from "date-fns";
-import { useEffect } from "react";
 
 const Component = () => {
 
@@ -34,6 +32,97 @@ const Component = () => {
 			}
 		]
 	});
+	
+	const Tab = () => {
+		const scrollRef = useRef(null);
+
+		const [isDrag, setIsDrag] = useState(false);
+		const [startX, setStartX] = useState();
+		const [ isTabOne, setTabOne ] = useState(true);
+		const [ isTabTwo, setTabTwo ] = useState(false);
+	
+		const onDragStart = (e) => {
+			e.preventDefault();
+			setIsDrag(true);
+			setStartX(e.pageX + scrollRef.current.scrollLeft);
+		};
+	
+		const onDragEnd = () => {
+			setIsDrag(false);
+		};
+	
+		const onDragMove = (e) => {
+			if (isDrag) {
+				const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+		
+				scrollRef.current.scrollLeft = startX - e.pageX;
+		
+				if (scrollLeft === 0) {
+					setStartX(e.pageX);
+				} else if (scrollWidth <= clientWidth + scrollLeft) {
+					setStartX(e.pageX + scrollLeft);
+				}
+			}
+		};
+	
+		const throttle = (func, ms) => {
+			let throttled = false;
+			return (...args) => {
+				if (!throttled) {
+					throttled = true;
+					setTimeout(() => {
+						func(...args);
+						throttled = false;
+					}, ms);
+				}
+			};
+		};
+	
+		const delay = 100;
+		const onThrottleDragMove = throttle(onDragMove, delay);
+
+		const onClickTabOne = () => {
+			setTabOne(true)
+			setTabTwo(false)
+		}
+
+		const onClickTabTwo = () => {
+			setTabOne(false)
+			setTabTwo(true)
+		}
+
+
+
+		return(
+			<div className="tab-container tab-scrollable" 
+				ref={scrollRef}  
+				onMouseDown={onDragStart}
+				onMouseMove={isDrag ? onThrottleDragMove : null}
+				onMouseUp={onDragEnd}
+				onMouseLeave={onDragEnd}
+			>
+				<ul className="flex_">
+					<li className={`tab-item body-2-B ${isTabOne? 'active':''}`}
+					onClick={()=>{onClickTabOne()}}
+					>
+					<span>
+							기본 정보
+						</span>
+					</li>
+
+					<li className={`tab-item body-2-B ${isTabTwo? 'active':''}`}
+					onClick={()=>{onClickTabTwo()}}
+					>
+					<span>
+							상세 정보
+						</span>
+					</li>
+				</ul>
+			</div>
+		)
+	};
+
+
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
@@ -53,7 +142,7 @@ const Component = () => {
 					<h1 className="display-5-B title flex_">
 						{data.tcqNm}
 					</h1>
-					<Tabs active={0}/>
+					<Tab />
 					
 					<p className="table-caption body-2-B">기본 정보</p>
 						<table className="table-horizontal-container radius-20 body-3-R">
