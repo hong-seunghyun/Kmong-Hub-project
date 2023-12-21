@@ -25,10 +25,11 @@ const Component = () => {
 		})
 	},[]);
 
-	const removePopup = () => {
-		deleteBanner().then(res => {
+	const removeBanner = () => {
+		deleteBanner(router.query.bnrNo).then(res => {
 			console.log(res.data);
 			alert('게시물이 삭제되었습니다.');
+			window.location = '/design'
 		}).catch(err => {
 			console.log(err);
 		});
@@ -96,7 +97,7 @@ const Component = () => {
 						</div>
 						<div className="flex_">
 							<Link href="#">
-								<ButtonErrorL text="삭제" />
+								<ButtonErrorL text="삭제" onclick={removeBanner}/>
 							</Link>
 							<Link href={`/design/banner_retouch?bnrNo=${router.query.bnrNo}`}>
 								<Button text="수정" />
