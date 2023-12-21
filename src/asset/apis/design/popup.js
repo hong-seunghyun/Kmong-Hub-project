@@ -75,3 +75,12 @@ export const getPopUpDetails = (popuNo) => {
   });
   return response;
 }
+
+export const deletePopup = (popuNo) => {
+  const response = Api.delete('/viewapi/mngr/site/v1/delete/popu', {
+    params: {
+      popuNo: popuNo
+    }
+  });
+  return response;
+}

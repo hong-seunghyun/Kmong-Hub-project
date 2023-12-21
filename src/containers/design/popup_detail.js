@@ -7,7 +7,7 @@ import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
 import { useRouter } from "next/router";
 import { useLayoutEffect } from "react";
-import { getPopUpDetails } from "../../asset/apis/design/popup";
+import { deletePopup, getPopUpDetails } from "../../asset/apis/design/popup";
 import { useState } from "react";
 
 const Component = () => {
@@ -24,6 +24,16 @@ const Component = () => {
 			console.log(err);
 		})
 	},[]);
+
+	const removePopup = () => {
+		deletePopup(router.query.popuNo).then(res => {
+			console.log(res.data);
+			alert('게시물이 삭제되었습니다.');
+			window.location = '/design/popup_list'
+		}).catch(err => {
+			console.log(err);
+		});
+	}
 
 	return(
 		<div className="container">
@@ -87,7 +97,7 @@ const Component = () => {
 						</div>
 						<div className="flex_">
 							<Link href="#">
-								<ButtonErrorL text="삭제" />
+								<ButtonErrorL text="삭제" onclick={removePopup}/>
 							</Link>
 							<Link href={`/design/popup_retouch?popuNo=${router.query.popuNo}`}>
 								<Button text="수정" />
