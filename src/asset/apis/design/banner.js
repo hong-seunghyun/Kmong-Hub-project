@@ -67,7 +67,7 @@ export const getBannerActive = (currentPage, limit, searchType, searchValue) => 
 export const getBannerDetails = (popuNo) => {
   const response = Api.get(`/viewapi/mngr/site/v1/bnrDetail`, {
     params: {
-      popuNo: popuNo
+      bnrNo: bnrNo
     },
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem('accessToken')}`
