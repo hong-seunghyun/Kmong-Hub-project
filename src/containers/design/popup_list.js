@@ -37,8 +37,8 @@ const Component = () => {
 	]
 
 	useLayoutEffect(() => {
-		onchange();	
-	}, []);
+		onchange();
+	}, [page]);
 
 	return(
 		<div className="page-wrap">
@@ -83,18 +83,7 @@ const Component = () => {
 										/>;
 								})
 							}
-							<TableCell 
-								title="[팝업 이름]"
-								pc="/images/file.png"
-								mobile="/images/file.png"
-								dateFrom="YYYY.MM.DD"
-								dateTo="YYYY.MM.DD"
-								label="노출 안함"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								link="/design/popup_detail"
-							/>
-							<Pagnation size="regular" pageIdx={page}/>
+							<Pagnation size="regular" setPageIdx={setPage}/>
 						</div>
 					</div>
 				</div>
