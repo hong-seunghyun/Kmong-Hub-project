@@ -7,7 +7,7 @@ import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
 import { useState } from "react";
 import { useLayoutEffect } from "react";
-import { getBannerDetails } from "../../asset/apis/design/banner";
+import { deleteBanner, getBannerDetails } from "../../asset/apis/design/banner";
 import { useRouter } from "next/router";
 
 const Component = () => {
@@ -24,6 +24,15 @@ const Component = () => {
 			console.log(err);
 		})
 	},[]);
+
+	const removePopup = () => {
+		deleteBanner().then(res => {
+			console.log(res.data);
+			alert('게시물이 삭제되었습니다.');
+		}).catch(err => {
+			console.log(err);
+		});
+	}
 
 	return(
 		<div className="container">

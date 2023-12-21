@@ -105,3 +105,12 @@ export const getBannerDetails = (bnrNo) => {
   });
   return response;
 }
+
+export const deleteBanner = (bnrNo) => {
+  const response = Api.delete('/viewapi/mngr/site/v1/delete/bnr', {
+    params: {
+      bnrNo: bnrNo
+    }
+  });
+  return response;
+}
