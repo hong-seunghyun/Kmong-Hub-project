@@ -8,6 +8,7 @@ import Editor from "/src/components/editorBox/index"
 import { useState } from "react";
 import { useLayoutEffect } from "react";
 import { getBannerDetails } from "../../asset/apis/design/banner";
+import { useRouter } from "next/router";
 
 const Component = () => {
 
