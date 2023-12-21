@@ -76,7 +76,7 @@ const Component = () => {
                   label="노출 중"
                   labelBg="bg-violet-1"
                   labelColor="txt-white"
-                  link={`/design/popup_detail?popuNo=${data.bnrNo}`}
+                  link={`/design/banner_detail?bnrNo=${data.bnrNo}`}
                   />;
               })
             }
