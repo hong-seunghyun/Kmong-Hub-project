@@ -29,7 +29,7 @@ const Component = () => {
 		deleteBanner(router.query.bnrNo).then(res => {
 			console.log(res.data);
 			alert('게시물이 삭제되었습니다.');
-			window.location = '/design'
+			window.location = '/design/banner_list'
 		}).catch(err => {
 			console.log(err);
 		});
