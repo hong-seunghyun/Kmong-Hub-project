@@ -46,6 +46,7 @@ export const getOrgnDetails = (id) => {
 // post(특허 저장하기)
 export const addPatent = (
   {
+    tdcNo,
     typeCd,
     tcqNm,
     rsacUcmdCd,
@@ -61,6 +62,7 @@ export const addPatent = (
   file
 ) => {
   const mergeTechDTO = {
+    tdcNo,
     typeCd,
     tcqNm,
     rsacUcmdCd,
