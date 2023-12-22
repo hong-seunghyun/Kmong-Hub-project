@@ -24,7 +24,9 @@ const Component = () => {
       .then((res) => {
         console.log("ㅇㄹㅇㅇㅇㅇ", res.data);
         const accessToken = res.data["data"]["accessToken"];
+        const refreshToken = res.data["data"]["refreshToken"];
         localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
         router.push("/home");
       })
       .catch((err) => {
@@ -71,7 +73,7 @@ const Component = () => {
         />
         <Link href="/user/login">
           <LoginBtn text="로그인" onclick={Signin} state={btnState}/>
-        </Link>
+          </Link>
         <div className="flex_ body-3-R">
           <Link href="/user/sign_up">
             <TextBtn text="한국기술HUB는 처음인가요?" />

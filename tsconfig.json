@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/editorBox/index.js"  ],
+, "src/components/editorBox/index.js", "src/asset/config/interceptor.js", "src/asset/config/interceptor.js", "src/asset/config/interceptor.js"  ],
   "exclude": [
     "node_modules",
 		"build"
