@@ -275,8 +275,8 @@ const Component = () => {
 							<Link href="#">
 								<ButtonErrorL text="삭제 요청" />
 							</Link>
-							<Link href="/technical_document/retouch_patent">
-								<Button text="수정 요청" />
+							<Link href={`/technical_document/retouch_patent?no=${router.query.no}`}>
+								<Button text="수정 요청"/>
 							</Link>
 						</div>
 					</div>

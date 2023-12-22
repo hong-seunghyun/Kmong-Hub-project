@@ -81,6 +81,7 @@ const Component = () => {
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
+		
 		getTechDetails(no).then(res => {
 			console.log(res.data);
 			setData(res.data.data);
