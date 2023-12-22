@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Tabs from "/src/components/tabs/login_tab";
 import Input from "/src/components/textFields/textInput.tsx";
 import InputPassword from "/src/components/textFields/passwordInput.tsx"
@@ -12,6 +12,7 @@ import { login } from "../../asset/apis/login";
 const Component = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [btnState, setBtnState] = useState("");
 
   const router = useRouter();
 
@@ -31,6 +32,14 @@ const Component = () => {
         alert(err["errors"]);
       });
   };
+
+  useEffect(() => {
+    if(email !== '' && password !== '') {
+      setBtnState('');
+    } else {
+      setBtnState('disabled')
+    }
+  }, [email, password]);
 
   return (
     <div className="login">
@@ -61,7 +70,7 @@ const Component = () => {
           setState={setPassword}
         />
         <Link href="/user/login">
-          <LoginBtn text="로그인" onclick={Signin} />
+          <LoginBtn text="로그인" onclick={Signin} state={btnState}/>
         </Link>
         <div className="flex_ body-3-R">
           <Link href="/user/sign_up">
