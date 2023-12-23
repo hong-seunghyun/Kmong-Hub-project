@@ -16,9 +16,31 @@ const Component = (props) => {
   const fileInputRef = useRef();
 
   useEffect(() => {
+    console.log('Upload useEffect');
     if (props.fileState) {
-      setState("done");
-      setType("preview");
+      console.log(props.fileState);
+      const ext = props.fileState.type.split('/').pop();
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
+        setState("done");
+        setType("preview");
+      } else if (ext === "hwp" || ext === "docx" || ext === "pdf") {
+        setState("done");
+        setType("normal");
+      } else {
+        alert("지원되지 않는 파일 형식입니다.");
+        setState("default");
+        setType(props.type);
+      }
       props.setFileState(props.fileState);
     }
   }, [props.fileState]);
@@ -69,18 +91,6 @@ const Component = (props) => {
       await sleep(100);
 
       console.log(e.target.files[0].name);
-
-      if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
-        setState("done");
-        setType("preview");
-      } else if (ext === "hwp" || ext === "docx" || ext === "pdf") {
-        setState("done");
-        setType("normal");
-      } else {
-        alert("지원되지 않는 파일 형식입니다.");
-        setState("default");
-        setType(props.type);
-      }
     }
   };
 

@@ -62,33 +62,41 @@ const Component = () => {
   
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
+	const [ urlState, setUrlState ] = useState('');
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
 		
-		getTechDetails(no).then(res => {
+		getTechDetails(no).then(async res => {
 			console.log(res.data);
 			setData(res.data.data);
-			initData(res.data.data);
+			await initData(res.data.data);
 		}).catch(err => {
 			console.log(err);
 		});
 	},[router.isReady]);
 
-	const initData = (data) => {
+	const initData = async (data) => {
 
 		setTcqNm(data.tcqNm);
 		setRsacUcmdCd(data.rsacUcmdCd);
 		setOrgn(data.orgnNm);
 		setApyNo(data.apyNo);
 		setRgstNo(data.rgstNo);
-		statCd(data.statCd);
+		setStatCd(data.statCd);
 		setApyAd(data.apyAd);
 		setIvtNm(data.ivtNm);
 		setIpcVal(data.ipcVal);
 		setCpcVal(data.cpcVal);
-		setFile(getFile(getFile(data.techDocDetail.filePath)));
+		let pdfFile;
+		await getFile(data.techDocDetails[0].filePath).then(res => {
+			pdfFile = res.data;
+		}).catch(err => {
+			console.log(err);
+		});
+		setFile(pdfFile);
+		console.log(pdfFile);
 		setPiuaYn(data.piuaYn);
 	}
 
