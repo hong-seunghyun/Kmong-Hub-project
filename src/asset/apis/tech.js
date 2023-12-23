@@ -1,4 +1,4 @@
-import { Api, ApiKotech } from "../config/Api";
+import { Api, ApiKotech, ApiOcr } from "../config/Api";
 
 // get(기술문서 불러오기)
 export const getTechList = (currentPage, limit, searchValue) => {
@@ -201,14 +201,7 @@ export const addReport = (
 };
 
 export const getFile = (url) => {
-  let result;
-  fetch(url)
-    .then(response => response.blob())
-    .then(blob => {
-      result = blob;
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  return result;
+  console.log(url);
+  const response = ApiOcr.get(url, { responseType: 'blob' });
+  return response;
 }
