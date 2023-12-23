@@ -16,9 +16,14 @@ export const getDetailBoardList = ({ boradIdx }) => {
   return response;
 };
 
-export const getDetailBoardInfo = ({ search, isTitle, currentIndex }) => {
+export const getDetailBoardInfo = ({
+  bbsNo,
+  search,
+  isTitle,
+  currentIndex,
+}) => {
   const response = Api.get(
-    `/viewapi/mngr/site/v1/boardDtList?currentPage=${currentIndex}&limit=10&searchType=${
+    `/viewapi/mngr/site/v1/boardDtList?bbsNo=${bbsNo}&currentPage=${currentIndex}&limit=10&searchType=${
       isTitle ? "titleNm" : "cntn"
     }&searchValue=${search}`
   );
