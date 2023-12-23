@@ -61,8 +61,20 @@ export const addPatent = (
   },
   file
 ) => {
-  const mergeTechDTO = {
+  const mergeTechDTO = tdcNo ? {
     tdcNo,
+    typeCd,
+    tcqNm,
+    rsacUcmdCd,
+    apyNo,
+    apyAd,
+    statCd,
+    rgstNo,
+    ivtNm,
+    ipcVal,
+    cpcVal,
+    piuaYn,
+  } : {
     typeCd,
     tcqNm,
     rsacUcmdCd,
@@ -98,10 +110,20 @@ export const addPatent = (
 
 // post(논문 저장하기)
 export const addThesis = (
-  { typeCd, tcqNm, rsacUcmdCd, uniqueNo, apyAd, sbmyn, ivtNm, orgCntn },
+  { tdcNo, typeCd, tcqNm, rsacUcmdCd, uniqueNo, apyAd, sbmyn, ivtNm, orgCntn },
   file
 ) => {
-  const mergeTechDTO = {
+  const mergeTechDTO = tdcNo ? {
+    tdcNo,
+    typeCd,
+    tcqNm,
+    rsacUcmdCd,
+    uniqueNo,
+    apyAd,
+    sbmyn,
+    ivtNm,
+    orgCntn
+  } : {
     typeCd,
     tcqNm,
     rsacUcmdCd,
@@ -134,10 +156,20 @@ export const addThesis = (
 
 // post(논문 저장하기)
 export const addReport = (
-  { typeCd, tcqNm, rsacUcmdCd, uniqueNo, apyAd, sbmyn, ivtNm, orgCntn },
+  { tdcNo, typeCd, tcqNm, rsacUcmdCd, uniqueNo, apyAd, sbmyn, ivtNm, orgCntn },
   file
 ) => {
-  const mergeTechDTO = {
+  const mergeTechDTO = tdcNo ? {
+    tdcNo,
+    typeCd,
+    tcqNm,
+    rsacUcmdCd,
+    uniqueNo,
+    apyAd,
+    sbmyn,
+    ivtNm,
+    orgCntn
+  } : {
     typeCd,
     tcqNm,
     rsacUcmdCd,
@@ -167,3 +199,16 @@ export const addReport = (
   });
   return response;
 };
+
+export const getFile = (url) => {
+  let result;
+  fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+      result = blob;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  return result;
+}

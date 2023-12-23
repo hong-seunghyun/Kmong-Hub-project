@@ -12,24 +12,9 @@ import CheckBox from "/src/components/radio/checkbox"
 import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
 import { Editor } from "@tinymce/tinymce-react";
 import { useLayoutEffect } from "react";
-import { getTechDetails } from "../../asset/apis/tech";
+import { getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-const drop_datas = [
-	{
-		id: "P",
-		title: '특허'
-	},
-	{
-		id: "T",
-		title: '논문'
-	},
-	{
-		id: "R",
-		title: '보고서'
-	}
-];
 
 const send_datas = [
 	{
@@ -103,7 +88,7 @@ const Component = () => {
 		setIvtNm(data.ivtNm);
 		setIpcVal(data.ipcVal);
 		setCpcVal(data.cpcVal);
-		setFile();
+		setFile(getFile(getFile(data.techDocDetail.filePath)));
 		setPiuaYn(data.piuaYn);
 	}
 
@@ -140,7 +125,7 @@ const Component = () => {
               iconState="false"
               state={orgn}
               setState={setOrgn}
-              data={data}
+              data={data && data}
               setResult={setRsacUcmdCd}
             />
 					</div>

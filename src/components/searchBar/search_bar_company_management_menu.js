@@ -30,7 +30,7 @@ const Component = (props) => {
 
   let filterTitle;
 
-  if (props.data) {
+  if (props.data.filter) {
     filterTitle = props.data.filter((p) => {
       return p.name
         .replace(" ", "")
@@ -63,7 +63,7 @@ const Component = (props) => {
           className="flex_ result-search-box body-3-R "
           style={{ minHeight: "20px", maxHeight: "175px" }}
         >
-          {props.data &&
+          {filterTitle &&
             filterTitle.map((dummy) => (
               <span
                 style={{ padding: "0.5rem 0rem" }}
