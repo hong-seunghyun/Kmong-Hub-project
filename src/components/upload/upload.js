@@ -38,8 +38,8 @@ const Component = (props) => {
     let isBig = false;
     const file = e.target.files[0];
     props.setFileState(file);
-    setFileSize(e.target.files[0].size);
-    setFileName(e.target.files[0].name);
+    setFileSize(e.target.files[0]?.size);
+    setFileName(e.target.files[0]?.name);
     const MAX_SIZE = 100 * 1024 * 1024;
 
     const ext = e.target.files[0].name.split(".").pop().toLowerCase();
