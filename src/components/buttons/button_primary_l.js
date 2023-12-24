@@ -13,11 +13,19 @@ const Component = (props) => {
     return (
       <button
         className={`btn_ radius-8 ${
-          props.isActive ? "ac-violet" : "bg-gray"
+          props.isActive == null
+            ? "ac-violet"
+            : props.isActive
+            ? "ac-violet"
+            : "bg-gray"
         } btn-l body-2-R ${isButton ? "pressed" : ""} ${props.state}`}
         onClick={onClickActive}
       >
-        <span className={`flex_ ${!props.isActive && "txt-disabled"}`}>
+        <span
+          className={`flex_ ${
+            props.isActive != null && !props.isActive ? "txt-disabled" : ""
+          }`}
+        >
           <Icon size={11.6} color="#fff" stroke="none" icon="plus" />
           {props.text}
           <Icon size={13} color="#fff" stroke="none" icon="chevronRight" />
