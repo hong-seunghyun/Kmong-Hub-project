@@ -37,8 +37,8 @@ const Component = () => {
 	]
 
 	useLayoutEffect(() => {
-		onchange();	
-	}, []);
+		onchange();
+	}, [page]);
 
 	return(
 		<div className="page-wrap">
@@ -74,27 +74,16 @@ const Component = () => {
 										title={data.popuNm}
 										pc={data.pcImgPath}
 										mobile={data.mobImgPath}
-										dateFrom="YYYY.MM.DD"
-										dateTo="YYYY.MM.DD"
+										dateFrom={data.expsStrDtm && data.expsStrDtm.split(' ')[0]}
+										dateTo={data.expsEndDtm && data.expsEndDtm.split(' ')[0]}
 										label="노출 중"
 										labelBg="bg-violet-1"
 										labelColor="txt-white"
-										link={`/design/popup_detail?popuNo=${data.popuNo	}`}
+										link={`/design/popup_detail?popuNo=${data.popuNo}`}
 										/>;
 								})
 							}
-							<TableCell 
-								title="[팝업 이름]"
-								pc="/images/file.png"
-								mobile="/images/file.png"
-								dateFrom="YYYY.MM.DD"
-								dateTo="YYYY.MM.DD"
-								label="노출 안함"
-								labelBg="bg-violet-5"
-								labelColor="txt-violet-1"
-								link="/design/popup_detail"
-							/>
-							<Pagnation size="regular" pageIdx={page}/>
+							<Pagnation size="regular" setPageIdx={setPage}/>
 						</div>
 					</div>
 				</div>

@@ -6,8 +6,40 @@ import TableHead from "/src/components/table/popup_table_head";
 import TableCell from "/src/components/table/popup_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
+import { useLayoutEffect } from "react";
+import { getBanner } from "../../asset/apis/design/banner";
+import { useState } from "react";
 
 const Component = () => {
+
+  const [ searchValue, setSaerchValue ] = useState('');
+	const [ page, setPage ] = useState(1);
+	const [ datas, setDatas ] = useState([]);
+
+	const onchange = () => {
+		getBanner(page, 10, searchValue).then(res => {
+			console.log(res.data);
+			setDatas(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+
+	const drop_datas = [
+		{
+			id: 0,
+			title: '노출 중'
+		},
+		{
+			id: 1,
+			title: '노출 안함'
+		}
+	]
+
+	useLayoutEffect(() => {
+		onchange();
+	}, [page]);
+
   return (
     <div className="page-wrap">
       <div className="design- design-popup">
@@ -20,7 +52,7 @@ const Component = () => {
 
         <div>
           <div className="flex_ search-wrap">
-            <DropDownMenu />
+            <DropDownMenu datas={drop_datas}/>
             <SearchBar />
           </div>
 
@@ -33,117 +65,22 @@ const Component = () => {
               headCategory="상태"
               headEtc="관리"
             />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 중"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 중"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 중"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 중"
-              labelBg="bg-violet-1"
-              labelColor="txt-white"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <TableCell
-              title="[배너 이름]"
-              pc="/images/sample-img.png"
-              mobile="/images/sample-img.png"
-              dateFrom="YYYY.MM.DD"
-              dateTo="YYYY.MM.DD"
-              label="노출 안함"
-              labelBg="bg-violet-5"
-              labelColor="txt-violet-1"
-              link="/design/banner_detail"
-            />
-            <Pagnation size="regular" />
+            {
+              datas.map((data) => {
+                return <TableCell 
+                  title={data.bnrNm}
+                  pc={data.pcImgPath}
+                  mobile={data.mobImgPath}
+                  dateFrom={data.expsStrDtm && data.expsStrDtm.split(' ')[0]}
+                  dateTo={data.expsEndDtm && data.expsEndDtm.split(' ')[0]}
+                  label="노출 중"
+                  labelBg="bg-violet-1"
+                  labelColor="txt-white"
+                  link={`/design/banner_detail?bnrNo=${data.bnrNo}`}
+                  />;
+              })
+            }
+            <Pagnation size="regular" setPageIdx={setPage}/>
           </div>
         </div>
       </div>

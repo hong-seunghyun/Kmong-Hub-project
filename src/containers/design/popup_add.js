@@ -35,7 +35,8 @@ const Component = () => {
     createPopup(dto, mobImg, pcImg)
       .then((res) => {
         console.log(res.data);
-        // window.location = '/design/popup_list';
+        alert('팝업이 저장되었습니다.');
+        window.location = '/design/popup_list';
       })
       .catch((err) => {
         console.log(err);

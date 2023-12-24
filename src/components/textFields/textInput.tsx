@@ -12,7 +12,7 @@ interface InputProps {
   inputCountState?: string;
   maxLength: number;
   state: string;
-  light?: boolean
+  light?: boolean;
   setState?: Dispatch<SetStateAction<string>>;
   setStateFunc?: (event: any) => void;
   onBlur?: () => void;
@@ -35,7 +35,7 @@ const Input = ({
   iconState,
   inputCountState,
   maxLength,
-  light
+  light,
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e: any) => {
@@ -54,7 +54,11 @@ const Input = ({
         <span className={importState}>*</span>
       </p>
       <div className={`input-container ${valueType} ${iconState}`}>
-        <div className={`wrap radius-8 bg-lightGray ${light ? `border-${light}` : ''}`}>
+        <div
+          className={`wrap radius-8 bg-lightGray ${
+            light ? `border-${light}` : ""
+          }`}
+        >
           <svg
             className="icon-email"
             width="12"
@@ -106,7 +110,7 @@ const Input = ({
           </svg>
         </div>
         <div className="helper-txt-wrap body-3-R">
-          <p className="helper-txt">{helperTxtSet[helperTextResult].value}</p>
+          <p className="helper-txt">{helperTxtSet[helperTextResult]?.value}</p>
         </div>
       </div>
     </div>

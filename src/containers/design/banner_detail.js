@@ -5,8 +5,35 @@ import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
 import Editor from "/src/components/editorBox/index"
+import { useState } from "react";
+import { useLayoutEffect } from "react";
+import { deleteBanner, getBannerDetails } from "../../asset/apis/design/banner";
+import { useRouter } from "next/router";
 
 const Component = () => {
+
+	const router = useRouter();
+	const [ data, setData ] = useState({});
+
+	useLayoutEffect(() => {
+		if(!router.isReady) return;
+		getBannerDetails(router.query.bnrNo).then(res => {
+			console.log(res.data);
+			setData(res.data.data);
+		}).catch(err => {
+			console.log(err);
+		})
+	},[]);
+
+	const removeBanner = () => {
+		deleteBanner(router.query.bnrNo).then(res => {
+			console.log(res.data);
+			alert('게시물이 삭제되었습니다.');
+			window.location = '/design/banner_list'
+		}).catch(err => {
+			console.log(err);
+		});
+	}
 
 	return(
 		<div className="container">
@@ -21,10 +48,10 @@ const Component = () => {
 						<tbody>
 							<tr>
 								<th className="thead ">
-								배너이름
+									배너이름
 								</th>
 								<td className="tbody">
-									O
+									{data.bnrNm}
 								</td>
 							</tr>
 							<tr>
@@ -32,7 +59,7 @@ const Component = () => {
 									노출 기간
 								</th>
 								<td className="tbody">
-									YYYY.MM.DD
+									{data.expsEndDtm && `${data.expsStrDtm.split(' ')[0]} ~ ${data.expsEndDtm.split(' ')[0]}`}
 								</td>
 							</tr>
 							<tr>
@@ -40,7 +67,7 @@ const Component = () => {
 									PC배너
 								</th>
 								<td className="tbody">
-									<img src="/images/sample-img.png" alt=""/>
+									<img src={data.pcImgPath} alt=""/>
 								</td>
 							</tr>
 							<tr>
@@ -48,7 +75,7 @@ const Component = () => {
 									모바일 배너
 								</th>
 								<td className="tbody">
-									<img src="/images/sample-img.png" alt=""/>
+									<img src={data.mobImgPath} alt=""/>
 								</td>
 							</tr>
 							<tr>
@@ -56,7 +83,7 @@ const Component = () => {
 									배너링크
 								</th>
 								<td className="tbody">
-									www.naver.com
+									{data.bnrPath}
 								</td>
 							</tr>
 						</tbody>
@@ -64,15 +91,15 @@ const Component = () => {
 
 					<div className="btn-wrap flex_">
 						<div className="flex_">
-							<Link href="/design/banner_list">
+							<Link href="/design/popup_list">
 								<ButtonL text="목록으로" />
 							</Link>
 						</div>
 						<div className="flex_">
 							<Link href="#">
-								<ButtonErrorL text="삭제" />
+								<ButtonErrorL text="삭제" onclick={removeBanner}/>
 							</Link>
-							<Link href="/design/banner_retouch">
+							<Link href={`/design/banner_retouch?bnrNo=${router.query.bnrNo}`}>
 								<Button text="수정" />
 							</Link>
 						</div>
@@ -81,6 +108,6 @@ const Component = () => {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 export default Component;

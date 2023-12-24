@@ -12,7 +12,7 @@ import {
   BoardInfoAtom,
   BoardListInfoAtom,
 } from "../../store/board/info/atom";
-import { getDetailBoardList } from "../../asset/apis/boardApis";
+import { getDetailBoardInfo } from "../../asset/apis/boardApis";
 import { useRouter } from "next/router";
 
 const Component = () => {
@@ -24,8 +24,11 @@ const Component = () => {
   const getValue = async () => {
     console.log(boadrInfo);
     if (boadrInfo.bbsNo !== "")
-      await getDetailBoardList({ boradIdx: boadrInfo.bbsNo })
-        .then((e) => console.log(e))
+      await getDetailBoardInfo({
+        currentIndex: 1,
+        bbsNo: boadrInfo.bbsNo,
+      })
+        .then((e) => setBoardListInfo([...e.data.data]))
         .catch((e) => console.log(e));
     else router.push("/board");
   };
@@ -66,7 +69,7 @@ const Component = () => {
                   choice="number"
                   number={idx + 1}
                   title={e.titleNm}
-                  view="174"
+                  view={e.iqrNum}
                   writer={e.mbrNm}
                   listLink={`/board/board_detail/${e.rpstNo}`}
                   date={e.modifiedDate}

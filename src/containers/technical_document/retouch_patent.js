@@ -81,6 +81,7 @@ const Component = () => {
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
+		
 		getTechDetails(no).then(res => {
 			console.log(res.data);
 			setData(res.data.data);
@@ -104,6 +105,10 @@ const Component = () => {
 		setCpcVal(data.cpcVal);
 		setFile();
 		setPiuaYn(data.piuaYn);
+	}
+
+	const savePatent = () => {
+		
 	}
 
 	return(
@@ -197,7 +202,7 @@ const Component = () => {
 								<ButtonL text="초기화" />
 							</Link>
 							<Link href="/technical_document">
-								<Button text="저장" />
+								<Button text="저장" onclick={savePatent}/>
 							</Link>
 						</div>
 					</div>

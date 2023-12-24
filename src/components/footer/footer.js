@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link"
 
 const Component = () => {
 	return(
@@ -13,9 +13,9 @@ const Component = () => {
 					<span className="bar">ㅣ</span>
 					<span>사업자등록번호 : 319-81-02124</span>
 					<span className="bar">ㅣ</span>
-					<span>개인정보 처리방침</span>
+					<span><Link href="/etc/user-guide-01">개인정보 처리방침</Link></span>
 					<span className="bar">ㅣ</span>
-					<span>이용약관</span>
+					<span><Link href="/etc/user-guide-02">이용약관</Link></span>
 				</div>
 				<p>
 				© 2023 Kotechmarket Corp.
