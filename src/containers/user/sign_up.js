@@ -36,6 +36,8 @@ const Component = () => {
   const EmailRegEx =
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
 
+  const PhoneRegEx = /^[0-9]{3}[0-9]{2,4}[0-9]{4}$/;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -62,6 +64,8 @@ const Component = () => {
   const [telToggle, setTelToggle] = useState("none");
   const [nameToggle, setNameToggle] = useState("none");
   const [nicknameToggle, setNicknameToggle] = useState("none");
+  const [pfFileToggle, setPfFileToggle] = useState("none");
+  const [brFileToggle, setBrFileToggle] = useState("none");
   const [orgnToggle, setOrgnToggle] = useState("none");
   const [orgnTelToggle, setOrgnTelToggle] = useState("none");
   const [checkToggle, setCheckToggle] = useState("none");
@@ -101,12 +105,13 @@ const Component = () => {
   const verification = async () => {
     window.addEventListener("message", (message) => {
       if (message.data != "") {
-        console.log(message.data);
+        console.log("ㅇㄹㅇㅇㄹㅇㄹ", message.data);
         const encoded = message.data
           .replace(/[^0-9]/g, "")
           .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
           .replace(/(\-{1,2})$/g, "");
         setTel(encoded);
+        setTelToggle("violet");
       }
     });
 
@@ -136,23 +141,26 @@ const Component = () => {
   const [file, setFile] = useState(null);
   const [file2, setFile2] = useState(null);
 
-  const registerMember = () => {
+  const checkRegister = () => {
     if (
-      !(
-        emailToggle == "violet" &&
-        passwordLight == "violet" &&
-        checkPwToggle == "violet" &&
-        telToggle == "violet" &&
-        nameToggle == "violet" &&
-        nicknameToggle == "violet" &&
-        orgnToggle == "violet" &&
-        orgnTelToggle == "violet"
-      )
+      emailToggle === "violet" &&
+      passwordLight === "violet" &&
+      checkPwToggle === "violet" &&
+      telToggle === "violet" &&
+      nameToggle === "violet" &&
+      nicknameToggle === "violet" &&
+      orgnToggle === "violet" &&
+      orgnTelToggle === "violet" &&
+      checkToggle === "violet"
     ) {
-      alert("빈 칸을 모두 채워주세요.");
-      return;
+      return true;
+    } else {
+      return false;
     }
+  };
 
+  const registerMember = () => {
+    if (!checkRegister()) return;
     const dto = {
       emailAddr: email,
       hpNo: tel,
@@ -184,6 +192,8 @@ const Component = () => {
     setOrgnToggle("none");
     setOrgnTelToggle("none");
     setCheckToggle("none");
+    setPfFileToggle("none");
+    setBrFileToggle("none");
   };
 
   const CheckEmail = () => {
@@ -193,6 +203,12 @@ const Component = () => {
       setEmailToggle("filled");
     }
   };
+
+  useEffect(() => {
+    if (orgn === "") setOrgnToggle("filled");
+    else setOrgnToggle("violet");
+  }, [orgn]);
+
   useEffect(() => {
     CheckEmail();
   }, [email]);
@@ -221,7 +237,7 @@ const Component = () => {
     } else {
       setCheckPwToggle("violet");
     }
-  }, [password2]);
+  }, [password, password2]);
 
   useEffect(() => {
     if (
@@ -243,6 +259,11 @@ const Component = () => {
       setNicknameToggle("filled");
     else setNicknameToggle("violet");
   }, [nickname]);
+
+  useEffect(() => {
+    if (orgnTel !== "" && PhoneRegEx.test(orgnTel)) setOrgnTelToggle("violet");
+    else setOrgnTelToggle("filled");
+  }, [orgnTel]);
 
   useLayoutEffect(() => {
     searchOrgan();
@@ -482,7 +503,7 @@ const Component = () => {
             light={telToggle}
           />
           <ButtonSecondary
-            text="중복 확인"
+            text="재인증"
             state="enabled"
             onclick={verification}
           />
@@ -506,7 +527,7 @@ const Component = () => {
             프로필<span className="txt-violet-1">*</span>
           </p>
           <Upload
-            state="default"
+            state={pfFileToggle === "filled" ? "filled" : "default"}
             type="normal"
             fileState={file}
             setFileState={setFile}
@@ -518,12 +539,21 @@ const Component = () => {
             <span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
           </p>
         </div>
+        <div className="flex_" style={{ marginTop: "0.75rem" }}>
+          <div className="flex_ check_flex txt-disabled caption-R">
+            {pfFileToggle === "filled" ? (
+              <p className="txt-red">프로필을 업로드해 주세요.</p>
+            ) : (
+              "ㅤ"
+            )}
+          </div>
+        </div>
         <div className="input-box box-">
           <p className="body-2-B txt-second-default">
             사업자 등록증<span className="txt-violet-1">*</span>
           </p>
           <Upload
-            state="default"
+            state={brFileToggle === "filled" ? "filled" : "default"}
             type="normal"
             fileState={file2}
             setFileState={setFile2}
@@ -535,6 +565,15 @@ const Component = () => {
             <span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
           </p>
         </div>
+        <div className="flex_" style={{ marginTop: "0.75rem" }}>
+          <div className="flex_ check_flex txt-disabled caption-R">
+            {brFileToggle === "filled" ? (
+              <p className="txt-red">사업자 등록증을 업로드해 주세요.</p>
+            ) : (
+              "ㅤ"
+            )}
+          </div>
+        </div>
         <div className="flex_ input-search box-">
           <p className="body-2-B txt-second-default">
             소속<span className="txt-violet-1">*</span>
@@ -544,15 +583,24 @@ const Component = () => {
             setState={setOrgn}
             data={data}
             setResult={setUcmdCd}
+            resultFunc={() => setOrgnToggle("violet")}
             light={orgnToggle}
           />
-          <p>{}</p>
+        </div>
+        <div className="flex_" style={{ marginTop: "0.75rem" }}>
+          <div className="flex_ check_flex txt-disabled caption-R">
+            {orgnToggle === "filled" ? (
+              <p className="txt-red">소속을 선택해 주세요.</p>
+            ) : (
+              "ㅤ"
+            )}
+          </div>
         </div>
         <div className="box-">
           <Input
             importState=""
             labelText="소속 전화번호"
-            placeholder="소속 전화번호를 입력해 주세요."
+            placeholder="소속 전화번호를 입력해주세요."
             valueType=""
             helperTextResult="none"
             iconState="false"
@@ -560,6 +608,15 @@ const Component = () => {
             setState={setOrgnTel}
             light={orgnTelToggle}
           />
+        </div>
+        <div className="flex_" style={{ marginBottom: "0.75rem" }}>
+          <div className="flex_ check_flex txt-disabled caption-R">
+            {orgnTelToggle === "filled" ? (
+              <p className="txt-red">올바른 소속 전화번호를 입력해주세요.</p>
+            ) : (
+              "ㅤ"
+            )}
+          </div>
         </div>
         <CheckBox
           size="small"
@@ -596,18 +653,48 @@ const Component = () => {
           </div>
         </div>
         <Link href="/user/sign_up">
-          <LoginBtn text="회원가입" onclick={registerMember} />
+          <LoginBtn
+            text="회원가입"
+            isActive={checkRegister()}
+            onclick={
+              checkRegister()
+                ? registerMember
+                : () => {
+                    alert("필수 항목들을 모두 입력해주세요.");
+                    if (emailToggle !== "violet") setEmailToggle("filled");
+                    if (passwordLight !== "violet") setpasswordLight("filled");
+                    if (checkPwToggle !== "violet") setCheckPwToggle("filled");
+                    if (telToggle !== "violet") setTelToggle("filled");
+                    if (nameToggle !== "violet") setNameToggle("filled");
+                    if (nicknameToggle !== "violet")
+                      setNicknameToggle("filled");
+                    if (orgnToggle !== "violet") setOrgnToggle("filled");
+                    if (orgnTelToggle !== "violet") setOrgnTelToggle("filled");
+                    if (checkToggle !== "violet") setCheckToggle("filled");
+                    if (pfFileToggle !== "violet") setPfFileToggle("filled");
+                    if (brFileToggle !== "violet") setBrFileToggle("filled");
+                  }
+            }
+          />
         </Link>
         <p className="ps-txt caption-R txt-second-default flex_">
           회원가입 시
-          <span onClick={showModalA}>
+          <span onMouseDown={showModalA}>
             <TextBtn text="이용약관" />
-            {modalOpenA === true && <ModalGuideA />}
+            {modalOpenA === true && (
+              <ModalGuideA onclick={() => setModalOpenA(!modalOpenA)} />
+            )}
           </span>
           및
-          <span onClick={showModalB}>
+          <span onMouseDown={showModalB}>
             <TextBtn text="개인정보 처리방침" />
-            {modalOpenB === true && <ModalGuideB />}
+            {modalOpenB === true && (
+              <ModalGuideB
+                onclick={() => {
+                  setModalOpenB(!modalOpenB);
+                }}
+              />
+            )}
           </span>
           에 동의하게 됩니다.
         </p>
