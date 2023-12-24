@@ -17,7 +17,7 @@ const Component = () => {
 						<h1 className="display-5-B">
 							기술 이전 관리
 						</h1>
-						<Link href="/technology/add_1">
+						<Link href="/technology/add">
 							<ButtonM text="기술이전 등록" />
 						</Link>
 					</div>

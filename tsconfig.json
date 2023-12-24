@@ -21,23 +21,30 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true, 
+    "baseUrl": ".",
+    "paths": {
+      "/src/app/*": ["src/app/*"],
+      "/src/assets/*": ["src/assets/*"],
+      "/src/components/*": ["src/components/*"],
+      "/src/styles/*": ["src/styles/*"],
+      "/src/utils/*": ["src/utils/*"],
+      "/src/hooks/*": ["src/hooks/*"],
+      "/src/asset/*": ["src/asset/*"], 
+      "/src/containers/*": ["src/containers/*"] 
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-, "src/components/editorBox/index.js", "src/asset/config/interceptor.js", "src/asset/config/interceptor.js", "src/asset/config/interceptor.js"  ],
+    "src/**/*",
+    "src/components/editorBox/index.js", 
+    "src/asset/config/interceptor.js", 
+    "src/asset/config/interceptor.js", 
+    "src/asset/config/interceptor.js" 
+  ],
   "exclude": [
     "node_modules",
-		"build"
-  ],
-	"paths": {
-		"@app/*": ["./app/*"],
-		"@assets/*": ["./assets/*"],
-		"@components/*": ["./components/*"],
-		"@styles/*": ["./styles/*"],
-		"@utils/*": ["./utils/*"]
-	}
+    "build"
+  ]
 }
