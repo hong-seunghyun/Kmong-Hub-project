@@ -22,7 +22,8 @@ const Component = (props) => {
     console.log('Upload useEffect');
     if (props.fileState) {
       console.log(props.fileState);
-      const ext = props.fileState.type.split('/').pop();
+      const ext = props.fileState.type.split('/').pop().toLowerCase();
+      setFileSize(props.fileState.size);
       console.log(ext);
       console.log(ext);
       console.log(ext);
@@ -140,6 +141,7 @@ const Component = (props) => {
     setState("default");
     setType(props.type);
     setUrlState(null);
+    props.setFileState(null);
   };
 
   return (
@@ -222,7 +224,7 @@ const Component = (props) => {
         <div className="done-normal-text-box flex_">
           <div className="text-wrap">
             <h6 className="body-3-B">{fileName}</h6>
-            <p className="caption-R">{fileSize / 100 / 1024 / 1024} mb</p>
+            <p className="caption-R">{fileSize / 1024 / 1024} mb</p>
           </div>
           <Icon
             icon="cancel"
