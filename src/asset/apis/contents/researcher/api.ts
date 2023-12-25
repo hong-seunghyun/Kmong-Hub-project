@@ -1,16 +1,16 @@
-/** 콘텐츠 - 연구자 관리 API */
-import { Api, ApiForm } from "../../config/Api"
+import { ApiResponse } from "../../common/types"
+import { Researcher, ResearcherCategory, ResearcherDetail, ResearcherSearchParams, RscRegiDTO } from "./types"
+import { Api, ApiForm } from "/src/asset/config/Api"
 
 /** 연구원 리스트 */
 export const getResearchers = ({
   currentPage, 
-  limit, 
   searchType, 
   searchValue
-}) => {
+}: ResearcherSearchParams): ApiResponse<Researcher[]> => {
   const queryParams = new URLSearchParams({
-    currentPage, 
-    limit, 
+    currentPage: currentPage.toString(), 
+    limit: '10', 
     ...(searchType && {searchType}),
     ...(searchValue && {searchValue})
   })
@@ -19,31 +19,36 @@ export const getResearchers = ({
 }
 
 /** 연구원 상세 */
-export const getResearcher = ({ rscNo }) => {
+export const getResearcher = (rscNo: number): ApiResponse<ResearcherDetail> => {
   const queryParams = new URLSearchParams({
-    rscNo
+    rscNo: rscNo.toString()
   })
   const response = Api.get(`/veiwapi/mngr/site/v1/rscDetail?` + queryParams)
   return response
 }
 
 /** 연구원 등록 및 수정 */
-export const setResearcher = (formData) => {
+export const setResearcher = (rscRegiDto: RscRegiDTO, pflFile?: File): ApiResponse => {
+  const formData = new FormData()
+  const blob = new Blob([JSON.stringify(rscRegiDto)], {type : 'application/json'})
+  formData.append('rscRegiDto', blob)
+  pflFile && formData.append('pflFile', pflFile)
+
   const response = ApiForm.post(`/viewapi/mngr/site/v1/merge/rsc`, formData)
   return response
 }
 
 /** 연구원 삭제 */
-export const deleteResearcher = ({ rscNo }) => {
+export const deleteResearcher = (rscNo: number): ApiResponse => {
   const queryParams = new URLSearchParams({
-    rscNo
+    rscNo: rscNo.toString()
   })
   const response = Api.delete(`/veiwapi/mngr/site/v1/delete/rsc?` + queryParams)
   return response
 }
 
 /** 부서 리스트 */
-export const getResearcherCategory = () => {
+export const getResearcherCategories = (): ApiResponse<ResearcherCategory[]> => {
   const response = Api.get(`/viewapi/mngr/site/v1/researcher/category`)
   return response
 }
@@ -71,9 +76,9 @@ export const setResearcherCategory = ({
 }
 
 /** 부서 삭제 */
-export const deleteResearcherCategory = ({ deptMajrNo }) => {
+export const deleteResearcherCategory = (deptMajrNo: number): ApiResponse => {
   const queryParams = new URLSearchParams({
-    deptMajrNo
+    deptMajrNo: deptMajrNo.toString()
   })
   const response = Api.delete(`/viewapi/mngr/site/v1/delete/rscCateDept?` + queryParams)
   return response
