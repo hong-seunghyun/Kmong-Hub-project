@@ -1,39 +1,37 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
-import TextButton from "/src/components/buttons/text_button_underline_primary_s"
+// @ts-check
+import React, { useState, useLayoutEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import ButtonErrorL from "/src/components/buttons/button_error_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Upload from "/src/components/upload/upload"
-import { deleteResearcherCategory } from "../../asset/apis/contents/researcher";
+import { deleteResearcherCategory } from "/src/asset/apis/contents/researcher/api";
+import usePageNo from "/src/hooks/contents/common/usePageNo";
+
+/** 
+ * @template T
+ * @typedef {[T, React.Dispatch<React.SetStateAction<T>>]} useState<T>
+ */
 
 const Component = () => {
 
 	const router = useRouter();
-	const [data,setData ] = useState();
+	const [data,setData] = useState();
 
-  const [no, setNo] = useState();
-
-  useEffect(() => {
-    alert('수정 및 삭제만 가능합니다.')
-  }, [])
-
-	useLayoutEffect(() => {
-		if(!router.isReady) return;
-		const no = router.query.no;
-    setNo(no)
-	},[]);
+  const no = usePageNo({
+    router,
+    initData: async (no) => {}
+  })
 
   const deleteDetail = async () => {
-    await deleteResearcherCategory({
-      deptMajrNo: no
-    }).then(res => {
-      if(res.status === 200) {
-        alert('삭제되었습니다.')
-        router.push('/researcher/company')
-      }
-    })
+    if(no) {
+      await deleteResearcherCategory(no).then(res => {
+        if(res.status === 200) {
+          alert('삭제되었습니다.')
+          router.push('/researcher/company')
+        }
+      })
+    }
   }
 
 	return(

@@ -1,180 +1,70 @@
-import React, { useCallback, useMemo, useState, useEffect, useLayoutEffect } from "react";
+// @ts-check
+import React from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import SelectLabel from "/src/components/label/select_label";
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
-import Icon from "/src/components/icon/icon.tsx"
+import Icon from "/src/components/icon/icon"
 import Badge from "/src/components/label/badge"
 import Radio from "/src/components/radio/radio"
 import Upload from "/src/components/upload/upload"
-import Input from "/src/components/textFields/textInput.tsx"
-import TextArea from "/src/components/textFields/textArea.tsx"
+import Input from "/src/components/textFields/textInput"
+import TextArea from "/src/components/textFields/textArea"
 import DatePicker from "/src/components/date/date-picker-single"
 import CheckBox from "/src/components/radio/checkbox"
-import { setResearcher, getResearcherCategory } from "/src/asset/apis/contents/researcher";
-import useRscCarerInfos from "../../hooks/contents/useRscCarerInfos";
+import useResearcherForm from "/src/hooks/contents/researcher/useResearcherForm";
 
 const Component = () => {
 
-  const [registType, setRegistType] = useState(-1)
-
-  /** 필수값 */
-  const [rscNm, setRscNm] = useState() // 연구자명
-  const [deptMajrs, setDeptMajrs] = useState([]) // 부서/학과
-  const [pstnNm, setPstnNm] = useState() // 직책
-  const crtTypeCd = useMemo(() => {
-    if(registType === 0) return 'A'
-    if(registType === 1) return 'B'
-    if(registType === 2) return 'N'
-    return null
-  }) // 생성 유형 코드
-
-  /** 선택값 */
-  const [pflFile, setPflFile] = useState() // 프로필 사진
-  const [labNm, setLabNm] = useState() // 연구실
-  const [labWebAddr, setLabWebAddr] = useState() // 연구실 홈페이지
-  const [hpNo, setHpNo] = useState() // 전화번호
-  const [ofcPhcNo, setOfcPhcNo] = useState() // 사무실 전화번호
-  const [emailAdr, setEmailAdr] = useState() // 이메일 주소
-  const [webAddr, setWebAddr] = useState() // 홈페이지
-  const [lctCntn, setLctCntn] = useState() // 강의 내역
-  const [inaCntn, setInaCntn] = useState() // 대외활동
-  const [aosCntn, setAosCntn] = useState() // 연구 내역
-  const [educationCntn, setEducationCntn] = useState() // 학력 내역
-  const [ytbPath, setYtbPath] = useState() // 유튜브 주소
-
-  
-  const [search, setSearch] = useState("")
-  const [toggle, setToggle] = useState(false)
-
-  const [data, setData] = useState([])
-  const searchResult = useMemo(() => (
-    data.filter(item => item.catgNm.includes(search))
-  ), [data, search])
-
-  const searchDeptMajr = useCallback(async () => {
-    const res = await getResearcherCategory()
-    if(res.status === 200) {
-      setData(res.data.data)
-    } else {
-      console.log('error')
-    }
-  })
-
-  useLayoutEffect(() => {
-    searchDeptMajr()
-  }, [])
-
-  const appendDeptMajr = useCallback((idx) => () => {
-    const isExist = deptMajrs.filter(item => item.deptMajrNo === searchResult[idx].catgNo)
-    if(isExist.length > 0) {
-      setToggle(false)
-      return
-    }
-    setDeptMajrs([...deptMajrs, {
-      deptMajrNo: searchResult[idx].catgNo,
-      deptMajrNm: searchResult[idx].catgNm,
-      seq: deptMajrs.length + 1,
-    }])
-    setSearch('')
-    setToggle(false)
-  }, [deptMajrs, searchResult])
-
-  const deleteDeptMajr = useCallback((idx) => () => {
-    const filtered = deptMajrs.filter(item => item.seq !== idx)
-    const reIndexed = filtered.map((item, index) => ({
-      ...item,
-      seq: index + 1
-    }))
-    setDeptMajrs(reIndexed)
-  }, [deptMajrs])
-  const onChange = (e) => {
-    setSearch(e.target.value);
-    if(data.length == 0) setToggle(false);
-    else setToggle(true)
-  }
-
   const {
-    rscCarerInfos,
-    appendCarerInfo,
-    deleteCarerInfo,
-    updateStartDate,
-    updateEndDate, 
-    updateHdofYn, 
-    updateCmpyNm, 
-    updateRspbTaskCntn, 
-    rscCarerInfosAvailable
-  } = useRscCarerInfos()
-
-  const submitAvailable = useMemo(() => {
-    return rscNm && deptMajrs.length > 0 && pstnNm && rscCarerInfosAvailable
-  }, [rscNm, deptMajrs, pstnNm, rscCarerInfosAvailable])
-
-  const formData = useMemo(() => {
-    const _formData = new FormData();
-    const dto = {
-      rscNm,
-      deptMajrs: {
-        deptMajrNo: deptMajrs.length > 0 ? deptMajrs[0].deptMajrNo : undefined, 
-        //seq: deptMajrs.length > 0 ? deptMajrs[0].seq : undefined,
-      },
-      pstnNm,
-      ...(crtTypeCd && {crtTypeCd}), 
-      ...(aosCntn && {aosCntn}),
-      ...(educationCntn && {educationCntn}),
-      ...(emailAdr && {emailAdr}),
-      ...(hpNo && {hpNo}),
-      ...(inaCntn && {inaCntn}),
-      ...(labNm && {labNm}),
-      ...(labWebAddr && {labWebAddr}),
-      ...(lctCntn && {lctCntn}),
-      ...(ofcPhcNo && {ofcPhcNo}),
-      ...(rscCarerInfos && {rscCarerInfos}),
-      ...(webAddr && {webAddr}),
-      ...(ytbPath && {ytbPath}),
-    }
-
-    console.log(JSON.stringify(dto))
-
-    const blob = new Blob([JSON.stringify(dto)], { type: "application/json" });
-
-    _formData.append("rscRegiDto", blob);
-    if(pflFile) {
-      _formData.append("pflFile", pflFile);
-    }
-    return _formData;
-  }, [
-      aosCntn,
-      deptMajrs,
-      crtTypeCd,
-      deptMajrs,
-      educationCntn,
-      emailAdr,
-      hpNo,
-      inaCntn,
-      labNm,
-      labWebAddr,
-      lctCntn,
-      ofcPhcNo,
-      pstnNm,
+    formStates: {
+      crtTypeCdState: [crtTypeCd, setCrtTypeCd],
+      rscNmState: [rscNm, setRscNm],
+      deptMajrsState: [deptMajrs, setDeptMajrs],
+      pstnNmState: [pstnNm, setPstnNm],
+      pflFileState: [pflFile, setPflFile],
+      labNmState: [labNm, setLabNm],
+      labWebAddrState: [labWebAddr, setLabWebAddr],
+      hpNoState: [hpNo, setHpNo],
+      ofcPhcNoState: [ofcPhcNo, setOfcPhcNo],
+      emailAddrState: [emailAddr, setEmailAddr],
+      webAddrState: [webAddr, setWebAddr],
+      lctCntnState: [lctCntn, setLctCntn],
+      inaCntnState: [inaCntn, setInaCntn],
+      aosCntnState: [aosCntn, setAosCntn],
+      educationCntnState: [educationCntn, setEducationCntn],
+      ytbPathState: [ytbPath, setYtbPath],
+    },
+    categoriesStates: {
+      categories,
+      setCategories,
+      categorySearchKeyword,
+      setCategorySearchKeyword,
+      categorySearchResultOpened,
+      setCategorySearchResultOpened,
+      categorySearchResult,
+      onChangeCategorySearch,
+    },
+    carerInfosStates: {
       rscCarerInfos,
-      rscNm,
-      webAddr,
-      ytbPath, 
-      pflFile
-    ])
+      appendCarerInfo,
+      deleteCarerInfo,
+      updateStartDate,
+      updateEndDate,
+      updateHdofYn,
+      updateCmpyNm,
+      updateRspbTaskCntn,
+    },
+    deptMajrStates: {
+      appendDeptMajr,
+      deleteDeptMajr,
+    },
+    submitAvailable,
+    submit,
+  } = useResearcherForm()
 
-  const submit = useCallback(async () => {
-    if(registType === 2) {
-      const res = await setResearcher(formData)
-      if (res.status === 200) {
-        alert('연구자 등록이 완료되었습니다.')
-      }
-    }
-  }, [formData])
-
-  return(
+  return (
     <div className="page-wrap">
       <div className="contents-technology contents- contents-news-writer contents-event-writer contents-technology-retouch researcher-add researcher-contents">
         <h1 className="flex_ display-5-B">
@@ -202,47 +92,45 @@ const Component = () => {
         </h1>
 
         <div className="sub-title body-2-B flex_">
-          <Badge value="1"/>
+          <Badge value="1" />
           유형 선택
         </div>
 
         <div className="content-1 content-wrap">
           <div className="flex_ radio-flex">
             <span className="flex_">
-              <Radio label="파일 업로드" state="disabled" name="radio-a" id="radio-a-2"/>
-              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
+              <Radio label="파일 업로드" state="disabled" name="radio-a" id="radio-a-2" />
+              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF" />
             </span>
             <span className="flex_">
-              <Radio label="텍스트 입력" state="disabled" name="radio-a" id="radio-a-3"/>
-              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF"/>
+              <Radio label="텍스트 입력" state="disabled" name="radio-a" id="radio-a-3" />
+              <Label text="AI 사용" backgroundColor="bg-violet-5" fontColor="txt-violet-1" icon="true" iconColor="#574AFF" />
             </span>
             <span className="flex_">
-              <Radio 
-                label="사용 안함" 
-                name="radio-a" 
+              <Radio
+                label="사용 안함"
+                name="radio-a"
                 id="radio-a-4"
-                onclick={() => {
-                  setRegistType(2)
-                }}
-                checked={registType === 2}
+                onclick={() => setCrtTypeCd('N')}
+                checked={crtTypeCd === 'N'}
               />
             </span>
           </div>
         </div>
 
-        {registType === 2 && ( 
+        {crtTypeCd === 'N' && (
           <>
             <div className="sub-title body-2-B flex_">
-              <Badge value="2"/>
+              <Badge value="2" />
               기본 정보
             </div>
 
             <div className="input-wrap">
-              <Input 
-                labelText="연구자명" 
+              <Input
+                labelText="연구자명"
                 placeholder="연구자명을 입력해 주세요."
-                valueType="" 
-                helperTextResult="none" 
+                valueType=""
+                helperTextResult="none"
                 iconState="false"
                 state={rscNm}
                 setState={setRscNm}
@@ -251,31 +139,31 @@ const Component = () => {
 
             <div className="input-wrap">
               <p className="table-caption body-2-B">연구자 프로필</p>
-              <Upload state="default" type="normal" fileState={pflFile} setFileState={setPflFile}/>
+              <Upload state="default" type="normal" fileState={pflFile} setFileState={setPflFile} />
               <p className="caption-R helper-txt">
                 허용 사이즈: <span>800px x 800px</span> <span className="bar">|</span> 파일 형식: <span>JPG,PNG,JPEG</span><span className="bar">|</span> 최대 파일 크기: <span>100mb</span>
               </p>
             </div>
 
             <div className="input-wrap input-search search-container-large">
-              <Input 
-                labelText="부서/학과" 
-                placeholder="부서/학과를 입력해 주세요." 
-                valueType="" 
-                helperTextResult="none" 
+              <Input
+                labelText="부서/학과"
+                placeholder="부서/학과를 입력해 주세요."
+                valueType=""
+                helperTextResult="none"
                 iconState="false"
-                setStateFunc={onChange}
-                state={search}
+                setStateFunc={onChangeCategorySearch}
+                state={categorySearchKeyword}
               />
-              <Icon icon="search" size={16} stroke="none" color="#574AFF" /> 
-              <Icon icon="delete" size={16} stroke="none" color="#B3B6B8" /> 
+              <Icon icon="search" size={16} stroke="none" color="#574AFF" />
+              <Icon icon="delete" size={16} stroke="none" color="#B3B6B8" />
               <div
                 className="wrap radius-8 border-gray-4"
-                style={{ display: toggle ? "block" : "none" }}
+                style={{ display: categorySearchResultOpened ? "block" : "none" }}
               >
                 <div className="flex_ result-search-box body-3-R ">
                   {
-                    searchResult.map((item, index) => (
+                    categorySearchResult.map((item, index) => (
                       <span
                         onClick={appendDeptMajr(index)}
                       >
@@ -284,15 +172,15 @@ const Component = () => {
                     ))
                   }
                 </div>
-            </div>
+              </div>
             </div>
             <div className="flex_ select-flex">
-              {deptMajrs.map((item, index) => ( 
-                <SelectLabel 
-                  backgroundColor="bg-violet-5" 
-                  fontColor="txt-violet-1" 
-                  text={item.deptMajrNm} 
-                  icon="true" 
+              {deptMajrs.map((item, index) => (
+                <SelectLabel
+                  backgroundColor="bg-violet-5"
+                  fontColor="txt-violet-1"
+                  text={item.deptMajrNm}
+                  icon="true"
                   iconColor="#574AFF"
                   onClickDelete={deleteDeptMajr(item.seq)}
                 />
@@ -300,23 +188,19 @@ const Component = () => {
             </div>
 
             <div className="input-wrap">
-              <Input 
-                labelText="직책" 
-                placeholder="직책을 입력해 주세요." 
-                valueType="" 
-                helperTextResult="none" 
+              <Input
+                labelText="직책"
+                placeholder="직책을 입력해 주세요."
+                valueType=""
+                helperTextResult="none"
                 iconState="false"
                 state={pstnNm}
                 setState={setPstnNm}
-                required
               />
             </div>
 
             <div className="input-wrap">
-              <Input importState="none" labelText="연구실" placeholder="연구실 명을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" 
-                state={labNm}
-                setState={setLabNm}
-              />
+              <Input importState="none" labelText="연구실" placeholder="연구실 명을 입력해 주세요." valueType="" helperTextResult="none" iconState="false" state={labNm} setState={setLabNm} />
             </div>
 
             <div className="input-wrap">
@@ -342,8 +226,8 @@ const Component = () => {
 
             <div className="input-wrap">
               <Input importState="none" labelText="이메일" placeholder="이메일을 입력해 주세요." valueType="" helperTextResult="none" iconState="false"
-                state={emailAdr}
-                setState={setEmailAdr}
+                state={emailAddr}
+                setState={setEmailAddr}
               />
             </div>
 
@@ -356,7 +240,7 @@ const Component = () => {
 
             <div className="content-4 content-wrap">
               <div className="sub-title body-2-B flex_">
-                <Badge value="3"/>
+                <Badge value="3" />
                 경력 정보
               </div>
               {rscCarerInfos.map((item, index) => (
@@ -384,7 +268,8 @@ const Component = () => {
                     </div>
                   </div>
                   <p className="table-caption body-2-B">담당 업무<span className="txt-violet-1">*</span></p>
-                  <TextArea labelText="" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요" valueType="" helperTextResult="none"
+                  <TextArea 
+                    labelText="" placeholder="담당하신 업무와 성과에 대해 간단명료하게 적어주세요" valueType="" helperTextResult="none"
                     state={item.rspbTaskCntn}
                     setState={updateRspbTaskCntn(index)}
                   />
@@ -400,7 +285,7 @@ const Component = () => {
 
             <div className="content- ">
               <div className="sub-title body-2-B flex_">
-                <Badge value="4"/>
+                <Badge value="4" />
                 연구할 동영상
               </div>
               <div className="input-wrap">
@@ -414,12 +299,13 @@ const Component = () => {
 
             <div className="content- ">
               <div className="sub-title body-2-B flex_">
-                <Badge value="5"/>
+                <Badge value="5" />
                 강의
               </div>
               <div className="input-wrap">
                 <p className="table-caption body-2-B">강의 내역<span className="txt-violet-1">*</span></p>
-                <TextArea labelText="" placeholder="강의 내역을 입력해 주세요." valueType="" helperTextResult="none"
+                <TextArea 
+                  labelText="" placeholder="강의 내역을 입력해 주세요." valueType="" helperTextResult="none"
                   state={lctCntn}
                   setState={setLctCntn}
                 />
@@ -428,7 +314,7 @@ const Component = () => {
 
             <div className="content- ">
               <div className="sub-title body-2-B flex_">
-                <Badge value="6"/>
+                <Badge value="6" />
                 대외활동
               </div>
               <div className="input-wrap">
@@ -442,7 +328,7 @@ const Component = () => {
 
             <div className="content- ">
               <div className="sub-title body-2-B flex_">
-                <Badge value="7"/>
+                <Badge value="7" />
                 연구분야
               </div>
               <div className="input-wrap">
@@ -456,7 +342,7 @@ const Component = () => {
 
             <div className="content- ">
               <div className="sub-title body-2-B flex_">
-                <Badge value="8"/>
+                <Badge value="8" />
                 학력
               </div>
               <div className="input-wrap">

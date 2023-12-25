@@ -1,38 +1,35 @@
+// @ts-check
 import React, { useEffect, useMemo, useState, useLayoutEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
-import Icon from "/src/components/icon/icon.tsx"
+import Icon from "/src/components/icon/icon"
 import Badge from "/src/components/label/badge"
-import Input from "/src/components/textFields/textInput.tsx"
+import Input from "/src/components/textFields/textInput"
 import { searchOrgn } from "../../asset/apis/signup";
-import { setResearcherCategory } from "../../asset/apis/contents/researcher";
+import { setResearcherCategory } from "/src/asset/apis/contents/researcher/api";
 import { useRouter } from "next/router";
+import usePageNo from "/src/hooks/contents/common/usePageNo";
 
 const Component = () => {
 
 	const router = useRouter();
-  const [no, setNo] = useState();
-
-	useLayoutEffect(() => {
-		if(!router.isReady) return;
-		const no = router.query.no;
-    setNo(no)
-	},[]);
+  const no = usePageNo({ router })
 
   const [orgn, setOrgn] = useState('');
 	const [ucmdCd, setUcmdCd] = useState('');
 	const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(false);
+
   const searchResult = useMemo(() => (
     data.filter(item => item.name.includes(search))
   ), [data, search])
 
   const [deptMajrNm, setDeptMajrNm] = useState('');
 
-	const searchOrgan = async (organ) => {
-		await searchOrgn({query: organ}).then(res => {
+	const searchOrgan = async () => {
+		await searchOrgn().then(res => {
       console.log(res.data.result.rows);
 			setData(res.data.result.rows);
 		}).catch(err => {
@@ -40,7 +37,7 @@ const Component = () => {
 		});
 	}
 
-  const onClickSpan = (idx) => () => {
+  const onClickSpan = (/** @type {number} */idx) => () => {
     setUcmdCd(String(searchResult[idx].id));
     setSearch(searchResult[idx].name)
     setOrgn(searchResult[idx].name)
@@ -64,7 +61,7 @@ const Component = () => {
   const submit = async () => {
     const res = await setResearcherCategory({
       deptMajrNm, 
-      ...(no && {deptMajrNo: no}),
+      ...(no !== undefined && {deptMajrNo: no}),
       ucmdCd, 
       ucmdNm: orgn, 
       useYn: "Y",
