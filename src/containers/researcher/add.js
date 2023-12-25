@@ -23,6 +23,12 @@ const Component = () => {
   const [rscNm, setRscNm] = useState() // 연구자명
   const [deptMajrs, setDeptMajrs] = useState([]) // 부서/학과
   const [pstnNm, setPstnNm] = useState() // 직책
+  const crtTypeCd = useMemo(() => {
+    if(registType === 0) return 'A'
+    if(registType === 1) return 'B'
+    if(registType === 2) return 'N'
+    return null
+  }) // 생성 유형 코드
 
   /** 선택값 */
   const [pflFile, setPflFile] = useState() // 프로필 사진
@@ -38,12 +44,6 @@ const Component = () => {
   const [educationCntn, setEducationCntn] = useState() // 학력 내역
   const [ytbPath, setYtbPath] = useState() // 유튜브 주소
 
-  const crtTypeCd = useMemo(() => {
-    if(registType === 0) return 'A'
-    if(registType === 1) return 'B'
-    if(registType === 2) return 'N'
-    return null
-  }) // 생성 유형 코드
   
   const [search, setSearch] = useState("")
   const [toggle, setToggle] = useState(false)

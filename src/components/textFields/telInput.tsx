@@ -12,7 +12,7 @@ interface InputProps {
   inputCountState?: string;
   maxLength: number;
   state: string;
-  light?: boolean
+  light?: boolean;
   setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -27,13 +27,14 @@ const Input = ({
   iconState,
   inputCountState,
   maxLength,
-  light
+  light,
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e: any) => {
     const encoded = e.target.value
-      .replace(/[^0-9]/g, '')
-      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+      .replace(/[^0-9]/g, "")
+      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
+      .replace(/(\-{1,2})$/g, "");
     setState(encoded);
     setInputCount(e.target.value.length);
   };
@@ -44,7 +45,11 @@ const Input = ({
         <span className={importState}>*</span>
       </p>
       <div className={`input-container ${valueType} ${iconState}`}>
-        <div className={`wrap radius-8 bg-lightGray ${light ? `border-${light}` : ''}`}>
+        <div
+          className={`wrap radius-8 bg-lightGray ${
+            light ? `border-${light}` : ""
+          }`}
+        >
           <svg
             className="icon-email"
             width="12"

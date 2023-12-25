@@ -12,11 +12,12 @@ interface InputProps {
   inputCountState?: string;
   maxLength: number;
   state: string;
-  light?: boolean
+  light?: boolean;
   setState?: Dispatch<SetStateAction<string>>;
   setStateFunc?: (event: any) => void;
   onBlur?: () => void;
   onClick?: () => void;
+  onKeyPress?: () => void;
 }
 
 const Input = ({
@@ -25,6 +26,7 @@ const Input = ({
   setStateFunc,
   onBlur,
   onClick,
+  onKeyPress,
   valueType,
   placeholder,
   helperTextResult,
@@ -33,7 +35,7 @@ const Input = ({
   iconState,
   inputCountState,
   maxLength,
-  light
+  light,
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e: any) => {
@@ -52,7 +54,11 @@ const Input = ({
         <span className={importState}>*</span>
       </p>
       <div className={`input-container ${valueType} ${iconState}`}>
-        <div className={`wrap radius-8 bg-lightGray ${light ? `border-${light}` : ''}`}>
+        <div
+          className={`wrap radius-8 bg-lightGray ${
+            light ? `border-${light}` : ""
+          }`}
+        >
           <svg
             className="icon-email"
             width="12"
@@ -81,6 +87,7 @@ const Input = ({
             placeholder={placeholder}
             onBlur={onBlur && onBlur}
             onClick={onClick && onClick}
+            onKeyPress={onKeyPress && onKeyPress}
           />
           <span className={`input-count caption-R ${inputCountState}`}>
             <span className="txt-second-default">{inputCount}</span> /{" "}
@@ -103,7 +110,7 @@ const Input = ({
           </svg>
         </div>
         <div className="helper-txt-wrap body-3-R">
-          <p className="helper-txt">{helperTxtSet[helperTextResult].value}</p>
+          <p className="helper-txt">{helperTxtSet[helperTextResult]?.value}</p>
         </div>
       </div>
     </div>

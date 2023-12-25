@@ -7,7 +7,7 @@ const Component = (props) => {
   const [toggle, setToggle] = useState(false);
   const onChange = (e) => {
     setSearch(e.target.value);
-    props.setState(e.target.value);
+    if (props.setState) props.setState(e.target.value);
     props.onchange && props.onchange(e.target.value);
     if (props.data.length === 0) setToggle(false);
     else setToggle(true);
@@ -15,13 +15,14 @@ const Component = (props) => {
 
   const onclickSpan = (dummy) => {
     props.setResult(String(dummy.id));
+    if (props.resultFunc) props.resultFunc();
     setToggle(false);
     setSearch(dummy.name);
   };
 
-  // const onBlur = (dummy) => {
-  // 	setToggle(false);
-  // }
+  const onBlur = () => {
+    setToggle(false);
+  };
 
   useEffect(() => {
     if (search === "") setToggle(false);
@@ -41,14 +42,22 @@ const Component = (props) => {
 
   return (
     <div className="search-container">
-      <div className="input-wrap radius-8 border-gray-4 bg-lightGray">
+      <div
+        className={`input-wrap radius-8 border-${
+          props.light
+            ? props.light === "none"
+              ? "gray-4"
+              : props.light
+            : "gray-4"
+        } bg-lightGray`}
+      >
         <input
           className="body-3-R txt-primary"
           type="text"
           placeholder="검색어를 입력해 주세요."
           value={search}
           onChange={onChange}
-          // onBlur={onBlur}
+          onBlur={onBlur}
           onClick={onChange}
         />
         <span className="icon_serach">
@@ -67,7 +76,7 @@ const Component = (props) => {
             filterTitle.map((dummy) => (
               <span
                 style={{ padding: "0.5rem 0rem" }}
-                onClick={() => {
+                onMouseDown={() => {
                   onclickSpan(dummy);
                 }}
               >

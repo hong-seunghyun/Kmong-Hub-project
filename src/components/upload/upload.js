@@ -13,6 +13,9 @@ const Component = (props) => {
   const [type, setType] = useState(null);
   const [urlState, setUrlState] = useState(null);
 
+  const [imgWidth, setImgWidth] = useState(0);
+  const [imgHeight, setImgHeight] = useState(0);
+
   const fileInputRef = useRef();
 
   useEffect(() => {
@@ -54,52 +57,74 @@ const Component = (props) => {
   };
 
   const handleFileChange = async (e) => {
+    let isBig = false;
     const file = e.target.files[0];
     props.setFileState(file);
-    setFileSize(e.target.files[0].size);
-    setFileName(e.target.files[0].name);
+    setFileSize(e.target.files[0]?.size);
+    setFileName(e.target.files[0]?.name);
     const MAX_SIZE = 100 * 1024 * 1024;
 
     const ext = e.target.files[0].name.split(".").pop().toLowerCase();
-    console.log(ext);
 
     if (fileSize > MAX_SIZE) {
       alert("파일이 너무 무겁습니다!");
     }
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (ext === "jpg" || ext === "jpeg" || ext === "png") {
-          getImageSize();
-          if (imgWidth + imgHeight > 1600) {
+    // if (file) {
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      if (ext === "jpg" || ext === "jpeg" || ext === "png") {
+        let image = new Image();
+        image.src = reader.result;
+        image.onload = function () {
+          console.log(image.width, image.height);
+          setImgWidth(image.width);
+          setImgHeight(image.height);
+
+          if (image.width + image.height > 1600) {
             alert("이미지 크기가 너무 큽니다!");
+            isBig = true;
+            return;
           }
-        }
-        setUrlState(reader.result);
-      };
-      reader.readAsDataURL(file);
+        };
+        // getImageSize(file);
+      }
+      if (!isBig) setUrlState(reader.result);
+    };
+    reader.readAsDataURL(file);
 
-      setState("proceeding");
+    setState("proceeding");
 
-      await sleep(300);
-      setProcess(50);
+    await sleep(300);
+    setProcess(50);
 
-      await sleep(200);
-      setProcess(80);
+    await sleep(200);
+    setProcess(80);
 
-      await sleep(100);
+    await sleep(100);
 
-      console.log(e.target.files[0].name);
+    console.log(e.target.files[0].name);
+
+    if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
+      setState("done");
+      setType("preview");
+    } else if (ext === "hwp" || ext === "docx" || ext === "pdf") {
+      setState("done");
+      setType("normal");
+    } else {
+      alert("지원되지 않는 파일 형식입니다.");
+      setState("default");
+      setType(props.type);
     }
+    if (isBig) cancelFile();
+
+    // }
   };
 
-  const [imgWidth, setImgWidth] = useState(0);
-  const [imgHeight, setImgHeight] = useState(0);
-
-  const getImageSize = () => {
+  const getImageSize = (file) => {
     const img = new Image();
-    img.src = props.urlState;
+    img.src = file;
 
     img.onload = () => {
       setImgWidth(img.width);
@@ -123,6 +148,14 @@ const Component = (props) => {
         type || props.type
       }`}
     >
+      {/* <button
+        onClick={() => {
+          console.log("width : ", imgWidth);
+          console.log("height : ", imgHeight);
+        }}
+      >
+        dfdf
+      </button> */}
       <div className="img-box">
         <img className="img-file img-" src="/images/file.png" alt="file" />
         <img className="img-hwp img-" src="/images/hwp.png" alt="hwp" />
