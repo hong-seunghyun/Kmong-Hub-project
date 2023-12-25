@@ -1,4 +1,3 @@
-// email_input.tsx
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { helperTxt, helperTxtSet } from "./helperText";
 
@@ -10,8 +9,8 @@ interface InputProps {
   importState?: string;
   iconState?: string;
   inputCountState?: string;
-  maxLength: number;
-  state: string;
+  maxLength?: number;
+  state?: string;
   light?: boolean;
   setState?: Dispatch<SetStateAction<string>>;
   setStateFunc?: (event: any) => void;

@@ -9,7 +9,7 @@ interface InputProps {
   helperTextResult: helperTxt;
   labelText?: string;
   importState?: string;
-  state: string;
+  state?: string;
   setState: Dispatch<SetStateAction<string>>;
 }
 
