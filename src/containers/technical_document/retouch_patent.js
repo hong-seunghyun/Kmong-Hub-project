@@ -12,7 +12,7 @@ import CheckBox from "/src/components/radio/checkbox"
 import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
 import { Editor } from "@tinymce/tinymce-react";
 import { useLayoutEffect } from "react";
-import { getFile, getTechDetails } from "../../asset/apis/tech";
+import { addPatent, getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -101,7 +101,23 @@ const Component = () => {
 	}
 
 	const savePatent = () => {
-		
+		addPatent({
+			tdcNo: router.query.no,
+			typeCd: typeCd,
+			tcqNm: tcqNm,
+			rsacUcmdCd: rsacUcmdCd,
+			apyNo: apyNo,
+			apyAd: apyAd,
+			statCd: statCd,
+			rgstNo: rgstNo,
+			ivtNm: ivtNm,
+			ipcVal: ipcVal,
+			cpcVal: cpcVal,
+			piuaYn: piuaYn
+		}, file).then(res => {
+			console.log(res.data);
+			window.location = '/technical_document'
+		})
 	}
 
 	return(
@@ -194,7 +210,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonL text="초기화" />
 							</Link>
-							<Link href="/technical_document">
+							<Link href={`/technical_document/retouch_patent?no=${router.query.no}`}>
 								<Button text="저장" onclick={savePatent}/>
 							</Link>
 						</div>
