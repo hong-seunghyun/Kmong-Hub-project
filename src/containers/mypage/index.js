@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Tab from "/src/components/tabs/mypage_tab_fixed";
 import Input from "/src/components/textFields/textInput.tsx";
 import PasswordInput from "/src/components/textFields/passwordInput.tsx";
@@ -11,8 +11,10 @@ import PrimaryBtn from "/src/components/buttons/button_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
 import { getMyInfo } from "../../asset/apis/mypage/myInfoApis";
 import { searchOrgn } from "../../asset/apis/signup";
+import axios from "axios";
 
 const Component = () => {
+  const [hpNo, setHpNo] = useState();
   const [emailAddr, setEmailAddr] = useState();
   const [nnmNm, setNnmNm] = useState();
   const [orgnPhcNo, setOrgnPhcNo] = useState();
@@ -21,6 +23,8 @@ const Component = () => {
   const [ucmdNm, setUcmdNm] = useState();
   const [ucmdCd, setUcmdCd] = useState();
   const [data, setData] = useState([]);
+  const [pflImgPath, setPflImgPath] = useState();
+  const [bslAttchFile, setBslAttchFile] = useState();
 
   const searchOrgan = async (organ) => {
     await searchOrgn({ query: organ })
@@ -33,6 +37,34 @@ const Component = () => {
       });
   };
 
+  //   const getFileBlob = async (fileUrl) => {
+  //     await FileUrlToBlob(fileUrl)
+  //       .then((e) => console.log(e))
+  //       .catch((e) => console.log(e));
+  //   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (pflImgPath == null) return;
+      try {
+        console.log("dfdfdf", pflImgPath);
+        const response = await axios.get(pflImgPath, { responseType: "blob" });
+
+        const blob = response.data;
+        console.log("blob", blob);
+
+        const objectURL = URL.createObjectURL(blob);
+        console.log(objectURL);
+
+        return () => URL.revokeObjectURL(objectURL);
+      } catch (error) {
+        console.error("Error fetching file:", error);
+      }
+    };
+
+    fetchData();
+  }, [pflImgPath]);
+
   const getValue = async () => {
     await getMyInfo()
       .then((e) => {
@@ -44,6 +76,9 @@ const Component = () => {
         setSmsRcvAgrmYn(e.data.data.smsRcvAgrmYn);
         setUcmdNm(e.data.data.ucmdNm);
         setUcmdCd(e.data.data.ucmdCd);
+        setHpNo(e.data.data.hpNo);
+        setPflImgPath(e.data.data.pflImgPath);
+        setBslAttchFile(e.data.data.bslAttchFile);
       })
       .catch((e) => console.log(e));
   };
@@ -77,7 +112,7 @@ const Component = () => {
                 labelText="비밀번호"
                 placeholder="*******"
                 valueType=""
-                state=""
+                state="abcdefghijk"
                 helperTextResult="none"
                 iconState="true"
               />
@@ -88,13 +123,12 @@ const Component = () => {
                 labelText="휴대폰 번호"
                 placeholder="01012345678"
                 valueType=""
-                state=""
+                state={hpNo}
                 helperTextResult="none"
                 iconState="false"
               />
               <ButtonSecondary text="변경" state="default" />
             </div>
-
             <Input
               labelText="이름"
               placeholder="미나 마수드"
@@ -117,9 +151,15 @@ const Component = () => {
 
             <div className="box-">
               <p className="body-2-B txt-second-default">프로필</p>
-              <Upload state="default" type="normal" />
+              <Upload
+                state="default"
+                type="normal"
+                fileState={pflImgPath}
+                setFileState={setPflImgPath}
+                accept=".jpg, .png, .jpeg"
+              />
               <p className="caption-R helper-txt">
-                허용 사이즈: <span>800px x 800px</span>{" "}
+                허용 사이즈: <span>50rem x 50rem</span>{" "}
                 <span className="bar">|</span> 파일 형식:{" "}
                 <span>JPG,PNG,JPEG</span>
                 <span className="bar">|</span> 최대 파일 크기:{" "}
@@ -144,9 +184,15 @@ const Component = () => {
               <p className="body-2-B txt-second-default">
                 사업자 등록증<span className="body-2-B  txt-violet-1">*</span>
               </p>
-              <Upload state="done" type="preview" />
+              <Upload
+                state="done"
+                type="preview"
+                fileState={bslAttchFile}
+                setFileState={setBslAttchFile}
+                accept=".jpg, .png, .jpeg"
+              />
               <p className="caption-R helper-txt">
-                허용 사이즈: <span>800px x 800px</span>{" "}
+                허용 사이즈: <span>50rem x 50rem</span>{" "}
                 <span className="bar">|</span> 파일 형식:{" "}
                 <span>JPG,PNG,JPEG</span>
                 <span className="bar">|</span> 최대 파일 크기:{" "}

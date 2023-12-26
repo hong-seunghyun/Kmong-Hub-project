@@ -628,6 +628,9 @@ const Component = () => {
               type="normal"
               fileState={file2}
               setFileState={setFile2}
+              setModal1={setNotAccessFileModal}
+              setModal2={setBigImageModal}
+              setModal3={setBigFileModal}
               accept=".jpg, .png, .jpeg"
             />
             <p className="caption-R helper-txt">
