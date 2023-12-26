@@ -27,11 +27,11 @@ const Component = () => {
 		return(
 			<div>
 				<Upload state="default" type="normal" />
-					<div className="flex_ btn_flex">
-						<Link href="/support/add_select_document">
-							<Button text="AI 수정" />
-						</Link>
-					</div>
+        <div className="flex_ btn_flex">
+          <Link href="/support/add_select_document">
+            <Button text="AI 수정" />
+          </Link>
+        </div>
 			</div>
 		)
 	}
