@@ -10,6 +10,11 @@ import { getTechCategories, getTechTransfers } from "/src/asset/apis/contents/tr
 import { TechTransfer } from "/src/asset/apis/contents/transfer/types";
 import Link from "next/link";
 
+const FIXED_STATUS: { id: 'Y' | 'N'; label: string }[] = [
+  { id: 'Y', label: '고정' },
+  { id: 'N', label: '미고정' }
+] as const
+
 const Component = () => {
 
   const [techs, setTechs] = useState<TechTransfer[]>([])
@@ -26,12 +31,15 @@ const Component = () => {
     setIndex
   } = useDropDown(categories)
 
+  const fixedDropDown = useDropDown(FIXED_STATUS)
+
   const [keyword, setKeyword] = useState<string>()
 
   const updateItems = async () => {
     const result = await getTechTransfers({
       currentPage: page,
       catgNo: currentItem?.id,
+      fixYn: fixedDropDown.currentItem?.id,
       searchValue: keyword,
       limit: 10
     }).then(res => {
@@ -79,14 +87,21 @@ const Component = () => {
             <div className="flex_ search-wrap pc-search-wrap">
               <span className="flex_">
                 <DropDownMenu
-                  placeholder={'전체'}
+                  placeholder={'카테고리'}
                   items={categories}
                   currentItem={currentItem}
                   isOpened={isOpened}
                   toggleDropDown={toggleDropDown}
                   setIndex={setIndex}
                 />
-                <DropDownMenu />
+                <DropDownMenu
+                  placeholder={'고정 여부'}
+                  items={FIXED_STATUS}
+                  currentItem={fixedDropDown.currentItem}
+                  isOpened={fixedDropDown.isOpened}
+                  toggleDropDown={fixedDropDown.toggleDropDown}
+                  setIndex={fixedDropDown.setIndex}
+                />
               </span>
               <SearchBar
                 setKeyword={setKeyword}

@@ -2,13 +2,18 @@ import React, { useLayoutEffect, useState } from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_contents";
 import SearchBar from "/src/components/searchBar/search_bar_contents";
-import TableHead from "/src/components/table/technology_index_table_vertical_head";
+import EventTableHead from "/src/components/table/event_index_table_vertical_head";
+import EventTableCell from "/src/components/table/event_index_table_vertical_cell";
 import Pagnation from "/src/components/pagnation/pagination_contents";
 import Link from "next/link";
 import useDropDown from "/src/hooks/contents/components/useDropDown";
 import { getEventCategories, getEvents } from "/src/asset/apis/contents/event/api";
 import { Event } from "/src/asset/apis/contents/event/types";
-import TableCell from "/src/components/table/technology_index_table_vertical_cell";
+
+const FIXED_STATUS: { id: 'Y' | 'N'; label: string }[] = [
+  { id: 'Y', label: '고정' },
+  { id: 'N', label: '미고정' }
+] as const
 
 const Component = () => {
 
@@ -26,12 +31,15 @@ const Component = () => {
     setIndex
   } = useDropDown(categories)
 
+  const fixedDropDown = useDropDown(FIXED_STATUS)
+
   const [keyword, setKeyword] = useState<string>()
 
   const updateItems = async () => {
     const result = await getEvents({
       currentPage: page,
       catgNo: currentItem?.id,
+      fixYn: fixedDropDown.currentItem?.id,
       searchValue: keyword,
       limit: 10
     }).then(res => {
@@ -79,14 +87,21 @@ const Component = () => {
             <div className="flex_ search-wrap">
               <span className="flex_">
                 <DropDownMenu
-                  placeholder={'전체'}
+                  placeholder={'카테고리'}
                   items={categories}
                   currentItem={currentItem}
                   isOpened={isOpened}
                   toggleDropDown={toggleDropDown}
                   setIndex={setIndex}
                 />
-                <DropDownMenu />
+                <DropDownMenu 
+                  placeholder={'고정 여부'}
+                  items={FIXED_STATUS}
+                  currentItem={fixedDropDown.currentItem}
+                  isOpened={fixedDropDown.isOpened}
+                  toggleDropDown={fixedDropDown.toggleDropDown}
+                  setIndex={fixedDropDown.setIndex}
+                />
               </span>
               <SearchBar
                 setKeyword={setKeyword}
@@ -95,17 +110,18 @@ const Component = () => {
             </div>
 
             <div className="table-container">
-              <TableHead
+              <EventTableHead
                 headChoice="번호"
                 headCategory="상태"
                 headTitle="제목"
                 headWriter="작성자"
                 headDate="등록일"
                 headEtc="관리"
+                headState="모집 상태"
               />
               {events.map((event) => (
-                <TableCell
-                  pin={`${event.evenFixed === 'Y'}`}
+                <EventTableCell
+                  pin={event.evenFixed === 'Y'}
                   saveStatus={undefined}
                   id={event.evenNo}
                   title={event.titleNm}
