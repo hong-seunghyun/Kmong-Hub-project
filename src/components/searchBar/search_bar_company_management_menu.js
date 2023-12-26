@@ -26,20 +26,25 @@ const Component = (props) => {
 
   useEffect(() => {
     if (search === "") setToggle(false);
-    if (props.state !== "") setSearch(props.state);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (props.state !== "") {
+      setSearch(props.state);
+    }
+  }, [props.state]);
 
-  let filterTitle;
+  // let filterTitle;
 
-  if (props.data) {
-    filterTitle = props.data.filter((p) => {
-      return p.name
-        .replace(" ", "")
-        .toLocaleLowerCase()
-        .includes(search.toLocaleLowerCase());
-    });
-  }
+  // if (props.data) {
+  //   filterTitle = props.data.filter((p) => {
+  //     return p.name
+  //       .replace(" ", "")
+  //       .toLocaleLowerCase()
+  //       .includes(search.toLocaleLowerCase());
+  //   });
+  // }
 
   return (
     <div
@@ -77,21 +82,20 @@ const Component = (props) => {
           className="flex_ result-search-box body-3-R "
           style={{ minHeight: "20px", maxHeight: "175px" }}
         >
-          {props.data &&
-            filterTitle.map((dummy) => (
-              <span
-                style={{
-                  padding: "0.5rem 0rem",
-                  width: "100%",
-                  maxWidth: "100%",
-                }}
-                onMouseDown={() => {
-                  onclickSpan(dummy);
-                }}
-              >
-                {dummy.name}
-              </span>
-            ))}
+          {props.data.map((dummy) => (
+            <span
+              style={{
+                padding: "0.5rem 0rem",
+                width: "100%",
+                maxWidth: "100%",
+              }}
+              onMouseDown={() => {
+                onclickSpan(dummy);
+              }}
+            >
+              {dummy.name}
+            </span>
+          ))}
         </div>
       </div>
     </div>
