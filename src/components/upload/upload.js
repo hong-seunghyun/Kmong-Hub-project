@@ -22,18 +22,8 @@ const Component = (props) => {
     console.log('Upload useEffect');
     if (props.fileState) {
       console.log(props.fileState);
-      const ext = props.fileState.type.split('/').pop().toLowerCase();
-      setFileSize(props.fileState.size);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
-      console.log(ext);
+      const ext = props.fileState.name.split(".").pop().toLowerCase();
+
       if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
         setState("done");
         setType("preview");
@@ -46,7 +36,7 @@ const Component = (props) => {
         setType(props.type);
       }
     }
-  }, [props.fileState]);
+  }, []);
 
   const cancelFile = () => {
     if (props.setFileState) {
@@ -95,6 +85,7 @@ const Component = (props) => {
     };
     reader.readAsDataURL(file);
 
+    setProcess(20);
     setState("proceeding");
 
     await sleep(300);
@@ -119,8 +110,6 @@ const Component = (props) => {
       setType(props.type);
     }
     if (isBig) cancelFile();
-
-    // }
   };
 
   const getImageSize = (file) => {
@@ -188,7 +177,10 @@ const Component = (props) => {
           <input
             type="file"
             ref={fileInputRef}
-            onChange={handleFileChange}
+            onChange={async (e) => {
+              await handleFileChange(e);
+              e.target.value = '';
+            }}
             accept={props.accept || "*/*"}
             style={{ display: "none" }}
           />
