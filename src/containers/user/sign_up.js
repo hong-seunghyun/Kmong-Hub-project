@@ -18,6 +18,7 @@ import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json";
 import { useLayoutEffect } from "react";
 import { useEffect } from "react";
+import { setPhoneNumber } from "src/util/setPhoneNumber";
 
 const Component = () => {
   const NumRegEx = /[0-9]/;
@@ -261,8 +262,10 @@ const Component = () => {
   }, [nickname]);
 
   useEffect(() => {
-    if (orgnTel !== "" && PhoneRegEx.test(orgnTel)) setOrgnTelToggle("violet");
-    else setOrgnTelToggle("filled");
+    if (orgnTel !== "" && PhoneRegEx.test(orgnTel.replace(/-/g, ""))) {
+      setOrgnTelToggle("violet");
+      console.log(setPhoneNumber(orgnTel));
+    } else setOrgnTelToggle("filled");
   }, [orgnTel]);
 
   useLayoutEffect(() => {
@@ -312,7 +315,7 @@ const Component = () => {
           <ButtonSecondary
             text="중복 확인"
             state={EmailRegEx.test(email) ? "enabled" : "disabled"}
-            onclick={checkEmail}
+            onclick={EmailRegEx.test(email) && checkEmail}
           />
           <div className="flex_">
             <div
@@ -604,7 +607,7 @@ const Component = () => {
             valueType=""
             helperTextResult="none"
             iconState="false"
-            state={orgnTel}
+            state={setPhoneNumber(orgnTel)}
             setState={setOrgnTel}
             light={orgnTelToggle}
           />
