@@ -45,7 +45,6 @@ const Component = (props) => {
         setState("default");
         setType(props.type);
       }
-      props.setFileState(props.fileState);
     }
   }, [props.fileState]);
 
@@ -58,6 +57,7 @@ const Component = (props) => {
   };
 
   const handleFileChange = async (e) => {
+    console.log("handleFileChange");
     let isBig = false;
     const file = e.target.files[0];
     props.setFileState(file);
