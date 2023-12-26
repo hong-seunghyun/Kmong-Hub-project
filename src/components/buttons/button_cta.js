@@ -1,23 +1,26 @@
-import React, {useState} from "react";
-
+import React, { useState } from "react";
 
 const Component = (props) => {
-	const [isButton, setButton ] = useState(false);
+  const [isButton, setButton] = useState(false);
 
-	const onClickActive = () => {
-		setButton(!isButton);
-	}
+  const onClickActive = () => {
+    if (props.onClick) props.onClick();
+    setButton(!isButton);
+  };
 
-	const ButtonCtaS = () => {
-		return(
-			<button className={`btn_ radius-8 ac-gradation btn-s body-3-R ${isButton ? "pressed" : ""} ${props.state}`} onClick={onClickActive} >
-				{props.text}
-			</button>
-		)
-	}
+  const ButtonCtaS = () => {
+    return (
+      <button
+        className={`btn_ radius-8 ac-gradation btn-s body-3-R ${
+          isButton ? "pressed" : ""
+        } ${props.state}`}
+        onClick={onClickActive}
+      >
+        {props.text}
+      </button>
+    );
+  };
 
-	return(
-		<ButtonCtaS />
-	)
-}
+  return <ButtonCtaS />;
+};
 export default Component;
