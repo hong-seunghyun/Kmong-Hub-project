@@ -104,6 +104,7 @@ const Component = () => {
                         : tech.ivtNm
                     }
                     date={tech.apyAd}
+                    // date={`${tech.apyAd.slice(0, 4)}.${tech.apyAd.slice(4, 6).padStart(2, '0')}.${tech.apyAd.slice(6, 8).padStart(2, '0')}`}
                     link={`/technical_document/detail_${
                       tech.typeCd == "P"
                         ? "patent"
