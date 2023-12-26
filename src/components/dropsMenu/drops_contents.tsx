@@ -1,23 +1,24 @@
 import React from "react";
 import Icon from "/src/components/icon/icon";
-import * as useDropDown from "/src/hooks/contents/components/useDropDown";
+import { DropDownItem, DropDownHook } from "/src/hooks/contents/components/useDropDown";
 
-type DropDownProps = useDropDown.DropDownHook & {
+type DropDownProps<T> = DropDownHook<T> & {
   placeholder: string;
-  items: useDropDown.DropDownItem[];
+  items: DropDownItem<T>[];
+  isOpened: boolean;
 }
 
-const Component = ({
+const DropDownMenu = <T = number>({
   placeholder,
   items,
   isOpened,
   toggleDropDown,
-  setIndexWithValidation,
+  setIndex,
   currentItem,
-}: DropDownProps) => {
+}: DropDownProps<T>) => {
 
   const onClickItem = (idx: number) => () => {
-    setIndexWithValidation(idx);
+    setIndex(idx);
     toggleDropDown();
   }
 
@@ -38,7 +39,7 @@ const Component = ({
 			<div className="wrap radius-8 border-gray-4" style={{display: isOpened ? "block" : "none"}}>
 				<div className="flex_ result-search-box  body-3-R ">
           {items && items.map((item, idx) => (
-            <span key={item.id} onClick={onClickItem(idx)}>
+            <span onClick={onClickItem(idx)}>
               {item.label}
             </span>
           ))}
@@ -48,4 +49,4 @@ const Component = ({
 	)
 } 
 
-export default Component;
+export default DropDownMenu;

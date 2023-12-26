@@ -1,4 +1,3 @@
-// @ts-check
 import React from "react";
 import Icon from "/src/components/icon/icon";
 
@@ -9,7 +8,7 @@ type SearchBarProps = {
   placeholder?: string
 }
 
-const Component = ({
+const SearchBar = ({
   keyword, 
   setKeyword,
   updateItems,
@@ -44,4 +43,4 @@ const Component = ({
   )
 }
 
-export default Component;
+export default SearchBar;
