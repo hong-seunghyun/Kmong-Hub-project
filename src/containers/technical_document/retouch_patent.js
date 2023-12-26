@@ -48,7 +48,6 @@ const send_datas = [
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState([]);
 	const [ orgnData, setOrgnData ] = useState([]);
 
 	const [ typeCd, setTypeCd ] = useState('P');
@@ -62,6 +61,7 @@ const Component = () => {
   const [ ipcVal, setIpcVal ] = useState('');
   const [ cpcVal, setCpcVal ] = useState('');
   const [ piuaYn, setPiuaYn ] = useState('');
+  const [ orgCntn, setOrgCntn ] = useState('');
   
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
@@ -87,7 +87,6 @@ const Component = () => {
 		
 		getTechDetails(no).then(async res => {
 			console.log(res.data);
-			setData(res.data.data);
 			await initData(res.data.data);
 		}).catch(err => {
 			console.log(err);
@@ -107,6 +106,7 @@ const Component = () => {
 		setIvtNm(data.ivtNm);
 		setIpcVal(data.ipcVal);
 		setCpcVal(data.cpcVal);
+		setOrgCntn(data.orgCntn);
 		let pdfFile;
 		await getFile(data.techDocDetails[0].filePath).then(res => {
 			pdfFile = res.data;
@@ -132,7 +132,9 @@ const Component = () => {
 			ivtNm: ivtNm,
 			ipcVal: ipcVal,
 			cpcVal: cpcVal,
-			piuaYn: piuaYn
+			piuaYn: piuaYn,
+			orgCntn: orgCntn,
+			orgnNm: orgn
 		}, file).then(res => {
 			console.log(res.data);
 			window.location = '/technical_document'
@@ -219,7 +221,7 @@ const Component = () => {
 					</div>
 					<div className="box-">
 						<p className="table-caption body-2-B">상세정보<span className="txt-violet-1">*</span></p>
-						<Editor />
+						<Editor onEditorChange={setOrgCntn}/>
 					</div>
 					<div className="box- check-box">
 						<CheckBox size="small" label="개인정보 수집 및 이용에 동의합니다." />

@@ -5,12 +5,13 @@ import ButtonErrorL from "/src/components/buttons/button_error_l"
 import Button from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
 import Label from "/src/components/label/label";
-import Editor from "/src/components/editorBox/index"
+// import Editor from "/src/components/editorBox/index"
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m"
 import { useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 import { getOrgnDetails, getTechDetails } from "../../asset/apis/tech";
 import { set } from "date-fns";
+import { Editor } from "@tinymce/tinymce-react";
 
 const Component = () => {
 	const router = useRouter();
@@ -247,7 +248,7 @@ const Component = () => {
 	const DetailB = () => {
 
 		return(
-			<Editor />
+			<Editor disabled={true} value={data.orgCntn}/>
 		)
 	}
 

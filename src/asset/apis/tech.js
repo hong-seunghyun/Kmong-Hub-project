@@ -58,6 +58,7 @@ export const addPatent = (
     ipcVal,
     cpcVal,
     piuaYn,
+    orgCntn
   },
   file
 ) => {
@@ -74,6 +75,7 @@ export const addPatent = (
     ipcVal,
     cpcVal,
     piuaYn,
+    orgCntn
   } : {
     typeCd,
     tcqNm,
