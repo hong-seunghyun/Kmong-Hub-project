@@ -6,6 +6,7 @@ import { findEmail } from "../../asset/apis/verification";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useLayoutEffect } from "react";
+import Modal from "/src/components/modal/modal.js";
 
 const Component = () => {
   const [email, setEmail] = useState("");

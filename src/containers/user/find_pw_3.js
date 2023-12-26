@@ -12,6 +12,7 @@ import { useLayoutEffect } from "react";
 import { findPassword, rePassword } from "../../asset/apis/verification";
 import { useState } from "react";
 import { useEffect } from "react";
+import Modal from "/src/components/modal/modal.js";
 
 const Component = () => {
   const router = useRouter();
