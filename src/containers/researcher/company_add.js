@@ -1,4 +1,3 @@
-// @ts-check
 import React, { useEffect, useMemo, useState, useLayoutEffect } from "react";
 import ButtonL from "/src/components/buttons/button_outline_l"
 import Button from "/src/components/buttons/button_primary_l"
