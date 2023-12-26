@@ -18,14 +18,17 @@ const Component = () => {
 							뉴스 관리
 						</h1>
 						<Link href="/news/add_1">
-							<ButtonM text="뉴스 등록" />
+							<ButtonM text="등록" />
 						</Link>
 					</div>
 
 					<div>
 						<div className="flex_ search-wrap">
-							<DropDownMenu />
-							<SearchBar />
+							<span className="flex_">
+								<DropDownMenu datas={[]}/>
+								<DropDownMenu datas={[]}/>
+							</span>
+							<SearchBar data={[]}/>
 						</div>
 
 						<div className="table-container">
