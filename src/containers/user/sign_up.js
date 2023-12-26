@@ -15,7 +15,12 @@ import Modal from "/src/components/modal/modal.js";
 import ModalGuideA from "/src/components/modal/modal_uesr_guide_1";
 import ModalGuideB from "/src/components/modal/modal_uesr_guide_2";
 import { useState } from "react";
-import { checkPhone, checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
+import {
+  checkPhone,
+  checkTheEmail,
+  register,
+  searchOrgn,
+} from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json";
 import { useLayoutEffect } from "react";
 import { useEffect } from "react";
@@ -115,18 +120,17 @@ const Component = () => {
           .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
           .replace(/(\-{1,2})$/g, "");
         setTel(encoded);
-        checkPhone({ hpNo: message.data }).then(res => {
-          if(res.data.data.hpNo === '') {
-            alert('사용 가능한 번호 입니다.')
-            setTelToggle("violet");
-          } else {
-            alert('사용할 수 없는 번호 입니다.')
-            setTelToggle("filled");
-          }
-        }).catch(err => {
-
-        });
-        
+        checkPhone({ hpNo: message.data })
+          .then((res) => {
+            if (res.data.data.hpNo === "") {
+              // alert("사용 가능한 번호 입니다.");
+              setTelToggle("violet");
+            } else {
+              setIsRegister();
+              setTelToggle("filled");
+            }
+          })
+          .catch((err) => {});
       }
     });
 
@@ -319,6 +323,13 @@ const Component = () => {
     const cpValue = { ...modalValue };
     cpValue.title = "파일 크기가 너무 커요.";
     cpValue.text = "최대 100mb까지 업로드 가능해요.";
+    setModalValue({ ...cpValue });
+    setModalState(true);
+  };
+  const setIsRegister = () => {
+    const cpValue = { ...modalValue };
+    cpValue.title = "이미 가입한 계정이 있어요.";
+    cpValue.text = "가입하신 내역으로 로그인해 주세요.";
     setModalValue({ ...cpValue });
     setModalState(true);
   };
