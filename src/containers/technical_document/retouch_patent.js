@@ -15,6 +15,7 @@ import { useLayoutEffect } from "react";
 import { addPatent, getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { searchOrgn } from "/src/asset/apis/signup";
 
 const send_datas = [
 	{
@@ -47,6 +48,7 @@ const Component = () => {
 
 	const router = useRouter();
 	const [ data, setData ] = useState([]);
+	const [ orgnData, setOrgnData ] = useState([]);
 
 	const [ typeCd, setTypeCd ] = useState('P');
   const [ tcqNm, setTcqNm ] = useState('');
@@ -62,7 +64,21 @@ const Component = () => {
   
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
-	const [ urlState, setUrlState ] = useState('');
+
+	const searchOrgan = async (organ) => {
+    await searchOrgn({ query: organ })
+      .then((res) => {
+        setOrgnData(res.data.result.rows);
+        console.log(res.data.result.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+	useLayoutEffect(() => {
+		searchOrgan();
+	}, []);
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
@@ -80,6 +96,7 @@ const Component = () => {
 	const initData = async (data) => {
 
 		setTcqNm(data.tcqNm);
+		setTypeCd(data.typeCd);
 		setRsacUcmdCd(data.rsacUcmdCd);
 		setOrgn(data.orgnNm);
 		setApyNo(data.apyNo);
@@ -149,7 +166,7 @@ const Component = () => {
               iconState="false"
               state={orgn}
               setState={setOrgn}
-              data={data && data}
+              data={orgnData && orgnData}
               setResult={setRsacUcmdCd}
             />
 					</div>
