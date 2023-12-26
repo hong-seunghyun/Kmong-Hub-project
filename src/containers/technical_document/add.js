@@ -32,11 +32,11 @@ const Component = () => {
 
   const send_datas = [
     {
-      id: "O",
+      id: "P",
       title: "출원 중",
     },
     {
-      id: "O",
+      id: "U",
       title: "미공개 상태",
     },
     {
@@ -44,15 +44,15 @@ const Component = () => {
       title: "공개 상태",
     },
     {
-      id: "O",
+      id: "C",
       title: "등록 완료",
     },
     {
-      id: "O",
+      id: "W",
       title: "취하 상태",
     },
     {
-      id: "O",
+      id: "D",
       title: "거절 상태",
     },
   ];

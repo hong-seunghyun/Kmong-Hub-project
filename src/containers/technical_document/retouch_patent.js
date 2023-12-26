@@ -20,29 +20,29 @@ import { PDFDocument } from "pdf-lib";
 
 const send_datas = [
 	{
-		id: 'O',
-		title: '출원 중'
+		id: "P",
+		title: "출원 중",
 	},
 	{
-		id: 'O',
-		title: '미공개 상태'
-	},
-	{
-		id: 'O',
-		title: '공개 상태'
-	},
-	{
-		id: 'O',
-		title: '등록 완료'
+		id: "U",
+		title: "미공개 상태",
 	},
 	{
 		id: "O",
-		title: '취하 상태'
+		title: "공개 상태",
 	},
 	{
-		id: 'O',
-		title: '거절 상태'
-	}
+		id: "C",
+		title: "등록 완료",
+	},
+	{
+		id: "W",
+		title: "취하 상태",
+	},
+	{
+		id: "D",
+		title: "거절 상태",
+	},
 ];
 
 const Component = () => {
