@@ -11,6 +11,7 @@ import LoginBtn from "/src/components/buttons/button_primary_l";
 import TextBtn from "/src/components/buttons/text_button_underline_primary_m";
 import Link from "next/link";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
+import Modal from "/src/components/modal/modal.js";
 import ModalGuideA from "/src/components/modal/modal_uesr_guide_1";
 import ModalGuideB from "/src/components/modal/modal_uesr_guide_2";
 import { useState } from "react";
@@ -233,28 +234,20 @@ const Component = () => {
   }, [password]);
 
   useEffect(() => {
-    if(password !== '' && password2 !== '') {
-      if (password2 !== password) {
-        setCheckPwToggle("filled");
-      } else {
-        setCheckPwToggle("violet");
-      }
+    if (password2 !== password) {
+      setCheckPwToggle("filled");
+    } else {
+      setCheckPwToggle("violet");
     }
   }, [password, password2]);
 
   useEffect(() => {
-    if (
-      name === "" ||
-      name.includes(" ") ||
-      NumRegEx.test(name) ||
-      SpChRegEx.test(name)
-    )
+    if (name.includes(" ") || NumRegEx.test(name) || SpChRegEx.test(name))
       setNameToggle("filled");
     else setNameToggle("violet");
   }, [name]);
   useEffect(() => {
     if (
-      nickname === "" ||
       nickname.includes(" ") ||
       NumRegEx.test(nickname) ||
       SpChRegEx.test(nickname)
@@ -297,6 +290,11 @@ const Component = () => {
 
   return (
     <div className="login sing-up">
+      {/* <Modal
+        title="지원하지 않는 파일 형식이에요."
+        text="Jpg, Jpeg, Png  파일만 업로드할 수 있어요."
+        type=""
+      /> */}
       <h1 className="display-5-B">환영합니다.</h1>
       <p className="body-3-R sub-title txt-second-default">
         <span className="txt-violet-1">*</span>는 필수 입력 항목이에요.
@@ -441,15 +439,23 @@ const Component = () => {
             iconState="false"
             state={name}
             setState={setName}
-            light={nameToggle}
+            onClick={() => {
+              if (name === "") setNameToggle("none");
+            }}
+            onBlur={() => {
+              if (name === "") setNameToggle("noValue");
+            }}
+            light={nameToggle === "noValue" ? "filled" : nameToggle}
           />
         </div>
         <div className="flex_">
           <div className="flex_ check_flex txt-disabled caption-R">
             {nameToggle === "filled" ? (
               <p className="txt-red">
-                띄어쓰기와 특수문자, 숫자 없이 10자 이내로 입력해주세요.
+                띄어쓰기와 특수문자 없이 10자 이내로 입력해주세요.
               </p>
+            ) : nameToggle === "noValue" ? (
+              <p className="txt-red">이름을 입력해주세요.</p>
             ) : (
               "ㅤ"
             )}
@@ -465,15 +471,23 @@ const Component = () => {
             iconState="false"
             state={nickname}
             setState={setNickname}
-            light={nicknameToggle}
+            onClick={() => {
+              if (nickname === "") setNicknameToggle("none");
+            }}
+            onBlur={() => {
+              if (nickname === "") setNicknameToggle("noValue");
+            }}
+            light={nicknameToggle === "noValue" ? "filled" : nicknameToggle}
           />
         </div>
         <div className="flex_">
           <div className="flex_ check_flex txt-disabled caption-R">
             {nicknameToggle === "filled" ? (
               <p className="txt-red">
-                띄어쓰기와 특수문자, 숫자 없이 10자 이내로 입력해주세요.
+                띄어쓰기와 특수문자 없이 10자 이내로 입력해주세요.
               </p>
+            ) : nicknameToggle === "noValue" ? (
+              <p className="txt-red">닉네임을 입력해주세요.</p>
             ) : (
               "ㅤ"
             )}
@@ -589,13 +603,18 @@ const Component = () => {
             data={data}
             setResult={setUcmdCd}
             resultFunc={() => setOrgnToggle("violet")}
-            light={orgnToggle}
+            onBlur={() => {
+              if (orgn === "") setOrgnToggle("noValue");
+            }}
+            light={orgnToggle === "noValue" ? "filled" : orgnToggle}
           />
         </div>
         <div className="flex_" style={{ marginTop: "0.75rem" }}>
           <div className="flex_ check_flex txt-disabled caption-R">
             {orgnToggle === "filled" ? (
               <p className="txt-red">소속을 선택해 주세요.</p>
+            ) : orgnToggle === "noValue" ? (
+              <p className="txt-red">소속을 입력해주세요.</p>
             ) : (
               "ㅤ"
             )}
@@ -611,13 +630,18 @@ const Component = () => {
             iconState="false"
             state={setPhoneNumber(orgnTel)}
             setState={setOrgnTel}
-            light={orgnTelToggle}
+            onBlur={() => {
+              if (orgnTel === "") setOrgnTelToggle("noValue");
+            }}
+            light={orgnTelToggle === "noValue" ? "filled" : orgnTelToggle}
           />
         </div>
         <div className="flex_" style={{ marginBottom: "0.75rem" }}>
           <div className="flex_ check_flex txt-disabled caption-R">
             {orgnTelToggle === "filled" ? (
               <p className="txt-red">올바른 소속 전화번호를 입력해주세요.</p>
+            ) : orgnTelToggle === "noValue" ? (
+              <p className="txt-red">소속 전화번호를 입력해주세요.</p>
             ) : (
               "ㅤ"
             )}

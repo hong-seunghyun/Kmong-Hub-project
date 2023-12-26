@@ -21,6 +21,7 @@ const Component = (props) => {
   };
 
   const onBlur = () => {
+    props.onBlur();
     setToggle(false);
   };
 
