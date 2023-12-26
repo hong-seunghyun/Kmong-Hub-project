@@ -7,7 +7,7 @@ import ButtonOutlineXL from "/src/components/buttons/button_outline_xl";
 const Component = (props) => {
   return (
     <div className="modal-container radius-20 flex_">
-      <img src="/images/file.png" alt="file" />
+      {/* <img src="/images/file.png" alt="file" /> */}
       <div className="text-wrap flex_">
         <h6 className="heading-3-B">{props.title}</h6>
         <p className="body-3-R">{props.text}</p>
@@ -21,14 +21,22 @@ const Component = (props) => {
 			props.type = 버튼의 정렬방식을 나타냅니다. (한줄 정렬, 두줄 정렬) / full-button, half-button
 		*/}
         <div className="primary-btn btn-box">
-          <ButtonPrimaryXL text="label" />
+          <ButtonPrimaryXL
+            text={props.label[0] ? props.label[0].text : ""}
+            onclick={props.label[0] ? props.label[0].onClick : () => {}}
+          />
         </div>
         <div className="error-btn btn-box">
-          <ButtonErrorXL text="label" />
+          <ButtonErrorXL
+            text={props.label[1] ? props.label[1] : ""}
+            onclick={props.label[1] ? props.label[1].onClick : () => {}}
+          />
         </div>
-
         <div className="outline-btn btn-box">
-          <ButtonOutlineXL text="label" />
+          <ButtonOutlineXL
+            text={props.label[2] ? props.label[2] : ""}
+            onclick={props.label[2] ? props.label[2].onClick : () => {}}
+          />
         </div>
       </div>
     </div>

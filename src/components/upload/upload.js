@@ -31,7 +31,8 @@ const Component = (props) => {
         setState("done");
         setType("normal");
       } else {
-        alert("지원되지 않는 파일 형식입니다.");
+        // alert("지원되지 않는 파일 형식입니다.");
+        if (props.setModal1) props.setModal1();
         setState("default");
         setType(props.type);
       }
@@ -58,7 +59,10 @@ const Component = (props) => {
     const ext = e.target.files[0].name.split(".").pop().toLowerCase();
 
     if (fileSize > MAX_SIZE) {
-      alert("파일이 너무 무겁습니다!");
+      // alert("파일이 너무 무겁습니다!");
+      cancelFile();
+      if (props.setModal1) props.setModal3();
+      return;
     }
 
     // if (file) {
@@ -74,8 +78,9 @@ const Component = (props) => {
           setImgHeight(image.height);
 
           if (image.width + image.height > 1600) {
-            alert("이미지 크기가 너무 큽니다!");
+            // alert("이미지 크기가 너무 큽니다!");
             isBig = true;
+            if (props.setModal1) props.setModal2();
             return;
           }
         };
