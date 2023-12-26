@@ -118,8 +118,10 @@ const Component = () => {
         checkPhone({ hpNo: message.data }).then(res => {
           if(res.data.data.hpNo === '') {
             alert('사용 가능한 번호 입니다.')
-          } else {
             setTelToggle("violet");
+          } else {
+            alert('사용할 수 없는 번호 입니다.')
+            setTelToggle("filled");
           }
         }).catch(err => {
 
