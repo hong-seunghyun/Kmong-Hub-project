@@ -926,7 +926,11 @@ footer {
   align-items: center;
   gap: 24px;
   background: #fff;
-
+	position:fixed;
+	top:50%;
+	left:50%;
+	z-index: 999;
+	transform:translate(-50%, -50%);
   .text-wrap {
     text-align: center;
     flex-direction: column;
@@ -1020,6 +1024,24 @@ footer {
       }
     }
   }
+	&.ai-modal{
+		.btn-wrap{
+			gap:8px;
+		}
+		.btn_{
+			display: block;
+			width:160px;
+			svg{
+				display:none;
+			}
+		}
+	}
+	&.ai-modal-success{
+		.btn-wrap{
+			width:100%;
+		}
+		.btn_{width: 100%;}
+	}
 }
 /* //modal */
 

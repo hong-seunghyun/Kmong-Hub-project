@@ -935,6 +935,9 @@
 			gap:12px;
 			margin-bottom:24px;
 	
+			> .flex_{
+				gap:12px;
+			}
 			.drops-menu-container{
 				width:160px;
 			}
@@ -953,6 +956,28 @@
 				}
 			}
 		} 
+		.table-container{
+			.pin-cell{
+				width:44px; justify-content: center;
+				> div{
+					width:24px;
+					height:24px;
+					border-radius:4px;
+					border:1px solid #D1D4D6;
+					background:#fff;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					&.true{
+						svg{fill:#574AFF;} 
+					}
+				
+				}
+			
+			}
+			.title-cell{width:336px;}
+		}
 	
 		.pagnation-container{
 			margin-top:32px;
@@ -2380,6 +2405,9 @@
 			}
 			.pagnation-container{
 				margin-top:32px;
+			}
+			.etc-cell{
+				display:none;
 			}
 		}
 	}
