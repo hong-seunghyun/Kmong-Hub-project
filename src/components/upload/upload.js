@@ -19,7 +19,7 @@ const Component = (props) => {
   const fileInputRef = useRef();
 
   useEffect(() => {
-    console.log('Upload useEffect');
+    console.log("Upload useEffect");
     if (props.fileState) {
       console.log(props.fileState);
       const ext = props.fileState.name.split(".").pop().toLowerCase();
@@ -179,7 +179,7 @@ const Component = (props) => {
             ref={fileInputRef}
             onChange={async (e) => {
               await handleFileChange(e);
-              e.target.value = '';
+              e.target.value = "";
             }}
             accept={props.accept || "*/*"}
             style={{ display: "none" }}
