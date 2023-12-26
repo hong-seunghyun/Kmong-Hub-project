@@ -15,7 +15,7 @@ import Modal from "/src/components/modal/modal.js";
 import ModalGuideA from "/src/components/modal/modal_uesr_guide_1";
 import ModalGuideB from "/src/components/modal/modal_uesr_guide_2";
 import { useState } from "react";
-import { checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
+import { checkPhone, checkTheEmail, register, searchOrgn } from "../../asset/apis/signup";
 import { kotechUrl } from "/src/asset/config/config.json";
 import { useLayoutEffect } from "react";
 import { useEffect } from "react";
@@ -115,7 +115,16 @@ const Component = () => {
           .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
           .replace(/(\-{1,2})$/g, "");
         setTel(encoded);
-        setTelToggle("violet");
+        checkPhone({ hpNo: message.data }).then(res => {
+          if(res.data.data.hpNo === '') {
+            alert('사용 가능한 번호 입니다.')
+          } else {
+            setTelToggle("violet");
+          }
+        }).catch(err => {
+
+        });
+        
       }
     });
 

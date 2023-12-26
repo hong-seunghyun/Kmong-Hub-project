@@ -7,6 +7,12 @@ export const checkTheEmail = ({ email }) => {
   return response;
 }
 
+export const checkPhone = ({ hpNo }) => {
+  const checkDTO = { hpNo };
+  const response = Api.post(`/viewapi/mngr/site/v2/exist/hpno`, checkDTO);
+  return response;
+}
+
 // get(소속 검색)
 export const searchOrgn = () => {
   const response = ApiOrgn.get(`/organ`, {
