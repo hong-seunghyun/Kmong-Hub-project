@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link"
-import TableHead from "/src/components/table/news_writer_step_c_head";
+import TableHead from "/src/components/table/support_table_head";
 import TableCell from "/src/components/table/support_list_table_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import ButtonM from "/src/components/buttons/button_primary_m";

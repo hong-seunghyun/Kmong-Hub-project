@@ -4,7 +4,7 @@ import ButtonCta from "/src/components/buttons/button_cta";
 import ButtonLine from "/src/components/buttons/text_button_underline_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
 import { getUserInfo } from "../../asset/apis/home";
-
+import Ai from "/src/components/modal/ai_modal_success"
 const Component = () => {
   const [userData, setUserData] = useState({ data: "" });
   useLayoutEffect(() => {
@@ -32,6 +32,7 @@ const Component = () => {
 							</h1>
 						</div>
 					</div>
+					<Ai />
 
           <div className="flex_ box_ box-01 radius-20">
             <span className="flex_">

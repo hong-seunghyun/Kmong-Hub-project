@@ -2,8 +2,8 @@ import React from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
-import TableHead from "/src/components/table/table_vertical_head";
-import TableCell from "/src/components/table/technology_table_vertical_cell";
+import TableHead from "/src/components/table/technology_index_table_vertical_head";
+import TableCell from "/src/components/table/technology_index_table_vertical_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
 
@@ -23,11 +23,7 @@ const Component = () => {
 					</div>
 
 					<div>
-						<div className="flex_ search-wrap pc-search-wrap">
-							<DropDownMenu datas={[]} />
-							<SearchBar data={[]} />
-						</div>
-						<div className="flex_ search-wrap m-search-wrap">
+						<div className="flex_ search-wrap">
 							<span className="flex_">
 								<DropDownMenu datas={[]}/>
 								<DropDownMenu datas={[]}/>
