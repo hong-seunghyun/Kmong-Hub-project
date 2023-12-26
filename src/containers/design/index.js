@@ -83,7 +83,7 @@ const Component = () => {
 								유료 스킨
 							</p>
 							<div className="flex_ body-2-B">
-								<Label text="BASIC" backgroundColor="bg-pink-1" fontColor="txt-white" icon="false" iconColor=""/>
+								<Label text="COMPACT" backgroundColor="bg-pink-1" fontColor="txt-white" icon="false" iconColor=""/>
 								스킨명
 							</div>
 						</div>
@@ -94,13 +94,13 @@ const Component = () => {
 								<Link href="#">
 									미리보기
 								</Link>
-								<BtnCta text="업그레이드하고 이용하기" />
+								<BtnCta text="업그레이드하고 이용하기" onClick={() => {window.location = '/mypage/payment'}}/>
 							</div>
 							<p className="txt-disabled caption-R">
 								유료 스킨
 							</p>
 							<div className="flex_ body-2-B">
-								<Label text="PREMIUM" backgroundColor="bg-mint-1" fontColor="txt-white" icon="false" iconColor=""/>
+								<Label text="STANDARD" backgroundColor="bg-mint-1" fontColor="txt-white" icon="false" iconColor=""/>
 								스킨명
 							</div>
 						</div>
