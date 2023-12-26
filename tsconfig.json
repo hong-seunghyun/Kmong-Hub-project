@@ -24,14 +24,7 @@
     "strictNullChecks": true, 
     "baseUrl": ".",
     "paths": {
-      "/src/app/*": ["src/app/*"],
-      "/src/assets/*": ["src/assets/*"],
-      "/src/components/*": ["src/components/*"],
-      "/src/styles/*": ["src/styles/*"],
-      "/src/utils/*": ["src/utils/*"],
-      "/src/hooks/*": ["src/hooks/*"],
-      "/src/asset/*": ["src/asset/*"], 
-      "/src/containers/*": ["src/containers/*"] 
+      "/src/*": ["src/*"]
     }
   },
   "include": [
@@ -39,9 +32,7 @@
     ".next/types/**/*.ts",
     "src/**/*",
     "src/components/editorBox/index.js", 
-    "src/asset/config/interceptor.js", 
-    "src/asset/config/interceptor.js", 
-    "src/asset/config/interceptor.js" 
+    "src/asset/config/interceptor.ts"
   ],
   "exclude": [
     "node_modules",

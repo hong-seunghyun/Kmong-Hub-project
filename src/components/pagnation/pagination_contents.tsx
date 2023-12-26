@@ -8,7 +8,7 @@ type PaginationProps = {
   pageSize: number;
 }
 
-const Component = ({
+const Pagination = ({
   page, 
   setPage,
   maxPage, 
@@ -52,4 +52,4 @@ const Component = ({
     </div>
   );
 };
-export default Component;
+export default Pagination;

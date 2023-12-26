@@ -1,44 +1,40 @@
-// @ts-check
 import React from "react";
 import Link from "next/link";
-import ContentsStatusLabel from "../label/contents_save_status_label";
+import Label from "/src/components/label/label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
 import Icon from "/src/components/icon/icon";
 import { CONTENTS_SAVE_STATUS } from "/src/asset/apis/contents/common/codes";
-import { convertDateToStr } from "src/util/dateUtil";
+import ContentsStatusLabel from "../label/contents_save_status_label";
+import { convertDateToStr } from "/src/util/dateUtil";
 
-/**
- * @typedef TechTableCellProps
- * @type {Object}
- * @property {`${boolean}`} pin
- * @property {number} id
- * @property {keyof typeof CONTENTS_SAVE_STATUS} [saveStatus]
- * @property {string} [img]
- * @property {string} title
- * @property {string} writer
- * @property {string} date
- * @property {string} link
- */
+type Props = {
+  pin: boolean
+  id: number
+  img?: string
+  title: string
+  writer: string
+  date: string
+  link: string
+  saveStatus?: keyof typeof CONTENTS_SAVE_STATUS
+}
 
-/**
- * 컨텐츠 검색 결과 테이블 행 컴포넌트
- * @param {TechTableCellProps} props
- * @returns {JSX.Element}
- */
-const ContentsTableCell = ({
+/** @todo 일정 계산해서 모집 상태 추가 */
+const EventTableCell = ({
   pin,
   id,
-  saveStatus,
   img,
   title,
   writer,
-  date, 
-  link
-}) => {
+  date,
+  link,
+  saveStatus
+}: Props) => {
+  // 모집 완료: bg-gray-6, txt-third
+  // 모집중: bg-violet-1, txt-white
   return (
     <div className="table-cell-container flex_ radius-8 body-3-R txt-third ">
       <div className="pin-cell">
-        <div className={`${pin}`}>
+        <div className={` ${pin}`}>
           <Icon icon="pin" size={24} color="#B3B6B8" stroke="none" />
         </div>
       </div>
@@ -52,6 +48,9 @@ const ContentsTableCell = ({
       </div>
       <div className="title-cell">
         {title}
+      </div>
+      <div className="state-cell">
+        {/*<Label backgroundColor={stateBg} fontColor={stateColor} text={state} icon="false" iconColor="none" />*/}
       </div>
       <div className="writer-cell">
         {writer}
@@ -67,5 +66,4 @@ const ContentsTableCell = ({
     </div>
   )
 }
-
-export default ContentsTableCell
+export default EventTableCell

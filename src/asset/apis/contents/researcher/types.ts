@@ -1,16 +1,12 @@
 import { CONTENTS_SAVE_STATUS, CONTENTS_CREATE_TYPE } from "../common/codes"
-
-/**
- * 연구자 검색 타입
- */
-export type ResearcherSearchType = 'rscNm' | 'ucmdNm' | 'deptMajrNm' | 'pstnNm'
+import { RESEARCHER_SEARCH_TYPE } from "./codes"
 
 /**
  * 연구자 검색 파라미터
  */
 export type ResearcherSearchParams = {
   currentPage: number
-  searchType?: ResearcherSearchType
+  searchType: keyof typeof RESEARCHER_SEARCH_TYPE | undefined
   searchValue?: string
 }
 

@@ -1,11 +1,19 @@
 import React from "react";
-
-
 import ButtonPrimaryXL from "/src/components/buttons/button_primary_xl";
 import ButtonOutlineXL from "/src/components/buttons/button_outline_xl";
 
-const Component = (props) => {
-	return(
+type Props = {
+  isOpened: boolean
+  handleClose: () => void
+  handleConfirm: () => Promise<void>
+}
+
+const ConfirmAIModal = ({
+  isOpened,
+  handleClose,
+  handleConfirm
+}: Props) => {
+	return isOpened ? (
 		<div className="modal-container radius-20 flex_ ai-modal">
 			<div className="text-wrap flex_">
 				<h6 className="heading-3-B">
@@ -17,10 +25,10 @@ const Component = (props) => {
 				</p>
 			</div>
 			<div className={`btn-wrap flex_ default`}>
-				<ButtonOutlineXL text="취소"/>
-				<ButtonPrimaryXL text="생성"/>
+				<ButtonOutlineXL text="취소" onclick={handleClose} />
+				<ButtonPrimaryXL text="생성" onclick={handleConfirm} />
 			</div>
 		</div>
-	)
+	) : <></>
 }
-export default Component ;
+export default ConfirmAIModal ;

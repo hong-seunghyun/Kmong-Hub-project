@@ -1,63 +1,66 @@
 // @ts-check
 import React from "react";
 import Link from "next/link";
-import ContentsStatusLabel from "/src/components/label/contents_save_status_label"
+import StatusLabel from "/src/components/label/contents_save_status_label"
 import TextButtonUnderlinePrimaryS from "/src/components/buttons/text_button_underline_primary_s";
+import Icon from "/src/components/icon/icon";
 import { CONTENTS_SAVE_STATUS } from "/src/asset/apis/contents/common/codes";
+import { convertDateToStr } from "src/util/dateUtil";
 
 /**
- * @typedef ResearcherCellProps 
+ * @typedef TechTransferCellProps
+ * @type {Object}
+ * @property {boolean} pin
  * @property {number} id
  * @property {keyof typeof CONTENTS_SAVE_STATUS} saveStatus
- * @property {string} img
- * @property {string} name 
- * @property {string} belong 소속
- * @property {string} major 부서/학과
- * @property {string} position 직책
+ * @property {string} [img]
+ * @property {string} title
+ * @property {string} writer
+ * @property {string} date
  */
 
 /**
- * 연구자 리스트 테이블 셀
- * @param {ResearcherCellProps} props
+ * 기술이전 검색 결과 테이블 행 컴포넌트
+ * @param {TechTransferCellProps} props
  * @returns {JSX.Element}
  */
-const Component = ({
+const TableCell = ({
+  pin,
   id,
   saveStatus,
   img,
-  name,
-  belong,
-  major,
-  position
+  title,
+  writer,
+  date
 }) => {
   return (
     <div className="table-cell-container flex_ radius-8 body-3-R txt-third ">
       <div className={`choice-cell number`}>
         <input type="checkbox" />
         <span>{id}</span>
+        <div className={`m-table-cell ${pin}`}>
+          <Icon icon="pin" size={24} color="#B3B6B8" stroke="none" />
+        </div>
       </div>
       <div className="category-cell">
-        <ContentsStatusLabel saveStatus={saveStatus} />
+        <StatusLabel saveStatus={saveStatus} />
         <img src={img} />
       </div>
       <div className="title-cell">
-        {name}
-      </div>
-      <div className="belong-cell">
-        {belong}
+        {title}
       </div>
       <div className="writer-cell">
-        {major}
+        {writer}
       </div>
-      <div className="position-cell">
-        {position}
+      <div className="date-cell">
+        {convertDateToStr(date)}
       </div>
       <div className="etc-cell">
-        <Link style={{ width: 'auto' }} href={`/researcher/detail?no=${id}`}>
+        <Link href={`/technology/detail?no=${id}`} style={{ width: 'auto' }}>
           <TextButtonUnderlinePrimaryS text="조회" />
         </Link>
       </div>
     </div>
   )
 }
-export default Component
+export default TableCell

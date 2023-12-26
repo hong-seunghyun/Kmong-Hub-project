@@ -1,5 +1,5 @@
 import React from "react";
-import Component from "/src/containers/researcher";
+import Component from "/src/containers/researcher/index";
 import NavigationTopLogin from "/src/components/navigations/navigation_top_login";
 
 const Page = ({ ...props }) => (

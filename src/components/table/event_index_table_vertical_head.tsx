@@ -1,7 +1,16 @@
 import React from "react";
 
+type Props = {
+  headChoice: string
+  headCategory: string
+  headTitle: string
+  headState: string
+  headWriter: string
+  headDate: string
+  headEtc: string
+}
 
-const Component = (props) => {
+const EventTableHead = (props: Props) => {
 	return(
 		<div className="table-head-container flex_ caption-R txt-disabled">
 			<div className="pin-cell">
@@ -31,4 +40,5 @@ const Component = (props) => {
 		</div>
 	)
 }
-export default Component
+
+export default EventTableHead

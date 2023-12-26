@@ -1,62 +1,42 @@
-// @ts-check
-import React, { useLayoutEffect, useMemo, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Link from "next/link"
 import TableHead from "/src/components/table/researcher_head";
 import TableCell from "/src/components/table/researcher_cell";
 import Pagination from "/src/components/pagnation/pagination_contents";
 import ButtonM from "/src/components/buttons/button_primary_m";
-import DropDownMenu from "/src/components/dropsMenu/drops_contents";
 import SearchBar from "/src/components/searchBar/search_bar_contents";
 import { getResearchers } from "/src/asset/apis/contents/researcher/api";
 import useDropDown from "/src/hooks/contents/components/useDropDown";
-import * as rt from '/src/asset/apis/contents/researcher/types'
-import { CONTENTS_SAVE_STATUS } from "/src/asset/apis/contents/common/codes";
+import { Researcher } from '/src/asset/apis/contents/researcher/types'
+import { RESEARCHER_SEARCH_TYPE } from "/src/asset/apis/contents/researcher/codes";
+import DropDownMenu from "/src/components/dropsMenu/drops_contents";
 
-/** @type {{ id: rt.ResearcherSearchType; label: string}[]} */
-const searchTypes = [
+const searchTypes: { id: keyof typeof RESEARCHER_SEARCH_TYPE; label: string }[] = [
   { id: "rscNm", label: "연구자명" },
   { id: "ucmdNm", label: "소속" },
   { id: "deptMajrNm", label: "부서/학과" },
   { id: "pstnNm", label: "직책" },
-] 
-
-/**
- * @template T
- * @typedef {[T, React.Dispatch<React.SetStateAction<T>>]} useState<T>
- */
+]
 
 const Component = () => {
 
-  /** @type {useState<rt.Researcher[]>} */
-  const [researchers, setResearchers] = useState([])
+  const [researchers, setResearchers] = useState<Researcher[]>([])
 
   const [page, setPage] = useState(1)
   const [maxPage, setMaxPage] = useState(1)
-
-  /** @type {useState<number | undefined>} */
-  const [searchTypeIndex, setSearchTypeIndex] = useState()
-  const currentSearchType = useMemo(() => 
-    searchTypeIndex ? searchTypes[searchTypeIndex] : undefined, 
-    [searchTypeIndex]
-  )
 
   const {
     isOpened,
     toggleDropDown,
     currentItem,
-    setIndexWithValidation,
-  } = useDropDown({
-    items: searchTypes,
-    indexState: [searchTypeIndex, setSearchTypeIndex],
-  })
+    setIndex,
+  } = useDropDown(searchTypes)
 
-  /** @type {useState<string | undefined>} */
-  const [keyword, setKeyword] = useState()
-
+  const [keyword, setKeyword] = useState<string>()
   const updateItems = async () => {
     const result = await getResearchers({
       currentPage: page,
-      searchType: currentSearchType?.id,
+      searchType: currentItem ? currentItem.id : undefined,
       searchValue: keyword
     }).then(res => {
       setMaxPage(res.data.pagingInfo?.totPage ?? 1)
@@ -69,9 +49,9 @@ const Component = () => {
 
   useLayoutEffect(() => {
     updateItems()
-  }, [page, currentSearchType])
+  }, [page])
 
-  return(
+  return (
     <div className="container">
       <div className="page-wrap">
         <div className="researcher-contents">
@@ -85,13 +65,13 @@ const Component = () => {
           </div>
           <div className="sub-page-0">
             <div className="flex_ search-wrap">
-              <DropDownMenu 
+              <DropDownMenu
                 placeholder={"전체"}
                 items={searchTypes}
                 currentItem={currentItem}
                 isOpened={isOpened}
                 toggleDropDown={toggleDropDown}
-                setIndexWithValidation={setIndexWithValidation}
+                setIndex={setIndex}
               />
               <SearchBar
                 setKeyword={setKeyword}
@@ -100,28 +80,26 @@ const Component = () => {
             </div>
             <div className="table-container">
               <TableHead
-                headChoice="선택"
+                headChoice="번호"
                 headCategory="상태"
-                headTitle="제목"
+                headTitle="연구자명"
                 headBelong="소속"
                 headWriter="부서/학과"
                 headPosition="직책"
                 headEtc="관리"
               />
-              {researchers.map((/** @type {rt.Researcher} */r, index) => (
-                <TableCell 
-                  labelBg="bg-mint-1"
-                  label={CONTENTS_SAVE_STATUS[r.saveStat]}
-                  labelColor="txt-white"
+              {researchers.map((r) => (
+                <TableCell
+                  id={r.rscNo}
                   img={''}
-                  title={r.rscNm}
+                  name={r.rscNm}
                   belong={r.ucmdNm}
-                  writer={r.deptMajrNm}
+                  major={r.deptMajrNm}
                   position={r.pstnNm}
-                  link="/researcher/detail"
+                  saveStatus={r.saveStat}
                 />
               ))}
-              <Pagination 
+              <Pagination
                 page={page}
                 setPage={setPage}
                 maxPage={maxPage}
