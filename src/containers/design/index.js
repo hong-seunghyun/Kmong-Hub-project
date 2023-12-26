@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Badge from "/src/components/label/badge"
 import Upload from "/src/components/upload/upload"
 import Label from "/src/components/label/label"
 import BtnCta from "/src/components/buttons/button_cta"
 import PrimaryBtn from "/src/components/buttons/button_primary_l"
 import Link from "next/link";
+import { getMembership } from "/src/asset/apis/design/indexApis";
 
 const Component = () => {
+
+	const [ membership, setMembership ] = useState({});
+
+	useLayoutEffect(() => {
+		getMembership().then(res => {
+			console.log(res.data);
+			setMembership(res.data);
+		}).catch(err => {
+			console.log(err);
+		})
+	},[]);
+
 	return(
 		<div className="page-wrap">
 			<div className="design-">
