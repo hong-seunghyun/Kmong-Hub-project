@@ -22,20 +22,20 @@ const Component = (props) => {
 		*/}
         <div className="primary-btn btn-box">
           <ButtonPrimaryXL
-            text={props.label[0] ? props.label[0].text : ""}
-            onclick={props.label[0] ? props.label[0].onClick : () => {}}
+            text={props.label ? props.label[0].text : ""}
+            onclick={props.label ? props.label[0].onClick : () => {}}
           />
         </div>
         <div className="error-btn btn-box">
           <ButtonErrorXL
-            text={props.label[1] ? props.label[1] : ""}
-            onclick={props.label[1] ? props.label[1].onClick : () => {}}
+            text={props.label ? props.label[1] : ""}
+            onclick={props.label ? props.label[1].onClick : () => {}}
           />
         </div>
         <div className="outline-btn btn-box">
           <ButtonOutlineXL
-            text={props.label[2] ? props.label[2] : ""}
-            onclick={props.label[2] ? props.label[2].onClick : () => {}}
+            text={props.label ? props.label[2] : ""}
+            onclick={props.label ? props.label[2].onClick : () => {}}
           />
         </div>
       </div>
