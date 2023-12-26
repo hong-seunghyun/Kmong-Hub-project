@@ -193,10 +193,10 @@ const Component = () => {
 					</tr>
 					<tr>
 						<th className="thead">
-						{data.orgCntn}
+						출처
 						</th>
 						<td className="tbody">
-						출처
+						{data.orgCntn}
 						</td>
 					</tr>
 					<tr>
