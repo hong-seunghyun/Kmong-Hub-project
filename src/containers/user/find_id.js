@@ -5,11 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Component = () => {
-  const [modalState, setModalState] = useState(false);
-  const [modalValue, setModalValue] = useState({
-    text: "사이트를 이용하시려면, 회원가입해 주세요.",
-    title: "회원가입하신 내역이 없어요.",
-  });
   const router = useRouter();
 
   const verification = async () => {
@@ -18,7 +13,6 @@ const Component = () => {
         console.log(message.data);
         window.location = `/user/find_result_id?hpno=${message.data}`;
       } else {
-        setModalState(true);
       }
     });
 
@@ -36,35 +30,6 @@ const Component = () => {
 
   return (
     <>
-      {modalState && (
-        <div
-          style={{
-            backgroundColor: "rgba(0,0,0,0.2)",
-            width: "100%",
-            height: "100%",
-            position: "fixed",
-            zIndex: 100,
-            marginTop: "-60px",
-          }}
-        >
-          <Modal
-            title={modalValue.title}
-            text={modalValue.text}
-            type="full-button"
-            count="one"
-            value="default"
-            label={[
-              {
-                text: "메인으로",
-                onClick: () => {
-                  setModalState(false);
-                  router.push("/");
-                },
-              },
-            ]}
-          />
-        </div>
-      )}
       <div className="login waiting-sign-up">
         <h1 className="display-5-B">아이디 찾기</h1>
         <p className="body-3-R sub-title txt-second-default">

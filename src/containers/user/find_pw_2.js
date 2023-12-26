@@ -10,19 +10,12 @@ import { useRouter } from "next/router";
 
 const Component = () => {
   const router = useRouter();
-  const [modalState, setModalState] = useState(false);
-  const [modalValue, setModalValue] = useState({
-    text: "사이트를 이용하시려면, 회원가입해 주세요.",
-    title: "회원가입하신 내역이 없어요.",
-  });
 
   const verification = async () => {
     window.addEventListener("message", (message) => {
       if (message.data != "") {
         console.log(message.data);
         window.location = `/user/find_pw_3?hpno=${message.data}&email=${router.query.email}`;
-      } else {
-        setModalState(true);
       }
     });
 
@@ -40,35 +33,6 @@ const Component = () => {
 
   return (
     <>
-      {modalState && (
-        <div
-          style={{
-            backgroundColor: "rgba(0,0,0,0.2)",
-            width: "100%",
-            height: "100%",
-            position: "fixed",
-            zIndex: 100,
-            marginTop: "-60px",
-          }}
-        >
-          <Modal
-            title={modalValue.title}
-            text={modalValue.text}
-            type="full-button"
-            count="one"
-            value="default"
-            label={[
-              {
-                text: "메인으로",
-                onClick: () => {
-                  setModalState(false);
-                  router.push("/");
-                },
-              },
-            ]}
-          />
-        </div>
-      )}
       <div className="login find- find-2">
         <h1 className="display-5-B flex_">
           비밀번호 찾기
