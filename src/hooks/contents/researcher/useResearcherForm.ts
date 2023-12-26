@@ -1,19 +1,16 @@
 import { useLayoutEffect, useMemo, useState } from "react"
-import { CONTENTS_CREATE_TYPE } from "/src/asset/apis/contents/common/codes"
 import { getResearcherCategories } from "/src/asset/apis/contents/researcher/api"
 import { DeptMajr, ResearcherCategory, RscRegiDTO } from "/src/asset/apis/contents/researcher/types"
 import useRscCarerInfos from "./useRscCarerInfos"
 import { setResearcher } from "/src/asset/apis/contents/researcher/api"
 
 type ReactState<T> = [T, React.Dispatch<React.SetStateAction<T>>]
-type RscRegiFormStates = Omit<RscRegiDTO & { pflFile?: File }, 'deptMajrs' | 'rscCarerInfos'>
+type RscRegiFormStates = Omit<RscRegiDTO & { pflFile?: File }, 'deptMajrs' | 'rscCarerInfos' | 'crtTypeCd'>
 type FormStates = {
   [Key in keyof RscRegiFormStates as `${Key}State`]-?: ReactState<RscRegiFormStates[Key] | undefined>
 } & { deptMajrsState: ReactState<DeptMajr[]> }
 
 const useResearcherForm = () => {
-  const [crtTypeCd, setCrtTypeCd] = useState<keyof typeof CONTENTS_CREATE_TYPE>()
-
   const [rscNm, setRscNm] = useState<string>() // 연구자명
   const [deptMajrs, setDeptMajrs] = useState<DeptMajr[]>([]) // 부서/학과
   const [pstnNm, setPstnNm] = useState<string>() // 직책
@@ -103,15 +100,15 @@ const useResearcherForm = () => {
   }, [rscNm, deptMajrs, pstnNm, rscCarerInfosAvailable])
 
   const submit = async () => {
-    if (crtTypeCd === 'N' && submitAvailable) {
-      const rscRegiDto = {
+    if (submitAvailable) {
+      const rscRegiDto: RscRegiDTO = {
         deptMajrs: {
           deptMajrNo: deptMajrs.length > 0 ? deptMajrs[0].deptMajrNo : undefined,
           seq: deptMajrs[0].seq,
         },
         rscNm: rscNm ?? '',
         pstnNm: pstnNm ?? '',
-        crtTypeCd,
+        crtTypeCd: 'N',
         ...(aosCntn !== undefined && { aosCntn }),
         ...(educationCntn !== undefined && { educationCntn }),
         ...(emailAddr !== undefined && { emailAdr: emailAddr }),
@@ -133,7 +130,6 @@ const useResearcherForm = () => {
   }
 
   const formStates: FormStates = {
-    crtTypeCdState: [crtTypeCd, setCrtTypeCd],
     rscNmState: [rscNm, setRscNm],
     deptMajrsState: [deptMajrs, setDeptMajrs],
     pstnNmState: [pstnNm, setPstnNm],
