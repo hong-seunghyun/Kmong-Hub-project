@@ -35,6 +35,7 @@ const Component = (props) => {
         setType("normal");
       } else {
         // alert("지원되지 않는 파일 형식입니다.");
+        if (props.setToggle) props.setToggle("none");
         if (props.setModal1) props.setModal1();
         setState("default");
         setType(props.type);
@@ -47,6 +48,7 @@ const Component = (props) => {
       setState("default");
       setType("normal");
       props.setFileState(null);
+      if (props.setToggle) props.setToggle("none");
     }
   };
 
@@ -114,10 +116,13 @@ const Component = (props) => {
       setType("normal");
     } else {
       alert("지원되지 않는 파일 형식입니다.");
+      if (props.setToggle) props.setToggle("none");
+      if (props.setModal1) props.setModal1();
       setState("default");
       setType(props.type);
     }
     if (isBig) cancelFile();
+    if (props.setToggle) props.setToggle("violet");
   };
 
   const getImageSize = (file) => {

@@ -607,6 +607,7 @@ const Component = () => {
               type="normal"
               fileState={file}
               setFileState={setFile}
+              setToggle={setPfFileToggle}
               setModal1={setNotAccessFileModal}
               setModal2={setBigImageModal}
               setModal3={setBigFileModal}
@@ -637,6 +638,7 @@ const Component = () => {
               type="normal"
               fileState={file2}
               setFileState={setFile2}
+              setToggle={setBrFileToggle}
               setModal1={setNotAccessFileModal}
               setModal2={setBigImageModal}
               setModal3={setBigFileModal}
