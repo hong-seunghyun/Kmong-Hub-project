@@ -26,6 +26,7 @@ const Component = (props) => {
 
   useEffect(() => {
     if (search === "") setToggle(false);
+    if (props.state !== "") setSearch(props.state);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,7 +42,10 @@ const Component = (props) => {
   }
 
   return (
-    <div className="search-container">
+    <div
+      className="search-container"
+      style={{ width: props.width ? props.width : "" }}
+    >
       <div
         className={`input-wrap radius-8 border-${
           props.light
@@ -52,6 +56,7 @@ const Component = (props) => {
         } bg-lightGray`}
       >
         <input
+          style={{ width: props.width ? props.width : "" }}
           className="body-3-R txt-primary"
           type="text"
           placeholder="검색어를 입력해 주세요."
@@ -75,7 +80,11 @@ const Component = (props) => {
           {props.data &&
             filterTitle.map((dummy) => (
               <span
-                style={{ padding: "0.5rem 0rem" }}
+                style={{
+                  padding: "0.5rem 0rem",
+                  width: "100%",
+                  maxWidth: "100%",
+                }}
                 onMouseDown={() => {
                   onclickSpan(dummy);
                 }}

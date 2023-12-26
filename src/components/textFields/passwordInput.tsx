@@ -31,7 +31,7 @@ const Email = ({
 }: InputProps) => {
   const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e) => {
-    setState(e.target.value);
+    if (setState) setState(e.target.value);
     setInputCount(e.target.value.length);
   };
   return (
@@ -75,6 +75,7 @@ const Email = ({
             onChange={onInputHandler}
             className="body-2-R radius-8"
             placeholder={placeholder}
+            value={state}
             type="password"
           />
           <span className={`input-count caption-R ${inputCountState}`}>
