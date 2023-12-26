@@ -16,6 +16,7 @@ import { addPatent, getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { searchOrgn } from "/src/asset/apis/signup";
+import { PDFDocument } from "pdf-lib";
 
 const send_datas = [
 	{
@@ -112,8 +113,9 @@ const Component = () => {
 		}).catch(err => {
 			console.log(err);
 		});
-		setFile(pdfFile);
-		console.log(pdfFile);
+		const pdf = new File([pdfFile], data.techDocDetails[0].filePath.split('/').pop(), { type: 'application/pdf' });
+		setFile(pdf);
+		console.log(pdf);
 		setPiuaYn(data.piuaYn);
 	}
 

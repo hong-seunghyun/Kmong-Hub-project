@@ -24,6 +24,9 @@ const Component = (props) => {
       console.log(props.fileState);
       const ext = props.fileState.name.split(".").pop().toLowerCase();
 
+      setFileSize(props.fileState.size);
+      setFileName(props.fileState.name);
+
       if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
         setState("done");
         setType("preview");
@@ -37,7 +40,7 @@ const Component = (props) => {
         setType(props.type);
       }
     }
-  }, []);
+  }, [props.fileState]);
 
   const cancelFile = () => {
     if (props.setFileState) {
