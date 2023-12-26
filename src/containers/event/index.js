@@ -2,8 +2,8 @@ import React from "react";
 import ButtonM from "/src/components/buttons/button_primary_m";
 import DropDownMenu from "/src/components/dropsMenu/drops_company_management_menu";
 import SearchBar from "/src/components/searchBar/search_bar_company_management_menu";
-import TableHead from "/src/components/table/technology_index_table_vertical_head";
-import TableCell from "/src/components/table/technology_index_table_vertical_cell";
+import TableHead from "/src/components/table/technology_event_table_vertical_head";
+import TableCell from "/src/components/table/technology_event_table_vertical_cell";
 import Pagnation from "/src/components/pagnation/pagnation";
 import Link from "next/link";
 
@@ -39,6 +39,7 @@ const Component = () => {
 								headWriter="작성자"
 								headDate="등록일"
 								headEtc="관리"
+								headState="모집 상태"
 							/>
 							<TableCell 
 								labelBg="bg-mint-1"
