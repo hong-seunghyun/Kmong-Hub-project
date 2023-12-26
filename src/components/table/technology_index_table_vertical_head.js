@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const Component = (props) => {
+const ContentsTableHead = (props) => {
 	return(
 		<div className="table-head-container flex_ caption-R txt-disabled">
 			<div className="pin-cell">
@@ -28,4 +27,4 @@ const Component = (props) => {
 		</div>
 	)
 }
-export default Component
+export default ContentsTableHead
