@@ -233,10 +233,12 @@ const Component = () => {
   }, [password]);
 
   useEffect(() => {
-    if (password2 !== password) {
-      setCheckPwToggle("filled");
-    } else {
-      setCheckPwToggle("violet");
+    if(password !== '' && password2 !== '') {
+      if (password2 !== password) {
+        setCheckPwToggle("filled");
+      } else {
+        setCheckPwToggle("violet");
+      }
     }
   }, [password, password2]);
 
