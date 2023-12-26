@@ -65,7 +65,7 @@ const Component = (props) => {
           className="body-3-R txt-primary"
           type="text"
           placeholder="검색어를 입력해 주세요."
-          value={search}
+          value={props.state ? props.state : search}
           onChange={onChange}
           onBlur={onBlur}
           onClick={onChange}

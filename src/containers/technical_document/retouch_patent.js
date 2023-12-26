@@ -12,24 +12,9 @@ import CheckBox from "/src/components/radio/checkbox"
 import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
 import { Editor } from "@tinymce/tinymce-react";
 import { useLayoutEffect } from "react";
-import { getTechDetails } from "../../asset/apis/tech";
+import { addPatent, getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-const drop_datas = [
-	{
-		id: "P",
-		title: '특허'
-	},
-	{
-		id: "T",
-		title: '논문'
-	},
-	{
-		id: "R",
-		title: '보고서'
-	}
-];
 
 const send_datas = [
 	{
@@ -77,38 +62,62 @@ const Component = () => {
   
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
+	const [ urlState, setUrlState ] = useState('');
 
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
 		
-		getTechDetails(no).then(res => {
+		getTechDetails(no).then(async res => {
 			console.log(res.data);
 			setData(res.data.data);
-			initData(res.data.data);
+			await initData(res.data.data);
 		}).catch(err => {
 			console.log(err);
 		});
 	},[router.isReady]);
 
-	const initData = (data) => {
+	const initData = async (data) => {
 
 		setTcqNm(data.tcqNm);
 		setRsacUcmdCd(data.rsacUcmdCd);
 		setOrgn(data.orgnNm);
 		setApyNo(data.apyNo);
 		setRgstNo(data.rgstNo);
-		statCd(data.statCd);
+		setStatCd(data.statCd);
 		setApyAd(data.apyAd);
 		setIvtNm(data.ivtNm);
 		setIpcVal(data.ipcVal);
 		setCpcVal(data.cpcVal);
-		setFile();
+		let pdfFile;
+		await getFile(data.techDocDetails[0].filePath).then(res => {
+			pdfFile = res.data;
+		}).catch(err => {
+			console.log(err);
+		});
+		setFile(pdfFile);
+		console.log(pdfFile);
 		setPiuaYn(data.piuaYn);
 	}
 
 	const savePatent = () => {
-		
+		addPatent({
+			tdcNo: router.query.no,
+			typeCd: typeCd,
+			tcqNm: tcqNm,
+			rsacUcmdCd: rsacUcmdCd,
+			apyNo: apyNo,
+			apyAd: apyAd,
+			statCd: statCd,
+			rgstNo: rgstNo,
+			ivtNm: ivtNm,
+			ipcVal: ipcVal,
+			cpcVal: cpcVal,
+			piuaYn: piuaYn
+		}, file).then(res => {
+			console.log(res.data);
+			window.location = '/technical_document'
+		})
 	}
 
 	return(
@@ -140,7 +149,7 @@ const Component = () => {
               iconState="false"
               state={orgn}
               setState={setOrgn}
-              data={data}
+              data={data && data}
               setResult={setRsacUcmdCd}
             />
 					</div>
@@ -201,7 +210,7 @@ const Component = () => {
 							<Link href="#">
 								<ButtonL text="초기화" />
 							</Link>
-							<Link href="/technical_document">
+							<Link href={`/technical_document/retouch_patent?no=${router.query.no}`}>
 								<Button text="저장" onclick={savePatent}/>
 							</Link>
 						</div>

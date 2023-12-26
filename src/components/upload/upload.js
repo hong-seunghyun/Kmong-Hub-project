@@ -19,9 +19,32 @@ const Component = (props) => {
   const fileInputRef = useRef();
 
   useEffect(() => {
+    console.log('Upload useEffect');
     if (props.fileState) {
-      setState("done");
-      setType("preview");
+      console.log(props.fileState);
+      const ext = props.fileState.type.split('/').pop().toLowerCase();
+      setFileSize(props.fileState.size);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      console.log(ext);
+      if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "ico") {
+        setState("done");
+        setType("preview");
+      } else if (ext === "hwp" || ext === "docx" || ext === "pdf") {
+        setState("done");
+        setType("normal");
+      } else {
+        alert("지원되지 않는 파일 형식입니다.");
+        setState("default");
+        setType(props.type);
+      }
       props.setFileState(props.fileState);
     }
   }, [props.fileState]);
@@ -118,6 +141,7 @@ const Component = (props) => {
     setState("default");
     setType(props.type);
     setUrlState(null);
+    props.setFileState(null);
   };
 
   return (
@@ -200,7 +224,7 @@ const Component = (props) => {
         <div className="done-normal-text-box flex_">
           <div className="text-wrap">
             <h6 className="body-3-B">{fileName}</h6>
-            <p className="caption-R">{fileSize / 100 / 1024 / 1024} mb</p>
+            <p className="caption-R">{fileSize / 1024 / 1024} mb</p>
           </div>
           <Icon
             icon="cancel"

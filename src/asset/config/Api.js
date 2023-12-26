@@ -40,6 +40,15 @@ export const ApiKotech = axios.create({
   },
 });
 
+export const ApiOcr = axios.create({
+  headers: {
+    "Cache-Control": "no-cache",
+    Pragma: "no-cache",
+    Expires: "0",
+    "Content-Type": "application/json"
+  },
+});
+
 export const ApiOrgn = axios.create({
   baseURL: orgnUrl,
   headers: {
