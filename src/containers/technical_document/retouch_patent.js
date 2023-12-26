@@ -186,7 +186,7 @@ const Component = () => {
 						</div>
 						<div>
 							<p className="table-caption body-2-B">출원 일자<span className="txt-violet-1">*</span></p>
-              <DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}} />
+              <DatePicker setDate={(date) => {setApyAd(date.replaceAll('-', ''))}} date={apyAd}/>
 						</div>
 					</div>
 

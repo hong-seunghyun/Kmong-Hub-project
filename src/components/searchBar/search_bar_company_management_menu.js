@@ -21,7 +21,7 @@ const Component = (props) => {
   };
 
   const onBlur = () => {
-    props.onBlur();
+    props.onBlur && props.onBlur();
     setToggle(false);
   };
 
@@ -31,12 +31,12 @@ const Component = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    if (props.state !== "") {
+    if (props.state) {
       setSearch(props.state);
     }
   }, [props.state]);
 
-  let filterTitle;
+  let filterTitle = [];
 
   if (props.data) {
     filterTitle = props.data.filter((p) => {
