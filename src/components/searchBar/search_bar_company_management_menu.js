@@ -35,16 +35,16 @@ const Component = (props) => {
     }
   }, [props.state]);
 
-  // let filterTitle;
+  let filterTitle;
 
-  // if (props.data) {
-  //   filterTitle = props.data.filter((p) => {
-  //     return p.name
-  //       .replace(" ", "")
-  //       .toLocaleLowerCase()
-  //       .includes(search.toLocaleLowerCase());
-  //   });
-  // }
+  if (props.data) {
+    filterTitle = props.data.filter((p) => {
+      return p.name
+        .replace(" ", "")
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase());
+    });
+  }
 
   return (
     <div
@@ -82,7 +82,7 @@ const Component = (props) => {
           className="flex_ result-search-box body-3-R "
           style={{ minHeight: "20px", maxHeight: "175px" }}
         >
-          {props.data.map((dummy) => (
+          {filterTitle.map((dummy) => (
             <span
               style={{
                 padding: "0.5rem 0rem",
