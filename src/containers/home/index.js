@@ -32,7 +32,6 @@ const Component = () => {
 							</h1>
 						</div>
 					</div>
-					<Ai />
 
           <div className="flex_ box_ box-01 radius-20">
             <span className="flex_">
