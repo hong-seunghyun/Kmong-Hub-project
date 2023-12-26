@@ -17,6 +17,8 @@ const Component = () => {
 			if(message.data != '') {
 				console.log(message.data);
 				window.location = `/user/find_pw_3?hpno=${message.data}&email=${router.query.email}`;
+			} else {
+				// 존재하지 않을 때
 			}
     });
 

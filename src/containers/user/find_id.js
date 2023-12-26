@@ -9,7 +9,9 @@ const Component = () => {
 			if(message.data != '') {
 				console.log(message.data);
 				window.location = `/user/find_result_id?hpno=${message.data}`;
-			}
+			} else {
+        // 아이디 못 찾았을 때
+      }
     });
 
     const left = window.screen.width / 2 - 500 / 2;
