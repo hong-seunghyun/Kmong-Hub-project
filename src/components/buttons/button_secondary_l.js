@@ -5,6 +5,7 @@ const Component = (props) => {
   const [isButton, setButton] = useState(false);
 
   const onClickActive = () => {
+    if(props.state == 'disabled') return;
     if (props.onclick) props.onclick();
     setButton(!isButton);
   };
