@@ -16,21 +16,6 @@ import { getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-const drop_datas = [
-	{
-		id: "P",
-		title: '특허'
-	},
-	{
-		id: "T",
-		title: '논문'
-	},
-	{
-		id: "R",
-		title: '보고서'
-	}
-];
-
 const send_datas = [
 	{
 		id: 'O',
@@ -61,41 +46,84 @@ const send_datas = [
 const Component = () => {
 
 	const router = useRouter();
-	const [ data, setData ] = useState([]);
 
-	const [ typeCd, setTypeCd ] = useState('P');
+	const [ typeCd, setTypeCd ] = useState('T');
   const [ tcqNm, setTcqNm ] = useState('');
   const [ rsacUcmdCd, setRsacUcmdCd ] = useState('');
-  const [ apyNo, setApyNo ] = useState('');
+	const [ uniqueNo, setUniqueNo ] = useState('');
   const [ apyAd, setApyAd ] = useState('');
-  const [ statCd, setStatCd ] = useState('');
-  const [ rgstNo, setRgstNo ] = useState('');
+  const [ sbmyn, setSbmyn ] = useState('');
   const [ ivtNm, setIvtNm ] = useState('');
-  const [ ipcVal, setIpcVal ] = useState('');
-  const [ cpcVal, setCpcVal ] = useState('');
-  const [ piuaYn, setPiuaYn ] = useState('');
+  const [ orgCntn, setOrgCntn ] = useState('');
+  const [piuaYn, setPiuaYn] = useState("");
   
   const [ orgn, setOrgn ] = useState('');
   const [ file, setFile ] = useState('');
 
+	const searchOrgan = async (organ) => {
+    await searchOrgn({ query: organ })
+      .then((res) => {
+        setOrgnData(res.data.result.rows);
+        console.log(res.data.result.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+	useLayoutEffect(() => {
+		searchOrgan();
+	}, []);
+
 	useLayoutEffect(() => {
 		if(!router.isReady) return;
 		const no = router.query.no;
-		getTechDetails(no).then(res => {
+		
+		getTechDetails(no).then(async res => {
 			console.log(res.data);
-			setData(res.data.data);
-			initData(res.data.data);
+			await initData(res.data.data);
 		}).catch(err => {
 			console.log(err);
 		});
 	},[router.isReady]);
 
-	const initData = (data) => {
+	const initData = async (data) => {
+
+		setTypeCd(data.typeCd);
 		setTcqNm(data.tcqNm);
 		setRsacUcmdCd(data.rsacUcmdCd);
-		setOrgn(data.orgnNm);
-		setApyNo(data.apyNo);
-		setRgstNo(data.rgstNo);
+		setUniqueNo(data.uniqueNo);
+		setApyAd(data.apyAd);
+		setIvtNm(data.ivtNm);
+		setSbmyn(data.sbmyn);
+		setOrgCntn(data.orgCntn);
+		let pdfFile;
+		await getFile(data.techDocDetails[0].filePath).then(res => {
+			pdfFile = res.data;
+		}).catch(err => {
+			console.log(err);
+		});
+		const pdf = new File([pdfFile], data.techDocDetails[0].filePath.split('/').pop(), { type: 'application/pdf' });
+		setFile(pdf);
+		console.log(pdf);
+		setPiuaYn(data.piuaYn);
+	}
+
+	const savePatent = () => {
+		addPatent({
+			tdcNo: router.query.no,
+			typeCd: typeCd,
+			tcqNm: tcqNm,
+			rsacUcmdCd: rsacUcmdCd,
+			apyAd: apyAd,
+			ivtNm: ivtNm,
+			piuaYn: piuaYn,
+			orgCntn: orgCntn,
+			orgnNm: orgn
+		}, file).then(res => {
+			console.log(res.data);
+			window.location = '/technical_document'
+		})
 	}
 
 	return(
