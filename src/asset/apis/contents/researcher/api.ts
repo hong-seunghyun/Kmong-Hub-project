@@ -38,6 +38,18 @@ export const setResearcher = (rscRegiDto: RscRegiDTO, pflFile?: File): ApiRespon
   return response
 }
 
+/** 연구원 AI 등록 */
+export const uploadResearcherAIFile = (file: File): ApiResponse => {
+  const formData = new FormData()
+  const rscAiRegiDto = { aiType: 'file', text: '' }
+  const blob = new Blob([JSON.stringify(rscAiRegiDto)], {type : 'application/json'})
+  formData.append('rscAiRegiDto', blob)
+  formData.append('file', file)
+
+  const response = ApiForm.post(`/viewapi/mngr/site/v1/ai/rsc`, formData)
+  return response
+}
+
 /** 연구원 삭제 */
 export const deleteResearcher = (rscNo: number): ApiResponse => {
   const queryParams = new URLSearchParams({
