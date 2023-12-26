@@ -18,6 +18,7 @@ const Component = (props) => {
     if (props.resultFunc) props.resultFunc();
     setToggle(false);
     setSearch(dummy.name);
+    props.setState(dummy.name);
   };
 
   const onBlur = () => {

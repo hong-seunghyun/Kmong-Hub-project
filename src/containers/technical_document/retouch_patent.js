@@ -107,6 +107,7 @@ const Component = () => {
 		setIpcVal(data.ipcVal);
 		setCpcVal(data.cpcVal);
 		setOrgCntn(data.orgCntn);
+		setOrgn(data.orgnNm);
 		let pdfFile;
 		await getFile(data.techDocDetails[0].filePath).then(res => {
 			pdfFile = res.data;

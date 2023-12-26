@@ -50,6 +50,7 @@ export const addPatent = (
     typeCd,
     tcqNm,
     rsacUcmdCd,
+    orgnNm,
     apyNo,
     apyAd,
     statCd,
@@ -67,6 +68,7 @@ export const addPatent = (
     typeCd,
     tcqNm,
     rsacUcmdCd,
+    orgnNm,
     apyNo,
     apyAd,
     statCd,
@@ -75,11 +77,12 @@ export const addPatent = (
     ipcVal,
     cpcVal,
     piuaYn,
-    orgCntn
+    orgCntn 
   } : {
     typeCd,
     tcqNm,
     rsacUcmdCd,
+    orgnNm,
     apyNo,
     apyAd,
     statCd,
