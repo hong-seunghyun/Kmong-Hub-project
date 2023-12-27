@@ -12,9 +12,10 @@ import CheckBox from "/src/components/radio/checkbox"
 import CompanyInput from "/src/components/searchBar/search_bar_company_management_menu"
 import { Editor } from "@tinymce/tinymce-react";
 import { useLayoutEffect } from "react";
-import { getTechDetails } from "../../asset/apis/tech";
+import { addPatent, getFile, getTechDetails } from "../../asset/apis/tech";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { searchOrgn } from "/src/asset/apis/signup";
 
 const send_datas = [
 	{
@@ -63,7 +64,7 @@ const Component = () => {
 	const searchOrgan = async (organ) => {
     await searchOrgn({ query: organ })
       .then((res) => {
-        setOrgnData(res.data.result.rows);
+        // setOrgnData(res.data.result.rows);
         console.log(res.data.result.rows);
       })
       .catch((err) => {
@@ -157,17 +158,17 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						<Input importState="none" labelText="출원번호" placeholder="출원번호를 입력해 주세요." helperTextResult="none" iconState="false" state={apyNo} setState={setApyNo}/>
+						{/* <Input importState="none" labelText="출원번호" placeholder="출원번호를 입력해 주세요." helperTextResult="none" iconState="false" state={apyNo} setState={setApyNo}/> */}
 					</div>
 
 					<div className="box-">
-						<Input importState="none" labelText="등록번호" placeholder="등록번호 입력해 주세요." helperTextResult="none" iconState="false" state={rgstNo} setState={setRgstNo}/>
+						{/* <Input importState="none" labelText="등록번호" placeholder="등록번호 입력해 주세요." helperTextResult="none" iconState="false" state={rgstNo} setState={setRgstNo}/> */}
 					</div>
 
 					<div className="flex_ box- flex_date">
 						<div>
 							<p className="table-caption body-2-B">상태<span className="txt-violet-1">*</span></p>
-							<DropsMenu datas={send_datas} setState={setStatCd} default={statCd}/>
+							{/* <DropsMenu datas={send_datas} setState={setStatCd} default={statCd}/> */}
 						</div>
 						<div>
 							<p className="table-caption body-2-B">출원 일자<span className="txt-violet-1">*</span></p>

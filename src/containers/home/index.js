@@ -4,7 +4,6 @@ import ButtonCta from "/src/components/buttons/button_cta";
 import ButtonLine from "/src/components/buttons/text_button_underline_primary_l";
 import Icon from "/src/components/icon/icon.tsx";
 import { getSiteInfo, getUserInfo } from "../../asset/apis/homeApis";
-import Ai from "/src/components/modal/ai_modal_success";
 import { useRouter } from "next/router";
 const Component = () => {
   const router = useRouter();
