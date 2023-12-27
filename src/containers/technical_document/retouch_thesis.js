@@ -6,6 +6,7 @@ import ButtonL from "/src/components/buttons/button_outline_l"
 import Button from "/src/components/buttons/button_primary_l"
 import DropsMenu from "/src/components/dropsMenu/drops_menu";
 import Icon from "/src/components/icon/icon.tsx"
+import Radio from "/src/components/radio/radio"
 import DatePicker from "/src/components/date/date-picker-single"
 import Upload from "/src/components/upload/upload"
 import CheckBox from "/src/components/radio/checkbox"
@@ -118,10 +119,10 @@ const Component = () => {
 					</div>
 
 					<div className="input-search box-">
-					<p className="table-caption body-2-B">소속<span className="txt-violet-1">*</span></p>
+					<p className="table-caption body-2-B">연구기관<span className="txt-violet-1">*</span></p>
 						<CompanyInput
-              labelText="소속"
-              placeholder="소속을 검색해 주세요."
+              labelText="연구기관"
+              placeholder="연구기관을 입력해 주세요."
               valueType=""
               helperTextResult="none"
               iconState="false"
@@ -129,21 +130,20 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						<Input importState="none" labelText="출원번호" placeholder="출원번호를 입력해 주세요." helperTextResult="none" iconState="false" state={apyNo} setState={setApyNo}/>
-					</div>
-
-					<div className="box-">
-						<Input importState="none" labelText="등록번호" placeholder="등록번호 입력해 주세요." helperTextResult="none" iconState="false" state={rgstNo} setState={setRgstNo}/>
+						<Input importState="none" labelText="문서번호" placeholder="문서번호를 입력해 주세요." helperTextResult="none" iconState="false" state={apyNo} setState={setApyNo}/>
 					</div>
 
 					<div className="flex_ box- flex_date">
 						<div>
-							<p className="table-caption body-2-B">상태<span className="txt-violet-1">*</span></p>
-							<DropsMenu datas={send_datas} setState={setStatCd} default={statCd}/>
-						</div>
-						<div>
 							<p className="table-caption body-2-B">출원 일자<span className="txt-violet-1">*</span></p>
 							<DatePicker />
+						</div>
+						<div>
+							<p className="table-caption body-2-B">투고 여부<span className="txt-violet-1">*</span></p>
+							<div className="flex_ radio-flex" >
+								<Radio label="O" name="radio-1"/>
+								<Radio label="X" name="radio-1"/>
+							</div>
 						</div>
 					</div>
 
@@ -152,11 +152,7 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false" state={ipcVal} setState={setIpcVal}/>
-					</div>
-
-					<div className="box-">
-						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false" state={cpcVal} setState={setCpcVal}/>
+						<Input labelText="출처" placeholder="출처를 입력해 주세요." helperTextResult="none" iconState="false" state={ipcVal} setState={setIpcVal}/>
 					</div>
 
 					<div className="box-">

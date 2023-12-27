@@ -147,10 +147,10 @@ const Component = () => {
 					</div>
 
 					<div className="input-search box-">
-					<p className="table-caption body-2-B">소속<span className="txt-violet-1">*</span></p>
+					<p className="table-caption body-2-B">연구기관<span className="txt-violet-1">*</span></p>
 						<CompanyInput
-              labelText="소속"
-              placeholder="소속을 검색해 주세요."
+              labelText="연구기관"
+              placeholder="연구기관을 검색해 주세요."
               valueType=""
               helperTextResult="none"
               iconState="false"
@@ -158,20 +158,12 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						{/* <Input importState="none" labelText="출원번호" placeholder="출원번호를 입력해 주세요." helperTextResult="none" iconState="false" state={apyNo} setState={setApyNo}/> */}
-					</div>
-
-					<div className="box-">
-						{/* <Input importState="none" labelText="등록번호" placeholder="등록번호 입력해 주세요." helperTextResult="none" iconState="false" state={rgstNo} setState={setRgstNo}/> */}
+						<Input labelText="문서번호" placeholder="문서번호를 입력해 주세요." helperTextResult="none" iconState="false" state={tcqNm} setState={setTcqNm}/>
 					</div>
 
 					<div className="flex_ box- flex_date">
 						<div>
-							<p className="table-caption body-2-B">상태<span className="txt-violet-1">*</span></p>
-							{/* <DropsMenu datas={send_datas} setState={setStatCd} default={statCd}/> */}
-						</div>
-						<div>
-							<p className="table-caption body-2-B">출원 일자<span className="txt-violet-1">*</span></p>
+							<p className="table-caption body-2-B">발행연도<span className="txt-violet-1">*</span></p>
 							<DatePicker />
 						</div>
 					</div>
@@ -181,11 +173,7 @@ const Component = () => {
 					</div>
 
 					<div className="box-">
-						<Input labelText="IPC" placeholder="IPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
-					</div>
-
-					<div className="box-">
-						<Input labelText="CPC" placeholder="CPC를 입력해 주세요." helperTextResult="none" iconState="false"/>
+						<Input labelText="출처" placeholder="출처를 입력해 주세요." helperTextResult="none" iconState="false"/>
 					</div>
 
 					<div className="box-">
