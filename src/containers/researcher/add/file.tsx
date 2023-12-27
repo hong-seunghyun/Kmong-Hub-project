@@ -12,7 +12,7 @@ const UploadFile = () => {
     const res = await uploadResearcherAIFile(file)
     if(res.status === 200 || res.status === 201) {
       alert('AI가 연구자 정보를 생성하고 있습니다. 연구자 리스트 페이지로 이동합니다.')
-      location.href = '/researcher'
+      window.location.href = '/researcher'
     }
   }
 
